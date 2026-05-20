@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://saramudvlad.online/sitemap.xml
