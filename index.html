@@ -474,7 +474,7 @@
             <!-- Статьи рендерятся через JS -->
         </div>
         <div class="text-center mt-12">
-            <a href="blog.html" class="inline-flex items-center gap-2 px-8 py-4 bg-slate-800/50 hover:bg-slate-800 text-white font-bold rounded-xl border border-slate-700 hover:border-emerald-600/50 transition">
+            <a href="blog/" class="inline-flex items-center gap-2 px-8 py-4 bg-slate-800/50 hover:bg-slate-800 text-white font-bold rounded-xl border border-slate-700 hover:border-emerald-600/50 transition">
                 <i class="fas fa-th-large mr-2"></i>
                 Все статьи
             </a>
@@ -492,7 +492,7 @@
     icon: "fa-paper-plane",
     iconBg: "from-sky-600 to-blue-700",
     read: "19 мин",
-    url: "articles/telegram-ads-2026.html",
+    url: "articles/telegram-ads-2026/",
     date: "2026-05-24",
     dateLabel: "24 мая 2026"
 },
@@ -504,7 +504,7 @@
     icon: "fa-bullseye",
     iconBg: "from-blue-600 to-indigo-600",
     read: "20 мин",
-    url: "articles/reklama-vkontakte-2026.html",
+    url: "articles/reklama-vkontakte-2026/",
     date: "2026-05-24",
     dateLabel: "24 мая 2026"
 },
@@ -517,7 +517,7 @@
             icon: "fa-comments",
             iconBg: "from-emerald-600 to-teal-600",
             read: "22 мин",
-            url: "articles/prompty-chatgpt-smm.html",
+            url: "articles/prompty-chatgpt-smm/",
             date: "2026-05-24"
         },
         {
@@ -529,7 +529,7 @@
             icon: "fa-robot",
             iconBg: "from-teal-600 to-cyan-600",
             read: "18 мин",
-            url: "articles/ai-content-cost.html",
+            url: "articles/ai-content-cost/",
             date: "2026-02-11"
         },
         {
@@ -541,7 +541,7 @@
             icon: "fa-rocket",
             iconBg: "from-lime-600 to-green-600",
             read: "15 мин",
-            url: "articles/content-marketing-launch.html",
+            url: "articles/content-marketing-launch/",
             date: "2026-01-20"
         }
     ];
@@ -559,19 +559,23 @@
         const grid = document.getElementById("articles-grid");
         grid.innerHTML = list.slice(0, 3).map(a => {
             const c = colorMap[a.categoryColor] || colorMap.emerald;
-            return `<article class="article-card bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden group">
-                <div class="relative h-48 bg-gradient-to-br ${a.iconBg} overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i class="fas ${a.icon} text-6xl text-white opacity-20"></i>
+            return `<article class="article-card bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden group flex flex-col">
+                <a href="${a.url}" class="block">
+                    <div class="relative h-48 bg-gradient-to-br ${a.iconBg} overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas ${a.icon} text-6xl text-white opacity-20"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4">
+                            <span class="text-xs font-bold ${c.badge} uppercase tracking-wider">${a.category}</span>
+                        </div>
                     </div>
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4">
-                        <span class="text-xs font-bold ${c.badge} uppercase tracking-wider">${a.category}</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-3 ${c.hover} transition">${a.title}</h3>
+                </a>
+                <div class="p-6 flex flex-col flex-1">
+                    <h3 class="text-xl font-bold text-white mb-3 ${c.hover} transition">
+                        <a href="${a.url}">${a.title}</a>
+                    </h3>
                     <p class="text-slate-400 text-sm mb-4 leading-relaxed">${a.desc}</p>
-                    <div class="flex items-center justify-between text-xs text-slate-500">
+                    <div class="flex items-center justify-between text-xs text-slate-500 mt-auto pt-2">
                         <span><i class="far fa-clock mr-1"></i> ${a.read}</span>
                         <a href="${a.url}" class="${c.link} transition font-semibold">Читать →</a>
                     </div>
