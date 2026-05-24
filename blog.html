@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статьи о маркетинге и AI | Владислав Сарамуд</title>
+    <meta name="description" content="Практические статьи о SMM, контенте с помощью ИИ, настройке рекламы и автоматизации бизнеса. Реальные кейсы и инструменты.">
+    <meta name="keywords" content="маркетинг статьи, SMM, AI контент, реклама ВКонтакте, Telegram реклама, нейросети, Владислав Сарамуд">
+    <meta name="author" content="Владислав Сарамуд">
+    <link rel="canonical" href="https://saramudvlad.ru/blog.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saramudvlad.ru/blog.html">
+    <meta property="og:title" content="Статьи о маркетинге и AI | Владислав Сарамуд">
+    <meta property="og:description" content="Практические материалы по SMM, AI-инструментам и рекламе.">
+    <meta property="og:image" content="https://saramudvlad.ru/avatar.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Блог Владислава Сарамуда","url":"https://saramudvlad.ru/blog.html","author":{"@type":"Person","name":"Владислав Сарамуд","url":"https://saramudvlad.ru"},"description":"Практические статьи о маркетинге, AI и автоматизации бизнеса."}</script>
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=106768627','ym');
+    ym(106768627,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106768627" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body{font-family:'Inter',sans-serif;background-color:#020617;color:#e2e8f0;}
+        .gradient-text{background:linear-gradient(to right,#34d399,#2dd4bf,#a3e635);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        .article-card{transition:all 0.3s ease;}
+        .article-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px -15px rgba(16,185,129,0.2);}
+        .filter-btn{transition:all 0.2s ease;cursor:pointer;}
+        .filter-btn.active{background:rgba(16,185,129,0.15);border-color:#10b981;color:#34d399;}
+        .search-input:focus{outline:none;border-color:#10b981;box-shadow:0 0 0 3px rgba(16,185,129,0.1);}
+        .article-card.hidden-card{display:none;}
+    </style>
+</head>
+<body class="antialiased selection:bg-emerald-500 selection:text-white">
+
+<nav class="border-b border-slate-800/50 sticky top-0 backdrop-blur-lg bg-slate-950/80 z-50">
+    <div class="container mx-auto px-6 py-4 max-w-6xl">
+        <div class="flex justify-between items-center">
+            <a href="/" class="text-xl font-bold text-white hover:text-emerald-400 transition">
+                <i class="fas fa-arrow-left mr-2"></i>Владислав Сарамуд
+            </a>
+            <div class="flex gap-4 items-center">
+                <a href="/#services" class="text-slate-400 hover:text-emerald-400 transition text-sm">Услуги</a>
+                <a href="/#cases" class="text-slate-400 hover:text-emerald-400 transition text-sm">Кейсы</a>
+                <a href="https://t.me/saramudvlad" target="_blank" class="text-emerald-500 hover:text-emerald-400 transition text-sm">
+                    <i class="fab fa-telegram"></i> Связаться
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="container mx-auto px-6 py-16 max-w-6xl">
+
+    <!-- Заголовок -->
+    <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
+            Все <span class="gradient-text">статьи</span>
+        </h1>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+            Практические материалы по маркетингу, AI и рекламе. Без воды — только то, что можно применить сегодня.
+        </p>
+    </div>
+
+    <!-- Поиск + фильтры -->
+    <div class="mb-10 space-y-4">
+        <div class="relative max-w-xl mx-auto">
+            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
+            <input 
+                type="text" 
+                id="search" 
+                placeholder="Поиск по статьям..." 
+                class="search-input w-full bg-slate-900 border border-slate-700 rounded-xl py-3 pl-11 pr-4 text-white placeholder-slate-500 transition"
+            >
+        </div>
+        <div class="flex flex-wrap gap-2 justify-center">
+            <button class="filter-btn active px-4 py-2 bg-slate-900 border border-slate-700 rounded-full text-sm text-slate-400 font-semibold" data-cat="all">
+                Все статьи <span id="count-all" class="ml-1 text-slate-500"></span>
+            </button>
+            <button class="filter-btn px-4 py-2 bg-slate-900 border border-slate-700 rounded-full text-sm text-slate-400 font-semibold" data-cat="SMM & ИИ">
+                <i class="fas fa-comments mr-1"></i> SMM & ИИ
+            </button>
+            <button class="filter-btn px-4 py-2 bg-slate-900 border border-slate-700 rounded-full text-sm text-slate-400 font-semibold" data-cat="AI & Автоматизация">
+                <i class="fas fa-robot mr-1"></i> AI & Автоматизация
+            </button>
+            <button class="filter-btn px-4 py-2 bg-slate-900 border border-slate-700 rounded-full text-sm text-slate-400 font-semibold" data-cat="Реклама">
+                <i class="fas fa-bullseye mr-1"></i> Реклама
+            </button>
+            <button class="filter-btn px-4 py-2 bg-slate-900 border border-slate-700 rounded-full text-sm text-slate-400 font-semibold" data-cat="Контент-маркетинг">
+                <i class="fas fa-pen mr-1"></i> Контент
+            </button>
+            <button class="filter-btn px-4 py-2 bg-slate-900 border border-slate-700 rounded-full text-sm text-slate-400 font-semibold" data-cat="Аналитика">
+                <i class="fas fa-chart-line mr-1"></i> Аналитика
+            </button>
+        </div>
+    </div>
+
+    <!-- Счётчик результатов -->
+    <div id="results-count" class="text-slate-500 text-sm mb-6 text-center"></div>
+
+    <!-- Сетка статей -->
+    <div id="articles-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+
+    <!-- Пусто -->
+    <div id="empty-state" class="hidden text-center py-20">
+        <i class="fas fa-search text-4xl text-slate-700 mb-4"></i>
+        <p class="text-slate-500 text-lg">Ничего не найдено</p>
+        <p class="text-slate-600 text-sm mt-2">Попробуй другой запрос или категорию</p>
+    </div>
+
+    <!-- CTA блок -->
+    <div class="mt-20 p-8 md:p-12 bg-slate-900/50 border border-emerald-800/30 rounded-2xl text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 text-xs font-bold text-emerald-400 uppercase bg-emerald-900/30 rounded-full border border-emerald-700/50">
+            <i class="fab fa-telegram"></i> Telegram-канал
+        </div>
+        <h2 class="text-3xl font-extrabold text-white mb-4">Новые статьи — сразу в Telegram</h2>
+        <p class="text-slate-400 mb-8 max-w-xl mx-auto">
+            Подписывайся на канал — там выходят материалы, кейсы и инструменты раньше, чем на сайте.
+        </p>
+        <a href="https://t.me/saramudvlad" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition shadow-lg shadow-emerald-900/20">
+            <i class="fab fa-telegram-plane"></i> Подписаться на канал
+        </a>
+    </div>
+
+</main>
+
+<footer class="py-10 text-center border-t border-slate-800/50 mt-16">
+    <div class="flex justify-center gap-6 mb-8">
+        <a href="https://t.me/saramudvlad" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-emerald-500 transition text-2xl"><i class="fab fa-telegram"></i></a>
+        <a href="https://www.instagram.com/saramudvlad/" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-pink-500 transition text-2xl"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@saramudvlad" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-teal-400 transition text-2xl"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.youtube.com/@saramudvlad" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-red-600 transition text-2xl"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="text-xs text-slate-600 mb-4 space-x-4">
+        <a href="/" class="hover:text-slate-400">Главная</a>
+        <span>|</span>
+        <a href="/#services" class="hover:text-slate-400">Услуги</a>
+        <span>|</span>
+        <a href="/#cases" class="hover:text-slate-400">Кейсы</a>
+    </div>
+    <p class="text-slate-700 text-sm">© 2026 Владислав Сарамуд. Все права защищены.</p>
+</footer>
+
+<script>
+const ARTICLES = [
+    {
+        title: "50 промптов для ChatGPT в SMM: готовые шаблоны 2026",
+        desc: "Готовые промпты для постов, Reels, рекламных текстов и контент-плана. Каждый проверен на реальных проектах.",
+        category: "SMM & ИИ",
+        categoryColor: "emerald",
+        icon: "fa-comments",
+        iconBg: "from-emerald-600 to-teal-600",
+        read: "22 мин",
+        url: "articles/prompty-chatgpt-smm.html",
+        date: "2026-05-24",
+        dateLabel: "24 мая 2026"
+    },
+    {
+        title: "Как AI снижает стоимость контента на 80%",
+        desc: "Практический гайд по внедрению нейросетей в контент-маркетинг. Реальные цифры экономии и кейсы из практики с 20+ компаниями.",
+        category: "AI & Автоматизация",
+        categoryColor: "teal",
+        icon: "fa-robot",
+        iconBg: "from-teal-600 to-cyan-600",
+        read: "18 мин",
+        url: "articles/ai-content-cost.html",
+        date: "2026-02-11",
+        dateLabel: "11 февраля 2026"
+    },
+    {
+        title: "Как запустить контент-маркетинг с нуля за 7 дней",
+        desc: "Пошаговый план запуска без агентств и больших бюджетов. Только то, что работает прямо сейчас.",
+        category: "Контент-маркетинг",
+        categoryColor: "lime",
+        icon: "fa-rocket",
+        iconBg: "from-lime-600 to-green-600",
+        read: "15 мин",
+        url: "articles/content-marketing-launch.html",
+        date: "2026-01-20",
+        dateLabel: "20 января 2026"
+    }
+];
+
+const colorMap = {
+    emerald:{ badge:"text-emerald-400", link:"text-emerald-500 hover:text-emerald-400", hover:"group-hover:text-emerald-400" },
+    teal:   { badge:"text-teal-400",    link:"text-teal-500 hover:text-teal-400",       hover:"group-hover:text-teal-400" },
+    lime:   { badge:"text-lime-400",    link:"text-lime-500 hover:text-lime-400",        hover:"group-hover:text-lime-400" },
+    orange: { badge:"text-orange-400",  link:"text-orange-500 hover:text-orange-400",   hover:"group-hover:text-orange-400" },
+    purple: { badge:"text-purple-400",  link:"text-purple-500 hover:text-purple-400",   hover:"group-hover:text-purple-400" },
+    blue:   { badge:"text-blue-400",    link:"text-blue-500 hover:text-blue-400",        hover:"group-hover:text-blue-400" },
+};
+
+function renderAll(list) {
+    const grid = document.getElementById("articles-grid");
+    const empty = document.getElementById("empty-state");
+    const count = document.getElementById("results-count");
+
+    if (list.length === 0) {
+        grid.innerHTML = "";
+        empty.classList.remove("hidden");
+        count.textContent = "";
+        return;
+    }
+
+    empty.classList.add("hidden");
+    count.textContent = `Найдено статей: ${list.length}`;
+
+    grid.innerHTML = list.map(a => {
+        const c = colorMap[a.categoryColor] || colorMap.emerald;
+        return `<article class="article-card bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden group">
+            <a href="${a.url}" class="block">
+                <div class="relative h-44 bg-gradient-to-br ${a.iconBg} overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas ${a.icon} text-6xl text-white opacity-20"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4">
+                        <span class="text-xs font-bold ${c.badge} uppercase tracking-wider">${a.category}</span>
+                    </div>
+                </div>
+            </a>
+            <div class="p-6">
+                <h2 class="text-lg font-bold text-white mb-2 ${c.hover} transition leading-snug">
+                    <a href="${a.url}">${a.title}</a>
+                </h2>
+                <p class="text-slate-400 text-sm mb-4 leading-relaxed">${a.desc}</p>
+                <div class="flex items-center justify-between text-xs text-slate-500">
+                    <div class="flex items-center gap-3">
+                        <span><i class="far fa-clock mr-1"></i>${a.read}</span>
+                        <span><i class="far fa-calendar mr-1"></i>${a.dateLabel}</span>
+                    </div>
+                    <a href="${a.url}" class="${c.link} transition font-semibold">Читать →</a>
+                </div>
+            </div>
+        </article>`;
+    }).join("");
+}
+
+let currentCat = "all";
+let currentSearch = "";
+
+function applyFilters() {
+    let list = [...ARTICLES];
+    if (currentCat !== "all") list = list.filter(a => a.category === currentCat);
+    if (currentSearch) {
+        const q = currentSearch.toLowerCase();
+        list = list.filter(a => a.title.toLowerCase().includes(q) || a.desc.toLowerCase().includes(q) || a.category.toLowerCase().includes(q));
+    }
+    renderAll(list);
+}
+
+document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentCat = btn.dataset.cat;
+        applyFilters();
+    });
+});
+
+document.getElementById("search").addEventListener("input", e => {
+    currentSearch = e.target.value.trim();
+    applyFilters();
+});
+
+renderAll(ARTICLES);
+document.getElementById("count-all").textContent = `(${ARTICLES.length})`;
+</script>
+
+</body>
+</html>

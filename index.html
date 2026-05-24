@@ -464,96 +464,100 @@
         </div>
     </section>
 
-    <!-- НОВАЯ СЕКЦИЯ: СТАТЬИ -->
+    <!-- СЕКЦИЯ: СТАТЬИ -->
     <section id="blog" class="container mx-auto px-6 py-16 max-w-6xl border-t border-slate-800/50">
         <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">Статьи</h2>
-            <p class="text-slate-400 text-lg">Полезные материалы по маркетингу и AI</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">Последние статьи</h2>
+            <p class="text-slate-400 text-lg">Практические материалы по маркетингу и AI</p>
         </div>
-        <div class="grid md:grid-cols-3 gap-8">
-            
-            <!-- Статья 1 -->
-            <article class="article-card bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden group">
-                <div class="relative h-48 bg-gradient-to-br from-emerald-600 to-teal-600 overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i class="fas fa-robot text-6xl text-white opacity-20"></i>
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4">
-                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">AI & Автоматизация</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition">
-                        Как AI снижает стоимость контента на 80%
-                    </h3>
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-                        Практический гайд по внедрению нейросетей в контент-маркетинг. Реальные цифры и кейсы.
-                    </p>
-                    <div class="flex items-center justify-between text-xs text-slate-500">
-                        <span><i class="far fa-clock mr-1"></i> 8 мин</span>
-                        <a href="articles/ai-content-cost.html" class="text-emerald-500 hover:text-emerald-400 transition font-semibold">Читать →</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Статья 2 -->
-            <article class="article-card bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden group">
-                <div class="relative h-48 bg-gradient-to-br from-orange-600 to-red-600 overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i class="fas fa-chart-line text-6xl text-white opacity-20"></i>
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4">
-                        <span class="text-xs font-bold text-orange-400 uppercase tracking-wider">Аналитика</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-orange-400 transition">
-                        Сквозная аналитика: зачем она нужна
-                    </h3>
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-                        Почему без правильной аналитики вы сливаете бюджет в трубу. Инструкция по внедрению.
-                    </p>
-                    <div class="flex items-center justify-between text-xs text-slate-500">
-                        <span><i class="far fa-clock mr-1"></i> 12 мин</span>
-                        <a href="#" class="text-orange-500 hover:text-orange-400 transition font-semibold">Читать →</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Статья 3 -->
-            <article class="article-card bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden group">
-                <div class="relative h-48 bg-gradient-to-br from-lime-600 to-green-600 overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i class="fas fa-funnel-dollar text-6xl text-white opacity-20"></i>
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4">
-                        <span class="text-xs font-bold text-lime-400 uppercase tracking-wider">CRM & Продажи</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-lime-400 transition">
-                        Автоворонки: от первого касания до оплаты
-                    </h3>
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-                        Как построить систему, которая продает на автопилоте. Шаблоны и примеры триггеров.
-                    </p>
-                    <div class="flex items-center justify-between text-xs text-slate-500">
-                        <span><i class="far fa-clock mr-1"></i> 15 мин</span>
-                        <a href="articles/content-marketing-launch.html" class="text-lime-500 hover:text-lime-400 transition font-semibold">Читать →</a>
-                    </div>
-                </div>
-            </article>
-
+        <div id="articles-grid" class="grid md:grid-cols-3 gap-8">
+            <!-- Статьи рендерятся через JS -->
         </div>
-        
         <div class="text-center mt-12">
-            <a href="#" class="inline-flex items-center gap-2 px-8 py-4 bg-slate-800/50 hover:bg-slate-800 text-white font-bold rounded-xl border border-slate-700 hover:border-emerald-600/50 transition">
-                <i class="fas fa-th-large"></i>
+            <a href="blog.html" class="inline-flex items-center gap-2 px-8 py-4 bg-slate-800/50 hover:bg-slate-800 text-white font-bold rounded-xl border border-slate-700 hover:border-emerald-600/50 transition">
+                <i class="fas fa-th-large mr-2"></i>
                 Все статьи
             </a>
         </div>
     </section>
-    <!-- /НОВАЯ СЕКЦИЯ: СТАТЬИ -->
+    <!-- /СЕКЦИЯ: СТАТЬИ -->
+
+    <script>
+    const ARTICLES = [
+        {
+            slug: "prompty-chatgpt-smm",
+            title: "50 промптов для ChatGPT в SMM: готовые шаблоны 2026",
+            desc: "Готовые промпты для постов, Reels, рекламных текстов и контент-плана. Каждый проверен на реальных проектах.",
+            category: "SMM & ИИ",
+            categoryColor: "emerald",
+            icon: "fa-comments",
+            iconBg: "from-emerald-600 to-teal-600",
+            read: "22 мин",
+            url: "articles/prompty-chatgpt-smm.html",
+            date: "2026-05-24"
+        },
+        {
+            slug: "ai-content-cost",
+            title: "Как AI снижает стоимость контента на 80%",
+            desc: "Практический гайд по внедрению нейросетей в контент-маркетинг. Реальные цифры экономии и кейсы.",
+            category: "AI & Автоматизация",
+            categoryColor: "teal",
+            icon: "fa-robot",
+            iconBg: "from-teal-600 to-cyan-600",
+            read: "18 мин",
+            url: "articles/ai-content-cost.html",
+            date: "2026-02-11"
+        },
+        {
+            slug: "content-marketing-launch",
+            title: "Как запустить контент-маркетинг с нуля за 7 дней",
+            desc: "Пошаговый план запуска без агентств и больших бюджетов. Только то, что работает.",
+            category: "Контент-маркетинг",
+            categoryColor: "lime",
+            icon: "fa-rocket",
+            iconBg: "from-lime-600 to-green-600",
+            read: "15 мин",
+            url: "articles/content-marketing-launch.html",
+            date: "2026-01-20"
+        }
+    ];
+
+    const colorMap = {
+        emerald: { badge: "text-emerald-400", link: "text-emerald-500 hover:text-emerald-400", hover: "group-hover:text-emerald-400" },
+        teal:    { badge: "text-teal-400",    link: "text-teal-500 hover:text-teal-400",    hover: "group-hover:text-teal-400" },
+        lime:    { badge: "text-lime-400",    link: "text-lime-500 hover:text-lime-400",    hover: "group-hover:text-lime-400" },
+        orange:  { badge: "text-orange-400",  link: "text-orange-500 hover:text-orange-400",hover: "group-hover:text-orange-400" },
+        purple:  { badge: "text-purple-400",  link: "text-purple-500 hover:text-purple-400",hover: "group-hover:text-purple-400" },
+        blue:    { badge: "text-blue-400",    link: "text-blue-500 hover:text-blue-400",    hover: "group-hover:text-blue-400" },
+    };
+
+    function renderArticles(list) {
+        const grid = document.getElementById("articles-grid");
+        grid.innerHTML = list.slice(0, 3).map(a => {
+            const c = colorMap[a.categoryColor] || colorMap.emerald;
+            return `<article class="article-card bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden group">
+                <div class="relative h-48 bg-gradient-to-br ${a.iconBg} overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas ${a.icon} text-6xl text-white opacity-20"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4">
+                        <span class="text-xs font-bold ${c.badge} uppercase tracking-wider">${a.category}</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-3 ${c.hover} transition">${a.title}</h3>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">${a.desc}</p>
+                    <div class="flex items-center justify-between text-xs text-slate-500">
+                        <span><i class="far fa-clock mr-1"></i> ${a.read}</span>
+                        <a href="${a.url}" class="${c.link} transition font-semibold">Читать →</a>
+                    </div>
+                </div>
+            </article>`;
+        }).join("");
+    }
+
+    renderArticles(ARTICLES);
+    </script>
 
     <footer class="py-10 text-center border-t border-slate-800/50 mt-auto">
         <div class="flex justify-center gap-6 mb-8">
