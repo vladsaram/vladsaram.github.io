@@ -1,1 +1,62 @@
+name: Update Sitemap
 
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'articles/**'
+      - 'blog/**'
+
+jobs:
+  update-sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate sitemap
+        run: |
+          python3 - << 'PYEOF'
+          import os
+          from datetime import date, datetime
+
+          today = date.today().isoformat()
+          base = "https://saramudvlad.ru"
+          urls = []
+
+          urls.append(("", "weekly", "1.0", today))
+          urls.append(("blog/", "daily", "0.9", today))
+
+          articles_dir = "articles"
+          if os.path.isdir(articles_dir):
+              for entry in sorted(os.scandir(articles_dir), key=lambda e: e.name, reverse=True):
+                  if entry.is_dir() and os.path.exists(os.path.join(entry.path, "index.html")):
+                      slug = entry.name
+                      mtime = os.path.getmtime(os.path.join(entry.path, "index.html"))
+                      lastmod = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
+                      urls.append((f"articles/{slug}/", "monthly", "0.8", lastmod))
+
+          xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+          xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n\n'
+          for path, freq, priority, lastmod in urls:
+              xml += f'  <url>\n'
+              xml += f'    <loc>{base}/{path}</loc>\n'
+              xml += f'    <lastmod>{lastmod}</lastmod>\n'
+              xml += f'    <changefreq>{freq}</changefreq>\n'
+              xml += f'    <priority>{priority}</priority>\n'
+              xml += f'  </url>\n\n'
+          xml += '</urlset>\n'
+
+          with open("sitemap.xml", "w") as f:
+              f.write(xml)
+
+          print(f"Done: {len(urls)} URLs")
+          PYEOF
+
+      - name: Commit sitemap
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add sitemap.xml
+          git diff --staged --quiet || git commit -m "Auto-update sitemap"
+          git push
