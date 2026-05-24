@@ -1,3 +1,20 @@
 User-agent: *
 Allow: /
+
+# Не индексировать служебное
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://saramudvlad.ru/sitemap.xml
+
+# Яндекс
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+Sitemap: https://saramudvlad.ru/sitemap.xml
+
+# Google
+User-agent: Googlebot
+Allow: /
 Sitemap: https://saramudvlad.ru/sitemap.xml
