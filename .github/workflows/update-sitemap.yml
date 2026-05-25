@@ -26,6 +26,7 @@ jobs:
           urls = []
 
           urls.append(("", "weekly", "1.0", today))
+          urls.append(("services/", "monthly", "0.9", today))
           urls.append(("blog/", "daily", "0.9", today))
 
           articles_dir = "articles"
