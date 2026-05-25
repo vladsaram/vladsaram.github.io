@@ -389,7 +389,7 @@
             <p class="text-slate-400">Скриншоты из переписок и рекомендательные письма.</p>
         </div>
 
-        <div class="relative">
+        <div class="relative px-10">
             <!-- Карусель -->
             <div id="reviews-track-wrapper" class="overflow-hidden">
                 <div id="reviews-track" class="flex gap-4 transition-transform duration-500 ease-in-out">
@@ -457,14 +457,26 @@
 <div class="review-slide flex-shrink-0">
     <img src="/images/IMG_5471_2.webp" alt="Отзыв — Афина, директор Nikko" class="review-img review-img--horizontal rounded-xl border border-slate-700">
 </div>
+
+<div class="review-slide flex-shrink-0">
+    <div class="review-img review-img--horizontal rounded-xl border border-slate-700 overflow-hidden" style="padding:0;background:#000;">
+        <iframe src="https://vk.com/video_ext.php?oid=-214804737&id=456239089&hash=a17745b1338a6af6" width="100%" height="100%" style="display:block;border:0;" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+
+<div class="review-slide flex-shrink-0">
+    <div class="review-img review-img--horizontal rounded-xl border border-slate-700 overflow-hidden" style="padding:0;background:#111;">
+        <div id="vk_post_-214804737_425" style="width:100%;min-height:200px;"></div>
+    </div>
+</div>
 <!-- /РЕАЛЬНЫЕ ОТЗЫВЫ -->
 
             <!-- Кнопки -->
-            <button id="prev-btn" onclick="moveCarousel(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-slate-800 hover:bg-emerald-700 border border-slate-600 hover:border-emerald-500 rounded-full flex items-center justify-center text-white transition z-10 shadow-lg">
-                <i class="fas fa-chevron-left"></i>
+            <button id="prev-btn" onclick="moveCarousel(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 bg-slate-800 hover:bg-emerald-700 border border-slate-600 hover:border-emerald-500 rounded-full flex items-center justify-center text-white transition z-20 shadow-lg">
+                <i class="fas fa-chevron-left text-sm"></i>
             </button>
-            <button id="next-btn" onclick="moveCarousel(1)" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-slate-800 hover:bg-emerald-700 border border-slate-600 hover:border-emerald-500 rounded-full flex items-center justify-center text-white transition z-10 shadow-lg">
-                <i class="fas fa-chevron-right"></i>
+            <button id="next-btn" onclick="moveCarousel(1)" class="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 bg-slate-800 hover:bg-emerald-700 border border-slate-600 hover:border-emerald-500 rounded-full flex items-center justify-center text-white transition z-20 shadow-lg">
+                <i class="fas fa-chevron-right text-sm"></i>
             </button>
         </div>
 
@@ -671,5 +683,15 @@
     <p class="text-slate-700 text-sm">© 2026 Владислав Сарамуд. Все права защищены.</p>
 </footer>
 
+
+    <!-- VK виджеты -->
+    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?173"></script>
+    <script type="text/javascript">
+        window.addEventListener('load', function() {
+            if (typeof VK !== 'undefined') {
+                VK.Widgets.Post("vk_post_-214804737_425", -214804737, 425, 'M_yHd_ROXxAufb12zHPxeRudAQRT');
+            }
+        });
+    </script>
 </body>
 </html>
