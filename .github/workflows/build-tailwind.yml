@@ -1,0 +1,39 @@
+name: Build Tailwind CSS
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'src/input.css'
+      - 'tailwind.config.js'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Build Tailwind
+        run: npx tailwindcss -i ./src/input.css -o ./dist/tailwind.css --minify
+
+      - name: Replace CDN with local CSS in all HTML
+        run: |
+          find . -name "*.html" -not -path "./.git/*" | while read f; do
+            sed -i 's|<script src="https://cdn.tailwindcss.com"></script>|<link rel="stylesheet" href="/dist/tailwind.css">|g' "$f"
+          done
+
+      - name: Commit if changed
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add dist/tailwind.css **/*.html
+          git diff --staged --quiet || git commit -m "Auto-build: replace Tailwind CDN with minified CSS"
+          git push
