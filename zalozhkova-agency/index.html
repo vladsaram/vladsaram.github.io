@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Недвижимость в Москве и МО от 4,8 млн | Агентство Заложкова</title>
+  <meta name="description" content="Подбираем новостройки и вторичное жильё в Москве, МО и Санкт-Петербурге. Одобрение ипотеки в 97% случаев. Комиссию платит застройщик — для вас бесплатно. 602 закрытые сделки.">
+  <meta name="keywords" content="агентство недвижимости Москва, купить квартиру Москва, новостройки Москва, ипотека Москва, вторичное жильё Москва МО">
+  <link rel="canonical" href="https://zalozhkova-agency.ru/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zalozhkova-agency.ru/">
+  <meta property="og:title" content="Недвижимость в Москве и МО от 4,8 млн | Агентство Заложкова">
+  <meta property="og:description" content="Подбираем новостройки и вторичное жильё в Москве, МО и СПб. Одобрение ипотеки в 97% случаев. Для вас — бесплатно.">
+  <meta property="og:locale" content="ru_RU">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #F2EDE4;
+      --dark:     #2C1810;
+      --mid:      #5C4033;
+      --gold:     #A8896C;
+      --gold-lt:  #D4B896;
+      --border:   rgba(168, 137, 108, 0.2);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      font-family: 'Jost', sans-serif;
+      color: var(--dark);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* grain */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bg-shape {
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, var(--gold-lt) 0%, transparent 70%);
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2.2rem 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--dark);
+      text-decoration: none;
+    }
+    .logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-cta {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 0.5rem 1.4rem;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--bg);
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 5rem 4rem 4rem;
+      gap: 0;
+    }
+
+    .left { padding-right: 4rem; }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 4.8rem);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--dark);
+      margin-bottom: 1.8rem;
+      letter-spacing: -0.01em;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .desc {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--mid);
+      opacity: 0.9;
+      margin-bottom: 2.8rem;
+      max-width: 440px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.8rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--dark);
+      padding: 0.9rem 2.2rem;
+      text-decoration: none;
+      transition: background 0.25s;
+    }
+    .btn-primary:hover { background: var(--gold); }
+
+    .btn-secondary {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+    .btn-secondary:hover { opacity: 1; }
+
+    /* ── RIGHT / IMAGE ── */
+    .right { position: relative; }
+
+    .img-frame {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--gold-lt) 0%, #C4A882 30%, var(--gold) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* shown when no photo yet */
+    .img-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .corner-tl, .corner-br {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-color: var(--gold);
+      border-style: solid;
+      z-index: 2;
+    }
+    .corner-tl { top: -12px; left: -12px; border-width: 1px 0 0 1px; }
+    .corner-br { bottom: -12px; right: -12px; border-width: 0 1px 1px 0; }
+
+    .stat-pill {
+      position: absolute;
+      bottom: 2rem;
+      left: -2rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 1rem 1.4rem;
+      z-index: 10;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1;
+      display: block;
+    }
+    .stat-text {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── BOTTOM BAR ── */
+    .bottom-bar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 4rem;
+      border-top: 1px solid rgba(168,137,108,0.15);
+    }
+
+    .bottom-stats {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .bstat-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--dark);
+      display: block;
+      line-height: 1;
+    }
+    .bstat-l {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .scroll-hint {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav {
+        padding: 1.6rem 1.5rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .nav-links { display: none; }
+
+      .content {
+        grid-template-columns: 1fr;
+        padding: 3rem 1.5rem 2rem;
+        gap: 3rem;
+      }
+      .left { padding-right: 0; }
+
+      .right { order: -1; }
+
+      .stat-pill { left: 0.5rem; bottom: 0.5rem; }
+
+      .bottom-bar {
+        padding: 1.2rem 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+      .bottom-stats { gap: 1.5rem; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<main>
+  <section class="hero" aria-label="Главный экран">
+    <div class="bg-shape" aria-hidden="true"></div>
+
+    <nav aria-label="Навигация">
+      <a href="/" class="logo">Заложкова<span>&nbsp;·&nbsp;партнёры</span></a>
+      <ul class="nav-links">
+        <li><a href="#novostroyki">Новостройки</a></li>
+        <li><a href="#vtorichnoe">Вторичное</a></li>
+        <li><a href="#ipoteka">Ипотека</a></li>
+        <li><a href="#about">О нас</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Консультация</a>
+    </nav>
+
+    <div class="content">
+      <div class="left">
+        <p class="eyebrow">Москва · МО · Санкт-Петербург</p>
+        <span class="badge">от 4,8 млн · комиссия за счёт застройщика</span>
+        <h1>Квартира в Москве,<br>которую хочется<br><em>купить</em> — и не жалеть</h1>
+        <p class="desc">
+          Подбираем новостройки и вторичное жильё под ваш бюджет и образ жизни.
+          Ипотека, рассрочка, юридическое сопровождение — всё в одном месте.
+          Для вас бесплатно: комиссию платит застройщик.
+        </p>
+        <div class="actions">
+          <a href="#contact" class="btn-primary">Подобрать квартиру</a>
+          <a href="#cases" class="btn-secondary">→ 602 закрытые сделки</a>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="corner-tl" aria-hidden="true"></div>
+        <div class="corner-br" aria-hidden="true"></div>
+        <div class="img-frame">
+          <!--
+            ФОТО: замените тег ниже, когда будет изображение квартиры.
+            <img src="images/apartment.jpg" alt="Дизайнерская квартира в новостройке Москва">
+          -->
+          <div class="img-placeholder">фото квартиры</div>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-num">97%</span>
+          <span class="stat-text">одобрение ипотеки</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      <div class="bottom-stats">
+        <div class="bstat">
+          <span class="bstat-n">602</span>
+          <span class="bstat-l">сделки</span>
+        </div>
+        <div class="bstat">
+          <span class="bstat-n">5+ лет</span>
+          <span class="bstat-l">опыт</span>
+        </div>
+        <div class="bstat">
+          <span class="bstat-n">80 000+</span>
+          <span class="bstat-l">объектов в базе</span>
+        </div>
+        <div class="bstat">
+          <span class="bstat-n">от 4,8 млн</span>
+          <span class="bstat-l">стоимость</span>
+        </div>
+      </div>
+      <span class="scroll-hint">↓ прокрутить</span>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
