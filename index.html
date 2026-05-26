@@ -564,11 +564,13 @@
         </div>
         <noscript>
             <ul>
-                <li><a href="articles/telegram-ads-2026/">Telegram Ads в 2026: полный гайд по рекламе в Телеграм</a></li>
-                <li><a href="articles/reklama-vkontakte-2026/">Как настроить рекламу ВКонтакте в 2026: полный гайд с нуля</a></li>
-                <li><a href="articles/prompty-chatgpt-smm/">50 промптов для ChatGPT в SMM: готовые шаблоны 2026</a></li>
-                <li><a href="articles/ai-content-cost/">Как AI снижает стоимость контента на 80%</a></li>
-                <li><a href="articles/content-marketing-launch/">Как запустить контент-маркетинг с нуля за 7 дней</a></li>
+                <li><a href="/articles/marketing-department-2026/">Как построить отдел маркетинга с нуля в 2026–2027</a></li>
+                <li><a href="/articles/yandex-direct-2026/">Яндекс Директ 2026: полный гайд по настройке с нуля</a></li>
+                <li><a href="/articles/telegram-ads-2026/">Telegram Ads в 2026: полный гайд по рекламе в Телеграм</a></li>
+                <li><a href="/articles/reklama-vkontakte-2026/">Как настроить рекламу ВКонтакте в 2026: полный гайд с нуля</a></li>
+                <li><a href="/articles/prompty-chatgpt-smm/">50 промптов для ChatGPT в SMM: готовые шаблоны 2026</a></li>
+                <li><a href="/articles/ai-content-cost/">Как AI снижает стоимость контента на 80%</a></li>
+                <li><a href="/articles/content-marketing-launch/">Как запустить контент-маркетинг с нуля за 7 дней</a></li>
             </ul>
         </noscript>
         <div class="text-center mt-12">
@@ -581,108 +583,52 @@
     <!-- /СЕКЦИЯ: СТАТЬИ -->
 
     <script>
-    const ARTICLES = [
-        {
-    title: "Telegram Ads в 2026: полный гайд по рекламе в Телеграм",
-    desc: "Как запустить рекламу в Телеграм с минимальным бюджетом. Форматы, реальные CPM, таргетинг и ошибки которые сливают деньги.",
-    category: "Реклама",
-    categoryColor: "blue",
-    icon: "fa-paper-plane",
-    iconBg: "from-sky-600 to-blue-700",
-    read: "19 мин",
-    url: "articles/telegram-ads-2026/",
-    date: "2026-05-24",
-    dateLabel: "24 мая 2026"
-},
-        {
-    title: "Как настроить рекламу ВКонтакте в 2026: полный гайд с нуля",
-    desc: "Пошаговая инструкция по запуску таргета ВК. Форматы, аудитории, бюджеты и ошибки которые сливают деньги.",
-    category: "Реклама",
-    categoryColor: "blue",
-    icon: "fa-bullseye",
-    iconBg: "from-blue-600 to-indigo-600",
-    read: "20 мин",
-    url: "articles/reklama-vkontakte-2026/",
-    date: "2026-05-24",
-    dateLabel: "24 мая 2026"
-},
-        {
-            slug: "prompty-chatgpt-smm",
-            title: "50 промптов для ChatGPT в SMM: готовые шаблоны 2026",
-            desc: "Готовые промпты для постов, Reels, рекламных текстов и контент-плана. Каждый проверен на реальных проектах.",
-            category: "SMM & ИИ",
-            categoryColor: "emerald",
-            icon: "fa-comments",
-            iconBg: "from-emerald-600 to-teal-600",
-            read: "22 мин",
-            url: "articles/prompty-chatgpt-smm/",
-            date: "2026-05-24"
-        },
-        {
-            slug: "ai-content-cost",
-            title: "Как AI снижает стоимость контента на 80%",
-            desc: "Практический гайд по внедрению нейросетей в контент-маркетинг. Реальные цифры экономии и кейсы.",
-            category: "AI & Автоматизация",
-            categoryColor: "teal",
-            icon: "fa-robot",
-            iconBg: "from-teal-600 to-cyan-600",
-            read: "18 мин",
-            url: "articles/ai-content-cost/",
-            date: "2026-02-11"
-        },
-        {
-            slug: "content-marketing-launch",
-            title: "Как запустить контент-маркетинг с нуля за 7 дней",
-            desc: "Пошаговый план запуска без агентств и больших бюджетов. Только то, что работает.",
-            category: "Контент-маркетинг",
-            categoryColor: "lime",
-            icon: "fa-rocket",
-            iconBg: "from-lime-600 to-green-600",
-            read: "15 мин",
-            url: "articles/content-marketing-launch/",
-            date: "2026-01-20"
-        }
-    ];
-
     const colorMap = {
         emerald: { badge: "text-emerald-400", link: "text-emerald-500 hover:text-emerald-400", hover: "group-hover:text-emerald-400" },
-        teal:    { badge: "text-teal-400",    link: "text-teal-500 hover:text-teal-400",    hover: "group-hover:text-teal-400" },
-        lime:    { badge: "text-lime-400",    link: "text-lime-500 hover:text-lime-400",    hover: "group-hover:text-lime-400" },
-        orange:  { badge: "text-orange-400",  link: "text-orange-500 hover:text-orange-400",hover: "group-hover:text-orange-400" },
-        purple:  { badge: "text-purple-400",  link: "text-purple-500 hover:text-purple-400",hover: "group-hover:text-purple-400" },
-        blue:    { badge: "text-blue-400",    link: "text-blue-500 hover:text-blue-400",    hover: "group-hover:text-blue-400" },
+        teal:    { badge: "text-teal-400",    link: "text-teal-500 hover:text-teal-400",       hover: "group-hover:text-teal-400" },
+        lime:    { badge: "text-lime-400",    link: "text-lime-500 hover:text-lime-400",        hover: "group-hover:text-lime-400" },
+        orange:  { badge: "text-orange-400",  link: "text-orange-500 hover:text-orange-400",   hover: "group-hover:text-orange-400" },
+        purple:  { badge: "text-purple-400",  link: "text-purple-500 hover:text-purple-400",   hover: "group-hover:text-purple-400" },
+        blue:    { badge: "text-blue-400",    link: "text-blue-500 hover:text-blue-400",        hover: "group-hover:text-blue-400" },
     };
 
-    function renderArticles(list) {
-        const grid = document.getElementById("articles-grid");
-        grid.innerHTML = list.slice(0, 3).map(a => {
-            const c = colorMap[a.categoryColor] || colorMap.emerald;
-            return `<article class="article-card bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden group flex flex-col">
-                <a href="${a.url}" class="block">
-                    <div class="relative h-48 bg-gradient-to-br ${a.iconBg} overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas ${a.icon} text-6xl text-white opacity-20"></i>
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4">
-                            <span class="text-xs font-bold ${c.badge} uppercase tracking-wider">${a.category}</span>
-                        </div>
-                    </div>
-                </a>
-                <div class="p-6 flex flex-col flex-1">
-                    <h3 class="text-xl font-bold text-white mb-3 ${c.hover} transition">
-                        <a href="${a.url}">${a.title}</a>
-                    </h3>
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">${a.desc}</p>
-                    <div class="flex items-center justify-between text-xs text-slate-500 mt-auto pt-2">
-                        <span><i class="far fa-clock mr-1"></i> ${a.read}</span>
-                        <a href="${a.url}" class="${c.link} transition font-semibold">Читать →</a>
-                    </div>
+    function articleCard(a) {
+        const c = colorMap[a.categoryColor] || colorMap.emerald;
+        const thumb = a.image
+            ? `<img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover" loading="lazy">
+               <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4">
+                   <span class="text-xs font-bold ${c.badge} uppercase tracking-wider">${a.category}</span>
+               </div>`
+            : `<div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br ${a.iconBg}">
+                   <i class="fas ${a.icon} text-6xl text-white opacity-20"></i>
+               </div>
+               <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4">
+                   <span class="text-xs font-bold ${c.badge} uppercase tracking-wider">${a.category}</span>
+               </div>`;
+        return `<article class="article-card bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden group flex flex-col">
+            <a href="${a.url}" class="block">
+                <div class="relative h-48 overflow-hidden">${thumb}</div>
+            </a>
+            <div class="p-6 flex flex-col flex-1">
+                <h3 class="text-xl font-bold text-white mb-3 ${c.hover} transition">
+                    <a href="${a.url}">${a.title}</a>
+                </h3>
+                <p class="text-slate-400 text-sm mb-4 leading-relaxed">${a.desc}</p>
+                <div class="flex items-center justify-between text-xs text-slate-500 mt-auto pt-2">
+                    <span><i class="far fa-clock mr-1"></i>${a.read || ""}</span>
+                    <a href="${a.url}" class="${c.link} transition font-semibold">Читать →</a>
                 </div>
-            </article>`;
-        }).join("");
+            </div>
+        </article>`;
     }
 
-    renderArticles(ARTICLES);
+    fetch("/articles.json")
+        .then(r => r.json())
+        .then(list => {
+            document.getElementById("articles-grid").innerHTML =
+                list.slice(0, 3).map(articleCard).join("");
+        })
+        .catch(() => {});
     </script>
 
     <footer class="py-10 text-center border-t border-slate-800/50 mt-auto">
