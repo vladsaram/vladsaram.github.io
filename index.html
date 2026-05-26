@@ -594,14 +594,10 @@
 
     function articleCard(a) {
         const c = colorMap[a.categoryColor] || colorMap.emerald;
-        const thumb = a.image
-            ? `<img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover" loading="lazy">
-               <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4">
-                   <span class="text-xs font-bold ${c.badge} uppercase tracking-wider">${a.category}</span>
-               </div>`
-            : `<div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br ${a.iconBg}">
+        const thumb = `<div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br ${a.iconBg}">
                    <i class="fas ${a.icon} text-6xl text-white opacity-20"></i>
                </div>
+               ${a.image ? `<img src="${a.image}" alt="${a.title}" class="absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'">` : ''}
                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4">
                    <span class="text-xs font-bold ${c.badge} uppercase tracking-wider">${a.category}</span>
                </div>`;
