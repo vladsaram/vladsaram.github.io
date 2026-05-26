@@ -30,13 +30,6 @@
   </url>
 
   <url>
-    <loc>https://saramudvlad.ru/articles/marketing-department-2026/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://saramudvlad.ru/articles/telegram-ads-2026/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -52,6 +45,13 @@
 
   <url>
     <loc>https://saramudvlad.ru/articles/prompty-chatgpt-smm/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://saramudvlad.ru/articles/marketing-department-2026/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
