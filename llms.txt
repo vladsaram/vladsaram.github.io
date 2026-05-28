@@ -27,6 +27,9 @@
 
 ## Статьи и материалы
 
+- [Контент-план на месяц с нейросетью: система из 3 шагов](https://saramudvlad.ru/articles/kontent-plan-neyroset-2026/)
+- [YandexGPT vs GigaChat vs ChatGPT: сравнение для маркетолога 2026](https://saramudvlad.ru/articles/yandexgpt-vs-gigachat-vs-chatgpt/)
+- [Автоворонка продаж в Telegram 2026: бот + n8n без программиста](https://saramudvlad.ru/articles/avtovoronka-telegram-2026/)
 - [MAX мессенджер 2026–2027: как продвигаться и набирать аудиторию](https://saramudvlad.ru/articles/max-messenger-2026/)
 - [Яндекс Директ 2026: полный гайд по настройке](https://saramudvlad.ru/articles/yandex-direct-2026/)
 - [Как построить отдел маркетинга с нуля в 2026–2027](https://saramudvlad.ru/articles/marketing-department-2026/)
