@@ -514,7 +514,7 @@
                     <div class="car-slide">
                         <div class="bg-slate-900/60 border border-orange-500/40 rounded-2xl p-4 h-full flex flex-col items-center">
                             <span class="inline-flex items-center gap-1.5 text-xs font-bold text-orange-300 bg-orange-950/40 border border-orange-500/30 rounded-full px-3 py-1 mb-3"><i class="fas fa-fire"></i> 6,5 млн просмотров в Instagram*</span>
-                            <div class="w-full max-w-[250px] rounded-xl overflow-hidden border border-slate-800 bg-black" style="aspect-ratio:9/16;">
+                            <div class="w-full max-w-[200px] rounded-xl overflow-hidden border border-slate-800 bg-black" style="aspect-ratio:9/16;">
                                 <iframe src="https://vk.com/video_ext.php?oid=-214804737&id=456239777&hd=2&js=1" width="100%" height="100%" style="border:0;display:block;" allow="encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen loading="lazy" title="Ролик автора — 6,5 млн просмотров"></iframe>
                             </div>
                             <a href="https://www.instagram.com/reel/DVPJMm5jZtH/" target="_blank" rel="noopener" class="text-xs text-slate-500 hover:text-orange-300 mt-3 underline underline-offset-2">Смотреть пруф в Instagram →</a>
@@ -523,7 +523,7 @@
                     <div class="car-slide">
                         <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 h-full flex flex-col items-center">
                             <span class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 bg-slate-800/60 border border-slate-700 rounded-full px-3 py-1 mb-3"><i class="fas fa-taxi text-amber-400"></i> Ниша: такси</span>
-                            <div class="w-full max-w-[250px] rounded-xl overflow-hidden border border-slate-800 bg-black" style="aspect-ratio:9/16;">
+                            <div class="w-full max-w-[200px] rounded-xl overflow-hidden border border-slate-800 bg-black" style="aspect-ratio:9/16;">
                                 <iframe src="https://vk.com/video_ext.php?oid=-214804737&id=456239774&hd=2&js=1" width="100%" height="100%" style="border:0;display:block;" allow="encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen loading="lazy" title="Пример ролика — клиент в нише такси"></iframe>
                             </div>
                         </div>
@@ -531,7 +531,7 @@
                     <div class="car-slide">
                         <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 h-full flex flex-col items-center">
                             <span class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 bg-slate-800/60 border border-slate-700 rounded-full px-3 py-1 mb-3"><i class="fas fa-globe text-sky-400"></i> Зарубежный рынок</span>
-                            <div class="w-full max-w-[250px] rounded-xl overflow-hidden border border-slate-800 bg-black" style="aspect-ratio:9/16;">
+                            <div class="w-full max-w-[200px] rounded-xl overflow-hidden border border-slate-800 bg-black" style="aspect-ratio:9/16;">
                                 <iframe src="https://vk.com/video_ext.php?oid=-214804737&id=456239775&hd=2&js=1" width="100%" height="100%" style="border:0;display:block;" allow="encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen loading="lazy" title="Пример ролика — клиент на зарубежный рынок"></iframe>
                             </div>
                         </div>
@@ -539,7 +539,7 @@
                     <div class="car-slide">
                         <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 h-full flex flex-col items-center">
                             <span class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 bg-slate-800/60 border border-slate-700 rounded-full px-3 py-1 mb-3"><i class="fas fa-building text-emerald-400"></i> Недвижимость</span>
-                            <div class="w-full max-w-[250px] rounded-xl overflow-hidden border border-slate-800 bg-black" style="aspect-ratio:9/16;">
+                            <div class="w-full max-w-[200px] rounded-xl overflow-hidden border border-slate-800 bg-black" style="aspect-ratio:9/16;">
                                 <iframe src="https://vk.com/video_ext.php?oid=-214804737&id=456239776&hd=2&js=1" width="100%" height="100%" style="border:0;display:block;" allow="encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen loading="lazy" title="Пример ролика — клиент в нише недвижимости"></iframe>
                             </div>
                         </div>
@@ -1197,8 +1197,15 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
     var root = document.getElementById('examples-carousel');
     var index = 0, timer = null;
 
-    function perView() { return window.innerWidth >= 768 ? 2 : 1; }
+    function perView() { return window.innerWidth >= 1024 ? 4 : (window.innerWidth >= 640 ? 2 : 1); }
     function maxIndex() { return Math.max(0, slides - perView()); }
+    var prevBtn = document.getElementById('ex-prev'), nextBtn = document.getElementById('ex-next');
+    function toggleControls() {
+        var hide = maxIndex() === 0;
+        prevBtn.style.display = hide ? 'none' : '';
+        nextBtn.style.display = hide ? 'none' : '';
+        dotsBox.style.display = hide ? 'none' : '';
+    }
     function buildDots() {
         dotsBox.innerHTML = '';
         for (var i = 0; i <= maxIndex(); i++) {
@@ -1208,6 +1215,7 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
             (function(k) { d.addEventListener('click', function() { go(k); reset(); }); })(i);
             dotsBox.appendChild(d);
         }
+        toggleControls();
     }
     function render() {
         track.style.transform = 'translateX(-' + (index * (100 / perView())) + '%)';
@@ -1216,11 +1224,11 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
     function go(n) { var mx = maxIndex(); index = n < 0 ? mx : (n > mx ? 0 : n); render(); }
     function next() { go(index + 1); }
     function prev() { go(index - 1); }
-    function auto() { timer = setInterval(next, 7000); }
+    function auto() { if (maxIndex() > 0) timer = setInterval(next, 7000); }
     function reset() { clearInterval(timer); auto(); }
 
-    document.getElementById('ex-next').addEventListener('click', function() { next(); reset(); });
-    document.getElementById('ex-prev').addEventListener('click', function() { prev(); reset(); });
+    nextBtn.addEventListener('click', function() { next(); reset(); });
+    prevBtn.addEventListener('click', function() { prev(); reset(); });
     root.addEventListener('mouseenter', function() { clearInterval(timer); });
     root.addEventListener('mouseleave', auto);
 
