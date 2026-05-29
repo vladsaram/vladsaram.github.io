@@ -206,6 +206,13 @@
         .car-arrow { transition: background .25s ease, transform .25s ease; }
         .car-arrow:hover { background: rgba(249,115,22,0.25); transform: scale(1.08); }
 
+        /* Карусель скриншотов с ценами */
+        .price-track { display: flex; transition: transform .55s cubic-bezier(.4,0,.2,1); }
+        .price-slide { min-width: 100%; box-sizing: border-box; padding: 0 .5rem; }
+        @media (min-width: 640px) { .price-slide { min-width: 50%; } }
+        @media (min-width: 1024px) { .price-slide { min-width: 33.333%; } }
+        .price-shot { width: 100%; max-height: 520px; object-fit: contain; border-radius: .75rem; border: 1px solid #1e293b; background: #0f172a; display: block; cursor: zoom-in; }
+
         @media (prefers-reduced-motion: reduce) {
             .fire-text, .ember, .flame-flicker, .pulse-cta::after, .flow-line, .marquee { animation: none; }
             .reveal { opacity: 1; transform: none; }
@@ -766,6 +773,50 @@
     </div>
 </section>
 
+<!-- СКОЛЬКО СТОИТ ТАКОЕ ВИДЕО -->
+<section class="py-20 ember-bg border-t border-slate-900">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="text-center mb-10">
+            <span class="text-orange-400 text-sm font-bold uppercase tracking-wider reveal">Доказательство спроса</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2 reveal">Сколько такое видео стоит на рынке</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mt-3 reveal">Не веришь, что на этом зарабатывают? Я специально выложил вакансию на создание таких AI-видео и собрал отклики исполнителей. Вот их реальные расценки.</p>
+        </div>
+
+        <!-- Ценовой якорь -->
+        <div class="max-w-xl mx-auto mb-12 reveal">
+            <div class="bg-gradient-to-br from-slate-900 to-[#1a0d06] border border-orange-600/40 rounded-2xl p-7 text-center">
+                <div class="text-sm text-slate-400 mb-1">Цена за одно минутное видео</div>
+                <div class="text-4xl md:text-5xl font-black fire-text">от 3 000 до 20 000 ₽</div>
+                <div class="text-sm text-slate-400 mt-2">за один ролик. А ты научишься делать их сам.</div>
+            </div>
+        </div>
+
+        <!-- Карусель скриншотов (подгружается из /images/price-N.webp) -->
+        <div id="price-block" class="reveal" style="display:none;">
+            <div class="relative" id="price-carousel">
+                <div class="car-viewport">
+                    <div class="price-track" id="price-track"></div>
+                </div>
+                <button id="price-prev" aria-label="Предыдущий скриншот" class="car-arrow absolute -left-2 md:-left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-800/80 border border-slate-700 text-white flex items-center justify-center z-10"><i class="fas fa-chevron-left text-sm"></i></button>
+                <button id="price-next" aria-label="Следующий скриншот" class="car-arrow absolute -right-2 md:-right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-800/80 border border-slate-700 text-white flex items-center justify-center z-10"><i class="fas fa-chevron-right text-sm"></i></button>
+            </div>
+            <div class="flex justify-center flex-wrap gap-2 mt-6" id="price-dots"></div>
+            <p class="text-center text-xs text-slate-600 mt-3">Реальные отклики на вакансию · нажми на скриншот, чтобы открыть крупнее</p>
+        </div>
+
+        <!-- Вывод-усилитель -->
+        <div class="max-w-2xl mx-auto mt-12 reveal">
+            <div class="bg-emerald-950/30 border border-emerald-700/40 rounded-2xl p-6 flex items-start gap-4">
+                <i class="fas fa-arrow-trend-up text-emerald-400 text-2xl mt-1"></i>
+                <div>
+                    <h3 class="font-bold text-white mb-1">Курс дешевле одного такого ролика</h3>
+                    <p class="text-slate-300 text-sm">Освоив метод, ты либо <b class="text-white">экономишь</b> эти деньги на своём контенте, либо <b class="text-white">зарабатываешь</b> их на заказах. Окупается с первого видео.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ТАРИФЫ -->
 <section id="tarify" class="py-20 border-t border-slate-900 relative overflow-hidden">
     <div class="embers" id="embers2"></div>
@@ -1038,6 +1089,81 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
     });
 
     buildDots(); render(); auto();
+})();
+
+// Карусель скриншотов с ценами (авто-подгрузка /images/price-N.webp)
+(function() {
+    var track = document.getElementById('price-track');
+    if (!track) return;
+    var block = document.getElementById('price-block');
+    var dotsBox = document.getElementById('price-dots');
+    var root = document.getElementById('price-carousel');
+    var MAX = 20, pending = MAX, found = [];
+
+    for (var i = 1; i <= MAX; i++) {
+        (function(n) {
+            var img = new Image();
+            img.onload = function() { found.push(n); finish(); };
+            img.onerror = function() { finish(); };
+            img.src = '/images/price-' + n + '.webp';
+        })(i);
+    }
+    function finish() { if (--pending === 0) build(); }
+
+    function build() {
+        if (!found.length) return; // нет скринов — секция остаётся скрытой
+        found.sort(function(a, b) { return a - b; });
+        track.innerHTML = found.map(function(n) {
+            return '<div class="price-slide">' +
+                '<a href="/images/price-' + n + '.webp" target="_blank" rel="noopener">' +
+                '<img src="/images/price-' + n + '.webp" alt="Отклик на вакансию: цена за AI-видео" class="price-shot" loading="lazy"></a>' +
+                '</div>';
+        }).join('');
+        block.style.display = 'block';
+
+        var index = 0, timer = null;
+        function perView() { return window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 640 ? 2 : 1); }
+        function maxIndex() { return Math.max(0, found.length - perView()); }
+        function buildDots() {
+            dotsBox.innerHTML = '';
+            for (var i = 0; i <= maxIndex(); i++) {
+                var d = document.createElement('button');
+                d.className = 'car-dot' + (i === index ? ' active' : '');
+                d.setAttribute('aria-label', 'Скриншот ' + (i + 1));
+                (function(k) { d.addEventListener('click', function() { go(k); reset(); }); })(i);
+                dotsBox.appendChild(d);
+            }
+        }
+        function render() {
+            track.style.transform = 'translateX(-' + (index * (100 / perView())) + '%)';
+            dotsBox.querySelectorAll('.car-dot').forEach(function(d, i) { d.classList.toggle('active', i === index); });
+        }
+        function go(n) { var mx = maxIndex(); index = n < 0 ? mx : (n > mx ? 0 : n); render(); }
+        function next() { go(index + 1); }
+        function prev() { go(index - 1); }
+        function auto() { timer = setInterval(next, 4500); }
+        function reset() { clearInterval(timer); auto(); }
+
+        document.getElementById('price-next').addEventListener('click', function() { next(); reset(); });
+        document.getElementById('price-prev').addEventListener('click', function() { prev(); reset(); });
+        root.addEventListener('mouseenter', function() { clearInterval(timer); });
+        root.addEventListener('mouseleave', auto);
+
+        var startX = 0;
+        track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+        track.addEventListener('touchend', function(e) {
+            var dx = e.changedTouches[0].clientX - startX;
+            if (dx < -40) { next(); reset(); } else if (dx > 40) { prev(); reset(); }
+        }, { passive: true });
+
+        var rt;
+        window.addEventListener('resize', function() {
+            clearTimeout(rt);
+            rt = setTimeout(function() { if (index > maxIndex()) index = maxIndex(); buildDots(); render(); }, 200);
+        });
+
+        buildDots(); render(); auto();
+    }
 })();
 
 // Плавный скролл по якорям
