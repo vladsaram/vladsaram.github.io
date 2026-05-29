@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+
+    <title>GPT-Шашлык — курс по нейросетям для контента и продаж | Владислав Сарамуд</title>
+    <meta name="description" content="Практический курс GPT-Шашлык: за 20 минут собираешь первый AI-ролик. Промпты, аватары HeyGen, озвучка ElevenLabs, монтаж и автоворонки. 2000+ промптов в подарок.">
+    <meta name="keywords" content="gpt шашлык, курс нейросети, ai контент, heygen аватар, elevenlabs озвучка, нейросети для бизнеса, ai ролики, промпты chatgpt, Владислав Сарамуд">
+    <meta name="author" content="Владислав Сарамуд">
+    <link rel="canonical" href="https://saramudvlad.ru/gpt-shashlik/">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saramudvlad.ru/gpt-shashlik/">
+    <meta property="og:title" content="GPT-Шашлык — курс по нейросетям для контента и продаж">
+    <meta property="og:description" content="За 20 минут собираешь первый AI-ролик. Промпты, аватары, озвучка, монтаж и автоворонки на нейросетях. Осилит даже новичок.">
+    <meta property="og:image" content="https://saramudvlad.ru/images/gpt-shashlik.webp">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GPT-Шашлык — курс по нейросетям для контента">
+    <meta name="twitter:description" content="За 20 минут собираешь первый AI-ролик. Промпты, аватары, озвучка, монтаж, автоворонки.">
+    <meta name="twitter:image" content="https://saramudvlad.ru/images/gpt-shashlik.webp">
+
+    <!-- Yandex.Metrika -->
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=106768627','ym');
+    ym(106768627,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106768627" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+
+    <link rel="stylesheet" href="/dist/tailwind.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Schema: Course -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "GPT-Шашлык — нейросети для автоматизации контента",
+      "description": "Практический курс по созданию контента и автоворонок с помощью нейросетей: промпты, AI-аватары HeyGen, озвучка ElevenLabs, монтаж и настройка трафика.",
+      "provider": {
+        "@type": "Person",
+        "name": "Владислав Сарамуд",
+        "url": "https://saramudvlad.ru"
+      },
+      "offers": [
+        {"@type": "Offer", "name": "Проба Огня", "price": "0", "priceCurrency": "RUB", "category": "Lead Magnet"},
+        {"@type": "Offer", "name": "Шампур-Lite", "price": "3490", "priceCurrency": "RUB", "category": "Базовый тариф"},
+        {"@type": "Offer", "name": "Шашлык PRO", "price": "4900", "priceCurrency": "RUB", "category": "Тариф для бизнеса"}
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": "PT6H"
+      }
+    }
+    </script>
+
+    <!-- Schema: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://saramudvlad.ru"},
+        {"@type": "ListItem", "position": 2, "name": "Курс GPT-Шашлык", "item": "https://saramudvlad.ru/gpt-shashlik/"}
+      ]
+    }
+    </script>
+
+    <!-- Schema: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Я живу не в РФ. Как оплатить курс?", "acceptedAnswer": {"@type": "Answer", "text": "Оплата принимается из любой страны мира через сервис Tribute, который работает с зарубежными картами."}},
+        {"@type": "Question", "name": "Я новичок в технологиях. Разберусь?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Курс записан в формате повторяй за мной: каждый шаг разобран до мелочей, получается даже у тех, кто с компьютером на Вы."}},
+        {"@type": "Question", "name": "Нужно ли покупать платные подписки на нейросети?", "acceptedAnswer": {"@type": "Answer", "text": "Необязательно — можно работать на бесплатных тарифах. В курсе подробно показано, как оплачивать зарубежные сервисы из РФ и в чём отличия платных версий для масштабирования."}},
+        {"@type": "Question", "name": "Подойдёт ли курс для моей ниши?", "acceptedAnswer": {"@type": "Answer", "text": "Да, если услугу или товар можно продавать через интернет. Методика универсальна: от вязания и астрологии до недвижимости и автозапчастей."}},
+        {"@type": "Question", "name": "Есть ли гарантия результата?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Если за 30 дней на 30 новых роликах не наберётся более 1000 просмотров — вернём деньги."}}
+      ]
+    }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0a0604; color: #e2e8f0; overflow-x: hidden; }
+
+        /* Анимированный огненный градиент */
+        .fire-text {
+            background: linear-gradient(90deg, #fbbf24, #f97316, #ef4444, #f97316, #fbbf24);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fireShine 4s linear infinite;
+        }
+        @keyframes fireShine { to { background-position: 300% center; } }
+
+        /* Тёплый фон-свечение */
+        .ember-bg {
+            background:
+                radial-gradient(ellipse 60% 50% at 50% 0%, rgba(249,115,22,0.18), transparent 70%),
+                radial-gradient(ellipse 40% 40% at 80% 20%, rgba(239,68,68,0.12), transparent 70%),
+                radial-gradient(ellipse 40% 40% at 15% 30%, rgba(251,191,36,0.10), transparent 70%);
+        }
+
+        /* Парящие угольки */
+        .embers { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+        .ember {
+            position: absolute; bottom: -10px; width: 6px; height: 6px; border-radius: 50%;
+            background: radial-gradient(circle, #fde68a 0%, #f97316 50%, transparent 70%);
+            opacity: 0; animation: rise linear infinite;
+        }
+        @keyframes rise {
+            0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+            10% { opacity: 0.9; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) translateX(40px) scale(0.3); opacity: 0; }
+        }
+
+        /* Мерцание пламени у иконки */
+        .flame-flicker { animation: flicker 1.6s ease-in-out infinite alternate; transform-origin: bottom center; }
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(-1deg); filter: drop-shadow(0 0 6px rgba(249,115,22,0.6)); }
+            50% { transform: scale(1.08) rotate(1deg); filter: drop-shadow(0 0 14px rgba(239,68,68,0.8)); }
+            100% { transform: scale(1.02) rotate(-2deg); filter: drop-shadow(0 0 10px rgba(251,191,36,0.7)); }
+        }
+
+        /* Пульсирующая кнопка */
+        .pulse-cta { position: relative; }
+        .pulse-cta::after {
+            content: ''; position: absolute; inset: 0; border-radius: inherit;
+            box-shadow: 0 0 0 0 rgba(249,115,22,0.7); animation: pulse 2.2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(249,115,22,0.55); }
+            70% { box-shadow: 0 0 0 18px rgba(249,115,22,0); }
+            100% { box-shadow: 0 0 0 0 rgba(249,115,22,0); }
+        }
+
+        /* Появление при скролле */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal.d1 { transition-delay: .1s; } .reveal.d2 { transition-delay: .2s; } .reveal.d3 { transition-delay: .3s; }
+
+        /* Карточки модулей */
+        .module-card { transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+        .module-card:hover { transform: translateY(-6px); border-color: rgba(249,115,22,0.5); box-shadow: 0 20px 50px -20px rgba(249,115,22,0.35); }
+
+        .tariff-card { transition: transform .3s ease, box-shadow .3s ease; }
+        .tariff-card:hover { transform: translateY(-8px); }
+
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] .faq-body { animation: sweep .4s ease; }
+        @keyframes sweep { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+
+        .grain { background-image: linear-gradient(135deg, rgba(255,255,255,.02) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.02) 50%, rgba(255,255,255,.02) 75%, transparent 75%); background-size: 6px 6px; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fire-text, .ember, .flame-flicker, .pulse-cta::after { animation: none; }
+            .reveal { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-orange-500 selection:text-white">
+
+<!-- НАВИГАЦИЯ -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0604]/90 backdrop-blur-md border-b border-orange-900/30">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2 text-white font-bold text-lg">
+            <div class="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center text-sm">🍖</div>
+            <span class="hidden sm:block">GPT-Шашлык</span>
+        </a>
+        <div class="flex items-center gap-4">
+            <a href="#sostav" class="hidden md:block text-slate-400 hover:text-white transition text-sm">Состав</a>
+            <a href="#programma" class="hidden md:block text-slate-400 hover:text-white transition text-sm">Программа</a>
+            <a href="#tarify" class="hidden md:block text-slate-400 hover:text-white transition text-sm">Тарифы</a>
+            <a href="#tarify" class="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white px-4 py-2 rounded-lg text-sm font-bold transition">Забрать курс</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="relative ember-bg pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+    <div class="embers" id="embers"></div>
+    <div class="max-w-5xl mx-auto px-4 relative z-10 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-xs font-bold tracking-wider text-orange-300 uppercase bg-orange-950/50 rounded-full border border-orange-500/40 reveal visible">
+            <i class="fas fa-fire flame-flicker"></i> Практический курс по нейросетям
+        </div>
+
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.05] reveal visible">
+            GPT-<span class="fire-text">ШАШЛЫК</span> 🍖<br>
+            <span class="text-2xl md:text-4xl font-extrabold text-slate-200">Нейросети, которые жарят контент за тебя</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-4 reveal visible">
+            За <span class="text-orange-400 font-bold">20 минут</span> собираешь первый AI-ролик: сценарий, говорящий аватар, озвучка и монтаж. <span class="text-slate-400">Осилит даже новичок.</span>
+        </p>
+
+        <p class="text-sm text-slate-500 max-w-xl mx-auto mb-10 reveal visible">
+            Без операторов, студий и сценаристов. Только ты, ноутбук и нейросети.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal visible">
+            <a href="#tarify" class="pulse-cta inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white font-bold px-8 py-4 rounded-xl transition text-base">
+                <i class="fas fa-fire"></i> Разжечь огонь — выбрать тариф
+            </a>
+            <a href="https://feather-building-c02.notion.site/17917196174e806aabd4d32279ad0951" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-slate-800/70 hover:bg-slate-700 text-white font-semibold px-7 py-4 rounded-xl transition text-base border border-slate-700">
+                <i class="fas fa-gift text-orange-400"></i> 2000+ промптов бесплатно
+            </a>
+        </div>
+
+        <!-- Статы -->
+        <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto mt-16 reveal visible">
+            <div class="bg-slate-900/40 border border-slate-800 rounded-2xl py-5 px-3">
+                <div class="text-3xl md:text-4xl font-black fire-text" data-count="2000" data-suffix="+">0</div>
+                <div class="text-xs text-slate-400 mt-1">промптов в базе</div>
+            </div>
+            <div class="bg-slate-900/40 border border-slate-800 rounded-2xl py-5 px-3">
+                <div class="text-3xl md:text-4xl font-black fire-text" data-count="20" data-suffix=" мин">0</div>
+                <div class="text-xs text-slate-400 mt-1">до первого ролика</div>
+            </div>
+            <div class="bg-slate-900/40 border border-slate-800 rounded-2xl py-5 px-3">
+                <div class="text-3xl md:text-4xl font-black fire-text" data-count="11" data-suffix="">0</div>
+                <div class="text-xs text-slate-400 mt-1">видеоуроков в PRO</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ДЛЯ КОГО / БОЛЬ -->
+<section class="py-20 border-t border-slate-900">
+    <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white text-center mb-3 reveal">Узнал себя?</h2>
+        <p class="text-slate-400 text-center max-w-2xl mx-auto mb-14 reveal">Курс для тех, кто хочет контент и заявки, но застрял на старте.</p>
+
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="reveal d1 bg-slate-900/50 border border-slate-800 rounded-2xl p-6">
+                <div class="w-12 h-12 rounded-xl bg-red-900/30 flex items-center justify-center text-red-400 text-xl mb-4"><i class="fas fa-face-tired"></i></div>
+                <h3 class="font-bold text-white mb-2">Контент съедает время</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Один ролик — это сценарий, съёмка, монтаж и полдня впустую. А выкладывать нужно каждый день.</p>
+            </div>
+            <div class="reveal d2 bg-slate-900/50 border border-slate-800 rounded-2xl p-6">
+                <div class="w-12 h-12 rounded-xl bg-orange-900/30 flex items-center justify-center text-orange-400 text-xl mb-4"><i class="fas fa-camera-rotate"></i></div>
+                <h3 class="font-bold text-white mb-2">Стесняешься камеры</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Не хочешь снимать лицо или нет голоса для озвучки? AI-аватар и синтез речи сделают это за тебя.</p>
+            </div>
+            <div class="reveal d3 bg-slate-900/50 border border-slate-800 rounded-2xl p-6">
+                <div class="w-12 h-12 rounded-xl bg-amber-900/30 flex items-center justify-center text-amber-400 text-xl mb-4"><i class="fas fa-money-bill-trend-up"></i></div>
+                <h3 class="font-bold text-white mb-2">Контент есть — заявок нет</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Снимаешь, но просмотры в стол. Нужна связка: контент → трафик → автоворонка → продажа.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ЧТО ПОЛУЧИШЬ -->
+<section class="py-20 ember-bg border-t border-slate-900">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="text-center mb-14">
+            <span class="text-orange-400 text-sm font-bold uppercase tracking-wider reveal">Результат</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2 reveal">Что ты унесёшь с собой</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            <div class="reveal flex items-start gap-3 bg-slate-900/40 border border-slate-800 rounded-xl p-4"><i class="fas fa-circle-check text-orange-500 mt-1"></i><span class="text-slate-200 text-sm">Готовая система производства роликов на потоке — без оператора и студии</span></div>
+            <div class="reveal d1 flex items-start gap-3 bg-slate-900/40 border border-slate-800 rounded-xl p-4"><i class="fas fa-circle-check text-orange-500 mt-1"></i><span class="text-slate-200 text-sm">Свой говорящий AI-аватар, который озвучивает любой текст</span></div>
+            <div class="reveal d2 flex items-start gap-3 bg-slate-900/40 border border-slate-800 rounded-xl p-4"><i class="fas fa-circle-check text-orange-500 mt-1"></i><span class="text-slate-200 text-sm">Контент-план на 30 дней, собранный нейросетью под твою нишу</span></div>
+            <div class="reveal d3 flex items-start gap-3 bg-slate-900/40 border border-slate-800 rounded-xl p-4"><i class="fas fa-circle-check text-orange-500 mt-1"></i><span class="text-slate-200 text-sm">2000+ промптов для маркетинга, контента и продаж</span></div>
+            <div class="reveal flex items-start gap-3 bg-slate-900/40 border border-slate-800 rounded-xl p-4"><i class="fas fa-circle-check text-orange-500 mt-1"></i><span class="text-slate-200 text-sm">Навык монтажа короткого видео за 8 минут</span></div>
+            <div class="reveal d1 flex items-start gap-3 bg-slate-900/40 border border-slate-800 rounded-xl p-4"><i class="fas fa-circle-check text-orange-500 mt-1"></i><span class="text-slate-200 text-sm">Настроенный трафик и автоворонка, которая греет лиды без тебя</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- СОСТАВ ШАШЛЫКА -->
+<section id="sostav" class="py-20 border-t border-slate-900">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-14">
+            <span class="text-orange-400 text-sm font-bold uppercase tracking-wider reveal">Меню</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2 reveal">Состав <span class="fire-text">Шашлыка</span></h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mt-3 reveal">6 модулей — от сырых идей до прожаренного результата.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="module-card reveal d1 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <div class="text-3xl mb-3">🍢</div>
+                <h3 class="font-bold text-white text-lg mb-2">Шампур-Промпты</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Готовые сценарии под Reels и Shorts, прогрев аудитории, оценка работы отдела продаж — копируй и вставляй.</p>
+            </div>
+            <div class="module-card reveal d2 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <div class="text-3xl mb-3">🎨</div>
+                <h3 class="font-bold text-white text-lg mb-2">Визуал-Маринады</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Обложки, визуалы и картинки для постов нейросетью. Цепляющий вид, который удерживает подписчика.</p>
+            </div>
+            <div class="module-card reveal d3 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <div class="text-3xl mb-3">🗣️</div>
+                <h3 class="font-bold text-white text-lg mb-2">HeyGen + ElevenLabs</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Создаём говорящего AI-аватара и реалистичную озвучку текста. Лицо и голос — без камеры и микрофона.</p>
+            </div>
+            <div class="module-card reveal d1 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <div class="text-3xl mb-3">🔥</div>
+                <h3 class="font-bold text-white text-lg mb-2">Монтаж-Мангал</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Собираем готовый ролик за 8 минут: нарезка, субтитры, динамика. Видео, которое смотрят до конца.</p>
+            </div>
+            <div class="module-card reveal d2 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <div class="text-3xl mb-3">🍲</div>
+                <h3 class="font-bold text-white text-lg mb-2">Таргет-Котелок</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Настройка рекламы и лидогенерация: куда лить трафик, как считать KPI и не сливать бюджет. <span class="text-emerald-400">(только PRO)</span></p>
+            </div>
+            <div class="module-card reveal d3 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <div class="text-3xl mb-3">📚</div>
+                <h3 class="font-bold text-white text-lg mb-2">Prompt-База 2000+</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Огромная библиотека промптов по маркетингу, контенту и автоматизации. Твоя шпаргалка на каждый день.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ПРОГРАММА -->
+<section id="programma" class="py-20 ember-bg border-t border-slate-900">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-14">
+            <span class="text-orange-400 text-sm font-bold uppercase tracking-wider reveal">Программа</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2 reveal">Пошагово: от нуля до автоворонки</h2>
+        </div>
+
+        <div class="space-y-3">
+            <div class="reveal flex gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-5">
+                <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-orange-600 to-red-600 text-white font-bold flex items-center justify-center text-sm">1</div>
+                <div><h3 class="font-bold text-white mb-1">Подключение зарубежных сервисов</h3><p class="text-slate-400 text-sm">Регистрация и оплата ChatGPT, HeyGen, ElevenLabs из РФ — без танцев с бубном.</p></div>
+            </div>
+            <div class="reveal flex gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-5">
+                <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-orange-600 to-red-600 text-white font-bold flex items-center justify-center text-sm">2</div>
+                <div><h3 class="font-bold text-white mb-1">Маркетинг-стратегия через GPT</h3><p class="text-slate-400 text-sm">Анализ ниши, позиционирование и продуктовая линейка руками нейросети.</p></div>
+            </div>
+            <div class="reveal flex gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-5">
+                <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-orange-600 to-red-600 text-white font-bold flex items-center justify-center text-sm">3</div>
+                <div><h3 class="font-bold text-white mb-1">Контент-план на 30 дней</h3><p class="text-slate-400 text-sm">Готовая сетка тем и рубрик под твою аудиторию — за минуту, а не за выходные.</p></div>
+            </div>
+            <div class="reveal flex gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-5">
+                <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-orange-600 to-red-600 text-white font-bold flex items-center justify-center text-sm">4</div>
+                <div><h3 class="font-bold text-white mb-1">AI-сценарии для Reels</h3><p class="text-slate-400 text-sm">Промпты, которые пишут залипательные сценарии с крючком в первой секунде.</p></div>
+            </div>
+            <div class="reveal flex gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-5">
+                <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-orange-600 to-red-600 text-white font-bold flex items-center justify-center text-sm">5</div>
+                <div><h3 class="font-bold text-white mb-1">Аватар в HeyGen + голос ElevenLabs</h3><p class="text-slate-400 text-sm">Свой цифровой двойник, который говорит твоим (или любым) голосом.</p></div>
+            </div>
+            <div class="reveal flex gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-5">
+                <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-orange-600 to-red-600 text-white font-bold flex items-center justify-center text-sm">6</div>
+                <div><h3 class="font-bold text-white mb-1">Видео-монтаж за 8 минут</h3><p class="text-slate-400 text-sm">Сборка ролика, субтитры и динамика — на бесплатных инструментах.</p></div>
+            </div>
+            <div class="reveal flex gap-4 bg-slate-900/50 border border-emerald-700/40 rounded-xl p-5">
+                <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-600 to-teal-600 text-white font-bold flex items-center justify-center text-sm">7</div>
+                <div><h3 class="font-bold text-white mb-1">Трафик, KPI и автоворонка <span class="text-emerald-400 text-xs font-semibold">PRO</span></h3><p class="text-slate-400 text-sm">Настройка рекламы на услуги, аналитика подрядчиков и запуск автоворонки, которая продаёт без тебя.</p></div>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center reveal">
+            <p class="text-sm text-slate-500"><i class="fas fa-circle-info text-orange-400 mr-1"></i> <b class="text-slate-300">Шампур-Lite</b> — 7 уроков. <b class="text-emerald-300">Шашлык PRO</b> — 11 уроков + блок трафика и автоворонок.</p>
+        </div>
+    </div>
+</section>
+
+<!-- СТЕК ИНСТРУМЕНТОВ -->
+<section class="py-20 border-t border-slate-900">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-3 reveal">Стек, который освоишь</h2>
+        <p class="text-slate-400 max-w-xl mx-auto mb-12 reveal">Все инструменты разобраны с нуля. Можно стартовать на бесплатных тарифах.</p>
+        <div class="flex flex-wrap justify-center gap-3">
+            <span class="reveal bg-slate-900/60 border border-slate-800 rounded-full px-5 py-2.5 text-slate-200 text-sm font-semibold"><i class="fas fa-comment-dots text-orange-400 mr-2"></i>ChatGPT / GPT</span>
+            <span class="reveal d1 bg-slate-900/60 border border-slate-800 rounded-full px-5 py-2.5 text-slate-200 text-sm font-semibold"><i class="fas fa-user-astronaut text-blue-400 mr-2"></i>HeyGen</span>
+            <span class="reveal d2 bg-slate-900/60 border border-slate-800 rounded-full px-5 py-2.5 text-slate-200 text-sm font-semibold"><i class="fas fa-microphone-lines text-indigo-400 mr-2"></i>ElevenLabs</span>
+            <span class="reveal d3 bg-slate-900/60 border border-slate-800 rounded-full px-5 py-2.5 text-slate-200 text-sm font-semibold"><i class="fas fa-palette text-pink-400 mr-2"></i>Нейросети для визуала</span>
+            <span class="reveal bg-slate-900/60 border border-slate-800 rounded-full px-5 py-2.5 text-slate-200 text-sm font-semibold"><i class="fas fa-scissors text-red-400 mr-2"></i>Монтаж видео</span>
+            <span class="reveal d1 bg-slate-900/60 border border-slate-800 rounded-full px-5 py-2.5 text-slate-200 text-sm font-semibold"><i class="fas fa-bullseye text-emerald-400 mr-2"></i>Таргет и аналитика</span>
+        </div>
+    </div>
+</section>
+
+<!-- АВТОР -->
+<section class="py-20 ember-bg border-t border-slate-900">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 reveal">
+            <img src="/avatar.webp" alt="Владислав Сарамуд — автор курса GPT-Шашлык" class="w-32 h-32 rounded-2xl border-2 border-orange-500/60 object-cover flex-shrink-0" width="128" height="128">
+            <div>
+                <div class="text-orange-400 text-xs font-bold uppercase tracking-wider mb-1">Автор курса</div>
+                <h2 class="text-2xl font-extrabold text-white mb-3">Владислав Сарамуд</h2>
+                <p class="text-slate-300 text-sm leading-relaxed mb-3">Маркетинг-директор, 6+ лет в digital. Управлял рекламными бюджетами 2+ млрд ₽/год, руководил командой из 17 таргетологов. Внедряю нейросети в маркетинг EdTech, недвижимости и B2B.</p>
+                <p class="text-slate-400 text-sm leading-relaxed">GPT-Шашлык — это выжимка из реальной практики: всё, что я сам использую для контента и продаж, упакованное в формат «повторяй за мной».</p>
+                <div class="flex gap-4 mt-4 text-sm">
+                    <a href="https://t.me/saramudvlad" target="_blank" rel="noopener" class="text-orange-400 hover:text-orange-300 font-semibold transition"><i class="fab fa-telegram mr-1"></i>Telegram-канал</a>
+                    <a href="/blog/" class="text-slate-400 hover:text-white transition"><i class="fas fa-book-open mr-1"></i>Статьи</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ТАРИФЫ -->
+<section id="tarify" class="py-20 border-t border-slate-900 relative overflow-hidden">
+    <div class="embers" id="embers2"></div>
+    <div class="max-w-6xl mx-auto px-4 relative z-10">
+        <div class="text-center mb-14">
+            <span class="text-orange-400 text-sm font-bold uppercase tracking-wider reveal">Тарифы</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2 reveal">Выбери свою прожарку</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
+            <!-- Проба Огня -->
+            <div class="tariff-card reveal d1 bg-slate-900/50 border border-slate-700 rounded-2xl p-8 flex flex-col">
+                <div class="text-slate-400 font-bold text-xs mb-2 uppercase tracking-wider">Lead Magnet</div>
+                <h3 class="text-2xl font-bold text-white mb-1">🧪 Проба Огня</h3>
+                <div class="text-4xl font-black text-white my-5">0 ₽</div>
+                <p class="text-slate-400 text-sm mb-5">База из 2000+ промптов для старта. Просто скопируй и вставь.</p>
+                <ul class="text-sm text-slate-300 space-y-2.5 mb-6 flex-grow">
+                    <li><i class="fas fa-check text-slate-500 mr-2"></i>2000+ промптов по маркетингу</li>
+                    <li><i class="fas fa-check text-slate-500 mr-2"></i>Формат: онлайн-база (Notion)</li>
+                    <li><i class="fas fa-check text-slate-500 mr-2"></i>Доступ навсегда</li>
+                </ul>
+                <a href="https://feather-building-c02.notion.site/17917196174e806aabd4d32279ad0951" target="_blank" rel="noopener" class="block w-full py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold text-center rounded-lg transition">Забрать базу</a>
+            </div>
+
+            <!-- Шампур-Lite -->
+            <div class="tariff-card reveal d2 bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl p-8 border border-orange-500/50 relative flex flex-col md:-translate-y-3 shadow-2xl shadow-orange-900/20">
+                <div class="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">ХИТ</div>
+                <div class="text-orange-400 font-bold text-xs mb-2 uppercase tracking-wider">Базовый</div>
+                <h3 class="text-2xl font-bold text-white mb-1">🥩 Шампур-Lite</h3>
+                <div class="text-4xl font-black text-white my-5">3 490 ₽</div>
+                <p class="text-slate-400 text-sm mb-5">Полный цикл создания AI-контента от идеи до готового ролика.</p>
+                <ul class="text-sm text-slate-300 space-y-2.5 mb-6 flex-grow">
+                    <li><i class="fas fa-play-circle text-orange-500 mr-2"></i><b>7 видеоуроков</b></li>
+                    <li><i class="fas fa-check text-orange-500 mr-2"></i>Контент-план за минуту</li>
+                    <li><i class="fas fa-check text-orange-500 mr-2"></i>Сценарии, аватары, монтаж</li>
+                    <li><i class="fas fa-gift text-orange-500 mr-2"></i>2000+ промптов в комплекте</li>
+                    <li><i class="fab fa-telegram text-orange-500 mr-2"></i>Закрытый Telegram-канал</li>
+                </ul>
+                <a href="https://web.tribute.tg/s/NLk" target="_blank" rel="noopener" class="block w-full py-3 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white font-bold text-center rounded-lg transition">Купить курс</a>
+            </div>
+
+            <!-- Шашлык PRO -->
+            <div class="tariff-card reveal d3 bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl p-8 border-2 border-emerald-500 relative flex flex-col md:-translate-y-6 shadow-2xl shadow-emerald-900/30 z-10">
+                <div class="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">ВЫБОР ПРОФИ</div>
+                <div class="text-emerald-400 font-bold text-xs mb-2 uppercase tracking-wider">Для бизнеса</div>
+                <h3 class="text-2xl font-bold text-white mb-1">👑 Шашлык PRO</h3>
+                <div class="text-4xl font-black text-white my-5">4 900 ₽</div>
+                <p class="text-slate-400 text-sm mb-5">Контент + трафик + автоворонка. Система, которая приносит заявки.</p>
+                <ul class="text-sm text-slate-300 space-y-2.5 mb-6 flex-grow">
+                    <li><i class="fas fa-play-circle text-emerald-500 mr-2"></i><b>11 видеоуроков</b></li>
+                    <li><i class="fas fa-plus-circle text-emerald-500 mr-2"></i>Блок по трафику и KPI</li>
+                    <li><i class="fas fa-check text-emerald-500 mr-2"></i>Аналитика подрядчиков</li>
+                    <li><i class="fas fa-check text-emerald-500 mr-2"></i>Запуск автоворонки</li>
+                    <li><i class="fas fa-gift text-emerald-500 mr-2"></i>Навсегда + бонусы</li>
+                </ul>
+                <a href="https://web.tribute.tg/s/wKx" target="_blank" rel="noopener" class="block w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-center rounded-lg transition">Стать PRO</a>
+            </div>
+        </div>
+
+        <!-- Гарантия -->
+        <div class="max-w-2xl mx-auto mt-12 reveal">
+            <div class="bg-emerald-950/30 border border-emerald-700/40 rounded-2xl p-6 flex items-start gap-4">
+                <i class="fas fa-shield-halved text-emerald-400 text-2xl mt-1"></i>
+                <div>
+                    <h3 class="font-bold text-white mb-1">Гарантия результата</h3>
+                    <p class="text-slate-300 text-sm">Если за 30 дней на твоих 30 новых роликах не наберётся более 1000 просмотров — верну деньги. Я уверен в методике.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-20 ember-bg border-t border-slate-900">
+    <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white text-center mb-12 reveal">Частые вопросы</h2>
+        <div class="space-y-4">
+            <details class="reveal bg-slate-900/60 border border-slate-800 rounded-xl p-5 group">
+                <summary class="flex justify-between items-center font-bold text-white">Я живу не в РФ. Как оплатить?<span class="text-orange-500 group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                <p class="faq-body text-slate-400 text-sm mt-3">Оплата принимается из любой страны мира через сервис <b>Tribute</b> — он работает с зарубежными картами.</p>
+            </details>
+            <details class="reveal bg-slate-900/60 border border-slate-800 rounded-xl p-5 group">
+                <summary class="flex justify-between items-center font-bold text-white">Я новичок в технологиях. Разберусь?<span class="text-orange-500 group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                <p class="faq-body text-slate-400 text-sm mt-3">Абсолютно. Курс записан в формате «повторяй за мной» — каждый шаг разобран до мелочей, получается даже у тех, кто с компьютером на «Вы».</p>
+            </details>
+            <details class="reveal bg-slate-900/60 border border-slate-800 rounded-xl p-5 group">
+                <summary class="flex justify-between items-center font-bold text-white">Нужно покупать платные подписки на нейросети?<span class="text-orange-500 group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                <p class="faq-body text-slate-400 text-sm mt-3">Необязательно — можно работать на бесплатных тарифах. В курсе подробно показано, как оплачивать зарубежные сервисы из РФ и в чём отличия платных версий для масштабирования.</p>
+            </details>
+            <details class="reveal bg-slate-900/60 border border-slate-800 rounded-xl p-5 group">
+                <summary class="flex justify-between items-center font-bold text-white">Подойдёт ли для моей ниши?<span class="text-orange-500 group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                <p class="faq-body text-slate-400 text-sm mt-3">Да, если услугу или товар можно продавать через интернет. Методика универсальна: от вязания и астрологии до недвижимости и автозапчастей.</p>
+            </details>
+            <details class="reveal bg-slate-900/60 border border-slate-800 rounded-xl p-5 group">
+                <summary class="flex justify-between items-center font-bold text-white">Чем Lite отличается от PRO?<span class="text-orange-500 group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                <p class="faq-body text-slate-400 text-sm mt-3"><b>Шампур-Lite</b> (7 уроков) — полный цикл создания контента: промпты, аватар, озвучка, монтаж. <b>Шашлык PRO</b> (11 уроков) добавляет блок по трафику, KPI-аналитике и запуску автоворонки — для тех, кому нужны заявки, а не только просмотры.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- ФИНАЛЬНЫЙ CTA -->
+<section class="py-20 border-t border-slate-900 relative overflow-hidden">
+    <div class="embers" id="embers3"></div>
+    <div class="max-w-3xl mx-auto px-4 text-center relative z-10">
+        <div class="text-5xl mb-6 flame-flicker inline-block">🔥</div>
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-5 reveal">Угли уже горячие.<br><span class="fire-text">Пора жарить контент.</span></h2>
+        <p class="text-slate-300 max-w-xl mx-auto mb-10 reveal">Первый AI-ролик ты соберёшь сегодня же. Дальше — только повторяй за мной.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center reveal">
+            <a href="#tarify" class="pulse-cta inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white font-bold px-8 py-4 rounded-xl transition text-base"><i class="fas fa-fire"></i> Выбрать тариф</a>
+            <a href="https://feather-building-c02.notion.site/17917196174e806aabd4d32279ad0951" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-slate-800/70 hover:bg-slate-700 text-white font-semibold px-7 py-4 rounded-xl transition text-base border border-slate-700"><i class="fas fa-gift text-orange-400"></i> Сначала промпты бесплатно</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#070403] border-t border-slate-900 py-12">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+        <a href="/" class="inline-flex items-center justify-center gap-2 text-white font-bold text-lg mb-4">
+            <div class="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center text-sm">🍖</div>
+            GPT-Шашлык
+        </a>
+        <p class="text-slate-500 text-sm mb-6">Курс по нейросетям для контента и продаж от Владислава Сарамуда</p>
+        <div class="flex items-center justify-center gap-6 text-sm text-slate-500 mb-8">
+            <a href="/" class="hover:text-white transition">Главная</a>
+            <a href="/blog/" class="hover:text-white transition">Блог</a>
+            <a href="/services/" class="hover:text-white transition">Услуги</a>
+            <a href="https://t.me/saramudvlad" target="_blank" rel="noopener" class="hover:text-white transition">Telegram</a>
+        </div>
+        <div class="text-xs text-slate-600 leading-relaxed">
+            <p>ИП Заложкова Юлия Николаевна · ИНН 323300071802 · lookcam@mail.ru</p>
+            <p class="mt-1">© 2026 GPT-Шашлык. Все права защищены.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Парящие угольки
+function spawnEmbers(id, count) {
+    var box = document.getElementById(id);
+    if (!box) return;
+    for (var i = 0; i < count; i++) {
+        var e = document.createElement('span');
+        e.className = 'ember';
+        e.style.left = Math.random() * 100 + '%';
+        e.style.animationDuration = (5 + Math.random() * 7) + 's';
+        e.style.animationDelay = (Math.random() * 6) + 's';
+        var s = 3 + Math.random() * 5;
+        e.style.width = s + 'px'; e.style.height = s + 'px';
+        box.appendChild(e);
+    }
+}
+spawnEmbers('embers', 28);
+spawnEmbers('embers2', 14);
+spawnEmbers('embers3', 14);
+
+// Появление при скролле
+var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(en) {
+        if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
+    });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal:not(.visible)').forEach(function(el) { io.observe(el); });
+
+// Счётчики
+function animateCount(el) {
+    var target = parseInt(el.dataset.count, 10);
+    var suffix = el.dataset.suffix || '';
+    var dur = 1400, start = null;
+    function step(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var val = Math.floor(p * target);
+        el.textContent = val.toLocaleString('ru-RU') + suffix;
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = target.toLocaleString('ru-RU') + suffix;
+    }
+    requestAnimationFrame(step);
+}
+var countIO = new IntersectionObserver(function(entries) {
+    entries.forEach(function(en) {
+        if (en.isIntersecting) { animateCount(en.target); countIO.unobserve(en.target); }
+    });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe(el); });
+
+// Плавный скролл по якорям
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+        var t = document.querySelector(this.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+});
+</script>
+
+</body>
+</html>
