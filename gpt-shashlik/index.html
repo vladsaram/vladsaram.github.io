@@ -1214,7 +1214,9 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
         toggleControls();
     }
     function render() {
-        track.style.transform = 'translateX(-' + (index * (100 / perView())) + '%)';
+        var pv = perView();
+        Array.prototype.forEach.call(track.children, function(s) { s.style.minWidth = (100 / pv) + '%'; });
+        track.style.transform = 'translateX(-' + (index * (100 / pv)) + '%)';
         dotsBox.querySelectorAll('.car-dot').forEach(function(d, i) { d.classList.toggle('active', i === index); });
     }
     function go(n) { var mx = maxIndex(); index = n < 0 ? mx : (n > mx ? 0 : n); render(); }
