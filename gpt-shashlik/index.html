@@ -167,8 +167,28 @@
 
         .grain { background-image: linear-gradient(135deg, rgba(255,255,255,.02) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.02) 50%, rgba(255,255,255,.02) 75%, transparent 75%); background-size: 6px 6px; }
 
+        /* Поток механизма */
+        .flow-line { height: 3px; background: linear-gradient(90deg, transparent, #f97316, #ef4444, transparent); background-size: 200% 100%; animation: flowMove 2.2s linear infinite; }
+        @keyframes flowMove { to { background-position: -200% 0; } }
+        .flow-node { transition: transform .3s ease, box-shadow .3s ease; }
+        .flow-node:hover { transform: translateY(-4px); box-shadow: 0 16px 40px -16px rgba(249,115,22,0.4); }
+
+        /* Сравнение */
+        .vs-bad { border-left: 3px solid rgba(239,68,68,0.6); }
+        .vs-good { border-left: 3px solid rgba(16,185,129,0.6); }
+
+        /* Лента отзывов */
+        .marquee-mask { -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+        .marquee { display: flex; gap: 1.25rem; width: max-content; animation: scrollX 44s linear infinite; }
+        .marquee:hover { animation-play-state: paused; }
+        @keyframes scrollX { to { transform: translateX(-50%); } }
+
+        /* Объекции */
+        .obj-card { transition: border-color .3s ease, background .3s ease; }
+        .obj-card[open] { border-color: rgba(249,115,22,0.5); background: rgba(249,115,22,0.04); }
+
         @media (prefers-reduced-motion: reduce) {
-            .fire-text, .ember, .flame-flicker, .pulse-cta::after { animation: none; }
+            .fire-text, .ember, .flame-flicker, .pulse-cta::after, .flow-line, .marquee { animation: none; }
             .reveal { opacity: 1; transform: none; }
         }
     </style>
@@ -261,6 +281,64 @@
                 <h3 class="font-bold text-white mb-2">Контент есть — заявок нет</h3>
                 <p class="text-slate-400 text-sm leading-relaxed">Снимаешь, но просмотры в стол. Нужна связка: контент → трафик → автоворонка → продажа.</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- СЕКРЕТ / МЕХАНИЗМ -->
+<section class="py-20 ember-bg border-t border-slate-900">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <span class="text-orange-400 text-sm font-bold uppercase tracking-wider reveal">Big Idea</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2 reveal">Секрет, который не расскажут на курсах по воронкам</h2>
+        </div>
+
+        <div class="space-y-5 text-slate-300 text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
+            <p class="reveal">Пока на нашем рынке учат неделями «прогревать» аудиторию в сторис, топовые эксперты на Западе продают на сотни миллионов — <span class="text-white font-semibold">без единого прогрева, веба и душещипательных постов.</span></p>
+            <p class="reveal d1">Их секрет — <span class="fire-text font-bold">тянущий маркетинг</span>. Контент не выпрашивает внимание, а сам притягивает нужных людей и убеждает их купить ещё до первого диалога.</p>
+            <p class="reveal d2">GPT-Шашлык даёт тебе этот механизм на нейросетях. Не «снимай больше рилс», а собранная система, которая приводит подписчиков, мгновенно прогревает их и продаёт — на автомате.</p>
+        </div>
+
+        <!-- Поток механизма -->
+        <div class="mt-14">
+            <div class="grid md:grid-cols-4 gap-3 items-stretch">
+                <div class="flow-node reveal bg-slate-900/70 border border-slate-800 rounded-2xl p-5 text-center">
+                    <div class="text-2xl mb-2">💡</div>
+                    <h3 class="font-bold text-white text-sm mb-1">Big Idea</h3>
+                    <p class="text-slate-400 text-xs">Цепляющая идея, от которой невозможно пролистнуть</p>
+                </div>
+                <div class="flow-node reveal d1 bg-slate-900/70 border border-slate-800 rounded-2xl p-5 text-center">
+                    <div class="text-2xl mb-2">🎬</div>
+                    <h3 class="font-bold text-white text-sm mb-1">Продающее видео</h3>
+                    <p class="text-slate-400 text-xs">Reels и TikTok с AI-аватаром и озвучкой</p>
+                </div>
+                <div class="flow-node reveal d2 bg-slate-900/70 border border-slate-800 rounded-2xl p-5 text-center">
+                    <div class="text-2xl mb-2">🧲</div>
+                    <h3 class="font-bold text-white text-sm mb-1">Алгоритм убеждения</h3>
+                    <p class="text-slate-400 text-xs">Зритель прогревается прямо в ролике</p>
+                </div>
+                <div class="flow-node reveal d3 bg-slate-900/70 border border-emerald-700/40 rounded-2xl p-5 text-center">
+                    <div class="text-2xl mb-2">⚙️</div>
+                    <h3 class="font-bold text-white text-sm mb-1">Автоворонка</h3>
+                    <p class="text-slate-400 text-xs">Закрывает на оплату 24/7 без тебя</p>
+                </div>
+            </div>
+            <div class="flow-line rounded-full mt-5 reveal"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ПОЧЕМУ НЕ ПРОДАЁТ -->
+<section class="py-20 border-t border-slate-900">
+    <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white text-center mb-4 reveal">Почему рилсы и сторис больше не приносят денег</h2>
+        <p class="text-slate-400 text-center max-w-2xl mx-auto mb-12 reveal">Давай честно: дело не в тебе. Тебе просто продали не те инструменты.</p>
+
+        <div class="space-y-4">
+            <div class="reveal vs-bad bg-slate-900/50 rounded-xl p-5"><p class="text-slate-300 text-sm"><b class="text-white">Курсы по воронкам переусложнены.</b> Красиво на слайдах — мёртво на практике. Десятки сервисов, которые ещё нужно суметь связать.</p></div>
+            <div class="reveal d1 vs-bad bg-slate-900/50 rounded-xl p-5"><p class="text-slate-300 text-sm"><b class="text-white">Сторис — это вечная работа.</b> Перестал выкладывать — перестал зарабатывать. Ты не владелец системы, ты её раб.</p></div>
+            <div class="reveal d2 vs-bad bg-slate-900/50 rounded-xl p-5"><p class="text-slate-300 text-sm"><b class="text-white">«Просто снимай рилс» уже не работает.</b> Туда влетели все. Сегодня видео без стратегии = пара десятков подписчиков, которых ещё надо прогревать вручную.</p></div>
+            <div class="reveal d3 vs-bad bg-slate-900/50 rounded-xl p-5"><p class="text-slate-300 text-sm"><b class="text-white">А инфоцыгане продолжают продавать «луну».</b> Обещают, что улетишь ту зе мун, а ты тонешь в куче нерабочих инструментов.</p></div>
         </div>
     </div>
 </section>
@@ -388,6 +466,58 @@
     </div>
 </section>
 
+<!-- КАК ВСЕ / КАК ТЫ -->
+<section class="py-20 ember-bg border-t border-slate-900">
+    <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white text-center mb-12 reveal">Как делают все — и как будешь делать ты</h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="reveal d1 bg-slate-900/50 border border-red-900/40 rounded-2xl p-7">
+                <div class="flex items-center gap-2 mb-5">
+                    <div class="w-9 h-9 rounded-lg bg-red-900/40 flex items-center justify-center text-red-400"><i class="fas fa-thumbs-down"></i></div>
+                    <h3 class="font-bold text-white text-lg">Как все</h3>
+                </div>
+                <ul class="space-y-3 text-sm text-slate-400">
+                    <li class="flex gap-2"><i class="fas fa-xmark text-red-500 mt-1"></i>Снимают сторис каждый день — иначе продажи падают</li>
+                    <li class="flex gap-2"><i class="fas fa-xmark text-red-500 mt-1"></i>Прогревают неделями перед каждым запуском</li>
+                    <li class="flex gap-2"><i class="fas fa-xmark text-red-500 mt-1"></i>Проводят десятки бесплатных консультаций «в стол»</li>
+                    <li class="flex gap-2"><i class="fas fa-xmark text-red-500 mt-1"></i>«Опять очередной эксперт» — и зритель листает дальше</li>
+                    <li class="flex gap-2"><i class="fas fa-xmark text-red-500 mt-1"></i>О тебе и твоём оффере по-прежнему никто не знает</li>
+                </ul>
+            </div>
+
+            <div class="reveal d2 bg-gradient-to-b from-emerald-950/30 to-slate-900/50 border border-emerald-600/40 rounded-2xl p-7">
+                <div class="flex items-center gap-2 mb-5">
+                    <div class="w-9 h-9 rounded-lg bg-emerald-900/40 flex items-center justify-center text-emerald-400"><i class="fas fa-bolt"></i></div>
+                    <h3 class="font-bold text-white text-lg">Как ты с GPT-Шашлык</h3>
+                </div>
+                <ul class="space-y-3 text-sm text-slate-300">
+                    <li class="flex gap-2"><i class="fas fa-check text-emerald-500 mt-1"></i>AI-аватар снимает контент за тебя — на потоке</li>
+                    <li class="flex gap-2"><i class="fas fa-check text-emerald-500 mt-1"></i>Видео прогревает зрителя само, с первой секунды</li>
+                    <li class="flex gap-2"><i class="fas fa-check text-emerald-500 mt-1"></i>Холодный трафик покупает без созвонов и вебов</li>
+                    <li class="flex gap-2"><i class="fas fa-check text-emerald-500 mt-1"></i>Алгоритм убеждения встроен прямо в сценарий</li>
+                    <li class="flex gap-2"><i class="fas fa-check text-emerald-500 mt-1"></i>Автоворонка закрывает на оплату круглосуточно</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ПОЧЕМУ СЕЙЧАС -->
+<section class="py-20 border-t border-slate-900 relative overflow-hidden">
+    <div class="embers" id="embers-urg"></div>
+    <div class="max-w-3xl mx-auto px-4 text-center relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-xs font-bold tracking-wider text-red-300 uppercase bg-red-950/50 rounded-full border border-red-500/40 reveal"><i class="fas fa-hourglass-half"></i> Окно возможностей</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6 reveal">Почему заходить нужно сейчас</h2>
+        <div class="space-y-4 text-slate-300 reveal d1">
+            <p>Когда-то работали автовебы и марафоны. Сегодня этих источников трафика просто нет — старые схемы умерли.</p>
+            <p>Рилсы «на удачу» тоже отжили своё: туда бросились все, и одним фактом съёмки видео уже ничего не продашь.</p>
+            <p class="text-white font-semibold">Связка «AI-контент + тянущий маркетинг» ещё свежая. Окно открыто. Те, кто залетит с двух ног сейчас, соберут сливки — пока остальные раскачиваются.</p>
+        </div>
+        <a href="#tarify" class="pulse-cta inline-flex items-center gap-2 mt-10 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white font-bold px-8 py-4 rounded-xl transition reveal d2"><i class="fas fa-fire"></i> Занять место у мангала</a>
+    </div>
+</section>
+
 <!-- АВТОР -->
 <section class="py-20 ember-bg border-t border-slate-900">
     <div class="max-w-4xl mx-auto px-4">
@@ -403,6 +533,103 @@
                     <a href="/blog/" class="text-slate-400 hover:text-white transition"><i class="fas fa-book-open mr-1"></i>Статьи</a>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ОТЗЫВЫ -->
+<section class="py-20 border-t border-slate-900 overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 mb-12">
+        <div class="text-center">
+            <span class="text-orange-400 text-sm font-bold uppercase tracking-wider reveal">Отзывы</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2 reveal">Что говорят ученики</h2>
+        </div>
+    </div>
+
+    <div class="marquee-mask reveal">
+        <div class="marquee">
+            <!-- набор 1 -->
+            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">Собрала первый ролик с аватаром за вечер. Раньше на один рилс уходил весь день со съёмкой и монтажом.</p>
+                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white text-xs font-bold">А</div><div><div class="text-white text-sm font-semibold">Анна</div><div class="text-slate-500 text-xs">эксперт по нутрициологии</div></div></div>
+            </div>
+            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">Зашёл ради промптов, остался ради автоворонки. Заявки капают даже когда я в отпуске и ничего не выкладываю.</p>
+                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold">Д</div><div><div class="text-white text-sm font-semibold">Дмитрий</div><div class="text-slate-500 text-xs">онлайн-школа</div></div></div>
+            </div>
+            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">Я не дружу с техникой, думала не осилю. Формат «повторяй за мной» спас — сделала всё с первого раза.</p>
+                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white text-xs font-bold">М</div><div><div class="text-white text-sm font-semibold">Марина</div><div class="text-slate-500 text-xs">мастер маникюра</div></div></div>
+            </div>
+            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">Голос ElevenLabs не отличить от живого. Клиенты пишут «классное видео», даже не понимают что это AI.</p>
+                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-xs font-bold">И</div><div><div class="text-white text-sm font-semibold">Игорь</div><div class="text-slate-500 text-xs">риелтор</div></div></div>
+            </div>
+            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">Перестал тратить деньги на монтажёра и сценариста. Окупил курс за первую неделю на одной услуге.</p>
+                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white text-xs font-bold">С</div><div><div class="text-white text-sm font-semibold">Сергей</div><div class="text-slate-500 text-xs">фитнес-тренер</div></div></div>
+            </div>
+            <!-- дубль для бесшовной ленты -->
+            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">Собрала первый ролик с аватаром за вечер. Раньше на один рилс уходил весь день со съёмкой и монтажом.</p>
+                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white text-xs font-bold">А</div><div><div class="text-white text-sm font-semibold">Анна</div><div class="text-slate-500 text-xs">эксперт по нутрициологии</div></div></div>
+            </div>
+            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">Зашёл ради промптов, остался ради автоворонки. Заявки капают даже когда я в отпуске и ничего не выкладываю.</p>
+                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold">Д</div><div><div class="text-white text-sm font-semibold">Дмитрий</div><div class="text-slate-500 text-xs">онлайн-школа</div></div></div>
+            </div>
+            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">Я не дружу с техникой, думала не осилю. Формат «повторяй за мной» спас — сделала всё с первого раза.</p>
+                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white text-xs font-bold">М</div><div><div class="text-white text-sm font-semibold">Марина</div><div class="text-slate-500 text-xs">мастер маникюра</div></div></div>
+            </div>
+        </div>
+    </div>
+    <p class="text-center text-xs text-slate-600 mt-6">Наведи курсор, чтобы остановить ленту</p>
+</section>
+
+<!-- ВОЗРАЖЕНИЯ -->
+<section class="py-20 ember-bg border-t border-slate-900">
+    <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white text-center mb-4 reveal">Сомневаешься? Давай по-честному</h2>
+        <p class="text-slate-400 text-center mb-12 reveal">7 возражений, которые наверняка крутятся в голове.</p>
+
+        <div class="space-y-3">
+            <details class="obj-card reveal bg-slate-900/60 border border-slate-800 rounded-xl p-5 group">
+                <summary class="flex justify-between items-center font-bold text-white text-sm">«У меня мало опыта»<span class="text-orange-500 group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                <p class="text-slate-400 text-sm mt-3">Опыт тут не главное. Нейросеть закрывает то, на что у новичка уходят годы: сценарии, визуал, озвучку, монтаж. Тебе остаётся повторять за мной и нажимать кнопки.</p>
+            </details>
+            <details class="obj-card reveal d1 bg-slate-900/60 border border-slate-800 rounded-xl p-5 group">
+                <summary class="flex justify-between items-center font-bold text-white text-sm">«У меня уже большой опыт и дорогие продукты»<span class="text-orange-500 group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                <p class="text-slate-400 text-sm mt-3">Тем более. Тянущий маркетинг и автоворонка снимают с тебя ручной прогрев и созвоны. Дорогой продукт продаётся видео, которое убеждает за тебя — а ты экономишь самый дорогой ресурс, время.</p>
+            </details>
+            <details class="obj-card reveal d2 bg-slate-900/60 border border-slate-800 rounded-xl p-5 group">
+                <summary class="flex justify-between items-center font-bold text-white text-sm">«А подойдёт ли для моей ниши?»<span class="text-orange-500 group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                <p class="text-slate-400 text-sm mt-3">Если твою услугу или товар можно продать через интернет — да. Методика универсальна: от вязания и астрологии до недвижимости и автозапчастей. Меняется только наполнение, механизм один.</p>
+            </details>
+            <details class="obj-card reveal bg-slate-900/60 border border-slate-800 rounded-xl p-5 group">
+                <summary class="flex justify-between items-center font-bold text-white text-sm">«Это сложно, я не разберусь»<span class="text-orange-500 group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                <p class="text-slate-400 text-sm mt-3">Курс записан в формате «повторяй за мной»: каждый шаг разжёван до клика. Если умеешь отправить голосовое в Telegram — осилишь и это.</p>
+            </details>
+            <details class="obj-card reveal d1 bg-slate-900/60 border border-slate-800 rounded-xl p-5 group">
+                <summary class="flex justify-between items-center font-bold text-white text-sm">«А если видео не наберут просмотры?»<span class="text-orange-500 group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                <p class="text-slate-400 text-sm mt-3">Поэтому в основе — алгоритм убеждения, а не «снимай и молись». Плюс гарантия: если за 30 дней на 30 роликах нет 1000+ просмотров, верну деньги. Рискую я, не ты.</p>
+            </details>
+            <details class="obj-card reveal d2 bg-slate-900/60 border border-slate-800 rounded-xl p-5 group">
+                <summary class="flex justify-between items-center font-bold text-white text-sm">«Я просто буду снимать видео и всё»<span class="text-orange-500 group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                <p class="text-slate-400 text-sm mt-3">Так делают все — и тонут в ленте. Видео без Big Idea и без воронки = пара десятков подписчиков, которых ещё надо прогревать руками. Сила в связке, а не в факте съёмки.</p>
+            </details>
+            <details class="obj-card reveal bg-slate-900/60 border border-slate-800 rounded-xl p-5 group">
+                <summary class="flex justify-between items-center font-bold text-white text-sm">«Я сам построю автоворонку»<span class="text-orange-500 group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                <p class="text-slate-400 text-sm mt-3">Можно. Только курсы по воронкам переусложнены, и без контента, который в неё заходит, воронка пустая. Я даю и трафик-контент, и воронку — собранные в одну рабочую систему.</p>
+            </details>
         </div>
     </div>
 </section>
@@ -562,6 +789,7 @@ function spawnEmbers(id, count) {
 spawnEmbers('embers', 28);
 spawnEmbers('embers2', 14);
 spawnEmbers('embers3', 14);
+spawnEmbers('embers-urg', 12);
 
 // Появление при скролле
 var io = new IntersectionObserver(function(entries) {
