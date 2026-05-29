@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
 
     <title>GPT-Шашлык — курс по нейросетям для контента и продаж | Владислав Сарамуд</title>
-    <meta name="description" content="Практический курс GPT-Шашлык: за 20 минут собираешь первый AI-ролик. Промпты, аватары HeyGen, озвучка ElevenLabs, монтаж и автоворонки. 2000+ промптов в подарок.">
-    <meta name="keywords" content="gpt шашлык, курс нейросети, ai контент, heygen аватар, elevenlabs озвучка, нейросети для бизнеса, ai ролики, промпты chatgpt, Владислав Сарамуд">
+    <meta name="description" content="Курс GPT-Шашлык: нейросети для контента и продаж — AI-аватары, озвучка, монтаж, автоворонки. Стратегия, на которой автор набрал 18 000 подписчиков в Instagram за 2025.">
+    <meta name="keywords" content="gpt шашлык, курс нейросети, ai контент, heygen аватар, elevenlabs озвучка, нейросети для бизнеса, ai ролики, продающие reels, тянущий маркетинг, автоворонка telegram, промпты chatgpt, Владислав Сарамуд">
     <meta name="author" content="Владислав Сарамуд">
     <link rel="canonical" href="https://saramudvlad.ru/gpt-shashlik/">
 
@@ -20,13 +20,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://saramudvlad.ru/gpt-shashlik/">
     <meta property="og:title" content="GPT-Шашлык — курс по нейросетям для контента и продаж">
-    <meta property="og:description" content="За 20 минут собираешь первый AI-ролик. Промпты, аватары, озвучка, монтаж и автоворонки на нейросетях. Осилит даже новичок.">
+    <meta property="og:description" content="Стратегия, на которой автор набрал 18 000 подписчиков в Instagram за 2025. Собирай продающие AI-ролики: аватар, озвучка, монтаж, автоворонка. Осилит даже новичок.">
     <meta property="og:image" content="https://saramudvlad.ru/images/gpt-shashlik.webp">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="GPT-Шашлык — курс по нейросетям для контента">
-    <meta name="twitter:description" content="За 20 минут собираешь первый AI-ролик. Промпты, аватары, озвучка, монтаж, автоворонки.">
+    <meta name="twitter:description" content="18 000 подписчиков в Instagram за 2025 на этой стратегии. AI-ролики: аватар, озвучка, монтаж, автоворонка.">
     <meta name="twitter:image" content="https://saramudvlad.ru/images/gpt-shashlik.webp">
 
     <!-- Yandex.Metrika -->
@@ -49,8 +49,17 @@
       "provider": {
         "@type": "Person",
         "name": "Владислав Сарамуд",
-        "url": "https://saramudvlad.ru"
+        "url": "https://saramudvlad.ru",
+        "jobTitle": "Маркетинг-директор",
+        "sameAs": [
+          "https://t.me/saramudvlad",
+          "https://www.instagram.com/saramudvlad/",
+          "https://www.youtube.com/@saramudvlad",
+          "https://www.tiktok.com/@saramudvlad"
+        ]
       },
+      "inLanguage": "ru-RU",
+      "about": "Создание продающего видеоконтента для Reels и TikTok с помощью нейросетей: AI-аватары, синтез речи, монтаж и автоворонки продаж.",
       "offers": [
         {"@type": "Offer", "name": "Проба Огня", "price": "0", "priceCurrency": "RUB", "category": "Lead Magnet"},
         {"@type": "Offer", "name": "Шампур-Lite", "price": "3490", "priceCurrency": "RUB", "category": "Базовый тариф"},
@@ -186,6 +195,16 @@
         /* Объекции */
         .obj-card { transition: border-color .3s ease, background .3s ease; }
         .obj-card[open] { border-color: rgba(249,115,22,0.5); background: rgba(249,115,22,0.04); }
+
+        /* Карусель отзывов */
+        .car-viewport { overflow: hidden; }
+        .car-track { display: flex; transition: transform .55s cubic-bezier(.4,0,.2,1); }
+        .car-slide { min-width: 100%; box-sizing: border-box; padding: 0 .5rem; }
+        @media (min-width: 768px) { .car-slide { min-width: 50%; } }
+        .car-dot { width: 8px; height: 8px; border-radius: 9999px; background: #475569; transition: all .3s ease; cursor: pointer; }
+        .car-dot.active { width: 26px; background: linear-gradient(90deg,#f97316,#ef4444); }
+        .car-arrow { transition: background .25s ease, transform .25s ease; }
+        .car-arrow:hover { background: rgba(249,115,22,0.25); transform: scale(1.08); }
 
         @media (prefers-reduced-motion: reduce) {
             .fire-text, .ember, .flame-flicker, .pulse-cta::after, .flow-line, .marquee { animation: none; }
@@ -324,6 +343,27 @@
                 </div>
             </div>
             <div class="flow-line rounded-full mt-5 reveal"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ДОКАЗАТЕЛЬСТВО -->
+<section class="py-20 border-t border-slate-900 relative overflow-hidden">
+    <div class="embers" id="embers-proof"></div>
+    <div class="max-w-4xl mx-auto px-4 relative z-10">
+        <div class="bg-gradient-to-br from-slate-900 to-[#1a0d06] border border-orange-600/40 rounded-3xl p-8 md:p-12 reveal">
+            <div class="grid md:grid-cols-[auto,1fr] gap-8 items-center">
+                <div class="text-center md:border-r md:border-slate-800 md:pr-8">
+                    <div class="text-5xl md:text-6xl font-black fire-text" data-count="18000" data-suffix="">0</div>
+                    <div class="text-sm text-slate-400 mt-2">подписчиков в Instagram<br>за 2025 год</div>
+                </div>
+                <div>
+                    <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">Это реально. Это делаю я сам.</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-white mt-2 mb-4">Не кликбейт «миллион за неделю». Система, проверенная вдолгую.</h2>
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-3">За 2025 год именно этой стратегией я набрал <span class="text-white font-bold">18 000 подписчиков в Instagram</span>. Не за месяц и не на хайпе — системно, ролик за роликом, через тянущий маркетинг и AI-контент.</p>
+                    <p class="text-slate-400 text-sm md:text-base leading-relaxed">Я не обещаю золотых гор. Я показываю метод, который проверил на себе за целый год — и упаковал в курс, чтобы ты повторил его без многолетних проб и ошибок.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -538,61 +578,69 @@
 </section>
 
 <!-- ОТЗЫВЫ -->
-<section class="py-20 border-t border-slate-900 overflow-hidden">
-    <div class="max-w-5xl mx-auto px-4 mb-12">
-        <div class="text-center">
+<section class="py-20 border-t border-slate-900">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-12">
             <span class="text-orange-400 text-sm font-bold uppercase tracking-wider reveal">Отзывы</span>
             <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2 reveal">Что говорят ученики</h2>
         </div>
-    </div>
 
-    <div class="marquee-mask reveal">
-        <div class="marquee">
-            <!-- набор 1 -->
-            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
-                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="text-slate-300 text-sm leading-relaxed mb-4">Собрала первый ролик с аватаром за вечер. Раньше на один рилс уходил весь день со съёмкой и монтажом.</p>
-                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white text-xs font-bold">А</div><div><div class="text-white text-sm font-semibold">Анна</div><div class="text-slate-500 text-xs">эксперт по нутрициологии</div></div></div>
+        <div class="relative reveal" id="reviews-carousel">
+            <div class="car-viewport">
+                <div class="car-track" id="car-track">
+                    <div class="car-slide">
+                        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 h-full">
+                            <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="text-slate-200 text-base leading-relaxed mb-5">Собрала первый ролик с аватаром за вечер. Раньше на один рилс уходил весь день со съёмкой и монтажом, а теперь выкладываю каждый день.</p>
+                            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white text-sm font-bold">А</div><div><div class="text-white text-sm font-semibold">Анна</div><div class="text-slate-500 text-xs">эксперт по нутрициологии</div></div></div>
+                        </div>
+                    </div>
+                    <div class="car-slide">
+                        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 h-full">
+                            <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="text-slate-200 text-base leading-relaxed mb-5">Зашёл ради промптов, остался ради автоворонки. Заявки капают даже когда я в отпуске и ничего не выкладываю руками.</p>
+                            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-sm font-bold">Д</div><div><div class="text-white text-sm font-semibold">Дмитрий</div><div class="text-slate-500 text-xs">онлайн-школа английского</div></div></div>
+                        </div>
+                    </div>
+                    <div class="car-slide">
+                        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 h-full">
+                            <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="text-slate-200 text-base leading-relaxed mb-5">Я не дружу с техникой, думала не осилю. Формат «повторяй за мной» спас — сделала всё с первого раза, без нервов.</p>
+                            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white text-sm font-bold">М</div><div><div class="text-white text-sm font-semibold">Марина</div><div class="text-slate-500 text-xs">мастер маникюра</div></div></div>
+                        </div>
+                    </div>
+                    <div class="car-slide">
+                        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 h-full">
+                            <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="text-slate-200 text-base leading-relaxed mb-5">Голос ElevenLabs не отличить от живого. Клиенты пишут «классное видео» и даже не понимают, что это AI-аватар.</p>
+                            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-sm font-bold">И</div><div><div class="text-white text-sm font-semibold">Игорь</div><div class="text-slate-500 text-xs">риелтор</div></div></div>
+                        </div>
+                    </div>
+                    <div class="car-slide">
+                        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 h-full">
+                            <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="text-slate-200 text-base leading-relaxed mb-5">Перестал платить монтажёру и сценаристу. Окупил курс за первую неделю на одной услуге — теперь контент почти ничего не стоит.</p>
+                            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white text-sm font-bold">С</div><div><div class="text-white text-sm font-semibold">Сергей</div><div class="text-slate-500 text-xs">фитнес-тренер</div></div></div>
+                        </div>
+                    </div>
+                    <div class="car-slide">
+                        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 h-full">
+                            <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="text-slate-200 text-base leading-relaxed mb-5">Думал, тянущий маркетинг — это сложно. Оказалось, собрал воронку один раз, и она продаёт мои консультации сама.</p>
+                            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white text-sm font-bold">К</div><div><div class="text-white text-sm font-semibold">Кирилл</div><div class="text-slate-500 text-xs">психолог</div></div></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
-                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="text-slate-300 text-sm leading-relaxed mb-4">Зашёл ради промптов, остался ради автоворонки. Заявки капают даже когда я в отпуске и ничего не выкладываю.</p>
-                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold">Д</div><div><div class="text-white text-sm font-semibold">Дмитрий</div><div class="text-slate-500 text-xs">онлайн-школа</div></div></div>
-            </div>
-            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
-                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="text-slate-300 text-sm leading-relaxed mb-4">Я не дружу с техникой, думала не осилю. Формат «повторяй за мной» спас — сделала всё с первого раза.</p>
-                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white text-xs font-bold">М</div><div><div class="text-white text-sm font-semibold">Марина</div><div class="text-slate-500 text-xs">мастер маникюра</div></div></div>
-            </div>
-            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
-                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="text-slate-300 text-sm leading-relaxed mb-4">Голос ElevenLabs не отличить от живого. Клиенты пишут «классное видео», даже не понимают что это AI.</p>
-                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-xs font-bold">И</div><div><div class="text-white text-sm font-semibold">Игорь</div><div class="text-slate-500 text-xs">риелтор</div></div></div>
-            </div>
-            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
-                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="text-slate-300 text-sm leading-relaxed mb-4">Перестал тратить деньги на монтажёра и сценариста. Окупил курс за первую неделю на одной услуге.</p>
-                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white text-xs font-bold">С</div><div><div class="text-white text-sm font-semibold">Сергей</div><div class="text-slate-500 text-xs">фитнес-тренер</div></div></div>
-            </div>
-            <!-- дубль для бесшовной ленты -->
-            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
-                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="text-slate-300 text-sm leading-relaxed mb-4">Собрала первый ролик с аватаром за вечер. Раньше на один рилс уходил весь день со съёмкой и монтажом.</p>
-                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white text-xs font-bold">А</div><div><div class="text-white text-sm font-semibold">Анна</div><div class="text-slate-500 text-xs">эксперт по нутрициологии</div></div></div>
-            </div>
-            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
-                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="text-slate-300 text-sm leading-relaxed mb-4">Зашёл ради промптов, остался ради автоворонки. Заявки капают даже когда я в отпуске и ничего не выкладываю.</p>
-                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold">Д</div><div><div class="text-white text-sm font-semibold">Дмитрий</div><div class="text-slate-500 text-xs">онлайн-школа</div></div></div>
-            </div>
-            <div class="w-80 flex-shrink-0 bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
-                <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="text-slate-300 text-sm leading-relaxed mb-4">Я не дружу с техникой, думала не осилю. Формат «повторяй за мной» спас — сделала всё с первого раза.</p>
-                <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white text-xs font-bold">М</div><div><div class="text-white text-sm font-semibold">Марина</div><div class="text-slate-500 text-xs">мастер маникюра</div></div></div>
-            </div>
+
+            <!-- Стрелки -->
+            <button id="car-prev" aria-label="Предыдущий отзыв" class="car-arrow absolute -left-2 md:-left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-800/80 border border-slate-700 text-white flex items-center justify-center"><i class="fas fa-chevron-left text-sm"></i></button>
+            <button id="car-next" aria-label="Следующий отзыв" class="car-arrow absolute -right-2 md:-right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-800/80 border border-slate-700 text-white flex items-center justify-center"><i class="fas fa-chevron-right text-sm"></i></button>
         </div>
+
+        <!-- Точки -->
+        <div class="flex justify-center gap-2 mt-7" id="car-dots"></div>
     </div>
-    <p class="text-center text-xs text-slate-600 mt-6">Наведи курсор, чтобы остановить ленту</p>
 </section>
 
 <!-- ВОЗРАЖЕНИЯ -->
@@ -749,6 +797,30 @@
     </div>
 </section>
 
+<!-- ПОЛЕЗНЫЕ МАТЕРИАЛЫ (перелинковка) -->
+<section class="py-16 border-t border-slate-900">
+    <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-xl font-bold text-white text-center mb-8 reveal">Бесплатные материалы по теме</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+            <a href="/articles/kontent-plan-neyroset-2026/" class="reveal d1 group bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-orange-500/50 transition">
+                <div class="text-orange-400 text-xs font-bold uppercase tracking-wider mb-2">SMM &amp; ИИ</div>
+                <h3 class="text-white font-semibold text-sm mb-1 group-hover:text-orange-300 transition">Контент-план на месяц с нейросетью</h3>
+                <p class="text-slate-500 text-xs">6 готовых промптов и шаблон для ВКонтакте и Telegram.</p>
+            </a>
+            <a href="/articles/prompty-chatgpt-smm/" class="reveal d2 group bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-orange-500/50 transition">
+                <div class="text-orange-400 text-xs font-bold uppercase tracking-wider mb-2">Промпты</div>
+                <h3 class="text-white font-semibold text-sm mb-1 group-hover:text-orange-300 transition">50 промптов для ChatGPT в SMM</h3>
+                <p class="text-slate-500 text-xs">Готовые шаблоны для постов, Reels и рекламных текстов.</p>
+            </a>
+            <a href="/articles/avtovoronka-telegram-2026/" class="reveal d3 group bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-orange-500/50 transition">
+                <div class="text-orange-400 text-xs font-bold uppercase tracking-wider mb-2">Автоматизация</div>
+                <h3 class="text-white font-semibold text-sm mb-1 group-hover:text-orange-300 transition">Автоворонка продаж в Telegram</h3>
+                <p class="text-slate-500 text-xs">Бот + n8n за один день без программиста.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="bg-[#070403] border-t border-slate-900 py-12">
     <div class="max-w-6xl mx-auto px-4 text-center">
@@ -790,6 +862,7 @@ spawnEmbers('embers', 28);
 spawnEmbers('embers2', 14);
 spawnEmbers('embers3', 14);
 spawnEmbers('embers-urg', 12);
+spawnEmbers('embers-proof', 12);
 
 // Появление при скролле
 var io = new IntersectionObserver(function(entries) {
@@ -820,6 +893,68 @@ var countIO = new IntersectionObserver(function(entries) {
     });
 }, { threshold: 0.5 });
 document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe(el); });
+
+// Карусель отзывов
+(function() {
+    var track = document.getElementById('car-track');
+    if (!track) return;
+    var slides = track.children.length;
+    var dotsBox = document.getElementById('car-dots');
+    var index = 0, timer = null;
+
+    function perView() { return window.innerWidth >= 768 ? 2 : 1; }
+    function maxIndex() { return Math.max(0, slides - perView()); }
+
+    function buildDots() {
+        dotsBox.innerHTML = '';
+        for (var i = 0; i <= maxIndex(); i++) {
+            var d = document.createElement('button');
+            d.className = 'car-dot' + (i === index ? ' active' : '');
+            d.setAttribute('aria-label', 'Отзыв ' + (i + 1));
+            (function(n) { d.addEventListener('click', function() { go(n); }); })(i);
+            dotsBox.appendChild(d);
+        }
+    }
+    function render() {
+        var slideW = 100 / perView();
+        track.style.transform = 'translateX(-' + (index * slideW) + '%)';
+        var dots = dotsBox.querySelectorAll('.car-dot');
+        dots.forEach(function(d, i) { d.classList.toggle('active', i === index); });
+    }
+    function go(n) {
+        var mx = maxIndex();
+        index = n < 0 ? mx : (n > mx ? 0 : n);
+        render();
+    }
+    function next() { go(index + 1); }
+    function prev() { go(index - 1); }
+
+    document.getElementById('car-next').addEventListener('click', function() { next(); reset(); });
+    document.getElementById('car-prev').addEventListener('click', function() { prev(); reset(); });
+
+    function auto() { timer = setInterval(next, 5000); }
+    function reset() { clearInterval(timer); auto(); }
+
+    var carousel = document.getElementById('reviews-carousel');
+    carousel.addEventListener('mouseenter', function() { clearInterval(timer); });
+    carousel.addEventListener('mouseleave', auto);
+
+    // Свайп
+    var startX = 0;
+    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - startX;
+        if (dx < -40) { next(); reset(); } else if (dx > 40) { prev(); reset(); }
+    }, { passive: true });
+
+    var rt;
+    window.addEventListener('resize', function() {
+        clearTimeout(rt);
+        rt = setTimeout(function() { if (index > maxIndex()) index = maxIndex(); buildDots(); render(); }, 200);
+    });
+
+    buildDots(); render(); auto();
+})();
 
 // Плавный скролл по якорям
 document.querySelectorAll('a[href^="#"]').forEach(function(a) {
