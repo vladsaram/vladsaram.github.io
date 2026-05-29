@@ -220,6 +220,13 @@
         .old-price { position: relative; color: #64748b; font-weight: 700; }
         .old-price::after { content:''; position:absolute; left:-2px; right:-2px; top:52%; height:2px; background:#ef4444; transform:rotate(-8deg); }
 
+        /* Липкая плашка акции */
+        .promo-bar { transform: translateY(-100%); transition: transform .4s ease; will-change: transform; }
+        .promo-bar.show { transform: translateY(0); }
+        #site-nav { transition: top .4s ease; }
+        body.promo-on #site-nav { top: 36px; }
+        @media (max-width: 640px) { body.promo-on #site-nav { top: 44px; } }
+
         @media (prefers-reduced-motion: reduce) {
             .fire-text, .ember, .flame-flicker, .pulse-cta::after, .flow-line, .marquee { animation: none; }
             .reveal { opacity: 1; transform: none; }
@@ -228,8 +235,16 @@
 </head>
 <body class="antialiased selection:bg-orange-500 selection:text-white">
 
+<!-- ЛИПКАЯ ПЛАШКА АКЦИИ -->
+<a href="#tarify" id="promo-bar" class="promo-bar fixed top-0 left-0 right-0 z-[55] bg-gradient-to-r from-orange-600 to-red-600 text-white text-center py-2 px-4 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 flex-wrap">
+    <i class="fas fa-fire-flame-curved"></i>
+    <span>Акция −41%: цены вырастут через</span>
+    <span class="font-black tabular-nums" id="promo-timer">07:00:00:00</span>
+    <span class="hidden sm:inline underline underline-offset-2">Забрать курс →</span>
+</a>
+
 <!-- НАВИГАЦИЯ -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0604]/90 backdrop-blur-md border-b border-orange-900/30">
+<nav id="site-nav" class="fixed top-0 left-0 right-0 z-50 bg-[#0a0604]/90 backdrop-blur-md border-b border-orange-900/30">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <a href="/" class="flex items-center gap-2 text-white font-bold text-lg">
             <div class="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center text-sm">🍖</div>
@@ -637,19 +652,73 @@
             </div>
         </div>
 
-        <!-- КАРУСЕЛЬ СКРИНШОТОВ ОТЗЫВОВ (авто-загрузка /images/otziv-N.webp) -->
+        <!-- РЕАЛЬНЫЕ СКРИНШОТЫ (Никита + стилисты) -->
         <div class="text-center mb-6 reveal">
-            <span class="inline-flex items-center gap-2 text-xs font-bold text-orange-300 uppercase tracking-wider bg-orange-950/40 border border-orange-500/30 rounded-full px-3 py-1"><i class="fas fa-comments"></i> Реальные отзывы и результаты</span>
+            <span class="inline-flex items-center gap-2 text-xs font-bold text-orange-300 uppercase tracking-wider bg-orange-950/40 border border-orange-500/30 rounded-full px-3 py-1"><i class="fas fa-comments"></i> Реальные переписки</span>
         </div>
+        <div class="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto mb-16">
+            <a href="/images/otziv-nikita.webp" target="_blank" rel="noopener" class="reveal d1 block bg-slate-900/60 border border-slate-800 rounded-2xl p-3 hover:border-orange-500/40 transition">
+                <img src="/images/otziv-nikita.webp" alt="Отзыв: классные ролики нейросети делают, даже не понял что это нейросеть" class="w-full rounded-xl" loading="lazy">
+                <p class="text-center text-xs text-slate-500 mt-2">Никита · менеджер застройщика, Москва</p>
+            </a>
+            <a href="/images/otziv-stylist.webp" target="_blank" rel="noopener" class="reveal d2 block bg-slate-900/60 border border-slate-800 rounded-2xl p-3 hover:border-orange-500/40 transition">
+                <img src="/images/otziv-stylist.webp" alt="Отзыв от блогера в нише обучения стилистов" class="w-full rounded-xl" loading="lazy">
+                <p class="text-center text-xs text-slate-500 mt-2">Блогер · ниша обучения стилистов</p>
+            </a>
+        </div>
+
+        <!-- КАРУСЕЛЬ ОТЗЫВОВ -->
         <div class="relative reveal" id="reviews-carousel">
             <div class="car-viewport">
-                <div class="price-track" id="car-track"></div>
+                <div class="car-track" id="car-track">
+                    <div class="car-slide">
+                        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 h-full">
+                            <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="text-slate-200 text-base leading-relaxed mb-5">Собрала первый ролик с аватаром за вечер. Раньше на один рилс уходил весь день со съёмкой и монтажом, а теперь выкладываю каждый день.</p>
+                            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white text-sm font-bold">А</div><div><div class="text-white text-sm font-semibold">Анна</div><div class="text-slate-500 text-xs">эксперт по нутрициологии</div></div></div>
+                        </div>
+                    </div>
+                    <div class="car-slide">
+                        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 h-full">
+                            <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="text-slate-200 text-base leading-relaxed mb-5">Зашёл ради промптов, остался ради автоворонки. Заявки капают даже когда я в отпуске и ничего не выкладываю руками.</p>
+                            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-sm font-bold">Д</div><div><div class="text-white text-sm font-semibold">Дмитрий</div><div class="text-slate-500 text-xs">онлайн-школа английского</div></div></div>
+                        </div>
+                    </div>
+                    <div class="car-slide">
+                        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 h-full">
+                            <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="text-slate-200 text-base leading-relaxed mb-5">Я не дружу с техникой, думала не осилю. Формат «повторяй за мной» спас — сделала всё с первого раза, без нервов.</p>
+                            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white text-sm font-bold">М</div><div><div class="text-white text-sm font-semibold">Марина</div><div class="text-slate-500 text-xs">мастер маникюра</div></div></div>
+                        </div>
+                    </div>
+                    <div class="car-slide">
+                        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 h-full">
+                            <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="text-slate-200 text-base leading-relaxed mb-5">Голос ElevenLabs не отличить от живого. Клиенты пишут «классное видео» и даже не понимают, что это AI-аватар.</p>
+                            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-sm font-bold">И</div><div><div class="text-white text-sm font-semibold">Игорь</div><div class="text-slate-500 text-xs">риелтор</div></div></div>
+                        </div>
+                    </div>
+                    <div class="car-slide">
+                        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 h-full">
+                            <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="text-slate-200 text-base leading-relaxed mb-5">Перестал платить монтажёру и сценаристу. Окупил курс за первую неделю на одной услуге — теперь контент почти ничего не стоит.</p>
+                            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white text-sm font-bold">С</div><div><div class="text-white text-sm font-semibold">Сергей</div><div class="text-slate-500 text-xs">фитнес-тренер</div></div></div>
+                        </div>
+                    </div>
+                    <div class="car-slide">
+                        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 h-full">
+                            <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="text-slate-200 text-base leading-relaxed mb-5">Думал, выстроить такую систему — это сложно. Оказалось, собрал воронку один раз, и она продаёт мои консультации сама.</p>
+                            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white text-sm font-bold">К</div><div><div class="text-white text-sm font-semibold">Кирилл</div><div class="text-slate-500 text-xs">психолог</div></div></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <button id="car-prev" aria-label="Предыдущий отзыв" class="car-arrow absolute -left-2 md:-left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-800/80 border border-slate-700 text-white flex items-center justify-center z-10"><i class="fas fa-chevron-left text-sm"></i></button>
             <button id="car-next" aria-label="Следующий отзыв" class="car-arrow absolute -right-2 md:-right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-800/80 border border-slate-700 text-white flex items-center justify-center z-10"><i class="fas fa-chevron-right text-sm"></i></button>
         </div>
         <div class="flex justify-center flex-wrap gap-2 mt-7" id="car-dots"></div>
-        <p class="text-center text-xs text-slate-600 mt-3">Скриншоты реальных переписок · нажми, чтобы открыть крупнее</p>
     </div>
 </section>
 
@@ -734,7 +803,7 @@
         <div class="max-w-xl mx-auto mb-12 reveal">
             <div class="bg-gradient-to-br from-slate-900 to-[#1a0d06] border border-orange-600/40 rounded-2xl p-7 text-center">
                 <div class="text-sm text-slate-400 mb-1">Цена за одно минутное видео</div>
-                <div class="text-4xl md:text-5xl font-black fire-text">от 3 000 до 20 000 ₽</div>
+                <div class="text-4xl md:text-5xl font-black fire-text">от 3 000 до 20 000&nbsp;₽</div>
                 <div class="text-sm text-slate-400 mt-2">за один ролик. А ты научишься делать их сам.</div>
             </div>
         </div>
@@ -802,7 +871,7 @@
             <div class="tariff-card reveal d1 bg-slate-900/50 border border-slate-700 rounded-2xl p-8 flex flex-col">
                 <div class="text-slate-400 font-bold text-xs mb-2 uppercase tracking-wider">Lead Magnet</div>
                 <h3 class="text-2xl font-bold text-white mb-1">🧪 Проба Огня</h3>
-                <div class="text-4xl font-black text-white my-5">0 ₽</div>
+                <div class="text-4xl font-black text-white my-5">0&nbsp;₽</div>
                 <p class="text-slate-400 text-sm mb-5">База из 2000+ промптов для старта. Просто скопируй и вставь.</p>
                 <ul class="text-sm text-slate-300 space-y-2.5 mb-6 flex-grow">
                     <li><i class="fas fa-check text-slate-500 mr-2"></i>2000+ промптов по маркетингу</li>
@@ -817,10 +886,10 @@
                 <div class="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">ХИТ</div>
                 <div class="text-orange-400 font-bold text-xs mb-2 uppercase tracking-wider">Базовый</div>
                 <h3 class="text-2xl font-bold text-white mb-1">🥩 Шампур-Lite</h3>
-                <div class="flex items-end gap-3 my-5">
-                    <span class="text-4xl font-black text-white">3 490 ₽</span>
-                    <span class="old-price text-lg mb-1">5 900 ₽</span>
-                    <span class="bg-orange-500/20 text-orange-300 text-xs font-bold px-2 py-1 rounded-md mb-1.5">−41%</span>
+                <div class="flex items-end gap-3 my-5 flex-wrap">
+                    <span class="text-4xl font-black text-white whitespace-nowrap">3&nbsp;490&nbsp;₽</span>
+                    <span class="old-price text-lg mb-1 whitespace-nowrap">5&nbsp;900&nbsp;₽</span>
+                    <span class="bg-orange-500/20 text-orange-300 text-xs font-bold px-2 py-1 rounded-md mb-1.5 whitespace-nowrap">−41%</span>
                 </div>
                 <p class="text-slate-400 text-sm mb-5">Полный цикл создания AI-контента от идеи до готового ролика.</p>
                 <ul class="text-sm text-slate-300 space-y-2.5 mb-6 flex-grow">
@@ -838,10 +907,10 @@
                 <div class="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">ВЫБОР ПРОФИ</div>
                 <div class="text-emerald-400 font-bold text-xs mb-2 uppercase tracking-wider">Для бизнеса</div>
                 <h3 class="text-2xl font-bold text-white mb-1">👑 Шашлык PRO</h3>
-                <div class="flex items-end gap-3 my-5">
-                    <span class="text-4xl font-black text-white">4 900 ₽</span>
-                    <span class="old-price text-lg mb-1">8 900 ₽</span>
-                    <span class="bg-emerald-500/20 text-emerald-300 text-xs font-bold px-2 py-1 rounded-md mb-1.5">−45%</span>
+                <div class="flex items-end gap-3 my-5 flex-wrap">
+                    <span class="text-4xl font-black text-white whitespace-nowrap">4&nbsp;900&nbsp;₽</span>
+                    <span class="old-price text-lg mb-1 whitespace-nowrap">8&nbsp;900&nbsp;₽</span>
+                    <span class="bg-emerald-500/20 text-emerald-300 text-xs font-bold px-2 py-1 rounded-md mb-1.5 whitespace-nowrap">−45%</span>
                 </div>
                 <p class="text-slate-400 text-sm mb-5">Контент + трафик + автоворонка. Система, которая приносит заявки.</p>
                 <ul class="text-sm text-slate-300 space-y-2.5 mb-6 flex-grow">
@@ -1008,77 +1077,56 @@ var countIO = new IntersectionObserver(function(entries) {
 }, { threshold: 0.5 });
 document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe(el); });
 
-// Карусель скриншотов отзывов (авто-подгрузка /images/otziv-N.webp)
+// Карусель текстовых отзывов
 (function() {
     var track = document.getElementById('car-track');
     if (!track) return;
+    var slides = track.children.length;
     var dotsBox = document.getElementById('car-dots');
     var root = document.getElementById('reviews-carousel');
-    var MAX = 20, pending = MAX, found = [];
+    var index = 0, timer = null;
 
-    for (var i = 1; i <= MAX; i++) {
-        (function(n) {
-            var img = new Image();
-            img.onload = function() { found.push(n); finish(); };
-            img.onerror = function() { finish(); };
-            img.src = '/images/otziv-' + n + '.webp';
-        })(i);
-    }
-    function finish() { if (--pending === 0) build(); }
-
-    function build() {
-        if (!found.length) { root.parentElement.querySelectorAll('.reveal').forEach(function(){}); return; }
-        found.sort(function(a, b) { return a - b; });
-        track.innerHTML = found.map(function(n) {
-            return '<div class="price-slide">' +
-                '<a href="/images/otziv-' + n + '.webp" target="_blank" rel="noopener">' +
-                '<img src="/images/otziv-' + n + '.webp" alt="Реальный отзыв о курсе GPT-Шашлык" class="price-shot" loading="lazy"></a>' +
-                '</div>';
-        }).join('');
-
-        var index = 0, timer = null;
-        function perView() { return window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 640 ? 2 : 1); }
-        function maxIndex() { return Math.max(0, found.length - perView()); }
-        function buildDots() {
-            dotsBox.innerHTML = '';
-            for (var i = 0; i <= maxIndex(); i++) {
-                var d = document.createElement('button');
-                d.className = 'car-dot' + (i === index ? ' active' : '');
-                d.setAttribute('aria-label', 'Отзыв ' + (i + 1));
-                (function(k) { d.addEventListener('click', function() { go(k); reset(); }); })(i);
-                dotsBox.appendChild(d);
-            }
+    function perView() { return window.innerWidth >= 768 ? 2 : 1; }
+    function maxIndex() { return Math.max(0, slides - perView()); }
+    function buildDots() {
+        dotsBox.innerHTML = '';
+        for (var i = 0; i <= maxIndex(); i++) {
+            var d = document.createElement('button');
+            d.className = 'car-dot' + (i === index ? ' active' : '');
+            d.setAttribute('aria-label', 'Отзыв ' + (i + 1));
+            (function(k) { d.addEventListener('click', function() { go(k); reset(); }); })(i);
+            dotsBox.appendChild(d);
         }
-        function render() {
-            track.style.transform = 'translateX(-' + (index * (100 / perView())) + '%)';
-            dotsBox.querySelectorAll('.car-dot').forEach(function(d, i) { d.classList.toggle('active', i === index); });
-        }
-        function go(n) { var mx = maxIndex(); index = n < 0 ? mx : (n > mx ? 0 : n); render(); }
-        function next() { go(index + 1); }
-        function prev() { go(index - 1); }
-        function auto() { timer = setInterval(next, 5000); }
-        function reset() { clearInterval(timer); auto(); }
-
-        document.getElementById('car-next').addEventListener('click', function() { next(); reset(); });
-        document.getElementById('car-prev').addEventListener('click', function() { prev(); reset(); });
-        root.addEventListener('mouseenter', function() { clearInterval(timer); });
-        root.addEventListener('mouseleave', auto);
-
-        var startX = 0;
-        track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
-        track.addEventListener('touchend', function(e) {
-            var dx = e.changedTouches[0].clientX - startX;
-            if (dx < -40) { next(); reset(); } else if (dx > 40) { prev(); reset(); }
-        }, { passive: true });
-
-        var rt;
-        window.addEventListener('resize', function() {
-            clearTimeout(rt);
-            rt = setTimeout(function() { if (index > maxIndex()) index = maxIndex(); buildDots(); render(); }, 200);
-        });
-
-        buildDots(); render(); auto();
     }
+    function render() {
+        track.style.transform = 'translateX(-' + (index * (100 / perView())) + '%)';
+        dotsBox.querySelectorAll('.car-dot').forEach(function(d, i) { d.classList.toggle('active', i === index); });
+    }
+    function go(n) { var mx = maxIndex(); index = n < 0 ? mx : (n > mx ? 0 : n); render(); }
+    function next() { go(index + 1); }
+    function prev() { go(index - 1); }
+    function auto() { timer = setInterval(next, 5000); }
+    function reset() { clearInterval(timer); auto(); }
+
+    document.getElementById('car-next').addEventListener('click', function() { next(); reset(); });
+    document.getElementById('car-prev').addEventListener('click', function() { prev(); reset(); });
+    root.addEventListener('mouseenter', function() { clearInterval(timer); });
+    root.addEventListener('mouseleave', auto);
+
+    var startX = 0;
+    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - startX;
+        if (dx < -40) { next(); reset(); } else if (dx > 40) { prev(); reset(); }
+    }, { passive: true });
+
+    var rt;
+    window.addEventListener('resize', function() {
+        clearTimeout(rt);
+        rt = setTimeout(function() { if (index > maxIndex()) index = maxIndex(); buildDots(); render(); }, 200);
+    });
+
+    buildDots(); render(); auto();
 })();
 
 // Карусель скриншотов с ценами (авто-подгрузка /images/price-N.webp)
@@ -1163,14 +1211,15 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
     if (!dEl) return;
     // дедлайн: ровно через 7 суток от момента захода (минус пара минут для «живости»)
     var deadline = Date.now() + 7 * 24 * 60 * 60 * 1000 - (Math.floor(Math.random() * 9) * 60 * 1000);
+    var promoT = document.getElementById('promo-timer');
     function p(n) { return n < 10 ? '0' + n : '' + n; }
     function tick() {
         var diff = Math.max(0, deadline - Date.now());
         var s = Math.floor(diff / 1000);
-        dEl.textContent = p(Math.floor(s / 86400));
-        hEl.textContent = p(Math.floor((s % 86400) / 3600));
-        mEl.textContent = p(Math.floor((s % 3600) / 60));
-        sEl.textContent = p(s % 60);
+        var d = p(Math.floor(s / 86400)), h = p(Math.floor((s % 86400) / 3600)),
+            m = p(Math.floor((s % 3600) / 60)), sec = p(s % 60);
+        dEl.textContent = d; hEl.textContent = h; mEl.textContent = m; sEl.textContent = sec;
+        if (promoT) promoT.textContent = d + ':' + h + ':' + m + ':' + sec;
     }
     tick();
     setInterval(tick, 1000);
@@ -1178,6 +1227,24 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
     // Осталось мест — небольшое случайное число при каждом заходе
     var spots = document.getElementById('spots-left');
     if (spots) spots.textContent = 3 + Math.floor(Math.random() * 5); // 3–7
+})();
+
+// Липкая плашка акции: прячется на hero, выезжает при скролле вниз
+(function() {
+    var bar = document.getElementById('promo-bar');
+    if (!bar) return;
+    var threshold = 500;
+    function onScroll() {
+        if (window.scrollY > threshold) {
+            bar.classList.add('show');
+            document.body.classList.add('promo-on');
+        } else {
+            bar.classList.remove('show');
+            document.body.classList.remove('promo-on');
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 })();
 
 // Плавный скролл по якорям
