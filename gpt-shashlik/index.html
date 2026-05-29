@@ -1153,7 +1153,7 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
             var d = document.createElement('button');
             d.className = 'car-dot' + (i === index ? ' active' : '');
             d.setAttribute('aria-label', 'Отзыв ' + (i + 1));
-            (function(k) { d.addEventListener('click', function() { go(k); reset(); }); })(i);
+            (function(k) { d.addEventListener('click', function() { go(k); }); })(i);
             dotsBox.appendChild(d);
         }
     }
@@ -1164,19 +1164,15 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
     function go(n) { var mx = maxIndex(); index = n < 0 ? mx : (n > mx ? 0 : n); render(); }
     function next() { go(index + 1); }
     function prev() { go(index - 1); }
-    function auto() { timer = setInterval(next, 5000); }
-    function reset() { clearInterval(timer); auto(); }
 
-    document.getElementById('car-next').addEventListener('click', function() { next(); reset(); });
-    document.getElementById('car-prev').addEventListener('click', function() { prev(); reset(); });
-    root.addEventListener('mouseenter', function() { clearInterval(timer); });
-    root.addEventListener('mouseleave', auto);
+    document.getElementById('car-next').addEventListener('click', next);
+    document.getElementById('car-prev').addEventListener('click', prev);
 
     var startX = 0;
     track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
     track.addEventListener('touchend', function(e) {
         var dx = e.changedTouches[0].clientX - startX;
-        if (dx < -40) { next(); reset(); } else if (dx > 40) { prev(); reset(); }
+        if (dx < -40) { next(); } else if (dx > 40) { prev(); }
     }, { passive: true });
 
     var rt;
@@ -1185,7 +1181,7 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
         rt = setTimeout(function() { if (index > maxIndex()) index = maxIndex(); buildDots(); render(); }, 200);
     });
 
-    buildDots(); render(); auto();
+    buildDots(); render();
 })();
 
 // Карусель примеров роликов
