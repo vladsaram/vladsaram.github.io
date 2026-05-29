@@ -213,6 +213,13 @@
         @media (min-width: 1024px) { .price-slide { min-width: 33.333%; } }
         .price-shot { width: 100%; max-height: 520px; object-fit: contain; border-radius: .75rem; border: 1px solid #1e293b; background: #0f172a; display: block; cursor: zoom-in; }
 
+        /* Таймер акции */
+        .timer-num { font-variant-numeric: tabular-nums; font-weight: 900; background: linear-gradient(180deg,#1e293b,#0f172a); border: 1px solid #334155; border-radius: .6rem; padding: .4rem .55rem; min-width: 3.2rem; display: inline-block; text-align: center; box-shadow: 0 6px 16px -8px rgba(249,115,22,.4); }
+        .timer-pulse { animation: timerPulse 1s ease-in-out infinite; }
+        @keyframes timerPulse { 0%,100%{opacity:1} 50%{opacity:.45} }
+        .old-price { position: relative; color: #64748b; font-weight: 700; }
+        .old-price::after { content:''; position:absolute; left:-2px; right:-2px; top:52%; height:2px; background:#ef4444; transform:rotate(-8deg); }
+
         @media (prefers-reduced-motion: reduce) {
             .fire-text, .ember, .flame-flicker, .pulse-cta::after, .flow-line, .marquee { animation: none; }
             .reveal { opacity: 1; transform: none; }
@@ -761,9 +768,32 @@
 <section id="tarify" class="py-20 border-t border-slate-900 relative overflow-hidden">
     <div class="embers" id="embers2"></div>
     <div class="max-w-6xl mx-auto px-4 relative z-10">
-        <div class="text-center mb-14">
+        <div class="text-center mb-8">
             <span class="text-orange-400 text-sm font-bold uppercase tracking-wider reveal">Тарифы</span>
             <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2 reveal">Выбери свою прожарку</h2>
+        </div>
+
+        <!-- ТАЙМЕР АКЦИИ + МЕСТА -->
+        <div class="max-w-3xl mx-auto mb-12 reveal">
+            <div class="bg-gradient-to-br from-[#1a0d06] to-slate-900 border border-orange-500/50 rounded-2xl p-6 md:p-7 text-center shadow-2xl shadow-orange-900/20">
+                <div class="inline-flex items-center gap-2 text-xs font-bold text-orange-300 uppercase tracking-wider bg-orange-950/50 border border-orange-500/40 rounded-full px-3 py-1 mb-4">
+                    <i class="fas fa-tags"></i> Идёт акция — цены снижены
+                </div>
+                <p class="text-white font-bold text-lg mb-1">До конца акции и роста цен осталось:</p>
+                <p class="text-slate-400 text-sm mb-4">После таймера цены вернутся к обычным (Lite 5 900 ₽ · PRO 8 900 ₽)</p>
+                <div class="flex items-center justify-center gap-2 md:gap-3 mb-5" id="countdown">
+                    <div class="text-center"><span class="timer-num text-2xl md:text-3xl text-white" id="cd-d">07</span><div class="text-[10px] text-slate-500 mt-1 uppercase">дней</div></div>
+                    <span class="text-2xl md:text-3xl text-orange-500 font-black timer-pulse">:</span>
+                    <div class="text-center"><span class="timer-num text-2xl md:text-3xl text-white" id="cd-h">00</span><div class="text-[10px] text-slate-500 mt-1 uppercase">часов</div></div>
+                    <span class="text-2xl md:text-3xl text-orange-500 font-black timer-pulse">:</span>
+                    <div class="text-center"><span class="timer-num text-2xl md:text-3xl text-white" id="cd-m">00</span><div class="text-[10px] text-slate-500 mt-1 uppercase">минут</div></div>
+                    <span class="text-2xl md:text-3xl text-orange-500 font-black timer-pulse">:</span>
+                    <div class="text-center"><span class="timer-num text-2xl md:text-3xl text-white" id="cd-s">00</span><div class="text-[10px] text-slate-500 mt-1 uppercase">секунд</div></div>
+                </div>
+                <div class="inline-flex items-center gap-2 text-sm text-red-300 bg-red-950/40 border border-red-500/30 rounded-full px-4 py-2">
+                    <i class="fas fa-fire-flame-curved"></i> Осталось мест на этой неделе: <b class="text-white" id="spots-left">5</b>
+                </div>
+            </div>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
@@ -786,7 +816,11 @@
                 <div class="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">ХИТ</div>
                 <div class="text-orange-400 font-bold text-xs mb-2 uppercase tracking-wider">Базовый</div>
                 <h3 class="text-2xl font-bold text-white mb-1">🥩 Шампур-Lite</h3>
-                <div class="text-4xl font-black text-white my-5">3 490 ₽</div>
+                <div class="flex items-end gap-3 my-5">
+                    <span class="text-4xl font-black text-white">3 490 ₽</span>
+                    <span class="old-price text-lg mb-1">5 900 ₽</span>
+                    <span class="bg-orange-500/20 text-orange-300 text-xs font-bold px-2 py-1 rounded-md mb-1.5">−41%</span>
+                </div>
                 <p class="text-slate-400 text-sm mb-5">Полный цикл создания AI-контента от идеи до готового ролика.</p>
                 <ul class="text-sm text-slate-300 space-y-2.5 mb-6 flex-grow">
                     <li><i class="fas fa-play-circle text-orange-500 mr-2"></i><b>7 видеоуроков</b></li>
@@ -803,7 +837,11 @@
                 <div class="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">ВЫБОР ПРОФИ</div>
                 <div class="text-emerald-400 font-bold text-xs mb-2 uppercase tracking-wider">Для бизнеса</div>
                 <h3 class="text-2xl font-bold text-white mb-1">👑 Шашлык PRO</h3>
-                <div class="text-4xl font-black text-white my-5">4 900 ₽</div>
+                <div class="flex items-end gap-3 my-5">
+                    <span class="text-4xl font-black text-white">4 900 ₽</span>
+                    <span class="old-price text-lg mb-1">8 900 ₽</span>
+                    <span class="bg-emerald-500/20 text-emerald-300 text-xs font-bold px-2 py-1 rounded-md mb-1.5">−45%</span>
+                </div>
                 <p class="text-slate-400 text-sm mb-5">Контент + трафик + автоворонка. Система, которая приносит заявки.</p>
                 <ul class="text-sm text-slate-300 space-y-2.5 mb-6 flex-grow">
                     <li><i class="fas fa-play-circle text-emerald-500 mr-2"></i><b>11 видеоуроков</b></li>
@@ -1115,6 +1153,30 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
 
         buildDots(); render(); auto();
     }
+})();
+
+// Таймер акции — свежие 7 дней при каждом заходе
+(function() {
+    var dEl = document.getElementById('cd-d'), hEl = document.getElementById('cd-h'),
+        mEl = document.getElementById('cd-m'), sEl = document.getElementById('cd-s');
+    if (!dEl) return;
+    // дедлайн: ровно через 7 суток от момента захода (минус пара минут для «живости»)
+    var deadline = Date.now() + 7 * 24 * 60 * 60 * 1000 - (Math.floor(Math.random() * 9) * 60 * 1000);
+    function p(n) { return n < 10 ? '0' + n : '' + n; }
+    function tick() {
+        var diff = Math.max(0, deadline - Date.now());
+        var s = Math.floor(diff / 1000);
+        dEl.textContent = p(Math.floor(s / 86400));
+        hEl.textContent = p(Math.floor((s % 86400) / 3600));
+        mEl.textContent = p(Math.floor((s % 3600) / 60));
+        sEl.textContent = p(s % 60);
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // Осталось мест — небольшое случайное число при каждом заходе
+    var spots = document.getElementById('spots-left');
+    if (spots) spots.textContent = 3 + Math.floor(Math.random() * 5); // 3–7
 })();
 
 // Плавный скролл по якорям
