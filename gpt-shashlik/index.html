@@ -212,12 +212,18 @@
         .old-price { position: relative; color: #64748b; font-weight: 700; }
         .old-price::after { content:''; position:absolute; left:-2px; right:-2px; top:52%; height:2px; background:#ef4444; transform:rotate(-8deg); }
 
-        /* Липкая плашка акции */
-        .promo-bar { transform: translateY(-100%); transition: transform .4s ease; will-change: transform; }
-        .promo-bar.show { transform: translateY(0); }
-        #site-nav { transition: top .4s ease; }
-        body.promo-on #site-nav { top: 40px; }
-        section[id] { scroll-margin-top: 80px; }
+        /* VK видео — фасад (превью + кнопка ▶) */
+        .vk-facade { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; cursor: pointer; text-decoration: none; background: radial-gradient(ellipse at center, #1e293b 0%, #0a0f1a 100%); }
+        .vk-play { width: 60px; height: 60px; border-radius: 9999px; background: #ea580c; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.4rem; box-shadow: 0 8px 24px -6px rgba(234,88,12,.7); transition: transform .2s ease, background .2s ease; }
+        .vk-play i { margin-left: 3px; }
+        .vk-facade:hover .vk-play { transform: scale(1.1); background: #f97316; }
+
+        /* Липкая плашка акции — всегда видна */
+        .promo-bar { transform: translateY(0); }
+        /* Навигация: на мобайле скрыта (нужна только акция), на десктопе под акцией */
+        #site-nav { display: none; }
+        @media (min-width: 768px) { #site-nav { display: block; top: 40px; } }
+        section[id] { scroll-margin-top: 90px; }
 
         @media (prefers-reduced-motion: reduce) {
             .fire-text, .ember, .flame-flicker, .pulse-cta::after, .flow-line, .marquee { animation: none; }
@@ -515,7 +521,7 @@
                         <div class="bg-slate-900/60 border border-orange-500/40 rounded-2xl p-4 h-full flex flex-col items-center">
                             <span class="inline-flex items-center gap-1.5 text-xs font-bold text-orange-300 bg-orange-950/40 border border-orange-500/30 rounded-full px-3 py-1 mb-3"><i class="fas fa-fire"></i> 6,5 млн просмотров в Instagram*</span>
                             <div class="w-full max-w-[200px] rounded-xl overflow-hidden border border-slate-800 bg-black" style="aspect-ratio:9/16;">
-                                <iframe src="https://vk.com/video_ext.php?oid=-214804737&id=456239777&hd=2&js=1" width="100%" height="100%" style="border:0;display:block;" allow="encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen loading="lazy" title="Ролик автора — 6,5 млн просмотров"></iframe>
+                                <a href="https://vk.ru/clip-214804737_456239777" target="_blank" rel="noopener" class="vk-facade" data-oid="-214804737" data-id="456239777" aria-label="Смотреть видео"><span class="vk-play"><i class="fas fa-play"></i></span></a>
                             </div>
                             <a href="https://www.instagram.com/reel/DVPJMm5jZtH/" target="_blank" rel="noopener" class="text-xs text-slate-500 hover:text-orange-300 mt-3 underline underline-offset-2">Смотреть пруф в Instagram →</a>
                         </div>
@@ -524,7 +530,7 @@
                         <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 h-full flex flex-col items-center">
                             <span class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 bg-slate-800/60 border border-slate-700 rounded-full px-3 py-1 mb-3"><i class="fas fa-taxi text-amber-400"></i> Ниша: такси</span>
                             <div class="w-full max-w-[200px] rounded-xl overflow-hidden border border-slate-800 bg-black" style="aspect-ratio:9/16;">
-                                <iframe src="https://vk.com/video_ext.php?oid=-214804737&id=456239774&hd=2&js=1" width="100%" height="100%" style="border:0;display:block;" allow="encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen loading="lazy" title="Пример ролика — клиент в нише такси"></iframe>
+                                <a href="https://vk.ru/clip-214804737_456239774" target="_blank" rel="noopener" class="vk-facade" data-oid="-214804737" data-id="456239774" aria-label="Смотреть видео"><span class="vk-play"><i class="fas fa-play"></i></span></a>
                             </div>
                         </div>
                     </div>
@@ -532,7 +538,7 @@
                         <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 h-full flex flex-col items-center">
                             <span class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 bg-slate-800/60 border border-slate-700 rounded-full px-3 py-1 mb-3"><i class="fas fa-globe text-sky-400"></i> Зарубежный рынок</span>
                             <div class="w-full max-w-[200px] rounded-xl overflow-hidden border border-slate-800 bg-black" style="aspect-ratio:9/16;">
-                                <iframe src="https://vk.com/video_ext.php?oid=-214804737&id=456239775&hd=2&js=1" width="100%" height="100%" style="border:0;display:block;" allow="encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen loading="lazy" title="Пример ролика — клиент на зарубежный рынок"></iframe>
+                                <a href="https://vk.ru/clip-214804737_456239775" target="_blank" rel="noopener" class="vk-facade" data-oid="-214804737" data-id="456239775" aria-label="Смотреть видео"><span class="vk-play"><i class="fas fa-play"></i></span></a>
                             </div>
                         </div>
                     </div>
@@ -540,7 +546,7 @@
                         <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 h-full flex flex-col items-center">
                             <span class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 bg-slate-800/60 border border-slate-700 rounded-full px-3 py-1 mb-3"><i class="fas fa-building text-emerald-400"></i> Недвижимость</span>
                             <div class="w-full max-w-[200px] rounded-xl overflow-hidden border border-slate-800 bg-black" style="aspect-ratio:9/16;">
-                                <iframe src="https://vk.com/video_ext.php?oid=-214804737&id=456239776&hd=2&js=1" width="100%" height="100%" style="border:0;display:block;" allow="encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen loading="lazy" title="Пример ролика — клиент в нише недвижимости"></iframe>
+                                <a href="https://vk.ru/clip-214804737_456239776" target="_blank" rel="noopener" class="vk-facade" data-oid="-214804737" data-id="456239776" aria-label="Смотреть видео"><span class="vk-play"><i class="fas fa-play"></i></span></a>
                             </div>
                         </div>
                     </div>
@@ -705,7 +711,7 @@
                         <div class="bg-slate-900/60 border border-orange-500/30 rounded-2xl p-4 h-full flex flex-col items-center justify-center">
                             <span class="inline-flex items-center gap-2 text-xs font-bold text-orange-300 uppercase tracking-wider bg-orange-950/40 border border-orange-500/30 rounded-full px-3 py-1 mb-3"><i class="fas fa-circle-play"></i> Видео-отзыв</span>
                             <div class="w-full max-w-[230px] rounded-xl overflow-hidden border border-slate-800 bg-black" style="aspect-ratio:9/16;">
-                                <iframe src="https://vk.com/video_ext.php?oid=-214804737&id=456239138&hd=2&js=1" width="100%" height="100%" style="border:0;display:block;" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen loading="lazy" title="Видео-отзыв о материалах GPT-Шашлык"></iframe>
+                                <a href="https://vk.ru/clip-214804737_456239138" target="_blank" rel="noopener" class="vk-facade" data-oid="-214804737" data-id="456239138" aria-label="Смотреть видео"><span class="vk-play"><i class="fas fa-play"></i></span></a>
                             </div>
                         </div>
                     </div>
@@ -1346,23 +1352,21 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
     if (spots) spots.textContent = 3 + Math.floor(Math.random() * 5); // 3–7
 })();
 
-// Липкая плашка акции: прячется на hero, выезжает при скролле вниз
-(function() {
-    var bar = document.getElementById('promo-bar');
-    if (!bar) return;
-    var threshold = 500;
-    function onScroll() {
-        if (window.scrollY > threshold) {
-            bar.classList.add('show');
-            document.body.classList.add('promo-on');
-        } else {
-            bar.classList.remove('show');
-            document.body.classList.remove('promo-on');
-        }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-})();
+
+// VK видео-фасады: десктоп — плеер внутри страницы, мобайл — открыть клип в VK
+document.querySelectorAll('.vk-facade').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+        if (window.innerWidth < 768) return; // мобайл: открыть ссылку в VK (надёжное воспроизведение)
+        e.preventDefault();
+        var f = document.createElement('iframe');
+        f.src = 'https://vk.com/video_ext.php?oid=' + el.dataset.oid + '&id=' + el.dataset.id + '&hd=2&autoplay=1&js=1';
+        f.width = '100%'; f.height = '100%';
+        f.style.cssText = 'border:0;display:block;';
+        f.setAttribute('allow', 'autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;');
+        f.setAttribute('allowfullscreen', '');
+        el.replaceWith(f);
+    });
+});
 
 // Плавный скролл по якорям
 document.querySelectorAll('a[href^="#"]').forEach(function(a) {
