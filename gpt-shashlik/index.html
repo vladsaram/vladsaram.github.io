@@ -216,8 +216,8 @@
         .promo-bar { transform: translateY(-100%); transition: transform .4s ease; will-change: transform; }
         .promo-bar.show { transform: translateY(0); }
         #site-nav { transition: top .4s ease; }
-        body.promo-on #site-nav { top: 36px; }
-        @media (max-width: 640px) { body.promo-on #site-nav { top: 44px; } }
+        body.promo-on #site-nav { top: 40px; }
+        section[id] { scroll-margin-top: 80px; }
 
         @media (prefers-reduced-motion: reduce) {
             .fire-text, .ember, .flame-flicker, .pulse-cta::after, .flow-line, .marquee { animation: none; }
@@ -228,11 +228,12 @@
 <body class="antialiased selection:bg-orange-500 selection:text-white">
 
 <!-- ЛИПКАЯ ПЛАШКА АКЦИИ -->
-<a href="#tarify" id="promo-bar" class="promo-bar fixed top-0 left-0 right-0 z-[55] bg-gradient-to-r from-orange-600 to-red-600 text-white text-center py-2 px-4 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 flex-wrap">
-    <i class="fas fa-fire-flame-curved"></i>
-    <span>Акция −41%: цены вырастут через</span>
+<a href="#tarify" id="promo-bar" data-goal="promo" class="promo-bar fixed top-0 left-0 right-0 z-[100] h-10 bg-red-600 text-white text-center text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 px-3 overflow-hidden whitespace-nowrap">
+    <i class="fas fa-fire-flame-curved shrink-0"></i>
+    <span class="hidden sm:inline">Акция −41%:</span>
+    <span>цены растут через</span>
     <span class="font-black tabular-nums" id="promo-timer">07:00:00:00</span>
-    <span class="hidden sm:inline underline underline-offset-2">Получить доступ →</span>
+    <span class="underline underline-offset-2 shrink-0">Получить доступ →</span>
 </a>
 
 <!-- НАВИГАЦИЯ -->
@@ -647,6 +648,18 @@
                         </div>
                     </div>
                     <div class="car-slide">
+                        <a href="/images/otziv-nikita.webp" target="_blank" rel="noopener" class="block bg-slate-900/60 border border-slate-800 rounded-2xl p-4 h-full">
+                            <img src="/images/otziv-nikita.webp" alt="Отзыв: классные ролики нейросети делают, даже не понял что это нейросеть" class="w-full max-h-[440px] object-contain rounded-xl mx-auto" loading="lazy">
+                            <p class="text-center text-xs text-slate-500 mt-3">Никита · менеджер застройщика, Москва</p>
+                        </a>
+                    </div>
+                    <div class="car-slide">
+                        <a href="/images/otziv-stylist.webp" target="_blank" rel="noopener" class="block bg-slate-900/60 border border-slate-800 rounded-2xl p-4 h-full">
+                            <img src="/images/otziv-stylist.webp" alt="Отзыв от блогера в нише обучения стилистов" class="w-full max-h-[440px] object-contain rounded-xl mx-auto" loading="lazy">
+                            <p class="text-center text-xs text-slate-500 mt-3">Блогер · ниша обучения стилистов</p>
+                        </a>
+                    </div>
+                    <div class="car-slide">
                         <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-7 h-full">
                             <div class="flex text-orange-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                             <p class="text-slate-200 text-base leading-relaxed mb-5">Собрала первый ролик с аватаром за вечер. Раньше на один рилс уходил весь день со съёмкой и монтажом, а теперь выкладываю каждый день.</p>
@@ -694,21 +707,7 @@
             <button id="car-next" aria-label="Следующий отзыв" class="car-arrow absolute -right-2 md:-right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-800/80 border border-slate-700 text-white flex items-center justify-center z-10"><i class="fas fa-chevron-right text-sm"></i></button>
         </div>
         <div class="flex justify-center flex-wrap gap-2 mt-7" id="car-dots"></div>
-
-        <!-- РЕАЛЬНЫЕ СКРИНШОТЫ (Никита + стилисты) -->
-        <div class="text-center mt-16 mb-6 reveal">
-            <span class="inline-flex items-center gap-2 text-xs font-bold text-orange-300 uppercase tracking-wider bg-orange-950/40 border border-orange-500/30 rounded-full px-3 py-1"><i class="fas fa-comments"></i> Реальные переписки</span>
-        </div>
-        <div class="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
-            <a href="/images/otziv-nikita.webp" target="_blank" rel="noopener" class="reveal d1 block bg-slate-900/60 border border-slate-800 rounded-2xl p-3 hover:border-orange-500/40 transition">
-                <img src="/images/otziv-nikita.webp" alt="Отзыв: классные ролики нейросети делают, даже не понял что это нейросеть" class="w-full rounded-xl" loading="lazy">
-                <p class="text-center text-xs text-slate-500 mt-2">Никита · менеджер застройщика, Москва</p>
-            </a>
-            <a href="/images/otziv-stylist.webp" target="_blank" rel="noopener" class="reveal d2 block bg-slate-900/60 border border-slate-800 rounded-2xl p-3 hover:border-orange-500/40 transition">
-                <img src="/images/otziv-stylist.webp" alt="Отзыв от блогера в нише обучения стилистов" class="w-full rounded-xl" loading="lazy">
-                <p class="text-center text-xs text-slate-500 mt-2">Блогер · ниша обучения стилистов</p>
-            </a>
-        </div>
+        <p class="text-center text-xs text-slate-600 mt-3">Видео, скриншоты переписок и отзывы учеников · листай →</p>
     </div>
 </section>
 
@@ -1250,6 +1249,21 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
         if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
     });
 });
+
+// Яндекс.Метрика — цели на ключевые действия
+(function() {
+    function goal(name) { try { if (typeof ym === 'function') ym(106768627, 'reachGoal', name); } catch (e) {} }
+    document.querySelectorAll('a[href*="tribute.tg"]').forEach(function(a) {
+        var pro = a.href.indexOf('wKx') > -1;
+        a.addEventListener('click', function() { goal(pro ? 'buy_pro' : 'buy_lite'); });
+    });
+    document.querySelectorAll('a[href*="notion.site"]').forEach(function(a) {
+        a.addEventListener('click', function() { goal('lead_magnet'); });
+    });
+    document.querySelectorAll('a[href="#tarify"]').forEach(function(a) {
+        a.addEventListener('click', function() { goal('to_pricing'); });
+    });
+})();
 </script>
 
 </body>
