@@ -1,5 +1,19 @@
 [
   {
+    "slug": "neyroset-dlya-reels-2026",
+    "title": "Нейросеть для Reels: контент на поток без съёмок",
+    "desc": "Как делать Reels на нейросетях без камеры: сценарий, нейроаватар HeyGen, озвучка ElevenLabs, монтаж и субтитры. Конвейер «ролик за 20 минут» и месяц контента за один заход.",
+    "category": "SMM & ИИ",
+    "categoryColor": "emerald",
+    "icon": "fa-video",
+    "iconBg": "from-emerald-600 to-teal-600",
+    "read": "17 мин",
+    "url": "/articles/neyroset-dlya-reels-2026/",
+    "image": "/images/neyroset-dlya-reels.webp",
+    "date": "2026-06-03",
+    "dateLabel": "3 июня 2026"
+  },
+  {
     "slug": "oplatit-chatgpt-iz-rossii-2026",
     "title": "Как оплатить ChatGPT, Claude и нейросети из России в 2026",
     "desc": "Российская карта не проходит, а нейросети нужны. 5 способов оплатить ChatGPT, Claude, Gemini, HeyGen, ElevenLabs и 15+ сервисов из России: посредники, зарубежная карта, API. Цены и риски.",
