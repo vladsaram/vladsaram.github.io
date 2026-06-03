@@ -65,6 +65,16 @@
         .checklist-item:hover{border-color:#f97316;}
         .price-tag{display:inline-block;background:rgba(249,115,22,0.15);border:1px solid #f97316;color:#fb923c;font-weight:800;padding:0.25rem 0.75rem;border-radius:0.5rem;font-size:0.9rem;}
         .takeaways-box{background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.3);border-radius:1rem;padding:1.5rem 2rem;margin:2rem 0;}
+        article h2[id]{scroll-margin-top:90px;}
+        .ai-summary{background:linear-gradient(135deg,rgba(249,115,22,0.10),rgba(168,85,247,0.10));border:1px solid rgba(249,115,22,0.35);border-radius:1rem;padding:1.75rem 2rem;margin:0 0 2rem;}
+        .ai-summary .ai-tag{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;color:#c084fc;background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.3);padding:0.25rem 0.6rem;border-radius:999px;margin-bottom:0.9rem;}
+        .ai-summary .ai-tldr{color:#fff;font-weight:700;font-size:1.05rem;margin-bottom:0.85rem;line-height:1.6;}
+        .ai-summary ul{list-style:none;padding:0;margin:0.5rem 0 0;}
+        .ai-summary li{position:relative;padding-left:1.5rem;margin-bottom:0.6rem;font-size:0.95rem;color:#e2e8f0;line-height:1.6;}
+        .ai-summary li::before{content:"\2192";position:absolute;left:0;color:#fb923c;font-weight:800;}
+        .ai-nav{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(148,163,184,0.15);}
+        .ai-nav a{font-size:0.85rem;font-weight:700;color:#fb923c;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);border-radius:0.5rem;padding:0.4rem 0.9rem;transition:all 0.2s ease;}
+        .ai-nav a:hover{background:rgba(249,115,22,0.2);}
         .faq-item{background:rgba(15,23,42,0.6);border:1px solid #334155;border-radius:0.75rem;padding:1.5rem;margin-bottom:1rem;}
         .faq-q{font-weight:700;color:#fff;margin-bottom:0.75rem;font-size:1rem;}
         .faq-a{color:#94a3b8;font-size:0.95rem;line-height:1.7;margin:0;}
@@ -130,25 +140,31 @@
 
     <article class="prose prose-invert max-w-none">
 
+        <!-- AI SUMMARY / TL;DR -->
+        <div class="ai-summary">
+            <span class="ai-tag"><i class="fas fa-robot"></i> AI-резюме · 30 секунд</span>
+            <p class="ai-tldr">Оплатить ChatGPT, Claude и другие нейросети из России в 2026 году можно пятью способами. Быстрее всего — сервис-посредник (платите рублями), надёжнее для постоянной работы — зарубежная виртуальная карта, дешевле для контента — доступ по API.</p>
+            <ul>
+                <li>Российские карты (Visa, Mastercard, МИР) не работают в зарубежных AI-сервисах с 2022 года.</li>
+                <li><strong>Быстро и разово</strong> — сервис-посредник: рублями, за 5–15 минут (WantToPay, ForeignPay).</li>
+                <li><strong>Постоянно</strong> — зарубежная виртуальная карта на своё имя: автопродление без посредников.</li>
+                <li><strong>Контент пакетами</strong> — доступ по API с оплатой за токены, часто дешевле подписки $20.</li>
+                <li>Те же способы оплачивают <strong>Claude, Gemini, HeyGen, ElevenLabs и 15+ сервисов</strong> — механика одна.</li>
+                <li>Для оплаты <strong>VPN не нужен</strong>; часть задач закрывают российские GigaChat и YandexGPT без зарубежной оплаты.</li>
+            </ul>
+            <div class="ai-nav">
+                <a href="#sposoby"><i class="fas fa-list-ol mr-1"></i>5 способов оплаты</a>
+                <a href="#servisy"><i class="fas fa-table mr-1"></i>Таблица 15 сервисов</a>
+                <a href="#faq"><i class="fas fa-circle-question mr-1"></i>Частые вопросы</a>
+            </div>
+        </div>
+
         <!-- ANSWER-FIRST -->
         <p>Коротко: оплатить ChatGPT из России в 2026 году можно <strong>пятью способами</strong>. Самый быстрый — через <strong>сервис-посредник</strong>, который берёт рубли и оплачивает подписку за вас. Самый надёжный для постоянной работы — <strong>зарубежная виртуальная карта</strong> на своё имя. Для тех, кто гоняет контент промптами, дешевле выходит <strong>доступ по API</strong>. А часть задач закрывают <strong>российские нейросети</strong> вообще без зарубежной оплаты. И главное: <strong>эти же способы работают для Claude, Gemini, HeyGen, ElevenLabs</strong> и других сервисов — в конце статьи таблица по 15+ нейросетям. Ниже — разбор каждого варианта.</p>
 
         <div class="law-box">
             <p class="font-semibold mb-2" style="color:#cbd5e1"><i class="fas fa-scale-balanced mr-2"></i>Сразу о главном: оплата — это не VPN</p>
             <p class="text-slate-400 text-sm mb-0">Эта статья — про <strong>оплату подписки</strong>, а не про обход блокировок. Для проведения платежа VPN не требуется: сервис-посредник проводит оплату на своей стороне, а зарубежная карта привязывается в личном кабинете. Способы доступа к интерфейсу — отдельная техническая тема, которую мы здесь не рассматриваем.</p>
-        </div>
-
-        <!-- KEY TAKEAWAYS -->
-        <div class="takeaways-box">
-            <p class="text-orange-400 font-bold mb-3 text-sm uppercase tracking-wider"><i class="fas fa-bolt mr-2"></i>Главное за 60 секунд</p>
-            <ul class="text-slate-300 text-sm space-y-2 mb-0" style="list-style:none;padding:0;">
-                <li>- Российские карты (Visa, Mastercard, МИР) в ChatGPT <strong>не проходят</strong> с 2022 года</li>
-                <li>- ChatGPT Plus стоит <strong>$20/мес</strong> по официальному прайсу OpenAI</li>
-                <li>- Быстрее всего — <strong>сервис-посредник</strong>: платите рублями, подписку оформляют за вас</li>
-                <li>- Надёжнее для работы — <strong>зарубежная виртуальная карта</strong> на своё имя</li>
-                <li>- Дешевле для контент-задач — <strong>доступ по API</strong> с оплатой за токены</li>
-                <li>- Часть задач закрывают <strong>GigaChat и YandexGPT</strong> без зарубежной оплаты</li>
-            </ul>
         </div>
 
         <!-- ======================================= -->
@@ -159,7 +175,7 @@
         <p>Поэтому все рабочие способы сводятся к одной из двух идей: либо платёж проводит <strong>кто-то с зарубежной картой</strong> вместо вас (сервис-посредник), либо у вас <strong>появляется собственная зарубежная карта</strong>. Всё остальное — вариации на эти две темы. Разберём по порядку, от самого простого к самому самостоятельному.</p>
 
         <!-- ======================================= -->
-        <h2>Способ 1. Сервис-посредник: платите рублями, подписку оформляют за вас</h2>
+        <h2 id="sposoby">Способ 1. Сервис-посредник: платите рублями, подписку оформляют за вас</h2>
 
         <p>Самый быстрый вариант для большинства людей. Принцип простой: вы переводите рубли сервису, а он оплачивает вашу подписку ChatGPT Plus со своей зарубежной карты. От вас не требуется ни карта, ни иностранный счёт — только аккаунт в ChatGPT и оплата по выставленному счёту.</p>
 
@@ -317,7 +333,7 @@
         <p class="text-xs text-slate-600">Цены ориентировочны и зависят от курса и комиссии конкретного сервиса на момент оплаты (июнь 2026). Перед покупкой сверяйте актуальные условия.</p>
 
         <!-- ======================================= -->
-        <h2>Как оплатить другие нейросети из России: Claude, Gemini, HeyGen, ElevenLabs и ещё 11 сервисов</h2>
+        <h2 id="servisy">Как оплатить другие нейросети из России: Claude, Gemini, HeyGen, ElevenLabs и ещё 11 сервисов</h2>
 
         <p>Хорошая новость: все пять способов выше — <strong>универсальны</strong>. Сервису-посреднику без разницы, что оплачивать — ChatGPT, Claude или HeyGen, для него это просто зарубежная подписка. Зарубежная виртуальная карта точно так же привязывается к любому сервису. Поэтому, разобравшись с оплатой ChatGPT, вы автоматически умеете оплачивать <strong>почти любой иностранный AI-сервис</strong>.</p>
 
@@ -414,7 +430,7 @@
         </div>
 
         <!-- ======================================= -->
-        <h2>Часто задаваемые вопросы</h2>
+        <h2 id="faq">Часто задаваемые вопросы</h2>
 
         <div class="faq-item">
             <p class="faq-q"><i class="fas fa-question-circle text-orange-400 mr-2"></i>Можно ли оплатить ChatGPT российской картой Visa, Mastercard или МИР?</p>
