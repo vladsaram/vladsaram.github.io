@@ -30,6 +30,7 @@
 
 ## Статьи и материалы
 
+- [Нейросети для создания видео 2026: бесплатные и платные](https://saramudvlad.ru/articles/neyroseti-dlya-video-2026/)
 - [Нейросеть для Reels: контент на поток без съёмок](https://saramudvlad.ru/articles/neyroset-dlya-reels-2026/)
 - [Как оплатить ChatGPT, Claude и нейросети из России в 2026](https://saramudvlad.ru/articles/oplatit-chatgpt-iz-rossii-2026/)
 - [Контент-план на месяц с нейросетью: система из 3 шагов](https://saramudvlad.ru/articles/kontent-plan-neyroset-2026/)
