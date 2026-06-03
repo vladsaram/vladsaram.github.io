@@ -23,13 +23,6 @@
   </url>
 
   <url>
-    <loc>https://saramudvlad.ru/articles/neyroseti-dlya-video-2026/</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://saramudvlad.ru/articles/yandexgpt-vs-gigachat-vs-chatgpt/</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
@@ -73,6 +66,13 @@
 
   <url>
     <loc>https://saramudvlad.ru/articles/oplatit-chatgpt-iz-rossii-2026/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://saramudvlad.ru/articles/neyroseti-dlya-video-2026/</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
