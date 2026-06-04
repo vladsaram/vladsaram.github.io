@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Владислав Сарамуд — маркетинг и нейросети</title>
+    <link>https://saramudvlad.ru/blog/</link>
+    <atom:link href="https://saramudvlad.ru/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Практические статьи о маркетинге, нейросетях для контента, рекламе и автоматизации бизнеса.</description>
+    <language>ru</language>
+    <lastBuildDate>Thu, 04 Jun 2026 10:00:00 +0300</lastBuildDate>
+    <item>
+      <title>Нейросети для создания видео 2026: бесплатные и платные</title>
+      <link>https://saramudvlad.ru/articles/neyroseti-dlya-video-2026/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/neyroseti-dlya-video-2026/</guid>
+      <description>Видео из текста, оживление фото, нейроаватары и озвучка. Какие нейросети для видео работают в 2026, что бесплатно, цены платных и как оплатить из России. Таблица сервисов.</description>
+      <category>AI &amp; Автоматизация</category>
+      <pubDate>Wed, 03 Jun 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/neyroseti-dlya-video.webp" type="image/webp"/>
+    </item>
+    <item>
+      <title>Нейросеть для Reels: контент на поток без съёмок</title>
+      <link>https://saramudvlad.ru/articles/neyroset-dlya-reels-2026/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/neyroset-dlya-reels-2026/</guid>
+      <description>Как делать Reels на нейросетях без камеры: сценарий, нейроаватар HeyGen, озвучка ElevenLabs, монтаж и субтитры. Конвейер «ролик за 20 минут» и месяц контента за один заход.</description>
+      <category>SMM &amp; ИИ</category>
+      <pubDate>Wed, 03 Jun 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/neyroset-dlya-reels.webp" type="image/webp"/>
+    </item>
+    <item>
+      <title>Как оплатить ChatGPT, Claude и нейросети из России в 2026</title>
+      <link>https://saramudvlad.ru/articles/oplatit-chatgpt-iz-rossii-2026/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/oplatit-chatgpt-iz-rossii-2026/</guid>
+      <description>Российская карта не проходит, а нейросети нужны. 5 способов оплатить ChatGPT, Claude, Gemini, HeyGen, ElevenLabs и 15+ сервисов из России: посредники, зарубежная карта, API. Цены и риски.</description>
+      <category>AI &amp; Автоматизация</category>
+      <pubDate>Wed, 03 Jun 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/oplatit-chatgpt.webp" type="image/webp"/>
+    </item>
+    <item>
+      <title>Разбор расходов бизнеса: где утекают деньги и что чинить первым</title>
+      <link>https://saramudvlad.ru/articles/razhor-rashoodov-biznesa-2026/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/razhor-rashoodov-biznesa-2026/</guid>
+      <description>Реклама ест бюджет, заявки теряются, подрядчики присылают отчёты. Где реально дыра — и что с этим делать. Конкретный список действий без воды.</description>
+      <category>Консультация</category>
+      <pubDate>Sat, 30 May 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/rasxod.webp" type="image/webp"/>
+    </item>
+    <item>
+      <title>Контент-план на месяц с нейросетью: система из 3 шагов + готовые промпты</title>
+      <link>https://saramudvlad.ru/articles/kontent-plan-neyroset-2026/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/kontent-plan-neyroset-2026/</guid>
+      <description>Как составить контент-план для ВКонтакте и Telegram с помощью AI за 30 минут вместо 4 часов. 6 готовых промптов + шаблон таблицы.</description>
+      <category>SMM &amp; ИИ</category>
+      <pubDate>Thu, 28 May 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/kontent-plan-neyroset.webp" type="image/webp"/>
+    </item>
+    <item>
+      <title>YandexGPT vs GigaChat vs ChatGPT: честное сравнение для маркетолога 2026</title>
+      <link>https://saramudvlad.ru/articles/yandexgpt-vs-gigachat-vs-chatgpt/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/yandexgpt-vs-gigachat-vs-chatgpt/</guid>
+      <description>Протестировал все три нейросети на реальных маркетинговых задачах. Кто лучше пишет посты, контент-план и рекламные тексты — с примерами и выводами.</description>
+      <category>AI &amp; Автоматизация</category>
+      <pubDate>Thu, 28 May 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/yandexgpt-vs-gigachat.webp" type="image/webp"/>
+    </item>
+    <item>
+      <title>Автоворонка продаж в Telegram 2026: бот + n8n за 1 день без программиста</title>
+      <link>https://saramudvlad.ru/articles/avtovoronka-telegram-2026/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/avtovoronka-telegram-2026/</guid>
+      <description>Пошаговая настройка автоворонки в Telegram через n8n без кода. Лид-магнит, прогрев, продажа — реальные конверсии и схема из практики.</description>
+      <category>Автоматизация</category>
+      <pubDate>Thu, 28 May 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/avtovoronka-telegram.webp" type="image/webp"/>
+    </item>
+    <item>
+      <title>MAX мессенджер 2026–2027: как продвигаться и набирать аудиторию</title>
+      <link>https://saramudvlad.ru/articles/max-messenger-2026/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/max-messenger-2026/</guid>
+      <description>Полный гайд по продвижению в MAX мессенджере. 110 млн пользователей, 77 млн DAU, реальные стратегии, бюджеты и монетизация канала.</description>
+      <category>SMM &amp; ИИ</category>
+      <pubDate>Tue, 26 May 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/massanger_MAX.webp" type="image/webp"/>
+    </item>
+    <item>
+      <title>Как построить отдел маркетинга с нуля в 2026–2027</title>
+      <link>https://saramudvlad.ru/articles/marketing-department-2026/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/marketing-department-2026/</guid>
+      <description>Структура команды, Claude MAX в России, автоматизация с n8n. Как выстроить маркетинг-систему, которая масштабируется без раздутого штата. 90-дневный план.</description>
+      <category>AI &amp; Автоматизация</category>
+      <pubDate>Tue, 26 May 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/otdel_marketinga.webp" type="image/webp"/>
+    </item>
+    <item>
+      <title>Яндекс Директ 2026: полный гайд по настройке с нуля</title>
+      <link>https://saramudvlad.ru/articles/yandex-direct-2026/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/yandex-direct-2026/</guid>
+      <description>Новый интерфейс, ЕПК, Мастер кампаний, автостратегии — всё что изменилось. Пошаговая настройка, реальные бюджеты и типичные ошибки.</description>
+      <category>Реклама</category>
+      <pubDate>Tue, 26 May 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/direct_2026.webp" type="image/webp"/>
+    </item>
+    <item>
+      <title>Telegram Ads в 2026: полный гайд по рекламе в Телеграм</title>
+      <link>https://saramudvlad.ru/articles/telegram-ads-2026/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/telegram-ads-2026/</guid>
+      <description>Как запустить рекламу в Телеграм с минимальным бюджетом. Форматы, реальные CPM, таргетинг и ошибки которые сливают деньги.</description>
+      <category>Реклама</category>
+      <pubDate>Sun, 24 May 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/og-telegram-ads-2026.webp" type="image/webp"/>
+    </item>
+    <item>
+      <title>Как настроить рекламу ВКонтакте в 2026: полный гайд с нуля</title>
+      <link>https://saramudvlad.ru/articles/reklama-vkontakte-2026/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/reklama-vkontakte-2026/</guid>
+      <description>Пошаговая инструкция по запуску таргета ВК. Форматы, аудитории, бюджеты и ошибки которые сливают деньги.</description>
+      <category>Реклама</category>
+      <pubDate>Sun, 24 May 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/og-vk-ads-2026.webp" type="image/webp"/>
+    </item>
+    <item>
+      <title>50 промптов для ChatGPT в SMM: готовые шаблоны 2026</title>
+      <link>https://saramudvlad.ru/articles/prompty-chatgpt-smm/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/prompty-chatgpt-smm/</guid>
+      <description>Готовые промпты для постов, Reels, рекламных текстов и контент-плана. Каждый проверен на реальных проектах.</description>
+      <category>SMM &amp; ИИ</category>
+      <pubDate>Sun, 24 May 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/50-prompts.webp" type="image/webp"/>
+    </item>
+    <item>
+      <title>Как AI снижает стоимость контента на 80%</title>
+      <link>https://saramudvlad.ru/articles/ai-content-cost/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/ai-content-cost/</guid>
+      <description>Практический гайд по внедрению нейросетей в контент-маркетинг. Реальные цифры экономии и кейсы из практики с 20+ компаниями.</description>
+      <category>AI &amp; Автоматизация</category>
+      <pubDate>Wed, 11 Feb 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/AI_cost.webp" type="image/webp"/>
+    </item>
+    <item>
+      <title>Как запустить контент-маркетинг с нуля за 7 дней</title>
+      <link>https://saramudvlad.ru/articles/content-marketing-launch/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/content-marketing-launch/</guid>
+      <description>Пошаговый план запуска без агентств и больших бюджетов. Только то, что работает прямо сейчас.</description>
+      <category>Контент-маркетинг</category>
+      <pubDate>Tue, 20 Jan 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/content-marketing.webp" type="image/webp"/>
+    </item>
+  </channel>
+</rss>
