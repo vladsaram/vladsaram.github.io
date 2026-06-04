@@ -1,0 +1,467 @@
+{
+  "name": "Video Autopublish Bot (@Saramudpost_bot)",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": ["message"],
+        "additionalFields": {}
+      },
+      "id": "n1",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "webhookId": "saramudpost-webhook",
+      "credentials": {
+        "telegramApi": {
+          "id": "REPLACE_WITH_CREDENTIAL_ID",
+          "name": "Saramudpost Bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cond-video",
+              "leftValue": "={{ $json.message.video }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "id": "n2",
+      "name": "Has Video?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ 'https://api.telegram.org/bot' + $env.TELEGRAM_BOT_TOKEN + '/getFile' }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "file_id",
+              "value": "={{ $json.message.video.file_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "n3",
+      "name": "Get File URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 200]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a-url",
+              "name": "video_url",
+              "value": "={{ 'https://api.telegram.org/file/bot' + $env.TELEGRAM_BOT_TOKEN + '/' + $json.result.file_path }}",
+              "type": "string"
+            },
+            {
+              "id": "a-caption",
+              "name": "caption",
+              "value": "={{ $('Telegram Trigger').item.json.message.caption || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "a-chatid",
+              "name": "chat_id",
+              "value": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+              "type": "string"
+            },
+            {
+              "id": "a-fileid",
+              "name": "file_id",
+              "value": "={{ $('Telegram Trigger').item.json.message.video.file_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "n4",
+      "name": "Set Video Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{ $env.ANTHROPIC_API_KEY }}"
+            },
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "string",
+        "body": "={{ JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 1500, system: 'You are a social media content writer. Given a video caption or description, create optimized post text for 6 platforms.\\n\\nReturn ONLY valid JSON — no markdown, no explanation, no code blocks. Use exactly these top-level keys:\\n- \"instagram\": caption with emojis and up to 30 relevant hashtags (max 2200 chars)\\n- \"tiktok\": short punchy caption with 3–5 trending hashtags (max 300 chars)\\n- \"youtube\": object with \"title\" (max 100 chars) and \"description\" (max 5000 chars, hashtags at end)\\n- \"vk\": post text with 5–10 hashtags for VKontakte\\n- \"likee\": caption with 5–8 hashtags for Likee\\n- \"telegram\": channel post with emojis, NO hashtags\\n\\nKeep the original language of the caption.', messages: [{ role: 'user', content: 'Original caption: ' + $json.caption }] }) }}",
+        "options": {}
+      },
+      "id": "n5",
+      "name": "Claude API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1120, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "const response = $input.item.json;\nconst content = response.content[0].text;\nconst videoData = $('Set Video Data').item.json;\n\nlet platforms;\ntry {\n  platforms = JSON.parse(content);\n} catch (e) {\n  const match = content.match(/\\{[\\s\\S]*\\}/);\n  if (!match) throw new Error('Cannot parse Claude response: ' + content.substring(0, 300));\n  platforms = JSON.parse(match[0]);\n}\n\nreturn {\n  json: {\n    instagram:  platforms.instagram  || '',\n    tiktok:     platforms.tiktok     || '',\n    youtube:    platforms.youtube    || { title: '', description: '' },\n    vk:         platforms.vk         || '',\n    likee:      platforms.likee      || '',\n    telegram:   platforms.telegram   || '',\n    video_url:  videoData.video_url,\n    file_id:    videoData.file_id,\n    chat_id:    videoData.chat_id,\n    caption_original: videoData.caption\n  }\n};"
+      },
+      "id": "n6",
+      "name": "Parse Platforms",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 200]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "sendVideo",
+        "chatId": "={{ $env.TELEGRAM_CHANNEL_ID }}",
+        "file": "={{ $json.file_id }}",
+        "additionalFields": {
+          "caption": "={{ $json.telegram }}",
+          "parse_mode": "HTML"
+        }
+      },
+      "id": "n7",
+      "name": "Post to Telegram Channel",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1580, 0],
+      "credentials": {
+        "telegramApi": {
+          "id": "REPLACE_WITH_CREDENTIAL_ID",
+          "name": "Saramudpost Bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.vk.com/method/video.save",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "name",         "value": "={{ $json.youtube.title }}" },
+            { "name": "description",  "value": "={{ $json.vk }}" },
+            { "name": "link",         "value": "={{ $json.video_url }}" },
+            { "name": "access_token", "value": "={{ $env.VK_ACCESS_TOKEN }}" },
+            { "name": "v",            "value": "5.131" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "n8",
+      "name": "VK — Save Video",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1580, 120]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.vk.com/method/wall.post",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "owner_id",     "value": "={{ $env.VK_OWNER_ID }}" },
+            { "name": "message",      "value": "={{ $('Parse Platforms').item.json.vk }}" },
+            { "name": "attachments",  "value": "=video{{ $env.VK_OWNER_ID.replace('-','') }}_{{ $json.response.video_id }}" },
+            { "name": "access_token", "value": "={{ $env.VK_ACCESS_TOKEN }}" },
+            { "name": "v",            "value": "5.131" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "n8b",
+      "name": "VK — Wall Post",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1800, 120]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v19.0/{{ $env.INSTAGRAM_USER_ID }}/media",
+        "sendBody": true,
+        "specifyBody": "string",
+        "body": "={{ JSON.stringify({ video_url: $json.video_url, caption: $json.instagram, media_type: 'REELS', access_token: $env.INSTAGRAM_ACCESS_TOKEN }) }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "n9",
+      "name": "Instagram — Create Container",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1580, 240]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Wait for Instagram to process the video (usually 30-60s)\n// In production: add a Wait node (30s) before this node\nconst igData = $('Instagram — Create Container').item.json;\nconst creationId = igData.id;\n\nif (!creationId) {\n  throw new Error('Instagram container creation failed: ' + JSON.stringify(igData));\n}\n\nreturn { json: { creation_id: creationId } };"
+      },
+      "id": "n9b",
+      "name": "Instagram — Check ID",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1800, 240]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v19.0/{{ $env.INSTAGRAM_USER_ID }}/media_publish",
+        "sendBody": true,
+        "specifyBody": "string",
+        "body": "={{ JSON.stringify({ creation_id: $json.creation_id, access_token: $env.INSTAGRAM_ACCESS_TOKEN }) }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "n9c",
+      "name": "Instagram — Publish",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2020, 240]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://open.tiktokapis.com/v2/post/publish/video/init/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.TIKTOK_ACCESS_TOKEN }}" },
+            { "name": "Content-Type",  "value": "application/json; charset=UTF-8" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "string",
+        "body": "={{ JSON.stringify({ post_info: { title: $('Parse Platforms').item.json.tiktok, privacy_level: 'SELF_ONLY', disable_duet: false, disable_comment: false, disable_stitch: false }, source_info: { source: 'PULL_FROM_URL', video_url: $('Parse Platforms').item.json.video_url } }) }}",
+        "options": {}
+      },
+      "id": "n10",
+      "name": "Post to TikTok",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1580, 360]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.ayrshare.com/api/post",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.AYRSHARE_API_KEY }}" },
+            { "name": "Content-Type",  "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "string",
+        "body": "={{ JSON.stringify({ post: $json.likee, mediaUrls: [$json.video_url], platforms: ['likee'] }) }}",
+        "options": {}
+      },
+      "id": "n11",
+      "name": "Post to Likee (Ayrshare)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1580, 480]
+    },
+    {
+      "parameters": {
+        "mode": "waitForAll",
+        "output": "all",
+        "options": {}
+      },
+      "id": "n12",
+      "name": "Merge Results",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [2240, 280]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "sendMessage",
+        "chatId": "={{ $('Set Video Data').item.json.chat_id }}",
+        "text": "✅ Видео опубликовано на всех платформах!\n\n📱 Telegram\n📘 Instagram\n🎵 TikTok\n🔵 VK\n🎬 Likee\n\n#autopublish",
+        "additionalFields": {}
+      },
+      "id": "n13",
+      "name": "Reply Success",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [2460, 280],
+      "credentials": {
+        "telegramApi": {
+          "id": "REPLACE_WITH_CREDENTIAL_ID",
+          "name": "Saramudpost Bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "sendMessage",
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "⚠️ Пришли видео с подписью (caption). Фото и текст без видео не поддерживаются.",
+        "additionalFields": {}
+      },
+      "id": "n14",
+      "name": "Reply No Video",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [680, 420],
+      "credentials": {
+        "telegramApi": {
+          "id": "REPLACE_WITH_CREDENTIAL_ID",
+          "name": "Saramudpost Bot"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [{ "node": "Has Video?", "type": "main", "index": 0 }]
+      ]
+    },
+    "Has Video?": {
+      "main": [
+        [{ "node": "Get File URL", "type": "main", "index": 0 }],
+        [{ "node": "Reply No Video", "type": "main", "index": 0 }]
+      ]
+    },
+    "Get File URL": {
+      "main": [
+        [{ "node": "Set Video Data", "type": "main", "index": 0 }]
+      ]
+    },
+    "Set Video Data": {
+      "main": [
+        [{ "node": "Claude API", "type": "main", "index": 0 }]
+      ]
+    },
+    "Claude API": {
+      "main": [
+        [{ "node": "Parse Platforms", "type": "main", "index": 0 }]
+      ]
+    },
+    "Parse Platforms": {
+      "main": [
+        [
+          { "node": "Post to Telegram Channel",  "type": "main", "index": 0 },
+          { "node": "VK — Save Video",            "type": "main", "index": 0 },
+          { "node": "Instagram — Create Container","type": "main", "index": 0 },
+          { "node": "Post to TikTok",             "type": "main", "index": 0 },
+          { "node": "Post to Likee (Ayrshare)",   "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Post to Telegram Channel": {
+      "main": [
+        [{ "node": "Merge Results", "type": "main", "index": 0 }]
+      ]
+    },
+    "VK — Save Video": {
+      "main": [
+        [{ "node": "VK — Wall Post", "type": "main", "index": 0 }]
+      ]
+    },
+    "VK — Wall Post": {
+      "main": [
+        [{ "node": "Merge Results", "type": "main", "index": 1 }]
+      ]
+    },
+    "Instagram — Create Container": {
+      "main": [
+        [{ "node": "Instagram — Check ID", "type": "main", "index": 0 }]
+      ]
+    },
+    "Instagram — Check ID": {
+      "main": [
+        [{ "node": "Instagram — Publish", "type": "main", "index": 0 }]
+      ]
+    },
+    "Instagram — Publish": {
+      "main": [
+        [{ "node": "Merge Results", "type": "main", "index": 2 }]
+      ]
+    },
+    "Post to TikTok": {
+      "main": [
+        [{ "node": "Merge Results", "type": "main", "index": 3 }]
+      ]
+    },
+    "Post to Likee (Ayrshare)": {
+      "main": [
+        [{ "node": "Merge Results", "type": "main", "index": 4 }]
+      ]
+    },
+    "Merge Results": {
+      "main": [
+        [{ "node": "Reply Success", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "versionId": "saramudpost-v1",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": [
+    { "createdAt": "2026-06-04", "updatedAt": "2026-06-04", "id": "1", "name": "autopublish" }
+  ]
+}
