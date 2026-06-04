@@ -1,0 +1,211 @@
+{
+  "name": "1. Receive Message",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "telegram-webhook",
+        "authentication": "headerAuth",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook-trigger",
+      "name": "Telegram Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $input.first().json.body;\nconst msg = body.message || body.edited_message;\nif (!msg) return [];\n\nreturn [{\n  json: {\n    telegram_id: msg.from.id,\n    username: msg.from.username || null,\n    first_name: msg.from.first_name || null,\n    chat_id: msg.chat.id,\n    text: msg.text || null,\n    voice: msg.voice || null,\n    file_id: msg.voice ? msg.voice.file_id : null\n  }\n}];"
+      },
+      "id": "parse-message",
+      "name": "Parse Message",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO contacts (telegram_id, username, first_name, last_message_at)\nVALUES ({{ $json.telegram_id }}, {{ $json.username ? `'${$json.username}'` : 'NULL' }}, {{ $json.first_name ? `'${$json.first_name.replace(/'/g,\"''\")}'` : 'NULL' }}, NOW())\nON CONFLICT (telegram_id) DO UPDATE\n  SET username = EXCLUDED.username,\n      first_name = EXCLUDED.first_name,\n      last_message_at = NOW()\nRETURNING id, segment;"
+      },
+      "id": "upsert-contact",
+      "name": "Upsert Contact",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $('Parse Message').item.json.text }}",
+              "operation": "startsWith",
+              "value2": "/"
+            }
+          ]
+        }
+      },
+      "id": "is-command",
+      "name": "Is Command?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $('Parse Message').item.json.text }}",
+              "operation": "equal",
+              "value2": "/start"
+            }
+          ]
+        }
+      },
+      "id": "which-command",
+      "name": "Which Command?",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [1120, 200]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Parse Message').item.json.chat_id }}",
+        "text": "Привет, {{ $('Parse Message').item.json.first_name || 'друг' }}! 👋\n\nЯ бот Сарамуд. Помогу с вопросами по маркетингу и продвижению.\n\nКоманды:\n/start — начало\n/help — помощь\n/mystatus — ваш статус"
+      },
+      "id": "send-start",
+      "name": "Send /start Reply",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [1340, 100]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Parse Message').item.json.chat_id }}",
+        "text": "📋 Помощь:\n/start — начало работы\n/help — это сообщение\n/mystatus — ваш текущий сегмент"
+      },
+      "id": "send-help",
+      "name": "Send /help Reply",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [1340, 220]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Parse Message').item.json.chat_id }}",
+        "text": "Ваш статус: {{ $('Upsert Contact').item.json.segment }}"
+      },
+      "id": "send-status",
+      "name": "Send /mystatus Reply",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [1340, 340]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ !!$('Parse Message').item.json.file_id }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "is-voice",
+      "name": "Is Voice?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1120, 420]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.telegram.org/bot{{ $env.TELEGRAM_BOT_TOKEN }}/getFile?file_id={{ $('Parse Message').item.json.file_id }}",
+        "options": {}
+      },
+      "id": "get-file",
+      "name": "Get File Path",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [1340, 460]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.telegram.org/file/bot{{ $env.TELEGRAM_BOT_TOKEN }}/{{ $json.result.file_path }}",
+        "responseFormat": "file",
+        "options": {}
+      },
+      "id": "download-voice",
+      "name": "Download Voice",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [1560, 460]
+    },
+    {
+      "parameters": {
+        "url": "https://api.groq.com/openai/v1/audio/transcriptions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "model", "value": "whisper-large-v3" },
+            { "name": "language", "value": "ru" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "groq-transcribe",
+      "name": "Groq Transcribe",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [1780, 460]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\":true}"
+      },
+      "id": "respond-ok",
+      "name": "Respond OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [2000, 300]
+    }
+  ],
+  "connections": {
+    "Telegram Webhook": { "main": [[{ "node": "Parse Message", "type": "main", "index": 0 }]] },
+    "Parse Message": { "main": [[{ "node": "Upsert Contact", "type": "main", "index": 0 }]] },
+    "Upsert Contact": { "main": [[{ "node": "Is Command?", "type": "main", "index": 0 }]] },
+    "Is Command?": {
+      "main": [
+        [{ "node": "Which Command?", "type": "main", "index": 0 }],
+        [{ "node": "Is Voice?", "type": "main", "index": 0 }]
+      ]
+    },
+    "Which Command?": {
+      "main": [
+        [{ "node": "Send /start Reply", "type": "main", "index": 0 }],
+        [{ "node": "Send /help Reply", "type": "main", "index": 0 }],
+        [{ "node": "Send /mystatus Reply", "type": "main", "index": 0 }]
+      ]
+    },
+    "Is Voice?": {
+      "main": [
+        [{ "node": "Get File Path", "type": "main", "index": 0 }],
+        [{ "node": "Respond OK", "type": "main", "index": 0 }]
+      ]
+    },
+    "Get File Path": { "main": [[{ "node": "Download Voice", "type": "main", "index": 0 }]] },
+    "Download Voice": { "main": [[{ "node": "Groq Transcribe", "type": "main", "index": 0 }]] },
+    "Groq Transcribe": { "main": [[{ "node": "Respond OK", "type": "main", "index": 0 }]] },
+    "Send /start Reply": { "main": [[{ "node": "Respond OK", "type": "main", "index": 0 }]] },
+    "Send /help Reply": { "main": [[{ "node": "Respond OK", "type": "main", "index": 0 }]] },
+    "Send /mystatus Reply": { "main": [[{ "node": "Respond OK", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" }
+}

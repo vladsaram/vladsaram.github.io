@@ -1,0 +1,116 @@
+{
+  "name": "2. Broadcast",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "broadcast",
+        "responseMode": "responseNode"
+      },
+      "id": "broadcast-trigger",
+      "name": "POST /broadcast",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const { segment, message } = $input.first().json.body;\nif (!message) throw new Error('message is required');\nreturn [{ json: { segment: segment || 'all', message } }];"
+      },
+      "id": "validate-input",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT telegram_id FROM contacts WHERE is_active = TRUE{{ $json.segment !== 'all' ? ` AND segment = '${$json.segment}'` : '' }};"
+      },
+      "id": "get-contacts",
+      "name": "Get Contacts",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": { "reset": false }
+      },
+      "id": "split-batch",
+      "name": "Split Into Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.telegram_id }}",
+        "text": "={{ $('Validate Input').item.json.message }}"
+      },
+      "id": "send-message",
+      "name": "Send Message",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [1120, 300],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "amount": 500,
+        "unit": "milliseconds"
+      },
+      "id": "wait-500ms",
+      "name": "Wait 500ms",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst sent = items.filter(i => !i.json.error).length;\nconst failed = items.filter(i => i.json.error).length;\nreturn [{ json: { sent, failed } }];"
+      },
+      "id": "count-results",
+      "name": "Count Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO broadcast_log (segment, message, total_sent, total_failed)\nVALUES ('{{ $('Validate Input').item.json.segment }}', '{{ $('Validate Input').item.json.message.replace(/'/g,\"''\") }}', {{ $json.sent }}, {{ $json.failed }});"
+      },
+      "id": "log-broadcast",
+      "name": "Log Broadcast",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2,
+      "position": [1780, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ ok: true, sent: $('Count Results').item.json.sent, failed: $('Count Results').item.json.failed }) }}"
+      },
+      "id": "respond",
+      "name": "Respond",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [2000, 300]
+    }
+  ],
+  "connections": {
+    "POST /broadcast": { "main": [[{ "node": "Validate Input", "type": "main", "index": 0 }]] },
+    "Validate Input": { "main": [[{ "node": "Get Contacts", "type": "main", "index": 0 }]] },
+    "Get Contacts": { "main": [[{ "node": "Split Into Items", "type": "main", "index": 0 }]] },
+    "Split Into Items": { "main": [[{ "node": "Send Message", "type": "main", "index": 0 }]] },
+    "Send Message": { "main": [[{ "node": "Wait 500ms", "type": "main", "index": 0 }]] },
+    "Wait 500ms": { "main": [[{ "node": "Count Results", "type": "main", "index": 0 }]] },
+    "Count Results": { "main": [[{ "node": "Log Broadcast", "type": "main", "index": 0 }]] },
+    "Log Broadcast": { "main": [[{ "node": "Respond", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" }
+}

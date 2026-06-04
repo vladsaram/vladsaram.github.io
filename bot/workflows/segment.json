@@ -1,0 +1,92 @@
+{
+  "name": "3. Segment Contact",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "segment",
+        "responseMode": "responseNode"
+      },
+      "id": "segment-trigger",
+      "name": "POST /segment",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const { telegram_id, segment, notify } = $input.first().json.body;\nconst valid = ['lead','client','cold','blocked'];\nif (!telegram_id) throw new Error('telegram_id is required');\nif (!valid.includes(segment)) throw new Error(`segment must be one of: ${valid.join(', ')}`);\nreturn [{ json: { telegram_id: Number(telegram_id), segment, notify: notify !== false } }];"
+      },
+      "id": "validate",
+      "name": "Validate",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=UPDATE contacts SET segment = '{{ $json.segment }}' WHERE telegram_id = {{ $json.telegram_id }} RETURNING telegram_id, segment;"
+      },
+      "id": "update-segment",
+      "name": "Update Segment",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $('Validate').item.json.notify }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "should-notify",
+      "name": "Should Notify?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Validate').item.json.telegram_id }}",
+        "text": "Ваш статус обновлён: {{ $('Validate').item.json.segment }}"
+      },
+      "id": "notify-user",
+      "name": "Notify User",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [1120, 200],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ ok: true, telegram_id: $('Validate').item.json.telegram_id, segment: $('Validate').item.json.segment }) }}"
+      },
+      "id": "respond",
+      "name": "Respond",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1340, 300]
+    }
+  ],
+  "connections": {
+    "POST /segment": { "main": [[{ "node": "Validate", "type": "main", "index": 0 }]] },
+    "Validate": { "main": [[{ "node": "Update Segment", "type": "main", "index": 0 }]] },
+    "Update Segment": { "main": [[{ "node": "Should Notify?", "type": "main", "index": 0 }]] },
+    "Should Notify?": {
+      "main": [
+        [{ "node": "Notify User", "type": "main", "index": 0 }],
+        [{ "node": "Respond", "type": "main", "index": 0 }]
+      ]
+    },
+    "Notify User": { "main": [[{ "node": "Respond", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" }
+}
