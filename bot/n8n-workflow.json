@@ -3,21 +3,17 @@
   "nodes": [
     {
       "parameters": {
-        "updates": ["message"],
-        "additionalFields": {}
+        "httpMethod": "POST",
+        "path": "saramudpost-telegram",
+        "responseMode": "onReceived",
+        "options": {}
       },
       "id": "n1",
-      "name": "Telegram Trigger",
-      "type": "n8n-nodes-base.telegramTrigger",
-      "typeVersion": 1.1,
+      "name": "Telegram Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
       "position": [240, 300],
-      "webhookId": "saramudpost-webhook",
-      "credentials": {
-        "telegramApi": {
-          "id": "REPLACE_WITH_CREDENTIAL_ID",
-          "name": "Saramudpost Bot"
-        }
-      }
+      "webhookId": "saramudpost-webhook"
     },
     {
       "parameters": {
@@ -30,7 +26,7 @@
           "conditions": [
             {
               "id": "cond-video",
-              "leftValue": "={{ $json.message.video }}",
+              "leftValue": "={{ $json.body.message.video }}",
               "rightValue": "",
               "operator": {
                 "type": "object",
@@ -57,7 +53,7 @@
           "parameters": [
             {
               "name": "file_id",
-              "value": "={{ $json.message.video.file_id }}"
+              "value": "={{ $json.body.message.video.file_id }}"
             }
           ]
         },
@@ -82,19 +78,19 @@
             {
               "id": "a-caption",
               "name": "caption",
-              "value": "={{ $('Telegram Trigger').item.json.message.caption || '' }}",
+              "value": "={{ $('Telegram Webhook').item.json.body.message.caption || '' }}",
               "type": "string"
             },
             {
               "id": "a-chatid",
               "name": "chat_id",
-              "value": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+              "value": "={{ $('Telegram Webhook').item.json.body.message.chat.id }}",
               "type": "string"
             },
             {
               "id": "a-fileid",
               "name": "file_id",
-              "value": "={{ $('Telegram Trigger').item.json.message.video.file_id }}",
+              "value": "={{ $('Telegram Webhook').item.json.body.message.video.file_id }}",
               "type": "string"
             }
           ]
@@ -151,26 +147,24 @@
     },
     {
       "parameters": {
-        "resource": "message",
-        "operation": "sendVideo",
-        "chatId": "={{ $env.TELEGRAM_CHANNEL_ID }}",
-        "file": "={{ $json.file_id }}",
-        "additionalFields": {
-          "caption": "={{ $json.telegram }}",
-          "parse_mode": "HTML"
-        }
+        "method": "POST",
+        "url": "={{ 'https://api.telegram.org/bot' + $env.TELEGRAM_BOT_TOKEN + '/sendVideo' }}",
+        "sendBody": true,
+        "specifyBody": "string",
+        "body": "={{ JSON.stringify({ chat_id: $env.TELEGRAM_CHANNEL_ID, video: $json.file_id, caption: $json.telegram, parse_mode: 'HTML' }) }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "options": {}
       },
       "id": "n7",
       "name": "Post to Telegram Channel",
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
-      "position": [1580, 0],
-      "credentials": {
-        "telegramApi": {
-          "id": "REPLACE_WITH_CREDENTIAL_ID",
-          "name": "Saramudpost Bot"
-        }
-      }
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1580, 0]
     },
     {
       "parameters": {
@@ -326,48 +320,50 @@
     },
     {
       "parameters": {
-        "resource": "message",
-        "operation": "sendMessage",
-        "chatId": "={{ $('Set Video Data').item.json.chat_id }}",
-        "text": "✅ Видео опубликовано на всех платформах!\n\n📱 Telegram\n📘 Instagram\n🎵 TikTok\n🔵 VK\n🎬 Likee\n\n#autopublish",
-        "additionalFields": {}
+        "method": "POST",
+        "url": "={{ 'https://api.telegram.org/bot' + $env.TELEGRAM_BOT_TOKEN + '/sendMessage' }}",
+        "sendBody": true,
+        "specifyBody": "string",
+        "body": "={{ JSON.stringify({ chat_id: $('Set Video Data').item.json.chat_id, text: '✅ Видео опубликовано на всех платформах!\\n\\n📱 Telegram\\n📘 Instagram\\n🎵 TikTok\\n🔵 VK\\n🎬 Likee\\n\\n#autopublish' }) }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "options": {}
       },
       "id": "n13",
       "name": "Reply Success",
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
-      "position": [2460, 280],
-      "credentials": {
-        "telegramApi": {
-          "id": "REPLACE_WITH_CREDENTIAL_ID",
-          "name": "Saramudpost Bot"
-        }
-      }
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2460, 280]
     },
     {
       "parameters": {
-        "resource": "message",
-        "operation": "sendMessage",
-        "chatId": "={{ $json.message.chat.id }}",
-        "text": "⚠️ Пришли видео с подписью (caption). Фото и текст без видео не поддерживаются.",
-        "additionalFields": {}
+        "method": "POST",
+        "url": "={{ 'https://api.telegram.org/bot' + $env.TELEGRAM_BOT_TOKEN + '/sendMessage' }}",
+        "sendBody": true,
+        "specifyBody": "string",
+        "body": "={{ JSON.stringify({ chat_id: $json.body.message.chat.id, text: '⚠️ Пришли видео с подписью (caption). Фото и текст без видео не поддерживаются.' }) }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "options": {}
       },
       "id": "n14",
       "name": "Reply No Video",
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
-      "position": [680, 420],
-      "credentials": {
-        "telegramApi": {
-          "id": "REPLACE_WITH_CREDENTIAL_ID",
-          "name": "Saramudpost Bot"
-        }
-      }
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 420]
     }
   ],
   "pinData": {},
   "connections": {
-    "Telegram Trigger": {
+    "Telegram Webhook": {
       "main": [
         [{ "node": "Has Video?", "type": "main", "index": 0 }]
       ]

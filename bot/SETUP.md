@@ -17,14 +17,26 @@
 
 ## 2. n8n
 
-1. Импортировать `n8n-workflow.json` через **Workflows → Import from file**
-2. В n8n **Settings → Variables** добавить все переменные из `.env.example`
-3. Создать credential **Telegram API** → вставить `TELEGRAM_BOT_TOKEN`
-4. Заменить `REPLACE_WITH_CREDENTIAL_ID` на реальные ID в 3 нодах:
-   - `Telegram Trigger`
-   - `Post to Telegram Channel`
-   - `Reply Success` / `Reply No Video`
-5. Активировать workflow (переключатель вверху)
+> 🔐 **Безопасность:** workflow **не хранит ни одного ключа** в n8n credentials.
+> Все токены берутся из переменных окружения через `$env.*`. Триггер — это
+> универсальный **Webhook**-нод, поэтому токен бота нигде в n8n не сохраняется.
+
+1. Прокинуть env-переменные **в сам процесс n8n** (не в UI Variables, а в окружение):
+   - Docker: `-e TELEGRAM_BOT_TOKEN=... -e ANTHROPIC_API_KEY=...` или `env_file: .env`
+   - systemd / PM2: в `Environment=` или `.env`
+   - ⚠️ Чтобы `$env` работал в выражениях, нужен флаг
+     `N8N_BLOCK_ENV_ACCESS_IN_NODE=false` (по умолчанию доступ открыт).
+2. Импортировать `n8n-workflow.json` через **Workflows → Import from file**
+3. Активировать workflow (переключатель вверху) — n8n зарегистрирует Production URL вебхука
+4. Скопировать **Production Webhook URL** из нода `Telegram Webhook`
+   (вид: `https://<n8n-host>/webhook/saramudpost-telegram`)
+5. Один раз зарегистрировать вебхук в Telegram (токен из env, в n8n не попадает):
+   ```bash
+   curl "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/setWebhook?url=https://<n8n-host>/webhook/saramudpost-telegram"
+   ```
+   Проверить: `curl "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getWebhookInfo"`
+
+Никаких `REPLACE_WITH_CREDENTIAL_ID` заменять не нужно — credential-ов в workflow нет.
 
 ---
 
