@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "kontent-plan-prompt-primer",
+    "title": "Контент-план на неделю одним промптом — за 5 минут",
+    "desc": "Разбираю промпт, который собирает контент-план для Telegram и VK на 7 дней. Готовый промпт под видео — копируй и забирай.",
+    "category": "Промпты",
+    "categoryColor": "rose",
+    "icon": "fa-wand-magic-sparkles",
+    "iconBg": "from-rose-600 to-red-700",
+    "read": "5 мин",
+    "url": "/video/kontent-plan-prompt-primer/",
+    "thumb": "https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg",
+    "youtubeId": "ScMzIvxBSi4",
+    "date": "2026-06-04",
+    "dateLabel": "4 июня 2026"
+  }
+]

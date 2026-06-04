@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <title>Контент-план на неделю одним промптом за 5 минут | Владислав Сарамуд</title>
+    <meta name="description" content="Промпт, который собирает контент-план для Telegram и VK на 7 дней за 5 минут. Пошаговая инструкция, готовый промпт для копирования и разбор на реальном примере.">
+    <meta name="keywords" content="контент-план промпт, нейросеть контент-план, промпт для SMM, контент план telegram, контент план вконтакте, chatgpt контент план">
+    <meta name="author" content="Владислав Сарамуд">
+    <link rel="canonical" href="https://saramudvlad.ru/video/kontent-plan-prompt-primer/">
+    <meta property="og:type" content="video.other">
+    <meta property="og:url" content="https://saramudvlad.ru/video/kontent-plan-prompt-primer/">
+    <meta property="og:title" content="Контент-план на неделю одним промптом за 5 минут">
+    <meta property="og:description" content="Готовый промпт под видео: контент-план для Telegram и VK на 7 дней за 5 минут.">
+    <meta property="og:image" content="https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Контент-план на неделю одним промптом за 5 минут">
+    <meta name="twitter:description" content="Готовый промпт под видео: контент-план для Telegram и VK на 7 дней.">
+    <meta name="twitter:image" content="https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=106768627','ym');
+    ym(106768627,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106768627" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="/dist/tailwind.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"Контент-план на неделю одним промптом за 5 минут","description":"Промпт, который собирает контент-план для Telegram и VK на 7 дней за 5 минут. Пошаговая инструкция и готовый промпт.","thumbnailUrl":["https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg"],"uploadDate":"2026-06-04","contentUrl":"https://www.youtube.com/watch?v=ScMzIvxBSi4","embedUrl":"https://www.youtube.com/embed/ScMzIvxBSi4","publisher":{"@type":"Person","name":"Владислав Сарамуд","logo":{"@type":"ImageObject","url":"https://saramudvlad.ru/avatar.webp"}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://saramudvlad.ru"},{"@type":"ListItem","position":2,"name":"Видео","item":"https://saramudvlad.ru/video/"},{"@type":"ListItem","position":3,"name":"Контент-план одним промптом"}]}</script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body{font-family:'Inter',sans-serif;background-color:#020617;color:#e2e8f0;}
+        .gradient-text{background:linear-gradient(to right,#fb7185,#f43f5e,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        article h2{font-size:1.75rem;font-weight:800;color:#fff;margin-top:2.5rem;margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:2px solid #f43f5e;}
+        article h3{font-size:1.25rem;font-weight:700;color:#fff;margin-top:1.75rem;margin-bottom:0.75rem;}
+        article p{margin-bottom:1rem;line-height:1.8;color:#cbd5e1;}
+        article ul,article ol{margin:0 0 1.25rem 1.25rem;color:#cbd5e1;line-height:1.8;}
+        article ul li{list-style:disc;margin-bottom:0.5rem;}
+        article ol li{list-style:decimal;margin-bottom:0.5rem;}
+        .video-wrap{position:relative;width:100%;padding-top:56.25%;border-radius:1rem;overflow:hidden;background:#0f172a;}
+        .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+        .prompt-box{position:relative;background:#0b1120;border:1px solid #1e293b;border-radius:0.75rem;padding:1.25rem 1.25rem 1.25rem;margin:1rem 0 1.5rem;}
+        .prompt-box pre{white-space:pre-wrap;word-break:break-word;color:#e2e8f0;font-size:0.9rem;line-height:1.6;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}
+        .copy-btn{position:absolute;top:0.75rem;right:0.75rem;background:#f43f5e;color:#fff;border:0;border-radius:0.5rem;padding:0.35rem 0.7rem;font-size:0.75rem;font-weight:700;cursor:pointer;}
+        .copy-btn:hover{background:#e11d48;}
+    </style>
+</head>
+<body class="antialiased selection:bg-rose-500 selection:text-white">
+
+<nav class="border-b border-slate-800/50 sticky top-0 backdrop-blur-lg bg-slate-950/80 z-50">
+    <div class="container mx-auto px-6 py-4 max-w-4xl">
+        <div class="flex justify-between items-center">
+            <a href="/video/" class="text-xl font-bold text-white hover:text-rose-400 transition">
+                <i class="fas fa-arrow-left mr-2"></i>Все видео
+            </a>
+            <a href="https://t.me/saramudvlad" target="_blank" class="text-rose-500 hover:text-rose-400 transition text-sm">
+                <i class="fab fa-telegram"></i> Связаться
+            </a>
+        </div>
+    </div>
+</nav>
+
+<main class="container mx-auto px-6 py-12 max-w-4xl">
+
+    <nav class="text-xs text-slate-500 mb-6">
+        <a href="/" class="hover:text-rose-400">Главная</a> /
+        <a href="/video/" class="hover:text-rose-400">Видео</a> /
+        <span class="text-slate-400">Контент-план одним промптом</span>
+    </nav>
+
+    <div class="mb-4">
+        <span class="text-xs font-bold text-rose-400 uppercase tracking-wider">Промпты</span>
+    </div>
+    <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">
+        Контент-план на неделю <span class="gradient-text">одним промптом</span> — за 5 минут
+    </h1>
+    <div class="flex items-center gap-4 text-xs text-slate-500 mb-8">
+        <span><i class="far fa-clock mr-1"></i>5 мин</span>
+        <span><i class="far fa-calendar mr-1"></i>4 июня 2026</span>
+        <span><i class="far fa-user mr-1"></i>Владислав Сарамуд</span>
+    </div>
+
+    <!-- ВИДЕО -->
+    <div class="video-wrap mb-10">
+        <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Контент-план одним промптом" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <article>
+        <p>В этом ролике показываю, как собрать контент-план для Telegram и VK на неделю одним промптом — без таблиц, мозгового штурма и «о чём бы написать». Ниже — пошаговая инструкция из видео и готовый промпт, который можно скопировать и сразу применить.</p>
+
+        <h2>Что в видео</h2>
+        <p>Короткий разбор: какой промпт даёт связный контент-план под две площадки сразу, как задать тему, тон и частоту постов, и почему результат не приходится переписывать вручную.</p>
+
+        <h2>Пошаговая инструкция</h2>
+        <ol>
+            <li>Открой любую модель — ChatGPT, Claude, GigaChat или YandexGPT.</li>
+            <li>Скопируй промпт ниже и подставь свою нишу, площадки и количество постов.</li>
+            <li>Получи план на 7 дней с темами, форматами и короткими подводками.</li>
+            <li>Прогони каждую тему вторым промптом, чтобы развернуть в полноценный пост.</li>
+        </ol>
+
+        <h2>Готовый промпт</h2>
+        <p>Скопируй и замени значения в квадратных скобках под свой проект:</p>
+        <div class="prompt-box">
+            <button class="copy-btn" onclick="copyPrompt(this)"><i class="far fa-copy"></i> Копировать</button>
+            <pre>Ты — SMM-стратег. Составь контент-план на 7 дней для проекта в нише [НИША].
+Площадки: [Telegram, VK]. Тон: [экспертный, без воды].
+Для каждого дня дай: тему, формат (пост/видео/опрос), цепляющий заголовок
+и одно предложение-подводку. Один день — продающий, остальные — пользательские.
+Верни таблицей: День | Площадка | Формат | Заголовок | Подводка.</pre>
+        </div>
+
+        <h2>Как использовать на потоке</h2>
+        <p>Сохрани промпт в заметки и запускай раз в неделю. Когда план готов — отдавай темы по одной во второй промпт для разворачивания в текст. Так месяц контента собирается за один заход, а ролики и посты выходят на все площадки сразу.</p>
+
+        <h3>Частые вопросы</h3>
+        <p><strong>Подойдёт ли промпт для других соцсетей?</strong> Да — допиши нужные площадки в строку «Площадки», логика не меняется.</p>
+        <p><strong>На каком языке работает?</strong> На любом — пиши промпт на русском, план будет на русском.</p>
+    </article>
+
+    <!-- CTA -->
+    <div class="mt-14 p-8 bg-slate-900/50 border border-rose-800/30 rounded-2xl text-center">
+        <h2 class="text-2xl font-extrabold text-white mb-3" style="border:0;padding:0;margin:0 0 0.75rem;">Больше промптов и видео — в Telegram</h2>
+        <p class="text-slate-400 mb-6">Новые ролики, промпты и кейсы выходят в канале раньше, чем на сайте.</p>
+        <a href="https://t.me/saramudvlad" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-xl transition shadow-lg shadow-rose-900/20">
+            <i class="fab fa-telegram-plane"></i> Подписаться на канал
+        </a>
+    </div>
+
+    <div id="related-videos" class="mt-16"></div>
+
+</main>
+
+<footer class="py-10 text-center border-t border-slate-800/50 mt-16">
+    <div class="flex justify-center gap-6 mb-8">
+        <a href="https://t.me/saramudvlad" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-rose-500 transition text-2xl"><i class="fab fa-telegram"></i></a>
+        <a href="https://www.youtube.com/@saramudvlad" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-red-600 transition text-2xl"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="text-xs text-slate-600 mb-4 space-x-4">
+        <a href="/" class="hover:text-slate-400">Главная</a>
+        <span>|</span>
+        <a href="/video/" class="hover:text-slate-400">Видео</a>
+        <span>|</span>
+        <a href="/blog/" class="hover:text-slate-400">Статьи</a>
+    </div>
+    <p class="text-slate-700 text-sm">© 2026 Владислав Сарамуд. Все права защищены.</p>
+</footer>
+
+<script>
+function copyPrompt(btn){
+    const text = btn.parentElement.querySelector('pre').innerText;
+    navigator.clipboard.writeText(text).then(()=>{
+        const old = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Скопировано';
+        setTimeout(()=>{ btn.innerHTML = old; }, 1800);
+    });
+}
+// Похожие видео
+fetch('/videos.json').then(r=>r.json()).then(list=>{
+    const cur = location.pathname.replace(/\/$/,'');
+    const rel = (list||[]).filter(v => v.url.replace(/\/$/,'') !== cur).slice(0,3);
+    if(!rel.length) return;
+    const el = document.getElementById('related-videos');
+    el.innerHTML = '<h2 class="text-2xl font-extrabold text-white mb-6" style="border:0;padding:0;">Смотри также</h2>' +
+        '<div class="grid md:grid-cols-3 gap-6">' + rel.map(v =>
+            `<a href="${v.url}" class="block bg-slate-900/50 rounded-xl border border-slate-800 overflow-hidden hover:border-rose-700 transition">
+                <div class="relative h-32 bg-slate-800">${v.thumb?`<img src="${v.thumb}" alt="${v.title}" class="w-full h-full object-cover" loading="lazy">`:''}
+                <div class="absolute inset-0 flex items-center justify-center"><span class="w-10 h-10 rounded-full bg-rose-600/90 flex items-center justify-center text-white"><i class="fas fa-play ml-0.5"></i></span></div></div>
+                <div class="p-4"><p class="text-sm font-bold text-white leading-snug">${v.title}</p></div>
+            </a>`).join('') + '</div>';
+}).catch(()=>{});
+</script>
+
+</body>
+</html>

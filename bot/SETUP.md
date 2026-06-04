@@ -1,104 +1,114 @@
-# Video Autopublish Bot — Setup Guide
+# Video Autopublish Bot — Setup (MVP)
 
-**Bot:** @Saramudpost_bot  
-**Stack:** n8n → Claude Haiku 4.5 → 6 платформ
+**Бот:** @Saramudpost_bot
+**Стек:** n8n (self-hosted) → Claude Haiku 4.5 → 5 площадок + сайт
+**Бюджет:** $0/мес (только Claude ~$0.25/мес за токены)
+
+## Что в MVP
+
+| Площадка | Способ | Ключи |
+|----------|--------|-------|
+| Telegram-канал | Bot API напрямую | `$env` |
+| VK | Official API (`video.save`+`wall.post`) | `$env` |
+| YouTube | Data API v3 (бинарная загрузка) | n8n OAuth2 |
+| LinkedIn | UGC API (шара YouTube-ссылки) | `$env` |
+| Reddit | API (link-пост на YouTube) | `$env` + Basic Auth |
+| **Сайт saramudvlad.ru** | Claude → HTML → GitHub API | `$env` |
+
+> Фаза 2 (после аудита/ревью): Instagram, TikTok. Likee — без API, вне проекта.
 
 ---
 
-## 1. Telegram Bot
+## Поток
 
-1. `/newbot` у @BotFather → получить `TELEGRAM_BOT_TOKEN`
-2. Добавить бота в канал как **Admin** с правом публикации
-3. Узнать `TELEGRAM_CHANNEL_ID`:
-   - Переслать любое сообщение из канала в @userinfobot
-   - Или: `https://api.telegram.org/bot{TOKEN}/getUpdates` после подписки
+```
+TG-бот → Webhook → есть видео? →
+  getFile → Claude (тексты + статья) →
+  скачать видео → YouTube upload → videoId →
+    ├─ Telegram-канал  (видео по file_id + ссылка на YT)
+    ├─ VK              (video.save + wall.post)
+    ├─ LinkedIn        (шара YT-ссылки)
+    ├─ Reddit          (link-пост на YT)
+    └─ Сайт            (Claude-HTML + iframe YT → коммит в /video/<slug>/
+                        + обновление videos.json) → ответ автору
+```
+
+YouTube идёт первым: его `videoId` нужен сайту (iframe), VK, LinkedIn и Reddit (ссылка).
 
 ---
 
-## 2. n8n
+## 1. Прокинуть env в процесс n8n
 
-> 🔐 **Безопасность:** workflow **не хранит ни одного ключа** в n8n credentials.
-> Все токены берутся из переменных окружения через `$env.*`. Триггер — это
-> универсальный **Webhook**-нод, поэтому токен бота нигде в n8n не сохраняется.
+Не в UI Variables, а в окружение процесса (иначе `$env` не виден в выражениях):
+- **Docker:** `env_file: bot/.env` в `docker-compose.yml`
+- **systemd/PM2:** `Environment=` или `.env`
+- Флаг по умолчанию открыт: `N8N_BLOCK_ENV_ACCESS_IN_NODE=false`
 
-1. Прокинуть env-переменные **в сам процесс n8n** (не в UI Variables, а в окружение):
-   - Docker: `-e TELEGRAM_BOT_TOKEN=... -e ANTHROPIC_API_KEY=...` или `env_file: .env`
-   - systemd / PM2: в `Environment=` или `.env`
-   - ⚠️ Чтобы `$env` работал в выражениях, нужен флаг
-     `N8N_BLOCK_ENV_ACCESS_IN_NODE=false` (по умолчанию доступ открыт).
-2. Импортировать `n8n-workflow.json` через **Workflows → Import from file**
-3. Активировать workflow (переключатель вверху) — n8n зарегистрирует Production URL вебхука
-4. Скопировать **Production Webhook URL** из нода `Telegram Webhook`
-   (вид: `https://<n8n-host>/webhook/saramudpost-telegram`)
-5. Один раз зарегистрировать вебхук в Telegram (токен из env, в n8n не попадает):
+Заполнить значения из `.env.example`.
+
+## 2. Импорт workflow
+
+1. **Workflows → Import from file** → `bot/n8n-workflow.json`
+2. Заменить плейсхолдеры credential-ов (их всего 2, см. ниже):
+   - `REPLACE_WITH_YOUTUBE_OAUTH_CREDENTIAL`
+   - `REPLACE_WITH_REDDIT_BASIC_AUTH`
+3. Активировать → скопировать **Production Webhook URL** нода `Telegram Webhook`
+4. Зарегистрировать вебхук (токен из env, в n8n не хранится):
    ```bash
    curl "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/setWebhook?url=https://<n8n-host>/webhook/saramudpost-telegram"
    ```
-   Проверить: `curl "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getWebhookInfo"`
-
-Никаких `REPLACE_WITH_CREDENTIAL_ID` заменять не нужно — credential-ов в workflow нет.
 
 ---
 
-## 3. Платформы
+## 3. Площадки
+
+### Telegram
+- `/newbot` у @BotFather → `TELEGRAM_BOT_TOKEN`
+- Бот → админ канала с правом постинга. `TELEGRAM_CHANNEL_ID` = `@канал` или `-100…`
 
 ### VK
-- Создать приложение: https://vk.com/apps?act=manage
-- Permissions: `video`, `wall`, `groups`
-- Получить `VK_ACCESS_TOKEN` через Implicit Flow
-- `VK_OWNER_ID` — ID группы с минусом: `-123456789`
+- Приложение: https://vk.com/apps?act=manage, scopes `video`, `wall`, `groups`
+- `VK_ACCESS_TOKEN` (Implicit Flow), `VK_OWNER_ID` = id сообщества с минусом
 
-### Instagram (Graph API)
-- Нужен **Business** или **Creator** аккаунт
-- Создать Facebook App: https://developers.facebook.com
-- Permissions: `instagram_content_publish`, `instagram_basic`
-- Получить долгоживущий токен (60 дней)
-- Добавить **Wait node (30s)** перед `Instagram — Check ID` — видео обрабатывается асинхронно
+### YouTube (единственный OAuth2)
+- Google Cloud Console → включить **YouTube Data API v3**
+- OAuth-клиент (Desktop/Web) → в n8n **Credentials → YouTube OAuth2 API** пройти авторизацию
+- Токен живёт 1 час с авто-рефрешем — поэтому его нельзя положить в env, нужен n8n credential
+- Привязать этот credential к ноде `YouTube Upload`
 
-### TikTok (Content Posting API)
-- Нужен **Business** аккаунт с одобренным API доступом
-- Подать заявку: https://developers.tiktok.com/products/content-posting-api
-- Нода `Post to TikTok` использует `PULL_FROM_URL` — TikTok сам скачает видео с URL
-- ⚠️ URL из Telegram (`api.telegram.org/file/bot...`) недоступен публично — нужен CDN
+### LinkedIn
+- App: https://developer.linkedin.com → продукты «Share on LinkedIn» + «Sign In»
+- Scope `w_member_social`. Токен (~60 дней) → `LINKEDIN_ACCESS_TOKEN`
+- `LINKEDIN_AUTHOR_URN` = `urn:li:person:<id>` (или `urn:li:organization:<id>`)
+- ⚠️ Токен истекает раз в 60 дней — обновлять вручную или добавить refresh-ноду
 
-### Likee (через Ayrshare)
-- Зарегистрироваться: https://www.ayrshare.com (~$29/мес)
-- Подключить Likee аккаунт в дашборде Ayrshare
-- Получить `AYRSHARE_API_KEY`
+### Reddit
+- https://www.reddit.com/prefs/apps → создать app типа **script**
+- `client_id` + `secret` → в n8n **Credentials → Basic Auth** (нода `Reddit — Get Token`)
+- `REDDIT_USERNAME` / `REDDIT_PASSWORD` / `REDDIT_SUBREDDIT` → env
+- ⚠️ Проверь правила сабреддита (многие запрещают самопромо/ссылки)
 
-### YouTube
-- YouTube требует **бинарную загрузку** видео (OAuth2 + resumable upload)
-- Стратегия: добавить **HTTP Request** → скачать видео → **YouTube node** (OAuth2)
-- Или использовать `n8n-nodes-base.youtube` с OAuth2 credentials
-- В текущем workflow нода YouTube **не включена** — добавить вручную
+### Сайт saramudvlad.ru (GitHub API)
+- PAT (fine-grained) со scope **Contents: Read and write** на репо
+- `GITHUB_TOKEN`, `GITHUB_REPO=vladsaram/vladsaram.github.io`, `GITHUB_BRANCH=main`
+- n8n коммитит `/video/<slug>/index.html` и обновляет `videos.json` → GitHub Pages деплоит сам
+- Раздел уже создан: `/video/` (сетка) + `videos.json` + пример страницы
 
 ---
 
-## 4. Публичный URL для видео
+## 4. Тест
 
-TikTok, Instagram и Likee требуют **публично доступный** URL видео.  
-Telegram file URL (`api.telegram.org/file/bot{TOKEN}/...`) — приватный.
-
-**Решения:**
-- Добавить ноду **HTTP Request (GET binary)** → скачать видео → **S3/Cloudflare R2** upload
-- Или использовать **n8n binary data** → upload к CDN → получить публичный URL
-- Самый простой вариант: **Cloudflare R2** (бесплатный tier: 10GB/мес)
+1. **Сначала вручную:** в редакторе n8n кнопка **Test Workflow**, отправить тестовое видео боту
+2. Смотреть **Executions** — где упало
+3. Проверить порядок: YouTube должен отдать `id` до сайта/VK/LinkedIn/Reddit
+4. На сайте: дождаться деплоя GitHub Pages (~1 мин), открыть `/video/`
 
 ---
 
-## 5. Тест
+## Частые грабли
 
-1. Отправить видео с подписью боту @Saramudpost_bot
-2. Смотреть выполнение в **n8n → Executions**
-3. Первый тест запустить в ручном режиме: нажать **Test Workflow** в редакторе
-
----
-
-## Стоимость
-
-| Сервис          | В месяц |
-|----------------|---------|
-| n8n self-hosted | $0      |
-| Claude Haiku 4.5 | ~$0.25  |
-| Ayrshare (Likee) | $29 (опционально) |
-| **Итого**       | **~$0.25–29** |
+- **Сайт:** видео встраивается как **YouTube-iframe**, отдельный хостинг файла не нужен
+- **YouTube квота:** Data API даёт ~6 загрузок/день на дефолтной квоте — для потока запросить увеличение
+- **LinkedIn 60 дней:** токен протухает, заложить обновление
+- **Reddit User-Agent:** обязателен уникальный, иначе 429
+- **GitHub `videos.json`:** PUT требует актуальный `sha` — нода `Get videos.json` его берёт прямо перед коммитом
