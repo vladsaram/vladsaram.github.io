@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+<title>PROTOTYPE v2 · Владислав Сарамуд</title>
+<meta name="robots" content="noindex, nofollow">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script>
+tailwind.config = {
+  theme: { extend: {
+    fontFamily: { tight:['"Inter Tight"','sans-serif'], sans:['Inter','sans-serif'], mono:['"JetBrains Mono"','monospace'] },
+    colors: { ink:'#04070a', surface:'#0a1411', line:'#16352a', neon:'#2bff88', lime:'#c6ff3d' },
+  }},
+};
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background:#04070a; color:#d6f5e4; font-family:Inter,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  .display { font-family:"Inter Tight",sans-serif; letter-spacing:-0.04em; line-height:0.95; }
+  .label { font-family:"JetBrains Mono",monospace; letter-spacing:0.2em; }
+
+  .neon-text { color:#2bff88; text-shadow:0 0 8px rgba(43,255,136,.55), 0 0 28px rgba(43,255,136,.35); }
+  .neon-line { box-shadow:0 0 14px rgba(43,255,136,.45); }
+  .stroke-text { color:transparent; -webkit-text-stroke:2px #2bff88; text-stroke:2px #2bff88; }
+
+  /* pointer spotlight */
+  #spot { position:fixed; inset:0; z-index:30; pointer-events:none;
+    background:radial-gradient(360px circle at var(--mx,-200px) var(--my,-200px), rgba(43,255,136,.10), transparent 60%);
+    transition:background .08s linear; }
+
+  /* film grain + scanlines */
+  #grain { position:fixed; inset:0; z-index:31; pointer-events:none; opacity:.035; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  #scan { position:fixed; inset:0; z-index:31; pointer-events:none; opacity:.1;
+    background:repeating-linear-gradient(0deg, transparent 0 2px, rgba(0,0,0,.12) 2px 3px); }
+
+  .grid-bg { background-image:
+      linear-gradient(rgba(43,255,136,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(43,255,136,.06) 1px, transparent 1px);
+    background-size:46px 46px;
+    -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%); }
+
+  .cursor::after { content:"▮"; margin-left:2px; animation:blink 1.1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity:0; } }
+
+  .aura { animation:breathe 5s ease-in-out infinite; }
+  @keyframes breathe { 0%,100%{ transform:translateX(-50%) scale(1); opacity:.8 } 50%{ transform:translateX(-50%) scale(1.18); opacity:1 } }
+
+  .marquee { display:flex; gap:3rem; white-space:nowrap; animation:scroll 26s linear infinite; }
+  @keyframes scroll { to { transform:translateX(-50%); } }
+
+  .logo-mask { -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
+  .logo-track { display:flex; width:max-content; gap:3.5rem; white-space:nowrap; animation:scroll 40s linear infinite; }
+  .logo-track:hover { animation-play-state:paused; }
+
+  .bento { position:relative; transition:border-color .25s, transform .15s, box-shadow .35s; overflow:hidden; transform-style:preserve-3d; will-change:transform; }
+  .bento::before { content:""; position:absolute; inset:0; background:repeating-linear-gradient(0deg, transparent 0 3px, rgba(43,255,136,.03) 3px 4px); pointer-events:none; opacity:0; transition:opacity .3s; }
+  .bento:hover { border-color:#2bff88; box-shadow:0 0 0 1px rgba(43,255,136,.4), 0 16px 55px -12px rgba(43,255,136,.4); }
+  .bento:hover::before { opacity:1; }
+
+  .btn-neon { background:#2bff88; color:#04070a; box-shadow:0 0 20px rgba(43,255,136,.45); transition:box-shadow .25s, transform .1s; will-change:transform; }
+  .btn-neon:hover { box-shadow:0 0 38px rgba(43,255,136,.8); }
+
+  .link-neon { position:relative; }
+  .link-neon::after { content:""; position:absolute; left:0; bottom:-3px; height:2px; width:0; background:#2bff88; box-shadow:0 0 10px #2bff88; transition:width .25s; }
+  .link-neon:hover::after { width:100%; }
+
+  .scram { font-family:"Inter Tight",sans-serif; }
+
+  /* chromatic glitch on hover */
+  h1.glitch:hover .scram { animation:chroma .42s ease both; }
+  @keyframes chroma {
+    0%   { transform:translateX(0) }
+    18%  { transform:translateX(2px); text-shadow:-3px 0 #ff003c, 3px 0 #00e5ff, 0 0 10px rgba(43,255,136,.4) }
+    36%  { transform:translateX(-2px); text-shadow:3px 0 #ff003c, -3px 0 #00e5ff }
+    54%  { transform:translateX(1px); text-shadow:-2px 0 #ff003c, 2px 0 #00e5ff }
+    100% { transform:translateX(0) }
+  }
+
+  ::selection { background:#2bff88; color:#04070a; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .marquee,.logo-track,.cursor::after,.aura{animation:none} .logo-track{flex-wrap:wrap} #scan,#grain,#spot{display:none} .bento{transition:none} h1.glitch:hover .scram{animation:none} }
+</style>
+</head>
+<body class="antialiased">
+<div id="spot"></div><div id="grain"></div><div id="scan"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-40 border-b border-line/70 bg-ink/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="#" class="display flex items-center gap-2 text-lg font-extrabold tracking-tight">
+      <span class="inline-block h-2 w-2 rounded-full bg-neon neon-line"></span>САРАМУД
+    </a>
+    <div class="label hidden gap-8 text-[11px] uppercase text-emerald-300/60 md:flex">
+      <a href="#cases" class="transition hover:text-neon">Кейсы</a>
+      <a href="#services" class="transition hover:text-neon">Услуги</a>
+      <a href="#shashlik" class="transition hover:text-neon">GPT-Шашлык</a>
+      <a href="#latest" class="transition hover:text-neon">Блог</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="label hidden rounded-none border border-neon px-4 py-2 text-[11px] uppercase text-neon transition hover:bg-neon hover:text-ink md:inline-block">Обсудить →</a>
+      <button id="burger" aria-label="Меню" aria-expanded="false" class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden">
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- mobile menu -->
+  <div id="mobile-menu" class="hidden border-t border-line bg-ink md:hidden">
+    <div class="flex flex-col px-6 pb-5 pt-2 label text-[13px] uppercase text-emerald-100/80">
+      <a href="#services" class="border-b border-line/60 py-3.5 transition hover:text-neon">Услуги</a>
+      <a href="#cases" class="border-b border-line/60 py-3.5 transition hover:text-neon">Кейсы</a>
+      <a href="#reviews" class="border-b border-line/60 py-3.5 transition hover:text-neon">Отзывы</a>
+      <a href="#shashlik" class="border-b border-line/60 py-3.5 transition hover:text-neon">GPT-Шашлык</a>
+      <a href="#latest" class="py-3.5 transition hover:text-neon">Блог</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative overflow-hidden border-b border-line">
+  <div class="grid-bg pointer-events-none absolute inset-0"></div>
+  <div class="aura pointer-events-none absolute left-1/2 top-[-12%] h-[520px] w-[520px] rounded-full bg-neon/20 blur-[120px]"></div>
+  <div class="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-12 md:py-28">
+    <div class="md:col-span-8">
+      <p class="label cursor mb-7 text-[12px] uppercase text-neon" data-scramble>~/saramud $ growth --ai</p>
+      <h1 class="glitch display text-[clamp(3rem,9.5vw,7rem)] font-black text-white">
+        <span class="scram" data-scramble>Маркетинг</span><br>
+        <span class="stroke-text scram" data-scramble>на</span> <span class="neon-text scram" data-scramble>нейро<wbr>сетях</span>
+      </h1>
+      <p class="mt-8 max-w-xl text-lg text-emerald-100/70">
+        Маркетинг-директор для бизнеса. Выстраиваю систему: реклама, аналитика, AI
+        и команды — в одном контуре. 6+ лет, бюджеты до 2 млрд ₽.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+        <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" data-magnetic class="btn-neon display inline-flex items-center gap-3 px-7 py-4 text-base font-bold">
+          Обсудить задачу →
+        </a>
+        <a href="/gpt-shashlik/" class="link-neon display text-base font-semibold text-white">Забрать 2000+ промптов бесплатно</a>
+      </div>
+    </div>
+    <div class="md:col-span-4">
+      <div class="relative border border-line bg-surface p-5">
+        <div class="absolute right-3 top-3 flex items-center gap-1.5 label text-[9px] uppercase text-neon">
+          <span class="h-1.5 w-1.5 rounded-full bg-neon neon-line"></span>online
+        </div>
+        <div class="relative mb-5 overflow-hidden">
+          <img src="/avatar.webp" alt="Владислав Сарамуд" class="aspect-square w-full object-cover">
+          <div class="pointer-events-none absolute inset-0 mix-blend-screen" style="background:linear-gradient(160deg,rgba(43,255,136,.18),transparent 55%)"></div>
+        </div>
+        <div class="display text-lg font-bold text-white">Владислав Сарамуд</div>
+        <div class="label mt-1 text-[10px] uppercase text-emerald-300/50">маркетинг-директор</div>
+        <div class="mt-4 grid grid-cols-2 gap-3 border-t border-line pt-4">
+          <div><div class="display text-2xl font-black neon-text">2 млрд ₽</div><div class="text-[11px] text-emerald-100/55">бюджета / год</div></div>
+          <div><div class="display text-2xl font-black text-white">+800%</div><div class="text-[11px] text-emerald-100/55">рост клиента</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="border-b border-line bg-surface/60">
+  <div class="mx-auto max-w-6xl px-6 py-10">
+    <div class="grid grid-cols-2 gap-6 md:grid-cols-4">
+      <div><div class="display text-3xl font-black text-white">+300k</div><div class="mt-1 label text-[10px] uppercase text-emerald-300/45">привлечённых подписчиков</div></div>
+      <div><div class="display text-3xl font-black text-white">17</div><div class="mt-1 label text-[10px] uppercase text-emerald-300/45">таргетологов под управлением</div></div>
+      <div><div class="display text-3xl font-black text-white">6+ лет</div><div class="mt-1 label text-[10px] uppercase text-emerald-300/45">перформанс + AI</div></div>
+      <div><div class="display text-3xl font-black text-white">18k<span class="neon-text">*</span></div><div class="mt-1 label text-[10px] uppercase text-emerald-300/45">личная аудитория (IG)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients" class="relative border-y border-line bg-surface/30 py-16 md:py-20">
+  <div class="mx-auto mb-10 max-w-6xl px-6">
+    <h2 class="display text-3xl font-extrabold text-white md:text-4xl"><span class="neon-text">//</span> С кем работал</h2>
+  </div>
+  <div class="logo-mask relative overflow-hidden">
+    <div class="logo-track items-center text-emerald-100/45">
+      <!-- set 1 -->
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">DAMAC</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Skolkovo Realty</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Art Estate</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Госуслуги</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Мегафон</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Минстрой РФ</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Норникель</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Учёба.ру</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">NIKKO</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Торжокские золотошвеи</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Ruslan Gamzatov</span><span class="text-neon/50">•</span>
+      <!-- set 2 (duplicate for seamless loop) -->
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">DAMAC</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Skolkovo Realty</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Art Estate</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Госуслуги</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Мегафон</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Минстрой РФ</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Норникель</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Учёба.ру</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">NIKKO</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Торжокские золотошвеи</span><span class="text-neon/50">•</span>
+      <span class="display text-2xl font-extrabold tracking-tight transition hover:text-neon">Ruslan Gamzatov</span><span class="text-neon/50">•</span>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases" class="relative mx-auto max-w-6xl px-6 py-20 md:py-28">
+  <div class="mb-12 flex items-end justify-between">
+    <h2 class="display text-4xl font-extrabold text-white md:text-5xl"><span class="neon-text">//</span> Ключевые результаты</h2>
+    <a href="/services/" class="link-neon label hidden text-[11px] uppercase text-emerald-300/50 sm:block">работать со мной →</a>
+  </div>
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+
+    <div class="bento flex flex-col border border-line bg-surface p-7">
+      <div class="mb-5 flex items-start justify-between">
+        <span class="label text-[11px] uppercase text-neon">EdTech · онлайн-школа</span>
+        <span class="display text-2xl font-black neon-text">+800%</span>
+      </div>
+      <p class="mb-4 text-sm text-emerald-100/60">Задача: пробить потолок в 2 млн выручки.</p>
+      <ul class="mb-6 space-y-1.5 border-l border-neon/40 pl-4 text-sm text-emerald-100/70">
+        <li>Новые каналы: Яндекс, Telegram, CRM, CPA</li>
+        <li>AI-скоринг лидов — конверсия в продажу +20%</li>
+        <li>Сквозная аналитика</li>
+      </ul>
+      <div class="mt-auto flex items-center gap-4 border-t border-line pt-4 label text-sm">
+        <span class="text-emerald-300/45">2 млн ₽</span>
+        <span class="text-neon">→</span>
+        <span class="display text-lg font-bold text-white">18 млн ₽/мес</span>
+      </div>
+    </div>
+
+    <div class="bento flex flex-col border border-line bg-surface p-7">
+      <div class="mb-5 flex items-start justify-between">
+        <span class="label text-[11px] uppercase text-neon">Media · сетка Telegram</span>
+        <span class="display text-2xl font-black neon-text">+300k</span>
+      </div>
+      <p class="mb-4 text-sm text-emerald-100/60">Управление бюджетом &gt;2 млрд ₽/год.</p>
+      <ul class="mb-6 space-y-1.5 border-l border-neon/40 pl-4 text-sm text-emerald-100/70">
+        <li>Закупка в Telegram Ads и посевы</li>
+        <li>В управлении 17 таргетологов</li>
+        <li>Снижение стоимости подписчика</li>
+      </ul>
+      <div class="mt-auto flex items-center gap-4 border-t border-line pt-4 label text-sm">
+        <span class="text-emerald-300/45">+300 тыс. пдп</span>
+        <span class="text-neon">|</span>
+        <span class="display text-lg font-bold text-white">CPF 0,7 €</span>
+      </div>
+    </div>
+
+    <div class="bento flex flex-col border border-line bg-surface p-7">
+      <div class="mb-5 flex items-start justify-between">
+        <span class="label text-[11px] uppercase text-neon">Telecom · Мегафон B2B</span>
+        <span class="display text-2xl font-black neon-text">+7%</span>
+      </div>
+      <p class="mb-4 text-sm text-emerald-100/60">Портфель продуктов и ценообразование, Product Lead.</p>
+      <ul class="mb-6 space-y-1.5 border-l border-neon/40 pl-4 text-sm text-emerald-100/70">
+        <li>Репрайсинг тарифной линейки</li>
+        <li>Усиление performance-воронки</li>
+        <li>Руководство командой из 5 Product Owners</li>
+      </ul>
+      <div class="mt-auto border-t border-line pt-4 text-sm text-emerald-100/70">
+        <span class="display font-bold text-white">Рост продаж +7%</span>, ARPU +2,3%
+      </div>
+    </div>
+
+    <a href="/sokrashchenie-izderzhek/" class="bento group flex flex-col border border-neon/60 bg-neon/[0.05] p-7">
+      <div class="mb-5 flex items-start justify-between">
+        <span class="label text-[11px] uppercase text-neon">AI Optimization</span>
+        <span class="display text-2xl font-black neon-text">−50% ФОТ</span>
+      </div>
+      <p class="mb-4 text-sm text-emerald-100/60">Сокращение издержек через нейросети и автоматизацию.</p>
+      <ul class="mb-6 space-y-1.5 border-l border-neon/40 pl-4 text-sm text-emerald-100/70">
+        <li>Автоматизация текстов и сценариев</li>
+        <li>Генерация изображений, уникализация</li>
+        <li>n8n для рутинных задач</li>
+      </ul>
+      <div class="mt-auto flex items-center justify-between border-t border-line pt-4 text-sm">
+        <span class="display font-bold text-white">−50% ФОТ через AI</span>
+        <span class="display text-neon transition group-hover:translate-x-1">Разбор →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="relative border-t border-line bg-surface/30">
+  <div class="pointer-events-none absolute right-0 top-0 h-64 w-64 rounded-full bg-neon/10 blur-[100px]"></div>
+  <div class="relative mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-12 md:py-28">
+    <div class="md:col-span-4">
+      <p class="label text-[11px] uppercase text-neon">// кто я</p>
+      <h2 class="display mt-3 text-4xl font-extrabold text-white">Владислав<br>Сарамуд</h2>
+      <p class="mt-4 text-sm text-emerald-100/55">Маркетинг-директор · AI-практик · 6+ лет</p>
+    </div>
+    <div class="md:col-span-8">
+      <p class="text-lg text-emerald-100/75">Строю системный маркетинг для бизнеса: реклама, CRM, сквозная аналитика и нейросети в одном контуре. Управлял бюджетами до <span class="text-white">2 млрд ₽/год</span> и командами до 17 человек, был Product Lead в <span class="text-white">Мегафоне</span> (B2B). Вывел онлайн-школу с 2 до <span class="text-white">18 млн ₽/мес</span>. Делаю то, что приносит деньги, а не хайп.</p>
+      <div class="mt-6 flex gap-6 label text-[11px] uppercase text-emerald-300/55">
+        <a href="/about/" class="link-neon">Подробнее об опыте</a>
+        <a href="https://t.me/saramudvlad" class="link-neon">Telegram-канал</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="relative mx-auto max-w-6xl px-6 py-20 md:py-28">
+  <div class="mb-12 flex items-end justify-between">
+    <h2 class="display text-4xl font-extrabold text-white md:text-5xl"><span class="neon-text">//</span> Форматы работы</h2>
+    <span class="label hidden text-[11px] uppercase text-emerald-300/50 sm:block">лично со мной</span>
+  </div>
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+
+    <!-- Менторство -->
+    <div class="bento relative flex flex-col border border-neon/60 bg-neon/[0.05] p-7">
+      <span class="absolute right-0 top-0 label bg-neon px-3 py-1 text-[10px] uppercase text-ink">−20%</span>
+      <i class="fas fa-comments mb-4 text-2xl text-neon"></i>
+      <h3 class="display text-xl font-bold text-white">Менторство / Разбор</h3>
+      <p class="mt-1 text-xs text-emerald-100/50">Контент · Реклама · Карьера · Запуск</p>
+      <ul class="mt-5 mb-6 flex-1 space-y-2 text-sm text-emerald-100/75">
+        <li><i class="fas fa-check mr-2 text-neon"></i>Созвон со мной (60–90 мин)</li>
+        <li><i class="fas fa-check mr-2 text-neon"></i>Запись + AI-расшифровка</li>
+        <li><i class="fas fa-check mr-2 text-neon"></i><b class="text-white">Roadmap</b> в MindMap</li>
+        <li><i class="fas fa-check mr-2 text-neon"></i>Беклог конкретных задач</li>
+        <li><i class="fas fa-gift mr-2 text-lime"></i>3–5 гипотез из моей практики</li>
+      </ul>
+      <div class="mb-5 flex items-end gap-2">
+        <span class="display text-3xl font-black text-white">5 500 ₽</span>
+        <span class="mb-1 text-sm text-emerald-300/40 line-through">7 000 ₽</span>
+      </div>
+      <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="btn-neon display block py-3 text-center font-bold">Записаться со скидкой</a>
+    </div>
+
+    <!-- Аудит -->
+    <div class="bento flex flex-col border border-line bg-surface p-7">
+      <i class="fas fa-chart-pie mb-4 text-2xl text-neon"></i>
+      <h3 class="display text-xl font-bold text-white">Стратегический аудит</h3>
+      <p class="mt-1 text-xs text-emerald-100/50">Для бизнеса: точки кратного роста</p>
+      <ul class="mt-5 mb-6 flex-1 space-y-2 text-sm text-emerald-100/75">
+        <li><i class="fas fa-check mr-2 text-neon"></i>Анализ текущих воронок</li>
+        <li><i class="fas fa-check mr-2 text-neon"></i>Поиск «дыр» в бюджете</li>
+        <li><i class="fas fa-check mr-2 text-neon"></i>Конкретные направления рекламы</li>
+        <li><i class="fas fa-check mr-2 text-neon"></i><b class="text-white">Когортный анализ</b> (по запросу)</li>
+        <li><i class="fas fa-check mr-2 text-neon"></i>Unit-экономика проекта</li>
+      </ul>
+      <div class="mb-5 display text-3xl font-black text-white">от 12 000 ₽</div>
+      <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="display block border border-neon py-3 text-center font-bold text-neon transition hover:bg-neon hover:text-ink">Обсудить аудит</a>
+    </div>
+
+    <!-- Сборка отдела -->
+    <div class="bento flex flex-col border border-line bg-surface p-7">
+      <i class="fas fa-cogs mb-4 text-2xl text-neon"></i>
+      <h3 class="display text-xl font-bold text-white">Сборка отдела / Интеграция</h3>
+      <p class="mt-1 text-xs text-emerald-100/50">Система маркетинга под ключ</p>
+      <ul class="mt-5 mb-6 flex-1 space-y-2 text-sm text-emerald-100/75">
+        <li><i class="fas fa-check mr-2 text-neon"></i>Найм и обучение команды</li>
+        <li><i class="fas fa-check mr-2 text-neon"></i>Внедрение CRM и сквозной аналитики</li>
+        <li><i class="fas fa-check mr-2 text-neon"></i>AI-интеграция (n8n)</li>
+        <li><i class="fas fa-check mr-2 text-neon"></i>Выстраивание процессов с нуля</li>
+      </ul>
+      <div class="mb-5 mt-auto display text-2xl font-black text-white">Индивидуально</div>
+      <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="display block border border-neon py-3 text-center font-bold text-neon transition hover:bg-neon hover:text-ink">Оставить заявку</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews" class="relative mx-auto max-w-6xl px-6 py-20 md:py-28">
+  <div class="mb-12">
+    <h2 class="display text-4xl font-extrabold text-white md:text-5xl"><span class="neon-text">//</span> Отзывы</h2>
+  </div>
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+
+    <div class="bento flex flex-col border border-line bg-surface p-7">
+      <div class="mb-4 flex gap-1 text-neon text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p class="flex-1 text-emerald-100/80">«Пришли с хаосом в рекламе — ушли с системой. За квартал собрали сквозную аналитику и срезали стоимость заявки почти вдвое. Влад мыслит цифрами, а не отчётами ради отчётов.»</p>
+      <div class="mt-6 flex items-center gap-3 border-t border-line pt-4">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full border border-neon/50 label text-xs text-neon">АК</div>
+        <div><div class="display font-bold text-white">Андрей К.</div><div class="label text-[10px] uppercase text-emerald-300/45">коммерческий директор</div></div>
+      </div>
+    </div>
+
+    <div class="bento flex flex-col border border-line bg-surface p-7">
+      <div class="mb-4 flex gap-1 text-neon text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p class="flex-1 text-emerald-100/80">«Внедрили AI в контент и квалификацию лидов — высвободили команду от рутины и подняли конверсию в продажу. Это не хайп про нейросети, а конкретные процессы, которые работают.»</p>
+      <div class="mt-6 flex items-center gap-3 border-t border-line pt-4">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full border border-neon/50 label text-xs text-neon">МС</div>
+        <div><div class="display font-bold text-white">Марина С.</div><div class="label text-[10px] uppercase text-emerald-300/45">основатель онлайн-школы</div></div>
+      </div>
+    </div>
+
+    <div class="bento flex flex-col border border-line bg-surface p-7">
+      <div class="mb-4 flex gap-1 text-neon text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p class="flex-1 text-emerald-100/80">«Редкий случай, когда стратег умеет и в перформанс, и в продукт. Помог пересобрать воронку и юнит-экономику — решения сразу легли в деньги, а не в презентацию.»</p>
+      <div class="mt-6 flex items-center gap-3 border-t border-line pt-4">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full border border-neon/50 label text-xs text-neon">ДЛ</div>
+        <div><div class="display font-bold text-white">Дмитрий Л.</div><div class="label text-[10px] uppercase text-emerald-300/45">head of marketing</div></div>
+      </div>
+    </div>
+
+    <div class="bento flex flex-col border border-line bg-surface p-7">
+      <div class="mb-4 flex gap-1 text-neon text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p class="flex-1 text-emerald-100/80">«Собрал нам отдел маркетинга буквально с нуля: найм, обучение, CRM, аналитика. Через пару месяцев машина поехала сама, без ручного управления.»</p>
+      <div class="mt-6 flex items-center gap-3 border-t border-line pt-4">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full border border-neon/50 label text-xs text-neon">ИВ</div>
+        <div><div class="display font-bold text-white">Игорь В.</div><div class="label text-[10px] uppercase text-emerald-300/45">владелец бизнеса</div></div>
+      </div>
+    </div>
+
+    <div class="bento flex flex-col border border-line bg-surface p-7">
+      <div class="mb-4 flex gap-1 text-neon text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p class="flex-1 text-emerald-100/80">«Аудит окупился с первой же правки бюджета — показал, где мы сливали деньги, и дал чёткий план действий. Без воды, строго по делу.»</p>
+      <div class="mt-6 flex items-center gap-3 border-t border-line pt-4">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full border border-neon/50 label text-xs text-neon">ЕР</div>
+        <div><div class="display font-bold text-white">Екатерина Р.</div><div class="label text-[10px] uppercase text-emerald-300/45">директор по маркетингу</div></div>
+      </div>
+    </div>
+
+    <div class="bento flex flex-col border border-line bg-surface p-7">
+      <div class="mb-4 flex gap-1 text-neon text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p class="flex-1 text-emerald-100/80">«Работать комфортно: говорит на языке бизнеса, а не маркетинговых терминов. Прозрачно, в срок и с фокусом на результат, а не на процесс.»</p>
+      <div class="mt-6 flex items-center gap-3 border-t border-line pt-4">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full border border-neon/50 label text-xs text-neon">СМ</div>
+        <div><div class="display font-bold text-white">Сергей М.</div><div class="label text-[10px] uppercase text-emerald-300/45">CEO агентства</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LEAD MAGNET / CONTENT -->
+<section id="shashlik" class="relative border-t border-line bg-surface/30">
+  <div class="mx-auto max-w-6xl px-6 py-20 md:py-28">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+      <a href="/gpt-shashlik/" class="bento group flex flex-col justify-between border border-neon/60 bg-neon/[0.05] p-7 md:col-span-2">
+        <div>
+          <span class="label inline-block bg-neon px-2.5 py-1 text-[11px] uppercase text-ink">⬢ бесплатно</span>
+          <h3 class="display mt-5 text-3xl font-extrabold text-white md:text-4xl">GPT-Шашлык: 2000+ промптов</h3>
+          <p class="mt-3 max-w-md text-emerald-100/60">База промптов для контента, рекламы и продаж на нейросетях — забери бесплатно и запусти AI в работу уже сегодня.</p>
+        </div>
+        <div class="mt-6 flex items-center justify-between">
+          <span class="display text-2xl font-black neon-text">0 ₽</span>
+          <span class="btn-neon display whitespace-nowrap px-5 py-3 text-sm font-bold transition group-hover:translate-x-0.5">Забрать промпты →</span>
+        </div>
+      </a>
+      <div class="flex flex-col gap-4">
+        <div class="bento flex flex-1 flex-col justify-between border border-line bg-surface p-7">
+          <span class="label text-[11px] uppercase text-emerald-300/50">просмотров / ролик</span>
+          <div class="display text-4xl font-black text-white"><span data-count="6.5" data-dec="1">0</span><span class="neon-text">M</span></div>
+        </div>
+        <a href="https://t.me/saramudvlad" class="bento group flex items-center justify-between border border-line bg-surface p-7 transition hover:border-neon">
+          <div>
+            <span class="label text-[11px] uppercase text-neon">telegram-канал</span>
+            <div class="display mt-1 text-lg font-bold text-white">Каждый день про AI и трафик</div>
+          </div>
+          <span class="display text-neon transition group-hover:translate-x-1">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LATEST ARTICLES -->
+<section id="latest" class="relative border-t border-line bg-surface/30">
+  <div class="mx-auto max-w-6xl px-6 py-20 md:py-28">
+    <div class="mb-12 flex items-end justify-between">
+      <h2 class="display text-4xl font-extrabold text-white md:text-5xl"><span class="neon-text">//</span> Свежее в блоге</h2>
+      <a href="/blog/" class="link-neon label hidden text-[11px] uppercase text-emerald-300/50 sm:block">весь блог →</a>
+    </div>
+    <div id="latest-grid" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- skeleton -->
+      <div class="h-72 animate-pulse border border-line bg-surface"></div>
+      <div class="h-72 animate-pulse border border-line bg-surface"></div>
+      <div class="h-72 animate-pulse border border-line bg-surface"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t border-line bg-surface/40">
+  <div class="mx-auto max-w-6xl px-6 py-14 text-center">
+
+    <!-- social -->
+    <div class="mb-8 flex justify-center gap-5">
+      <a href="https://t.me/saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-emerald-300/60 transition hover:border-neon hover:text-neon"><i class="fab fa-telegram"></i></a>
+      <a href="https://www.instagram.com/saramudvlad/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-emerald-300/60 transition hover:border-neon hover:text-neon"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-emerald-300/60 transition hover:border-neon hover:text-neon"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-emerald-300/60 transition hover:border-neon hover:text-neon"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <!-- nav -->
+    <div class="mb-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 label text-[11px] uppercase text-emerald-300/55">
+      <a href="/blog/" class="transition hover:text-neon">Блог</a><span class="text-line">/</span>
+      <a href="/neyroseti-dlya-kontenta/" class="transition hover:text-neon">Нейросети для контента</a><span class="text-line">/</span>
+      <a href="/reklama-i-trafik/" class="transition hover:text-neon">Реклама и трафик</a><span class="text-line">/</span>
+      <a href="/services/" class="transition hover:text-neon">Услуги</a><span class="text-line">/</span>
+      <a href="/about/" class="transition hover:text-neon">Об авторе</a>
+    </div>
+
+    <!-- legal -->
+    <div class="mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-emerald-300/35">
+      <a href="https://disk.yandex.ru/i/Ncd0GgyZTdE2OQ" class="transition hover:text-emerald-300/70">Публичная оферта</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/3Zig9pNfq_A0Ww" class="transition hover:text-emerald-300/70">Политика конфиденциальности</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/RhsYX71b6lmmVg" class="transition hover:text-emerald-300/70">Согласие на обработку ПД</a>
+    </div>
+
+    <p class="mx-auto mb-5 max-w-2xl text-[11px] leading-relaxed text-emerald-300/25">* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
+
+    <p class="label text-[11px] uppercase text-emerald-300/30">© 2026 Владислав Сарамуд</p>
+  </div>
+</footer>
+
+<!-- mobile sticky CTA bar -->
+<div class="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-ink/95 px-4 pt-3 backdrop-blur md:hidden" style="padding-bottom:calc(0.75rem + env(safe-area-inset-bottom))">
+  <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="btn-neon display block py-3.5 text-center text-base font-bold text-ink">Обсудить задачу →</a>
+</div>
+<div class="h-24 md:hidden"></div>
+
+<script>
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* mobile burger menu */
+(function(){
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobile-menu');
+  if (!burger || !menu) return;
+  const spans = burger.querySelectorAll('span');
+  function setOpen(open){
+    menu.classList.toggle('hidden', !open);
+    burger.setAttribute('aria-expanded', open);
+    spans[0].style.transform = open ? 'translateY(8px) rotate(45deg)' : '';
+    spans[1].style.opacity   = open ? '0' : '';
+    spans[2].style.transform = open ? 'translateY(-8px) rotate(-45deg)' : '';
+  }
+  burger.addEventListener('click', ()=> setOpen(menu.classList.contains('hidden')));
+  menu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> setOpen(false)));
+})();
+
+/* pointer spotlight */
+if (!reduce) {
+  const spot = document.getElementById('spot');
+  window.addEventListener('pointermove', e => {
+    spot.style.setProperty('--mx', e.clientX + 'px');
+    spot.style.setProperty('--my', e.clientY + 'px');
+  });
+}
+
+/* text scramble decode */
+const GLYPHS = 'АБВГДЕЖЗИКЛМНОПРСТУ#%$@&_/\\01';
+function scramble(el, delay=0){
+  const final = el.textContent;
+  const len = final.length;
+  let frame = 0;
+  const total = len + 14;
+  setTimeout(() => {
+    const id = setInterval(() => {
+      let out = '';
+      for (let i=0;i<len;i++){
+        if (i < frame-6) out += final[i];
+        else if (final[i] === ' ') out += ' ';
+        else out += GLYPHS[Math.floor(Math.random()*GLYPHS.length)];
+      }
+      el.textContent = out;
+      frame++;
+      if (frame > total){ el.textContent = final; clearInterval(id); }
+    }, 38);
+  }, delay);
+}
+document.querySelectorAll('[data-scramble]').forEach((el,i) => {
+  if (reduce) return;
+  scramble(el, 120 + i*160);
+});
+
+/* count-up on view */
+function countUp(el){
+  const target = parseFloat(el.dataset.count);
+  const dec = parseInt(el.dataset.dec || '0');
+  if (reduce){ el.textContent = dec ? target.toFixed(dec).replace('.',',') : target; return; }
+  let start = null; const dur = 1400;
+  function step(ts){
+    if (!start) start = ts;
+    const p = Math.min((ts-start)/dur, 1);
+    const eased = 1 - Math.pow(1-p, 3);
+    const val = target * eased;
+    el.textContent = dec ? val.toFixed(dec).replace('.',',') : Math.round(val);
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ countUp(en.target); io.unobserve(en.target); } });
+},{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>io.observe(el));
+
+/* magnetic button */
+if (!reduce) document.querySelectorAll('[data-magnetic]').forEach(btn=>{
+  btn.addEventListener('pointermove', e=>{
+    const r = btn.getBoundingClientRect();
+    const x = e.clientX - r.left - r.width/2;
+    const y = e.clientY - r.top - r.height/2;
+    btn.style.transform = `translate(${x*0.25}px, ${y*0.35}px)`;
+  });
+  btn.addEventListener('pointerleave', ()=> btn.style.transform = '');
+});
+
+/* 3D tilt on bento */
+function bindTilt(card){
+  card.addEventListener('pointermove', e=>{
+    const r = card.getBoundingClientRect();
+    const px = (e.clientX - r.left)/r.width - .5;
+    const py = (e.clientY - r.top)/r.height - .5;
+    card.style.transform = `perspective(900px) rotateY(${px*5}deg) rotateX(${-py*5}deg) translateY(-4px)`;
+  });
+  card.addEventListener('pointerleave', ()=> card.style.transform = '');
+}
+if (!reduce) document.querySelectorAll('.bento').forEach(bindTilt);
+
+/* live latest articles from articles.json */
+fetch('/articles.json').then(r=>r.json()).then(data=>{
+  const items = (Array.isArray(data) ? data : (data.articles||[]))
+    .slice().sort((a,b)=> (b.date||'').localeCompare(a.date||'')).slice(0,3);
+  const grid = document.getElementById('latest-grid');
+  if (!grid || !items.length) return;
+  grid.innerHTML = items.map(a=>`
+    <a href="${a.url}" class="bento group flex flex-col border border-line bg-surface">
+      <div class="relative aspect-[16/10] w-full overflow-hidden border-b border-line">
+        ${a.image ? `<img src="${a.image}" alt="" loading="lazy" class="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100">` : ''}
+        <span class="label absolute left-3 top-3 bg-ink/80 px-2 py-1 text-[9px] uppercase text-neon">${a.category||'статья'}</span>
+      </div>
+      <div class="flex flex-1 flex-col justify-between p-5">
+        <h3 class="display text-lg font-bold leading-tight text-white transition group-hover:text-neon">${a.title}</h3>
+        <div class="mt-4 flex items-center justify-between label text-[10px] uppercase text-emerald-300/45">
+          <span>${a.dateLabel||''}</span><span>${a.read||''}</span>
+        </div>
+      </div>
+    </a>`).join('');
+  if (!reduce) grid.querySelectorAll('.bento').forEach(bindTilt);
+}).catch(()=>{});
+</script>
+</body>
+</html>
