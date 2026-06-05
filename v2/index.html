@@ -3,9 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
-<title>PROTOTYPE v2 · Владислав Сарамуд</title>
+<!-- SEO готов к публикации. ПЕРЕД go-live снять noindex ТОЛЬКО после: реальные отзывы + проверка логотипов на NDA + компиляция Tailwind в /dist -->
 <meta name="robots" content="noindex, nofollow">
-<link rel="stylesheet" href="/dist/tailwind.css">
+<title>Владислав Сарамуд — маркетинг-директор: реклама, AI и аналитика</title>
+<meta name="description" content="Системный маркетинг и AI для бизнеса: реклама, CRM, сквозная аналитика и нейросети в одном контуре. 6+ лет, бюджеты до 2 млрд ₽. Аудит, менторство, сборка отдела маркетинга.">
+<meta name="keywords" content="маркетинг директор, AI маркетинг, нейросети для бизнеса, перформанс маркетинг, сквозная аналитика, CRM маркетинг, Владислав Сарамуд">
+<meta name="author" content="Владислав Сарамуд">
+<link rel="canonical" href="https://saramudvlad.ru/">
+<link rel="preload" as="image" href="/avatar.webp" fetchpriority="high">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://saramudvlad.ru/">
+<meta property="og:title" content="Владислав Сарамуд — маркетинг-директор: реклама, AI, аналитика">
+<meta property="og:description" content="Системный маркетинг и AI для бизнеса. 6+ лет, бюджеты до 2 млрд ₽.">
+<meta property="og:image" content="https://saramudvlad.ru/avatar.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Владислав Сарамуд — маркетинг-директор">
+<meta name="twitter:description" content="Системный маркетинг и AI-решения для бизнеса">
+<meta name="twitter:image" content="https://saramudvlad.ru/avatar.webp">
+<link rel="alternate" type="application/rss+xml" title="RSS — статьи Владислава Сарамуда" href="/feed.xml">
+<link rel="dns-prefetch" href="https://mc.yandex.ru">
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=106768627','ym');
+ym(106768627,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106768627" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Владислав Сарамуд","jobTitle":"Маркетинг-директор","url":"https://saramudvlad.ru","image":"https://saramudvlad.ru/avatar.webp","sameAs":["https://t.me/saramudvlad","https://www.instagram.com/saramudvlad/","https://www.tiktok.com/@saramudvlad","https://www.youtube.com/@saramudvlad"],"description":"Системный маркетинг и AI-решения для бизнеса. 6+ лет опыта, бюджеты до 2 млрд ₽/год.","knowsAbout":["Маркетинг","AI","CRM","Сквозная аналитика","Перформанс","Нейросети"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Владислав Сарамуд — маркетинг и AI-решения","url":"https://saramudvlad.ru","image":"https://saramudvlad.ru/avatar.webp","description":"Таргет, Telegram Ads, Яндекс Директ, внедрение AI в маркетинг, сквозная аналитика. 6+ лет, бюджеты 2+ млрд ₽/год.","areaServed":"RU","priceRange":"от 5500 ₽","founder":{"@type":"Person","name":"Владислав Сарамуд","url":"https://saramudvlad.ru"},"sameAs":["https://t.me/saramudvlad","https://www.instagram.com/saramudvlad/","https://www.tiktok.com/@saramudvlad","https://www.youtube.com/@saramudvlad"]}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -84,7 +116,16 @@ tailwind.config = {
   }
 
   ::selection { background:#2bff88; color:#04070a; }
-  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .marquee,.logo-track,.cursor::after,.aura{animation:none} .logo-track{flex-wrap:wrap} #scan,#grain,#spot{display:none} .bento{transition:none} h1.glitch:hover .scram{animation:none} }
+  /* ROMI dashboard */
+  #revLine{stroke:#2bff88;stroke-width:2.5;fill:none;filter:drop-shadow(0 0 6px rgba(43,255,136,.7));transition:stroke-dashoffset 2.2s cubic-bezier(.22,.61,.36,1)}
+  #revArea{fill:url(#areaGrad);opacity:0;transition:opacity 1.4s ease .5s}
+  #romiLine{stroke:#4aa3ff;stroke-width:2;fill:none;filter:drop-shadow(0 0 5px rgba(74,163,255,.7));transition:stroke-dashoffset 2.4s cubic-bezier(.22,.61,.36,1) .2s}
+  .dot{fill:#04070a;stroke:#2bff88;stroke-width:2;opacity:0;transition:opacity .4s ease}
+  .dotR{stroke:#4aa3ff}
+  .bar-fill{transition:width 1.4s cubic-bezier(.22,.61,.36,1)}
+  .chip{opacity:0;transform:translateY(10px);transition:opacity .5s ease, transform .5s ease}
+  .chip.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .marquee,.logo-track,.cursor::after,.aura{animation:none} .logo-track{flex-wrap:wrap} #scan,#grain,#spot{display:none} .bento{transition:none} h1.glitch:hover .scram{animation:none} #revLine{transition:none;stroke-dashoffset:0!important} #romiLine{transition:none;stroke-dashoffset:0!important} #revArea{transition:none;opacity:1} .dot{opacity:1} .bar-fill{transition:none} .chip{opacity:1;transform:none} }
 </style>
 </head>
 <body class="antialiased">
@@ -94,7 +135,7 @@ tailwind.config = {
 <header class="sticky top-0 z-40 border-b border-line/70 bg-ink/85 backdrop-blur">
   <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
     <a href="#" class="display flex items-center gap-2 text-lg font-extrabold tracking-tight">
-      <span class="inline-block h-2 w-2 rounded-full bg-neon neon-line"></span>САРАМУД
+      <span class="inline-block h-2 w-2 rounded-full bg-neon neon-line"></span>САРАМУД ВЛАДИСЛАВ
     </a>
     <div class="label hidden gap-8 text-[11px] uppercase text-emerald-300/60 md:flex">
       <a href="#cases" class="transition hover:text-neon">Кейсы</a>
@@ -158,7 +199,7 @@ tailwind.config = {
         <div class="label mt-1 text-[10px] uppercase text-emerald-300/50">маркетинг-директор</div>
         <div class="mt-4 grid grid-cols-2 gap-3 border-t border-line pt-4">
           <div><div class="display text-2xl font-black neon-text">2 млрд ₽</div><div class="text-[11px] text-emerald-100/55">бюджета / год</div></div>
-          <div><div class="display text-2xl font-black text-white">+800%</div><div class="text-[11px] text-emerald-100/55">рост клиента</div></div>
+          <div><div class="display text-2xl font-black text-white">×16</div><div class="text-[11px] text-emerald-100/55">рост клиента за год</div></div>
         </div>
       </div>
     </div>
@@ -180,7 +221,7 @@ tailwind.config = {
 <!-- CLIENTS -->
 <section id="clients" class="relative border-y border-line bg-surface/30 py-16 md:py-20">
   <div class="mx-auto mb-10 max-w-6xl px-6">
-    <h2 class="display text-3xl font-extrabold text-white md:text-4xl"><span class="neon-text">//</span> С кем работал</h2>
+    <h2 class="display text-3xl font-extrabold text-white md:text-4xl"><span class="neon-text">//</span> Мои клиенты</h2>
   </div>
   <div class="logo-mask relative overflow-hidden">
     <div class="logo-track items-center text-emerald-100/45">
@@ -223,19 +264,20 @@ tailwind.config = {
     <div class="bento flex flex-col border border-line bg-surface p-7">
       <div class="mb-5 flex items-start justify-between">
         <span class="label text-[11px] uppercase text-neon">EdTech · онлайн-школа</span>
-        <span class="display text-2xl font-black neon-text">+800%</span>
+        <span class="display text-2xl font-black neon-text">×16</span>
       </div>
-      <p class="mb-4 text-sm text-emerald-100/60">Задача: пробить потолок в 2 млн выручки.</p>
+      <p class="mb-4 text-sm text-emerald-100/60">В 2024 эти каналы давали ~1 млн ₽/мес. Задача — масштабировать digital.</p>
       <ul class="mb-6 space-y-1.5 border-l border-neon/40 pl-4 text-sm text-emerald-100/70">
         <li>Новые каналы: Яндекс, Telegram, CRM, CPA</li>
         <li>AI-скоринг лидов — конверсия в продажу +20%</li>
         <li>Сквозная аналитика</li>
       </ul>
       <div class="mt-auto flex items-center gap-4 border-t border-line pt-4 label text-sm">
-        <span class="text-emerald-300/45">2 млн ₽</span>
+        <span class="text-emerald-300/45">1 млн ₽ · 2024</span>
         <span class="text-neon">→</span>
-        <span class="display text-lg font-bold text-white">18 млн ₽/мес</span>
+        <span class="display text-lg font-bold text-white">16,4 млн ₽/мес</span>
       </div>
+      <a href="#romi" class="link-neon display mt-3 text-sm font-semibold text-neon">Смотреть дашборд кейса →</a>
     </div>
 
     <div class="bento flex flex-col border border-line bg-surface p-7">
@@ -292,6 +334,81 @@ tailwind.config = {
   </div>
 </section>
 
+<!-- ROMI DASHBOARD (кейс EdTech) -->
+<section id="romi" class="relative mx-auto max-w-6xl px-6 py-20 md:py-28">
+  <div class="mb-3 label text-[11px] uppercase text-neon">// кейс · EdTech · подготовка к ЕГЭ/ОГЭ · 2025–26</div>
+  <h2 class="display text-4xl font-extrabold text-white md:text-5xl">Как рос ROAS<br>после перезапуска маркетинга</h2>
+  <p class="mt-5 max-w-2xl text-lg text-emerald-100/65">Зашёл в digital-направление онлайн-школы: подрядчик по Яндексу, CPA-сеть, перезапуск CRM-цепочек и рассылок, работа с маркетинговым календарём и акциями. Ниже — помесячная динамика выручки и окупаемости.</p>
+
+  <!-- transformation strip -->
+  <div class="mt-10 flex flex-col items-stretch gap-4 border border-line bg-surface p-6 sm:flex-row sm:items-center">
+    <div class="flex-1">
+      <div class="label text-[10px] uppercase text-emerald-300/45">2024 · эти же каналы</div>
+      <div class="display mt-1 text-3xl font-black text-emerald-100/70">~1 млн ₽<span class="text-base font-semibold text-emerald-300/40"> / мес</span></div>
+    </div>
+    <div class="display text-2xl text-neon sm:px-4">→</div>
+    <div class="flex-1">
+      <div class="label text-[10px] uppercase text-neon">2025–26 · после перезапуска</div>
+      <div class="display mt-1 text-3xl font-black neon-text">до 18,9 млн ₽<span class="text-base font-semibold text-emerald-300/50"> / мес</span></div>
+    </div>
+    <div class="display text-center text-4xl font-black text-white sm:border-l sm:border-neon/40 sm:pl-6">×16</div>
+  </div>
+
+  <!-- KPI row -->
+  <div class="mt-4 grid grid-cols-2 gap-4 md:grid-cols-4">
+    <div class="border border-line bg-surface p-6"><div class="display text-4xl font-black neon-text"><span data-count="18.9" data-dec="1">0</span> млн</div><div class="mt-2 label text-[10px] uppercase text-emerald-300/45">пик выручки/мес · сентябрь</div></div>
+    <div class="border border-line bg-surface p-6"><div class="display text-4xl font-black text-white">×<span data-count="24" data-dec="0">0</span></div><div class="mt-2 label text-[10px] uppercase text-emerald-300/45">ROAS управляемых каналов</div></div>
+    <div class="border border-line bg-surface p-6"><div class="display text-4xl font-black text-white"><span data-count="72" data-dec="0">0</span>k ₽</div><div class="mt-2 label text-[10px] uppercase text-emerald-300/45">средний чек</div></div>
+    <div class="border border-line bg-surface p-6"><div class="display text-4xl font-black text-white"><span data-count="13" data-dec="0">0</span>%</div><div class="mt-2 label text-[10px] uppercase text-emerald-300/45">конверсия лид→продажа (пик)</div></div>
+  </div>
+
+  <!-- chart + ROMI -->
+  <div class="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
+    <div class="border border-line bg-surface p-6 lg:col-span-2">
+      <div class="mb-1 flex items-center justify-between">
+        <span class="label text-[11px] uppercase text-neon">выручка + ROAS · 2025–26</span>
+        <span class="label text-[10px] uppercase text-emerald-300/40">моя атрибуция, без GR</span>
+      </div>
+      <div class="mb-2 flex items-center gap-4 label text-[10px] uppercase text-emerald-300/45">
+        <span class="flex items-center gap-1.5"><span class="inline-block h-2 w-2 bg-neon"></span>выручка, млн ₽</span>
+        <span class="flex items-center gap-1.5"><span class="inline-block h-2 w-2" style="background:#4aa3ff"></span>ROAS, ×</span>
+      </div>
+      <svg id="chart" viewBox="0 0 800 340" class="w-full" role="img" aria-label="График выручки и ROAS 2025–26"></svg>
+    </div>
+    <div class="flex flex-col border border-line bg-surface p-6">
+      <span class="label text-[11px] uppercase text-neon">ROAS · до и после</span>
+      <p class="mt-2 text-sm text-emerald-100/55">ROAS — окупаемость рекламы: выручка ÷ расход на канал. Прибыль (маржа) здесь не учитывается.</p>
+      <div class="mt-7 space-y-6">
+        <div>
+          <div class="mb-2 flex items-center justify-between text-sm"><span class="text-emerald-100/60">2024 · оценка</span><span class="display font-bold text-emerald-100/70">×7</span></div>
+          <div class="h-3 w-full bg-line/60"><div class="bar-fill h-3 bg-emerald-100/30" data-w="29%" style="width:0"></div></div>
+        </div>
+        <div>
+          <div class="mb-2 flex items-center justify-between text-sm"><span class="text-white">2025–26</span><span class="display font-bold neon-text">×24</span></div>
+          <div class="h-3 w-full bg-line/60"><div class="bar-fill h-3 bg-neon" data-w="100%" style="width:0;box-shadow:0 0 14px rgba(43,255,136,.5)"></div></div>
+        </div>
+      </div>
+      <div class="mt-auto border-t border-line pt-4 label text-[10px] uppercase text-emerald-300/40">пик ROAS — ×27 (апрель)</div>
+    </div>
+  </div>
+
+  <!-- levers -->
+  <div class="mt-4 border border-line bg-surface p-6">
+    <span class="label text-[11px] uppercase text-neon">// что сделали</span>
+    <div id="levers" class="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="chip flex items-start gap-3 border border-line/70 bg-ink/40 p-4 text-sm text-emerald-100/80"><span class="neon-text">✓</span><span><b class="text-white">Подрядчик по Яндексу</b> — ЕПК + РСЯ + Поиск по каждому продукту + сегменты</span></div>
+      <div class="chip flex items-start gap-3 border border-line/70 bg-ink/40 p-4 text-sm text-emerald-100/80"><span class="neon-text">✓</span><span><b class="text-white">CPA-сеть</b> — Flocktory, RIS promo, Сравни.ру, ГдеКурс, Стади.ру и ещё 7 площадок</span></div>
+      <div class="chip flex items-start gap-3 border border-line/70 bg-ink/40 p-4 text-sm text-emerald-100/80"><span class="neon-text">✓</span><span><b class="text-white">Welcome-цепочки CRM</b> — пересобрал прогрев в Email / Telegram / VK</span></div>
+      <div class="chip flex items-start gap-3 border border-line/70 bg-ink/40 p-4 text-sm text-emerald-100/80"><span class="neon-text">✓</span><span><b class="text-white">Новый формат рассылок</b> по базе — выше открываемость и возвраты</span></div>
+      <div class="chip flex items-start gap-3 border border-line/70 bg-ink/40 p-4 text-sm text-emerald-100/80"><span class="neon-text">✓</span><span><b class="text-white">Маркетинговый календарь + акции</b> — запуски синхронно с сезоном и волнами спроса</span></div>
+      <div class="chip flex items-start gap-3 border border-line/70 bg-ink/40 p-4 text-sm text-emerald-100/80"><span class="neon-text">✓</span><span><b class="text-white">Сквозная аналитика</b> — атрибуция по каналам, отсечение пустого трафика</span></div>
+      <div class="chip flex items-start gap-3 border p-4 text-sm text-emerald-100/80" style="border-color:rgba(74,163,255,.4);background:rgba(74,163,255,.06)"><span style="color:#4aa3ff">✦</span><span><b class="text-white">Микс по LTV.</b> На годовых чеках (короткий LTV) ROAS проседал; сместил бюджет на продукт с LTV 2 года — чек ×2–3, ниже ДРР → пик ROAS ×27 в апреле</span></div>
+      <div class="chip flex items-start gap-3 border border-neon/40 bg-neon/[0.06] p-4 text-sm"><span class="neon-text">→</span><span class="display font-bold text-white">Итог: ×16 к 2024 — стабильно ~16 млн ₽/мес, пик 18,9 млн</span></div>
+    </div>
+    <p class="mt-5 text-[11px] leading-relaxed text-emerald-300/30">Данные — выгрузка из Яндекс Аналитики (период 2025–26). 2024 — для сравнения, оценочно.</p>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section id="about" class="relative border-t border-line bg-surface/30">
   <div class="pointer-events-none absolute right-0 top-0 h-64 w-64 rounded-full bg-neon/10 blur-[100px]"></div>
@@ -302,7 +419,7 @@ tailwind.config = {
       <p class="mt-4 text-sm text-emerald-100/55">Маркетинг-директор · AI-практик · 6+ лет</p>
     </div>
     <div class="md:col-span-8">
-      <p class="text-lg text-emerald-100/75">Строю системный маркетинг для бизнеса: реклама, CRM, сквозная аналитика и нейросети в одном контуре. Управлял бюджетами до <span class="text-white">2 млрд ₽/год</span> и командами до 17 человек, был Product Lead в <span class="text-white">Мегафоне</span> (B2B). Вывел онлайн-школу с 2 до <span class="text-white">18 млн ₽/мес</span>. Делаю то, что приносит деньги, а не хайп.</p>
+      <p class="text-lg text-emerald-100/75">Строю системный маркетинг для бизнеса: реклама, CRM, сквозная аналитика и нейросети в одном контуре. Управлял бюджетами до <span class="text-white">2 млрд ₽/год</span> и командами до 17 человек, был Product Lead в <span class="text-white">Мегафоне</span> (B2B). Вывел онлайн-школу с 1 до <span class="text-white">16 млн ₽/мес</span>. Делаю то, что приносит деньги, а не хайп.</p>
       <div class="mt-6 flex gap-6 label text-[11px] uppercase text-emerald-300/55">
         <a href="/about/" class="link-neon">Подробнее об опыте</a>
         <a href="https://t.me/saramudvlad" class="link-neon">Telegram-канал</a>
@@ -644,6 +761,55 @@ fetch('/articles.json').then(r=>r.json()).then(data=>{
     </a>`).join('');
   if (!reduce) grid.querySelectorAll('.bento').forEach(bindTilt);
 }).catch(()=>{});
+
+/* ===== ROMI dashboard (кейс EdTech) ===== */
+(function(){
+  const svg = document.getElementById('chart');
+  if(!svg) return;
+  const MONTHS=['Авг','Сен','Окт','Ноя','Дек','Янв','Фев','Мар','Апр','Май'];
+  const REV =[12.2,18.9,14.1,12.5,13.0,12.2,14.0,16.4,15.8,16.4]; // выручка, млн ₽ (без GR; ноя–дек сглажены)
+  const ROMI=[18,14,11.5,10.5,15,20,17,21.5,27,25];   // ROMI; ↓ годовые чеки (короткий LTV), ↑ продукт с LTV 2 года
+  const SEASON=[0,1,2], APR=8;
+  const W=800,H=340,padL=42,padR=46,padT=30,padB=34;
+  const x0=padL,x1=W-padR,y0=H-padB,y1=padT;
+  const maxY=20,stepY=5,maxR=30,stepR=10;
+  const xAt=i=>x0+(x1-x0)*i/(REV.length-1);
+  const yAt=v=>y0-(y0-y1)*v/maxY;
+  const yRAt=v=>y0-(y0-y1)*v/maxR;
+  let out='<defs><linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2bff88" stop-opacity="0.32"/><stop offset="1" stop-color="#2bff88" stop-opacity="0"/></linearGradient></defs>';
+  const sx0=xAt(SEASON[0])-((xAt(1)-xAt(0))/2), sx1=xAt(SEASON[SEASON.length-1])+((xAt(1)-xAt(0))/2);
+  out+=`<rect x="${Math.max(x0,sx0)}" y="${y1}" width="${Math.min(x1,sx1)-Math.max(x0,sx0)}" height="${y0-y1}" fill="#2bff88" opacity="0.05"/>`;
+  out+=`<text x="${(Math.max(x0,sx0)+Math.min(x1,sx1))/2}" y="${y1+12}" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing="2" fill="#2bff88" opacity="0.6">СЕЗОН ЕГЭ/ОГЭ</text>`;
+  // левая ось — выручка (зелёная)
+  for(let v=0;v<=maxY;v+=stepY){const y=yAt(v);out+=`<line x1="${x0}" y1="${y}" x2="${x1}" y2="${y}" stroke="#16352a" stroke-width="1"/><text x="${x0-8}" y="${y+3}" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#3d6b57">${v}</text>`;}
+  // правая ось — ROMI (синяя)
+  for(let v=0;v<=maxR;v+=stepR){const y=yRAt(v);out+=`<text x="${x1+8}" y="${y+3}" text-anchor="start" font-family="JetBrains Mono" font-size="9" fill="#3a6c9e">×${v}</text>`;}
+  MONTHS.forEach((m,i)=>out+=`<text x="${xAt(i)}" y="${y0+18}" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#3d6b57">${m}</text>`);
+  out+=`<text x="${(xAt(3)+xAt(4))/2}" y="${yAt(13.0)-10}" text-anchor="middle" font-family="JetBrains Mono" font-size="8" letter-spacing="1" fill="#3d6b57">межсезонье</text>`;
+  // апрельский гайд + подпись причины роста ROMI
+  out+=`<line x1="${xAt(APR)}" y1="${y1}" x2="${xAt(APR)}" y2="${y0}" stroke="#4aa3ff" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>`;
+  // выручка: area + line (зелёная)
+  const gl='M'+REV.map((v,i)=>`${xAt(i)} ${yAt(v)}`).join(' L');
+  out+=`<path id="revArea" d="${gl} L${xAt(REV.length-1)} ${y0} L${x0} ${y0} Z"/>`;
+  out+=`<path id="revLine" d="${gl}"/>`;
+  // ROMI: line (синяя)
+  const bl='M'+ROMI.map((v,i)=>`${xAt(i)} ${yRAt(v)}`).join(' L');
+  out+=`<path id="romiLine" d="${bl}"/>`;
+  REV.forEach((v,i)=>out+=`<circle class="dot" cx="${xAt(i)}" cy="${yAt(v)}" r="4" style="transition-delay:${reduce?0:(0.9+i*0.09)}s"/>`);
+  ROMI.forEach((v,i)=>out+=`<circle class="dot dotR" cx="${xAt(i)}" cy="${yRAt(v)}" r="3" style="transition-delay:${reduce?0:(1.4+i*0.09)}s"/>`);
+  out+=`<text x="${xAt(1)}" y="${yAt(REV[1])-12}" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="13" fill="#2bff88">18,9</text>`;
+  out+=`<text x="${xAt(APR)}" y="${yRAt(ROMI[APR])-10}" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="13" fill="#7cc0ff">×27</text>`;
+  out+=`<text x="${xAt(APR)-6}" y="${yRAt(ROMI[APR])+13}" text-anchor="end" font-family="JetBrains Mono" font-size="8" fill="#7cc0ff">↑ LTV 2 года · чек ×2–3</text>`;
+  out+=`<text x="${xAt(3)}" y="${yRAt(ROMI[3])+17}" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#7cc0ff">↓ годовые чеки · LTV 1 год</text>`;
+  svg.innerHTML=out;
+  const gLine=svg.querySelector('#revLine'), bLine=svg.querySelector('#romiLine');
+  [gLine,bLine].forEach(el=>{const L=el.getTotalLength();el.style.strokeDasharray=L;el.style.strokeDashoffset=reduce?0:L;});
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){gLine.style.strokeDashoffset=0;bLine.style.strokeDashoffset=0;svg.querySelector('#revArea').style.opacity=1;svg.querySelectorAll('.dot').forEach(d=>d.style.opacity=1);o.disconnect();}}),{threshold:.3}).observe(svg);
+  const sec=svg.closest('section');
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){sec.querySelectorAll('.bar-fill').forEach((b,i)=>setTimeout(()=>b.style.width=b.dataset.w,200+i*250));o.disconnect();}}),{threshold:.2}).observe(sec);
+  const lev=document.getElementById('levers');
+  if(lev) new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){lev.querySelectorAll('.chip').forEach((c,i)=>setTimeout(()=>c.classList.add('in'),i*110));o.disconnect();}}),{threshold:.2}).observe(lev);
+})();
 </script>
 </body>
 </html>

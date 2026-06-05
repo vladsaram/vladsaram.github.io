@@ -82,26 +82,7 @@
                 class="search-input w-full bg-slate-900 border border-slate-700 rounded-xl py-3 pl-11 pr-4 text-white placeholder-slate-500 transition"
             >
         </div>
-        <div class="flex flex-wrap gap-2 justify-center">
-            <button class="filter-btn active px-4 py-2 bg-slate-900 border border-slate-700 rounded-full text-sm text-slate-400 font-semibold" data-cat="all">
-                Все статьи <span id="count-all" class="ml-1 text-slate-500"></span>
-            </button>
-            <button class="filter-btn px-4 py-2 bg-slate-900 border border-slate-700 rounded-full text-sm text-slate-400 font-semibold" data-cat="SMM & ИИ">
-                <i class="fas fa-comments mr-1"></i> SMM & ИИ
-            </button>
-            <button class="filter-btn px-4 py-2 bg-slate-900 border border-slate-700 rounded-full text-sm text-slate-400 font-semibold" data-cat="AI & Автоматизация">
-                <i class="fas fa-robot mr-1"></i> AI & Автоматизация
-            </button>
-            <button class="filter-btn px-4 py-2 bg-slate-900 border border-slate-700 rounded-full text-sm text-slate-400 font-semibold" data-cat="Реклама">
-                <i class="fas fa-bullseye mr-1"></i> Реклама
-            </button>
-            <button class="filter-btn px-4 py-2 bg-slate-900 border border-slate-700 rounded-full text-sm text-slate-400 font-semibold" data-cat="Контент-маркетинг">
-                <i class="fas fa-pen mr-1"></i> Контент
-            </button>
-            <button class="filter-btn px-4 py-2 bg-slate-900 border border-slate-700 rounded-full text-sm text-slate-400 font-semibold" data-cat="Аналитика">
-                <i class="fas fa-chart-line mr-1"></i> Аналитика
-            </button>
-        </div>
+        <div id="filters" class="flex flex-wrap gap-2 justify-center"></div>
     </div>
 
     <!-- Счётчик результатов -->
@@ -151,177 +132,6 @@
 </footer>
 
 <script>
-const ARTICLES = [
-    {
-        title: "Нейросети для создания видео 2026: бесплатные и платные",
-        desc: "Видео из текста, оживление фото, нейроаватары и озвучка. Какие нейросети для видео работают в 2026, что бесплатно, цены платных и как оплатить из России. Таблица сервисов.",
-        category: "AI & Автоматизация",
-        categoryColor: "purple",
-        icon: "fa-clapperboard",
-        iconBg: "from-purple-600 to-violet-700",
-        read: "18 мин",
-        url: "/articles/neyroseti-dlya-video-2026/",
-        date: "2026-06-03",
-        dateLabel: "3 июня 2026"
-    },
-    {
-        title: "Нейросеть для Reels: контент на поток без съёмок",
-        desc: "Как делать Reels на нейросетях без камеры: сценарий, нейроаватар HeyGen, озвучка ElevenLabs, монтаж и субтитры. Конвейер «ролик за 20 минут» и месяц контента за один заход.",
-        category: "SMM & ИИ",
-        categoryColor: "emerald",
-        icon: "fa-video",
-        iconBg: "from-emerald-600 to-teal-600",
-        read: "17 мин",
-        url: "/articles/neyroset-dlya-reels-2026/",
-        date: "2026-06-03",
-        dateLabel: "3 июня 2026"
-    },
-    {
-        title: "Как оплатить ChatGPT, Claude и нейросети из России в 2026",
-        desc: "Карта не проходит, а нейросети нужны. 5 способов оплатить ChatGPT, Claude, Gemini, HeyGen, ElevenLabs и 15+ сервисов: посредники, зарубежная карта, API. Цены и риски.",
-        category: "AI & Автоматизация",
-        categoryColor: "purple",
-        icon: "fa-credit-card",
-        iconBg: "from-purple-600 to-violet-700",
-        read: "12 мин",
-        url: "/articles/oplatit-chatgpt-iz-rossii-2026/",
-        date: "2026-06-03",
-        dateLabel: "3 июня 2026"
-    },
-    {
-        title: "Контент-план на месяц с нейросетью: система из 3 шагов + готовые промпты",
-        desc: "Как составить контент-план для ВКонтакте и Telegram с помощью AI за 30 минут вместо 4 часов. 6 готовых промптов + шаблон таблицы.",
-        category: "SMM & ИИ",
-        categoryColor: "emerald",
-        icon: "fa-calendar-alt",
-        iconBg: "from-emerald-600 to-teal-600",
-        read: "16 мин",
-        url: "/articles/kontent-plan-neyroset-2026/",
-        date: "2026-05-28",
-        dateLabel: "28 мая 2026"
-    },
-    {
-        title: "YandexGPT vs GigaChat vs ChatGPT: честное сравнение для маркетолога 2026",
-        desc: "Протестировал все три нейросети на реальных маркетинговых задачах. Кто лучше пишет посты, контент-план и рекламные тексты — с примерами и выводами.",
-        category: "AI & Автоматизация",
-        categoryColor: "purple",
-        icon: "fa-robot",
-        iconBg: "from-purple-600 to-violet-700",
-        read: "19 мин",
-        url: "/articles/yandexgpt-vs-gigachat-vs-chatgpt/",
-        date: "2026-05-28",
-        dateLabel: "28 мая 2026"
-    },
-    {
-        title: "Автоворонка продаж в Telegram 2026: бот + n8n за 1 день без программиста",
-        desc: "Пошаговая настройка автоворонки в Telegram через n8n без кода. Лид-магнит, прогрев, продажа — реальные конверсии и схема из практики.",
-        category: "Автоматизация",
-        categoryColor: "orange",
-        icon: "fa-funnel-dollar",
-        iconBg: "from-orange-500 to-amber-600",
-        read: "18 мин",
-        url: "/articles/avtovoronka-telegram-2026/",
-        date: "2026-05-28",
-        dateLabel: "28 мая 2026"
-    },
-    {
-        title: "MAX мессенджер 2026–2027: как продвигаться и набирать аудиторию",
-        desc: "Полный гайд по продвижению в MAX мессенджере. 110 млн пользователей, 77 млн DAU, реальные стратегии, бюджеты и монетизация канала.",
-        category: "SMM & ИИ",
-        categoryColor: "teal",
-        icon: "fa-comment-dots",
-        iconBg: "from-teal-500 to-cyan-600",
-        read: "18 мин",
-        url: "/articles/max-messenger-2026/",
-        date: "2026-05-26",
-        dateLabel: "26 мая 2026"
-    },
-    {
-        title: "Как построить отдел маркетинга с нуля в 2026–2027: структура, AI-стек и Claude MAX",
-        desc: "Структура команды, Claude MAX в России, автоматизация с n8n. Как выстроить маркетинг-систему, которая масштабируется без раздутого штата. 90-дневный план.",
-        category: "AI & Автоматизация",
-        categoryColor: "purple",
-        icon: "fa-building",
-        iconBg: "from-purple-600 to-violet-700",
-        read: "20 мин",
-        url: "/articles/marketing-department-2026/",
-        date: "2026-05-26",
-        dateLabel: "26 мая 2026"
-    },
-    {
-        title: "Яндекс Директ 2026: полный гайд по настройке с нуля",
-        desc: "Новый интерфейс, ЕПК, Мастер кампаний, автостратегии — всё что изменилось. Пошаговая настройка, реальные бюджеты и типичные ошибки.",
-        category: "Реклама",
-        categoryColor: "orange",
-        icon: "fa-search",
-        iconBg: "from-yellow-600 to-orange-600",
-        read: "17 мин",
-        url: "/articles/yandex-direct-2026/",
-        date: "2026-05-26",
-        dateLabel: "26 мая 2026"
-    },
-    {
-    title: "Telegram Ads в 2026: полный гайд по рекламе в Телеграм",
-    desc: "Как запустить рекламу в Телеграм с минимальным бюджетом. Форматы, реальные CPM, таргетинг и ошибки которые сливают деньги.",
-    category: "Реклама",
-    categoryColor: "blue",
-    icon: "fa-paper-plane",
-    iconBg: "from-sky-600 to-blue-700",
-    read: "19 мин",
-    url: "/articles/telegram-ads-2026/",
-    date: "2026-05-24",
-    dateLabel: "24 мая 2026"
-},
-    {
-    title: "Как настроить рекламу ВКонтакте в 2026: полный гайд с нуля",
-    desc: "Пошаговая инструкция по запуску таргета ВК. Форматы, аудитории, бюджеты и ошибки которые сливают деньги.",
-    category: "Реклама",
-    categoryColor: "blue",
-    icon: "fa-bullseye",
-    iconBg: "from-blue-600 to-indigo-600",
-    read: "20 мин",
-    url: "/articles/reklama-vkontakte-2026/",
-    date: "2026-05-24",
-    dateLabel: "24 мая 2026"
-},
-    {
-        title: "50 промптов для ChatGPT в SMM: готовые шаблоны 2026",
-        desc: "Готовые промпты для постов, Reels, рекламных текстов и контент-плана. Каждый проверен на реальных проектах.",
-        category: "SMM & ИИ",
-        categoryColor: "emerald",
-        icon: "fa-comments",
-        iconBg: "from-emerald-600 to-teal-600",
-        read: "22 мин",
-        url: "/articles/prompty-chatgpt-smm/",
-        date: "2026-05-24",
-        dateLabel: "24 мая 2026"
-    },
-    {
-        title: "Как AI снижает стоимость контента на 80%",
-        desc: "Практический гайд по внедрению нейросетей в контент-маркетинг. Реальные цифры экономии и кейсы из практики с 20+ компаниями.",
-        category: "AI & Автоматизация",
-        categoryColor: "teal",
-        icon: "fa-robot",
-        iconBg: "from-teal-600 to-cyan-600",
-        read: "18 мин",
-        url: "/articles/ai-content-cost/",
-        date: "2026-02-11",
-        dateLabel: "11 февраля 2026"
-    },
-    {
-        title: "Как запустить контент-маркетинг с нуля за 7 дней",
-        desc: "Пошаговый план запуска без агентств и больших бюджетов. Только то, что работает прямо сейчас.",
-        category: "Контент-маркетинг",
-        categoryColor: "lime",
-        icon: "fa-rocket",
-        iconBg: "from-lime-600 to-green-600",
-        read: "15 мин",
-        url: "/articles/content-marketing-launch/",
-        date: "2026-01-20",
-        dateLabel: "20 января 2026"
-    }
-];
-
 const colorMap = {
     emerald:{ badge:"text-emerald-400", link:"text-emerald-500 hover:text-emerald-400", hover:"group-hover:text-emerald-400" },
     teal:   { badge:"text-teal-400",    link:"text-teal-500 hover:text-teal-400",       hover:"group-hover:text-teal-400" },
@@ -330,81 +140,69 @@ const colorMap = {
     purple: { badge:"text-purple-400",  link:"text-purple-500 hover:text-purple-400",   hover:"group-hover:text-purple-400" },
     blue:   { badge:"text-blue-400",    link:"text-blue-500 hover:text-blue-400",        hover:"group-hover:text-blue-400" },
 };
+const catIcon = { all:"fa-layer-group", "SMM & \u0418\u0418":"fa-comments", "AI & \u0410\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0437\u0430\u0446\u0438\u044f":"fa-robot", "\u0410\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0437\u0430\u0446\u0438\u044f":"fa-gears", "\u0420\u0435\u043a\u043b\u0430\u043c\u0430":"fa-bullseye", "\u041a\u043e\u043d\u0442\u0435\u043d\u0442-\u043c\u0430\u0440\u043a\u0435\u0442\u0438\u043d\u0433":"fa-pen", "\u0410\u043d\u0430\u043b\u0438\u0442\u0438\u043a\u0430":"fa-chart-line", "\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u044f":"fa-comment-dots" };
+
+let ARTICLES = [], currentCat = "all", currentSearch = "";
 
 function renderAll(list) {
     const grid = document.getElementById("articles-grid");
     const empty = document.getElementById("empty-state");
     const count = document.getElementById("results-count");
-
-    if (list.length === 0) {
-        grid.innerHTML = "";
-        empty.classList.remove("hidden");
-        count.textContent = "";
-        return;
-    }
-
+    if (list.length === 0) { grid.innerHTML = ""; empty.classList.remove("hidden"); count.textContent = ""; return; }
     empty.classList.add("hidden");
-    count.textContent = `Найдено статей: ${list.length}`;
-
+    count.textContent = `\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u0442\u0430\u0442\u0435\u0439: ${list.length}`;
     grid.innerHTML = list.map(a => {
         const c = colorMap[a.categoryColor] || colorMap.emerald;
         return `<article class="article-card bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden group flex flex-col">
             <a href="${a.url}" class="block">
                 <div class="relative h-44 bg-gradient-to-br ${a.iconBg} overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i class="fas ${a.icon} text-6xl text-white opacity-20"></i>
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4">
-                        <span class="text-xs font-bold ${c.badge} uppercase tracking-wider">${a.category}</span>
-                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center"><i class="fas ${a.icon} text-6xl text-white opacity-20"></i></div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4"><span class="text-xs font-bold ${c.badge} uppercase tracking-wider">${a.category}</span></div>
                 </div>
             </a>
             <div class="p-6 flex flex-col flex-1">
-                <h2 class="text-lg font-bold text-white mb-2 ${c.hover} transition leading-snug">
-                    <a href="${a.url}">${a.title}</a>
-                </h2>
+                <h2 class="text-lg font-bold text-white mb-2 ${c.hover} transition leading-snug"><a href="${a.url}">${a.title}</a></h2>
                 <p class="text-slate-400 text-sm mb-4 leading-relaxed">${a.desc}</p>
                 <div class="flex items-center justify-between text-xs text-slate-500 mt-auto pt-2">
-                    <div class="flex items-center gap-3">
-                        <span><i class="far fa-clock mr-1"></i>${a.read}</span>
-                        <span><i class="far fa-calendar mr-1"></i>${a.dateLabel}</span>
-                    </div>
-                    <a href="${a.url}" class="${c.link} transition font-semibold">Читать →</a>
+                    <div class="flex items-center gap-3"><span><i class="far fa-clock mr-1"></i>${a.read}</span><span><i class="far fa-calendar mr-1"></i>${a.dateLabel}</span></div>
+                    <a href="${a.url}" class="${c.link} transition font-semibold">\u0427\u0438\u0442\u0430\u0442\u044c \u2192</a>
                 </div>
             </div>
         </article>`;
     }).join("");
 }
 
-let currentCat = "all";
-let currentSearch = "";
-
 function applyFilters() {
     let list = [...ARTICLES];
     if (currentCat !== "all") list = list.filter(a => a.category === currentCat);
-    if (currentSearch) {
-        const q = currentSearch.toLowerCase();
-        list = list.filter(a => a.title.toLowerCase().includes(q) || a.desc.toLowerCase().includes(q) || a.category.toLowerCase().includes(q));
-    }
+    if (currentSearch) { const q = currentSearch.toLowerCase(); list = list.filter(a => a.title.toLowerCase().includes(q) || a.desc.toLowerCase().includes(q) || a.category.toLowerCase().includes(q)); }
     renderAll(list);
 }
 
-document.querySelectorAll(".filter-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+function buildFilters() {
+    const counts = {};
+    ARTICLES.forEach(a => counts[a.category] = (counts[a.category] || 0) + 1);
+    const ordered = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+    const base = "filter-btn px-4 py-2 bg-slate-900 border border-slate-700 rounded-full text-sm text-slate-400 font-semibold";
+    const wrap = document.getElementById("filters");
+    wrap.innerHTML =
+        `<button class="${base} active" data-cat="all"><i class="fas ${catIcon.all} mr-1"></i> \u0412\u0441\u0435 \u0441\u0442\u0430\u0442\u044c\u0438 <span class="ml-1 text-slate-500">(${ARTICLES.length})</span></button>` +
+        ordered.map(c => `<button class="${base}" data-cat="${c}"><i class="fas ${catIcon[c] || 'fa-tag'} mr-1"></i> ${c} <span class="ml-1 text-slate-500">${counts[c]}</span></button>`).join("");
+    wrap.querySelectorAll(".filter-btn").forEach(btn => btn.addEventListener("click", () => {
+        wrap.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         currentCat = btn.dataset.cat;
         applyFilters();
-    });
-});
+    }));
+}
 
-document.getElementById("search").addEventListener("input", e => {
-    currentSearch = e.target.value.trim();
-    applyFilters();
-});
+document.getElementById("search").addEventListener("input", e => { currentSearch = e.target.value.trim(); applyFilters(); });
 
-renderAll(ARTICLES);
-document.getElementById("count-all").textContent = `(${ARTICLES.length})`;
+fetch("/articles.json").then(r => r.json()).then(d => {
+    ARTICLES = (Array.isArray(d) ? d : (d.articles || [])).slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+    buildFilters();
+    renderAll(ARTICLES);
+}).catch(() => { document.getElementById("results-count").textContent = "\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u0441\u0442\u0430\u0442\u044c\u0438."; });
 </script>
 
 </body>
