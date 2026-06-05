@@ -18,3 +18,5 @@ Sitemap: https://saramudvlad.ru/sitemap.xml
 User-agent: Googlebot
 Allow: /
 Sitemap: https://saramudvlad.ru/sitemap.xml
+
+Disallow: /index-old.html
