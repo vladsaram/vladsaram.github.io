@@ -47,6 +47,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://mc.yandex.ru">
     <link rel="stylesheet" href="/dist/tailwind.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <!-- Schema: Article -->
@@ -149,84 +150,116 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #e2e8f0; }
-        .gradient-text { background: linear-gradient(to right, #34d399, #2dd4bf, #a3e635); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body { font-family: 'Inter', sans-serif; background-color: #04070a; color: #d6f5e4; }
+        .gradient-text { background: linear-gradient(to right, #7dffb3, #2dd4bf, #a3e635); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         article h2 { font-size: 1.75rem; font-weight: 800; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 2px solid #8b5cf6; }
         article h3 { font-size: 1.35rem; font-weight: 700; color: #a78bfa; margin-top: 2rem; margin-bottom: 0.875rem; }
-        article p { margin-bottom: 1.5rem; line-height: 1.8; color: #cbd5e1; }
-        article ul, article ol { margin-bottom: 1.5rem; padding-left: 1.5rem; color: #cbd5e1; }
+        article p { margin-bottom: 1.5rem; line-height: 1.8; color: #bfe9cf; }
+        article ul, article ol { margin-bottom: 1.5rem; padding-left: 1.5rem; color: #bfe9cf; }
         article li { margin-bottom: 0.75rem; line-height: 1.7; }
         article strong { color: #fff; font-weight: 700; }
         .highlight-box { background: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(109,40,217,0.1) 100%); border-left: 4px solid #8b5cf6; padding: 1.5rem; margin: 2rem 0; border-radius: 0.5rem; }
         .warning-box { background: rgba(234,88,12,0.1); border-left: 4px solid #ea580c; padding: 1.5rem; margin: 2rem 0; border-radius: 0.5rem; }
         .info-box { background: rgba(59,130,246,0.1); border-left: 4px solid #3b82f6; padding: 1.5rem; margin: 2rem 0; border-radius: 0.5rem; }
-        .success-box { background: rgba(16,185,129,0.08); border-left: 4px solid #10b981; padding: 1.5rem; margin: 2rem 0; border-radius: 0.5rem; }
-        .comparison-table { background: rgba(15,23,42,0.5); border: 1px solid #334155; border-radius: 1rem; overflow: hidden; margin: 2rem 0; }
+        .success-box { background: rgba(16,185,129,0.08); border-left: 4px solid #2bff88; padding: 1.5rem; margin: 2rem 0; border-radius: 0.5rem; }
+        .comparison-table { background: rgba(15,23,42,0.5); border: 1px solid #16352a; border-radius: 1rem; overflow: hidden; margin: 2rem 0; }
         .comparison-table table { width: 100%; border-collapse: collapse; }
-        .comparison-table th { background: rgba(139,92,246,0.12); padding: 0.875rem 1rem; text-align: left; font-weight: 700; color: #a78bfa; border-bottom: 2px solid #334155; font-size: 0.9rem; }
-        .comparison-table td { padding: 0.875rem 1rem; border-bottom: 1px solid #1e293b; color: #cbd5e1; font-size: 0.9rem; vertical-align: top; }
+        .comparison-table th { background: rgba(139,92,246,0.12); padding: 0.875rem 1rem; text-align: left; font-weight: 700; color: #a78bfa; border-bottom: 2px solid #16352a; font-size: 0.9rem; }
+        .comparison-table td { padding: 0.875rem 1rem; border-bottom: 1px solid #102a1a; color: #bfe9cf; font-size: 0.9rem; vertical-align: top; }
         .comparison-table tr:last-child td { border-bottom: none; }
         .comparison-table tr:hover td { background: rgba(139,92,246,0.04); }
-        .ai-output-box { background: #0f172a; border: 1px solid #334155; border-radius: 0.75rem; padding: 1.25rem 1.5rem; margin: 1rem 0 1.5rem; }
+        .ai-output-box { background: #0a1411; border: 1px solid #16352a; border-radius: 0.75rem; padding: 1.25rem 1.5rem; margin: 1rem 0 1.5rem; }
         .ai-output-box .ai-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.75rem; padding: 0.25rem 0.75rem; border-radius: 9999px; display: inline-block; }
-        .ai-output-box .ai-text { font-size: 0.9rem; line-height: 1.75; color: #e2e8f0; white-space: pre-line; }
+        .ai-output-box .ai-text { font-size: 0.9rem; line-height: 1.75; color: #d6f5e4; white-space: pre-line; }
         .label-chatgpt { background: rgba(16,163,127,0.15); color: #10a37f; border: 1px solid rgba(16,163,127,0.3); }
         .label-yandex { background: rgba(252,67,0,0.15); color: #fc4300; border: 1px solid rgba(252,67,0,0.3); }
         .label-giga { background: rgba(34,112,250,0.15); color: #2270fa; border: 1px solid rgba(34,112,250,0.3); }
         .verdict-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.85rem; border-radius: 9999px; font-size: 0.78rem; font-weight: 700; }
-        .verdict-winner { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
-        .verdict-mid { background: rgba(251,191,36,0.15); color: #fbbf24; border: 1px solid rgba(251,191,36,0.3); }
-        .verdict-third { background: rgba(148,163,184,0.1); color: #94a3b8; border: 1px solid rgba(148,163,184,0.2); }
-        .prompt-box { background: #070f1f; border: 1px solid #334155; border-left: 4px solid #8b5cf6; border-radius: 0.5rem; padding: 1.25rem; margin: 1.25rem 0; font-family: monospace; font-size: 0.875rem; color: #c4b5fd; line-height: 1.7; }
-        .cta-box { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border: 2px solid #8b5cf6; border-radius: 1rem; padding: 2.5rem; margin: 3rem 0; text-align: center; }
-        .hero-image { width: 100%; height: auto; border-radius: 1rem; object-fit: cover; display: block; border: 1px solid #1e293b; }
+        .verdict-winner { background: rgba(16,185,129,0.15); color: #7dffb3; border: 1px solid rgba(16,185,129,0.3); }
+        .verdict-mid { background: rgba(251,191,36,0.15); color: #c6ff3d; border: 1px solid rgba(251,191,36,0.3); }
+        .verdict-third { background: rgba(148,163,184,0.1); color: #8fcaa6; border: 1px solid rgba(148,163,184,0.2); }
+        .prompt-box { background: #070f1f; border: 1px solid #16352a; border-left: 4px solid #8b5cf6; border-radius: 0.5rem; padding: 1.25rem; margin: 1.25rem 0; font-family: monospace; font-size: 0.875rem; color: #c4b5fd; line-height: 1.7; }
+        .cta-box { background: linear-gradient(135deg, #0a1411 0%, #102a1a 100%); border: 2px solid #8b5cf6; border-radius: 1rem; padding: 2.5rem; margin: 3rem 0; text-align: center; }
+        .hero-image { width: 100%; height: auto; border-radius: 1rem; object-fit: cover; display: block; border: 1px solid #102a1a; }
         .tool-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 700; }
         .score-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; }
-        .score-bar { height: 6px; border-radius: 9999px; background: #1e293b; flex: 1; overflow: hidden; }
+        .score-bar { height: 6px; border-radius: 9999px; background: #102a1a; flex: 1; overflow: hidden; }
         .score-fill { height: 100%; border-radius: 9999px; }
-        .faq-item { border: 1px solid #1e293b; border-radius: 0.75rem; margin-bottom: 1rem; overflow: hidden; }
+        .faq-item { border: 1px solid #102a1a; border-radius: 0.75rem; margin-bottom: 1rem; overflow: hidden; }
         .faq-question { padding: 1.25rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: rgba(15,23,42,0.6); }
         .faq-question:hover { background: rgba(139,92,246,0.06); }
-        .faq-answer { padding: 0 1.5rem 1.25rem; color: #94a3b8; font-size: 0.95rem; line-height: 1.75; display: none; }
+        .faq-answer { padding: 0 1.5rem 1.25rem; color: #8fcaa6; font-size: 0.95rem; line-height: 1.75; display: none; }
         .faq-item.open .faq-answer { display: block; }
         .faq-item.open .faq-icon { transform: rotate(180deg); }
         .faq-icon { transition: transform 0.25s ease; color: #a78bfa; }
         .badge { display: inline-block; padding: 0.2rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
         .badge-purple { background: rgba(139,92,246,0.15); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
-        .badge-green { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+        .badge-green { background: rgba(16,185,129,0.15); color: #7dffb3; border: 1px solid rgba(16,185,129,0.3); }
         .badge-blue { background: rgba(59,130,246,0.15); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
         .key-takeaways { background: rgba(139,92,246,0.07); border: 1px solid rgba(139,92,246,0.25); border-radius: 1rem; padding: 1.75rem 2rem; margin: 2rem 0; }
-        .related-card { display: block; background: rgba(15,23,42,0.7); border: 1px solid #1e293b; border-radius: 0.875rem; padding: 1.5rem; transition: all 0.25s ease; text-decoration: none; }
+        .related-card { display: block; background: rgba(15,23,42,0.7); border: 1px solid #102a1a; border-radius: 0.875rem; padding: 1.5rem; transition: all 0.25s ease; text-decoration: none; }
         .related-card:hover { border-color: #8b5cf6; box-shadow: 0 12px 32px -8px rgba(139,92,246,0.18); }
     </style>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#04070a;color:#d6f5e4;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Inter Tight',sans-serif}
+  h1{letter-spacing:-0.03em}
+  .display{letter-spacing:-0.04em;line-height:0.95}
+  .label{font-family:'JetBrains Mono',monospace;letter-spacing:0.2em}
+  .gradient-text{background:linear-gradient(90deg,#2bff88,#7dffb3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 26px rgba(43,255,136,.25)}
+  .neon-text{color:#2bff88;text-shadow:0 0 8px rgba(43,255,136,.55),0 0 28px rgba(43,255,136,.35)}
+  .neon-line{box-shadow:0 0 14px rgba(43,255,136,.45)}
+  #spot{position:fixed;inset:0;z-index:30;pointer-events:none;background:radial-gradient(360px circle at var(--mx,-200px) var(--my,-200px),rgba(43,255,136,.08),transparent 60%);transition:background .08s linear}
+  ::selection{background:#2bff88;color:#04070a}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#spot{display:none}}
+</style>
 </head>
-<body class="antialiased selection:bg-violet-600 selection:text-white">
+<body class="antialiased">
+<div id="spot"></div>
 
 <!-- НАВИГАЦИЯ -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-sm border-b border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-2 text-white font-bold text-lg">
-            <div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center text-sm font-black">VS</div>
-            <span class="hidden sm:block">Владислав Сарамуд</span>
-        </a>
-        <div class="flex items-center gap-4">
-            <a href="/blog/" class="text-slate-400 hover:text-white transition text-sm">Блог</a>
-            <a href="/services/" class="text-slate-400 hover:text-white transition text-sm">Услуги</a>
-            <a href="https://t.me/lilymakarovaa" class="bg-emerald-500 hover:bg-emerald-400 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">Связаться</a>
-        </div>
+<header class="sticky top-0 z-40 border-b border-line/70 bg-ink/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="display flex items-center gap-2 text-lg font-extrabold tracking-tight">
+      <span class="inline-block h-2 w-2 rounded-full bg-neon neon-line"></span>САРАМУД<span class="text-neon">_</span>ВЛАДИСЛАВ
+    </a>
+    <div class="label hidden gap-8 text-[11px] uppercase text-neon/60 md:flex">
+      <a href="/#cases" class="transition hover:text-neon">Кейсы</a>
+      <a href="/#services" class="transition hover:text-neon">Услуги</a>
+      <a href="/#shashlik" class="transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="transition hover:text-neon">Блог</a>
     </div>
-</nav>
+    <div class="flex items-center gap-3">
+      <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="label hidden rounded-none border border-neon px-4 py-2 text-[11px] uppercase text-neon transition hover:bg-neon hover:text-ink md:inline-block">Обсудить →</a>
+      <button id="burger" aria-label="Меню" aria-expanded="false" class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden">
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden border-t border-line bg-ink md:hidden">
+    <div class="flex flex-col px-6 pb-5 pt-2 label text-[13px] uppercase text-emerald-100/80">
+      <a href="/#services" class="border-b border-line/60 py-3.5 transition hover:text-neon">Услуги</a>
+      <a href="/#cases" class="border-b border-line/60 py-3.5 transition hover:text-neon">Кейсы</a>
+      <a href="/#reviews" class="border-b border-line/60 py-3.5 transition hover:text-neon">Отзывы</a>
+      <a href="/#shashlik" class="border-b border-line/60 py-3.5 transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="py-3.5 transition hover:text-neon">Блог</a>
+    </div>
+  </div>
+</header>
 
 <div style="height:60px;"></div>
 
 <!-- ХЛЕБНЫЕ КРОШКИ -->
 <div class="max-w-4xl mx-auto px-4 pt-6 pb-2">
-    <nav class="text-sm text-slate-500 flex items-center gap-1.5 flex-wrap">
+    <nav class="text-sm text-neon flex items-center gap-1.5 flex-wrap">
         <a href="/" class="hover:text-violet-400 transition">Главная</a>
         <span>/</span>
         <a href="/blog/" class="hover:text-violet-400 transition">Статьи</a>
         <span>/</span>
-        <span class="text-slate-400">YandexGPT vs GigaChat vs ChatGPT</span>
+        <span class="text-neon">YandexGPT vs GigaChat vs ChatGPT</span>
     </nav>
 </div>
 
@@ -237,19 +270,19 @@
     <header class="mb-10">
         <div class="flex items-center gap-3 mb-5 flex-wrap">
             <span class="badge badge-purple">AI &amp; Автоматизация</span>
-            <span class="text-slate-500 text-sm"><i class="far fa-clock mr-1"></i>14 минут чтения</span>
-            <span class="text-slate-500 text-sm"><i class="far fa-calendar mr-1"></i>28 мая 2026</span>
+            <span class="text-neon text-sm"><i class="far fa-clock mr-1"></i>14 минут чтения</span>
+            <span class="text-neon text-sm"><i class="far fa-calendar mr-1"></i>28 мая 2026</span>
         </div>
 
         <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
             YandexGPT vs GigaChat vs ChatGPT: <span class="gradient-text">честное сравнение для маркетолога</span> в 2026
         </h1>
 
-        <p class="text-lg text-slate-400 leading-relaxed mb-7">
+        <p class="text-lg text-neon leading-relaxed mb-7">
             Я лично прогнал один и тот же промпт через все три нейросети четыре раза. Никаких пересказов обзоров и технических спецификаций. Только реальные результаты для реальных маркетинговых задач: рекламный пост, контент-план, email-темы, анализ ЦА. Читай и сравнивай сам.
         </p>
 
-        <div class="flex items-center gap-4 text-sm text-slate-500 border-t border-slate-800 pt-5">
+        <div class="flex items-center gap-4 text-sm text-neon border-t border-line pt-5">
             <div class="flex items-center gap-2.5">
                 <img src="/avatar.webp" alt="Владислав Сарамуд, маркетинг-директор" class="w-11 h-11 rounded-full border-2 border-violet-600" width="44" height="44">
                 <div>
@@ -270,7 +303,7 @@
             height="420"
             loading="eager"
         >
-        <p class="text-xs text-slate-600 text-center mt-2">YandexGPT, GigaChat и ChatGPT: сравнение для практических маркетинговых задач 2026</p>
+        <p class="text-xs text-neon text-center mt-2">YandexGPT, GigaChat и ChatGPT: сравнение для практических маркетинговых задач 2026</p>
     </div>
 
     <article class="prose prose-invert max-w-none">
@@ -278,7 +311,7 @@
         <!-- KEY TAKEAWAYS -->
         <div class="key-takeaways">
             <p class="text-violet-300 font-bold text-sm uppercase tracking-wider mb-3">Главное за минуту</p>
-            <ul class="space-y-2 text-slate-300 text-sm list-none p-0 m-0">
+            <ul class="space-y-2 text-emerald-200 text-sm list-none p-0 m-0">
                 <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">-</span><span><strong>ChatGPT (GPT-5)</strong> пишет лучшие тексты, но официально недоступен в России — подписка Plus от $20/мес.</span></li>
                 <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">-</span><span><strong>YandexGPT</strong> работает нативно в России, отлично понимает российский контекст, выгоден по цене через API.</span></li>
                 <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">-</span><span><strong>GigaChat</strong> хорош для простых задач и экономии бюджета: есть бесплатный тариф, работает в России без ограничений.</span></li>
@@ -363,7 +396,7 @@
 Запишись сейчас — ссылка в шапке профиля.</div>
             <div class="flex items-center gap-2 mt-3">
                 <span class="verdict-badge verdict-winner"><i class="fas fa-trophy text-xs"></i> Победитель теста</span>
-                <span class="text-xs text-slate-500">1 137 символов</span>
+                <span class="text-xs text-neon">1 137 символов</span>
             </div>
         </div>
 
@@ -390,7 +423,7 @@
 Мест в новом потоке осталось немного.</div>
             <div class="flex items-center gap-2 mt-3">
                 <span class="verdict-badge verdict-mid"><i class="fas fa-medal text-xs"></i> 2-е место</span>
-                <span class="text-xs text-slate-500">1 021 символ</span>
+                <span class="text-xs text-neon">1 021 символ</span>
             </div>
         </div>
 
@@ -413,12 +446,12 @@
 Ссылка для записи в описании профиля.</div>
             <div class="flex items-center gap-2 mt-3">
                 <span class="verdict-badge verdict-third"><i class="fas fa-circle text-xs"></i> 3-е место</span>
-                <span class="text-xs text-slate-500">854 символа</span>
+                <span class="text-xs text-neon">854 символа</span>
             </div>
         </div>
 
         <div class="success-box">
-            <p class="text-emerald-300 font-semibold mb-1 text-sm"><i class="fas fa-lightbulb mr-2"></i>Мой разбор</p>
+            <p class="text-neon font-semibold mb-1 text-sm"><i class="fas fa-lightbulb mr-2"></i>Мой разбор</p>
             <p class="text-emerald-100 text-sm mb-0">ChatGPT написал настоящий продающий текст: есть эмоция, конкретная боль ("внутри что-то сжимается"), социальное доказательство с цифрой. YandexGPT дал добротный текст с правильной структурой, но менее "живой". GigaChat выдал банальный шаблон с "уникальным курсом" и "опытными преподавателями" - классический признак слабого копирайтинга. Слово "уникальный" в 2026 году убивает доверие к тексту.</p>
         </div>
 
@@ -549,7 +582,7 @@
         </div>
 
         <div class="success-box">
-            <p class="text-emerald-300 font-semibold mb-1 text-sm"><i class="fas fa-lightbulb mr-2"></i>Мой разбор</p>
+            <p class="text-neon font-semibold mb-1 text-sm"><i class="fas fa-lightbulb mr-2"></i>Мой разбор</p>
             <p class="text-emerald-100 text-sm mb-0">ChatGPT дал конкретные темы с деталями (47 заявок, 8 000 руб., Пермь), которые можно брать в работу немедленно. YandexGPT тоже дал хорошие темы с региональной конкретикой (Новосибирск) - это отличительная черта: модель думает по-российски. GigaChat выдал банальщину: "Топ-5 инструментов" и "Как наш клиент увеличил продажи" - это контент, который никто не читает. Кейс без цифр - это не кейс.</p>
         </div>
 
@@ -640,7 +673,7 @@
         </div>
 
         <div class="success-box">
-            <p class="text-emerald-300 font-semibold mb-1 text-sm"><i class="fas fa-lightbulb mr-2"></i>Мой разбор</p>
+            <p class="text-neon font-semibold mb-1 text-sm"><i class="fas fa-lightbulb mr-2"></i>Мой разбор</p>
             <p class="text-emerald-100 text-sm mb-0">ChatGPT понял задачу точно: темы работают с психологией "незакрытого действия" и создают ощущение срочности без давления. YandexGPT неожиданно сильно выступил - тема "Вернитесь: ваши таблицы всё ещё ненавидят вас" - это готовый хит с высоким open rate. GigaChat вернулся к шаблонам: "ваш путь к успеху" и "откройте для себя возможности" - это не темы, это текст кнопки на лендинге 2015 года.</p>
         </div>
 
@@ -765,7 +798,7 @@
         </div>
 
         <div class="success-box">
-            <p class="text-emerald-300 font-semibold mb-1 text-sm"><i class="fas fa-lightbulb mr-2"></i>Мой разбор</p>
+            <p class="text-neon font-semibold mb-1 text-sm"><i class="fas fa-lightbulb mr-2"></i>Мой разбор</p>
             <p class="text-emerald-100 text-sm mb-0">Здесь YandexGPT неожиданно приблизился к ChatGPT: добавил региональную специфику (Яндекс как первый источник для регионов, Казань, Новосибирск), которой у ChatGPT нет. Это ценно для российского рынка. ChatGPT дал лучшую психографику и более острые формулировки болей. GigaChat снова дал шаблон уровня "Маркетинг 101 для начинающих": "желающие сосредоточиться на основной деятельности" - это фраза из учебника, не из жизни.</p>
         </div>
 
@@ -801,15 +834,15 @@
                     </tr>
                     <tr>
                         <td><strong>Качество продающих текстов</strong></td>
-                        <td style="color: #34d399;">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
-                        <td style="color: #fbbf24;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
-                        <td style="color: #94a3b8;">&#9733;&#9733;&#9733;&#9734;&#9734;</td>
+                        <td style="color: #7dffb3;">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+                        <td style="color: #c6ff3d;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+                        <td style="color: #8fcaa6;">&#9733;&#9733;&#9733;&#9734;&#9734;</td>
                     </tr>
                     <tr>
                         <td><strong>Понимание RU-контекста</strong></td>
-                        <td style="color: #fbbf24;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
-                        <td style="color: #34d399;">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
-                        <td style="color: #fbbf24;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+                        <td style="color: #c6ff3d;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+                        <td style="color: #7dffb3;">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+                        <td style="color: #c6ff3d;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
                     </tr>
                     <tr>
                         <td><strong>Скорость ответа</strong></td>
@@ -870,7 +903,7 @@
 
         <div class="highlight-box">
             <p class="text-white font-semibold mb-2">Как я использую нейросети в реальной работе</p>
-            <p class="text-slate-200 text-sm mb-0">Основная рабочая связка: <strong>YandexGPT для потока</strong> (ежедневные посты, черновики, контент-планы, быстрые ответы) + <strong>GigaChat как резерв</strong> для простых задач без дополнительных затрат. Для сложных стратегических текстов качество ChatGPT GPT-5 по-прежнему выше — но YandexGPT закрывает 80%+ задач российского маркетолога.</p>
+            <p class="text-emerald-100 text-sm mb-0">Основная рабочая связка: <strong>YandexGPT для потока</strong> (ежедневные посты, черновики, контент-планы, быстрые ответы) + <strong>GigaChat как резерв</strong> для простых задач без дополнительных затрат. Для сложных стратегических текстов качество ChatGPT GPT-5 по-прежнему выше — но YandexGPT закрывает 80%+ задач российского маркетолога.</p>
         </div>
 
         <!-- ======================================================== -->
@@ -880,8 +913,8 @@
                 <i class="fas fa-robot text-white text-2xl"></i>
             </div>
             <h3 class="text-2xl font-extrabold text-white mb-3" style="color: #fff; margin-top: 0; border-bottom: none; padding-bottom: 0;">Хочешь научиться работать с нейросетями на уровне профессионала?</h3>
-            <p class="text-slate-400 mb-6 max-w-lg mx-auto text-sm leading-relaxed">Разбираем конкретные промпты, разбираю кейсы из моей практики, показываю какие задачи делегировать AI прямо сейчас. Без воды и теории.</p>
-            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-500 text-white font-bold px-8 py-4 rounded-xl transition text-base">
+            <p class="text-neon mb-6 max-w-lg mx-auto text-sm leading-relaxed">Разбираем конкретные промпты, разбираю кейсы из моей практики, показываю какие задачи делегировать AI прямо сейчас. Без воды и теории.</p>
+            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-neon hover:bg-neon text-ink font-bold px-8 py-4 rounded-xl transition text-base">
                 <i class="fab fa-telegram"></i> Написать в Telegram
             </a>
         </div>
@@ -951,60 +984,60 @@
         <p>Нейросеть - это инструмент, а не волшебная кнопка. Результат на 70% зависит от качества промпта и на 30% от модели. Если тебе нужна помощь с промптами под конкретные маркетинговые задачи - <a href="/articles/prompty-chatgpt-smm/" class="text-violet-400 hover:text-violet-300">читай мою подборку 50 промптов для SMM</a> и <a href="/articles/kontent-plan-neyroset-2026/" class="text-violet-400 hover:text-violet-300">гайд по составлению контент-плана с нейросетью</a>.</p>
 
         <!-- SHARE -->
-        <div class="mt-12 pt-8 border-t border-slate-800">
-            <p class="text-slate-400 mb-4 font-semibold text-sm">Поделиться статьёй:</p>
+        <div class="mt-12 pt-8 border-t border-line">
+            <p class="text-neon mb-4 font-semibold text-sm">Поделиться статьёй:</p>
             <div class="flex gap-3 flex-wrap">
-                <a href="https://t.me/share/url?url=https://saramudvlad.ru/articles/yandexgpt-vs-gigachat-vs-chatgpt/&text=YandexGPT+vs+GigaChat+vs+ChatGPT:+честное+сравнение+для+маркетолога" target="_blank" rel="noopener" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition text-sm">
+                <a href="https://t.me/share/url?url=https://saramudvlad.ru/articles/yandexgpt-vs-gigachat-vs-chatgpt/&text=YandexGPT+vs+GigaChat+vs+ChatGPT:+честное+сравнение+для+маркетолога" target="_blank" rel="noopener" class="px-5 py-2.5 bg-line hover:bg-line text-white rounded-lg transition text-sm">
                     <i class="fab fa-telegram mr-2"></i>Telegram
                 </a>
-                <a href="https://vk.com/share.php?url=https://saramudvlad.ru/articles/yandexgpt-vs-gigachat-vs-chatgpt/" target="_blank" rel="noopener" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition text-sm">
+                <a href="https://vk.com/share.php?url=https://saramudvlad.ru/articles/yandexgpt-vs-gigachat-vs-chatgpt/" target="_blank" rel="noopener" class="px-5 py-2.5 bg-line hover:bg-line text-white rounded-lg transition text-sm">
                     <i class="fab fa-vk mr-2"></i>ВКонтакте
                 </a>
-                <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Скопировано!';" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition text-sm">
+                <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Скопировано!';" class="px-5 py-2.5 bg-line hover:bg-line text-white rounded-lg transition text-sm">
                     <i class="fas fa-link mr-2"></i>Скопировать ссылку
                 </button>
             </div>
         </div>
 
         <!-- RELATED ARTICLES -->
-        <div class="mt-16 pt-8 border-t border-slate-800">
+        <div class="mt-16 pt-8 border-t border-line">
             <h3 style="color:#fff; border-bottom:none; padding-bottom:0; margin-top:0;" class="text-2xl font-bold mb-6">Читайте также</h3>
             <div class="grid md:grid-cols-2 gap-5">
 
                 <a href="/articles/prompty-chatgpt-smm/" class="related-card">
-                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">SMM &amp; ИИ</span>
+                    <span class="text-xs font-bold text-neon uppercase tracking-wider">SMM &amp; ИИ</span>
                     <h4 class="text-base font-bold text-white mt-2.5 mb-1.5 group-hover:text-violet-400 transition leading-snug">50 промптов для ChatGPT в SMM: готовые шаблоны 2026</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Проверенные промпты для постов, сторис, Reels и рекламных текстов. Подставь нишу - получи контент за 30 секунд.</p>
+                    <p class="text-neon text-sm leading-relaxed">Проверенные промпты для постов, сторис, Reels и рекламных текстов. Подставь нишу - получи контент за 30 секунд.</p>
                 </a>
 
                 <a href="/articles/ai-content-cost/" class="related-card">
                     <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">AI &amp; Автоматизация</span>
                     <h4 class="text-base font-bold text-white mt-2.5 mb-1.5 leading-snug">Как AI снижает стоимость контента на 80%</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Реальные кейсы, инструменты и стратегии экономии бюджета на контенте с помощью нейросетей.</p>
+                    <p class="text-neon text-sm leading-relaxed">Реальные кейсы, инструменты и стратегии экономии бюджета на контенте с помощью нейросетей.</p>
                 </a>
 
                 <a href="/articles/marketing-department-2026/" class="related-card">
                     <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Маркетинг</span>
                     <h4 class="text-base font-bold text-white mt-2.5 mb-1.5 leading-snug">Как построить отдел маркетинга с нуля в 2026</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Структура, роли, метрики и AI-инструменты для современного маркетинг-отдела.</p>
+                    <p class="text-neon text-sm leading-relaxed">Структура, роли, метрики и AI-инструменты для современного маркетинг-отдела.</p>
                 </a>
 
                 <a href="/articles/kontent-plan-neyroset-2026/" class="related-card">
-                    <span class="text-xs font-bold text-yellow-400 uppercase tracking-wider">Контент</span>
+                    <span class="text-xs font-bold text-lime-400 uppercase tracking-wider">Контент</span>
                     <h4 class="text-base font-bold text-white mt-2.5 mb-1.5 leading-snug">Контент-план с нейросетью: пошаговый гайд 2026</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Как составить контент-план на месяц за 20 минут с помощью AI и промптов.</p>
+                    <p class="text-neon text-sm leading-relaxed">Как составить контент-план на месяц за 20 минут с помощью AI и промптов.</p>
                 </a>
 
             </div>
         </div>
 
         <!-- AUTHOR BOX -->
-        <div class="mt-12 p-6 bg-slate-900/60 border border-slate-800 rounded-xl flex items-start gap-5">
+        <div class="mt-12 p-6 bg-surface/60 border border-line rounded-xl flex items-start gap-5">
             <img src="/avatar.webp" alt="Владислав Сарамуд - маркетинг-директор и автор блога о AI-маркетинге" class="w-16 h-16 rounded-full border-2 border-violet-600 flex-shrink-0" width="64" height="64">
             <div>
                 <p class="text-white font-bold text-base mb-0.5">Владислав Сарамуд</p>
                 <p class="text-violet-400 text-xs font-semibold mb-2">Маркетинг-директор, 6+ лет опыта</p>
-                <p class="text-slate-400 text-sm leading-relaxed mb-0">Работал с EdTech, недвижимостью, Мегафон B2B. Помогаю бизнесу строить системный маркетинг с использованием AI-инструментов. Лично тестирую все инструменты до того, как рекомендую их клиентам.</p>
+                <p class="text-neon text-sm leading-relaxed mb-0">Работал с EdTech, недвижимостью, Мегафон B2B. Помогаю бизнесу строить системный маркетинг с использованием AI-инструментов. Лично тестирую все инструменты до того, как рекомендую их клиентам.</p>
             </div>
         </div>
 
@@ -1016,19 +1049,29 @@
 </main>
 
 <!-- FOOTER -->
-<footer class="bg-slate-900 border-t border-slate-800 py-12 mt-20">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-        <a href="/" class="flex items-center justify-center gap-2 text-white font-bold text-lg mb-4">
-            <div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center text-sm font-black">VS</div>
-            Владислав Сарамуд
-        </a>
-        <p class="text-slate-400 text-sm mb-6">Системный маркетинг и AI-решения для бизнеса</p>
-        <div class="flex items-center justify-center gap-6 text-sm text-slate-500">
-            <a href="/blog/" class="hover:text-white transition">Блог</a>
-            <a href="/services/" class="hover:text-white transition">Услуги</a>
-            <a href="https://t.me/saramudvlad" class="hover:text-white transition">Telegram</a>
-        </div>
+<footer class="border-t border-line bg-surface/40 mt-20">
+  <div class="mx-auto max-w-6xl px-6 py-14 text-center">
+    <div class="mb-8 flex justify-center gap-5">
+      <a href="https://t.me/saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-telegram"></i></a>
+      <a href="https://www.instagram.com/saramudvlad/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-youtube"></i></a>
     </div>
+    <div class="mb-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 label text-[11px] uppercase text-neon/55">
+      <a href="/blog/" class="transition hover:text-neon">Блог</a><span class="text-line">/</span>
+      <a href="/neyroseti-dlya-kontenta/" class="transition hover:text-neon">Нейросети для контента</a><span class="text-line">/</span>
+      <a href="/reklama-i-trafik/" class="transition hover:text-neon">Реклама и трафик</a><span class="text-line">/</span>
+      <a href="/services/" class="transition hover:text-neon">Услуги</a><span class="text-line">/</span>
+      <a href="/about/" class="transition hover:text-neon">Об авторе</a>
+    </div>
+    <div class="mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-neon/35">
+      <a href="https://disk.yandex.ru/i/Ncd0GgyZTdE2OQ" class="transition hover:text-neon/70">Публичная оферта</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/3Zig9pNfq_A0Ww" class="transition hover:text-neon/70">Политика конфиденциальности</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/RhsYX71b6lmmVg" class="transition hover:text-neon/70">Согласие на обработку ПД</a>
+    </div>
+    <p class="mx-auto mb-5 max-w-2xl text-[11px] leading-relaxed text-neon/25">* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
+    <p class="label text-[11px] uppercase text-neon/30">© 2026 Владислав Сарамуд</p>
+  </div>
 </footer>
 
 <script>
@@ -1041,5 +1084,10 @@ document.querySelectorAll('.faq-item').forEach(function(item){
 });
 </script>
 
+<script>
+const _reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){const b=document.getElementById('burger'),m=document.getElementById('mobile-menu');if(!b||!m)return;const s=b.querySelectorAll('span');function o(open){m.classList.toggle('hidden',!open);b.setAttribute('aria-expanded',open);s[0].style.transform=open?'translateY(8px) rotate(45deg)':'';s[1].style.opacity=open?'0':'';s[2].style.transform=open?'translateY(-8px) rotate(-45deg)':'';}b.addEventListener('click',()=>o(m.classList.contains('hidden')));m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>o(false)));})();
+if(!_reduce){const sp=document.getElementById('spot');if(sp)window.addEventListener('pointermove',e=>{sp.style.setProperty('--mx',e.clientX+'px');sp.style.setProperty('--my',e.clientY+'px');});}
+</script>
 </body>
 </html>

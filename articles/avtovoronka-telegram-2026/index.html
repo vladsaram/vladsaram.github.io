@@ -35,6 +35,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://mc.yandex.ru">
     <link rel="stylesheet" href="/dist/tailwind.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Автоворонка продаж в Telegram 2026: настраиваем бота + n8n за 1 день без программиста","description":"Единственный в Рунете гайд по связке Telegram-бот + n8n для автоворонки без кода. 6 шагов, 4 сценария, реальные конверсии.","image":"https://saramudvlad.ru/images/avtovoronka-telegram.webp","author":{"@type":"Person","name":"Владислав Сарамуд","url":"https://saramudvlad.ru"},"publisher":{"@type":"Person","name":"Владислав Сарамуд","logo":{"@type":"ImageObject","url":"https://saramudvlad.ru/avatar.webp"}},"datePublished":"2026-05-28","dateModified":"2026-05-28","mainEntityOfPage":{"@type":"WebPage","@id":"https://saramudvlad.ru/articles/avtovoronka-telegram-2026/"}}</script>
@@ -45,71 +46,104 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-        body{font-family:'Inter',sans-serif;background-color:#020617;color:#e2e8f0;}
-        .gradient-text{background:linear-gradient(to right,#f97316,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-        article h2{font-size:1.875rem;font-weight:800;color:#fff;margin-top:3rem;margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid #f97316;}
-        article h3{font-size:1.5rem;font-weight:700;color:#fb923c;margin-top:2rem;margin-bottom:1rem;}
-        article p{margin-bottom:1.5rem;line-height:1.8;color:#cbd5e1;}
-        article ul,article ol{margin-bottom:1.5rem;padding-left:1.5rem;color:#cbd5e1;}
+        body{font-family:'Inter',sans-serif;background-color:#04070a;color:#d6f5e4;}
+        .gradient-text{background:linear-gradient(to right,#2bff88,#c6ff3d,#c6ff3d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        article h2{font-size:1.875rem;font-weight:800;color:#fff;margin-top:3rem;margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid #2bff88;}
+        article h3{font-size:1.5rem;font-weight:700;color:#7dffb3;margin-top:2rem;margin-bottom:1rem;}
+        article p{margin-bottom:1.5rem;line-height:1.8;color:#bfe9cf;}
+        article ul,article ol{margin-bottom:1.5rem;padding-left:1.5rem;color:#bfe9cf;}
         article li{margin-bottom:0.75rem;line-height:1.7;}
         article strong{color:#fff;font-weight:700;}
-        .highlight-box{background:linear-gradient(135deg,#ea580c 0%,#d97706 100%);border-left:4px solid #fb923c;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
-        .warning-box{background:rgba(234,88,12,0.1);border-left:4px solid #ea580c;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .highlight-box{background:linear-gradient(135deg,#1fd673 0%,#a3d92e 100%);border-left:4px solid #7dffb3;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .warning-box{background:rgba(234,88,12,0.1);border-left:4px solid #1fd673;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
         .info-box{background:rgba(59,130,246,0.1);border-left:4px solid #3b82f6;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
         .tg-box{background:rgba(0,136,204,0.1);border-left:4px solid #0088cc;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
-        .n8n-box{background:rgba(234,88,12,0.08);border-left:4px solid #f97316;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
-        .tool-card{background:linear-gradient(135deg,rgba(249,115,22,0.05) 0%,rgba(217,119,6,0.05) 100%);border:1px solid #334155;border-radius:1rem;padding:2rem;margin-bottom:2rem;transition:all 0.3s ease;}
-        .tool-card:hover{border-color:#f97316;box-shadow:0 20px 40px -15px rgba(249,115,22,0.2);}
-        .comparison-table{background:rgba(15,23,42,0.5);border:1px solid #334155;border-radius:1rem;overflow:hidden;margin:2rem 0;}
+        .n8n-box{background:rgba(234,88,12,0.08);border-left:4px solid #2bff88;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .tool-card{background:linear-gradient(135deg,rgba(249,115,22,0.05) 0%,rgba(217,119,6,0.05) 100%);border:1px solid #16352a;border-radius:1rem;padding:2rem;margin-bottom:2rem;transition:all 0.3s ease;}
+        .tool-card:hover{border-color:#2bff88;box-shadow:0 20px 40px -15px rgba(249,115,22,0.2);}
+        .comparison-table{background:rgba(15,23,42,0.5);border:1px solid #16352a;border-radius:1rem;overflow:hidden;margin:2rem 0;}
         .comparison-table table{width:100%;border-collapse:collapse;}
-        .comparison-table th{background:rgba(249,115,22,0.1);padding:1rem;text-align:left;font-weight:700;color:#fb923c;border-bottom:2px solid #334155;}
-        .comparison-table td{padding:1rem;border-bottom:1px solid #334155;color:#cbd5e1;}
+        .comparison-table th{background:rgba(249,115,22,0.1);padding:1rem;text-align:left;font-weight:700;color:#7dffb3;border-bottom:2px solid #16352a;}
+        .comparison-table td{padding:1rem;border-bottom:1px solid #16352a;color:#bfe9cf;}
         .comparison-table tr:last-child td{border-bottom:none;}
-        .cta-box{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);border:2px solid #f97316;border-radius:1rem;padding:2.5rem;margin:3rem 0;text-align:center;}
-        .checklist-item{display:flex;align-items:start;gap:0.75rem;padding:1rem;background:rgba(15,23,42,0.5);border-radius:0.5rem;margin-bottom:0.75rem;border:1px solid #334155;transition:all 0.3s ease;}
-        .checklist-item:hover{border-color:#f97316;}
-        .step-badge{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;background:rgba(249,115,22,0.15);border:1px solid #f97316;border-radius:50%;color:#fb923c;font-weight:800;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
-        .hero-image{width:100%;border-radius:1rem;border:1px solid #334155;margin-bottom:2rem;display:block;}
-        .price-tag{display:inline-block;background:rgba(249,115,22,0.15);border:1px solid #f97316;color:#fb923c;font-weight:800;padding:0.25rem 0.75rem;border-radius:0.5rem;font-size:0.9rem;}
-        .stat-card{background:rgba(15,23,42,0.8);border:1px solid #334155;border-radius:0.75rem;padding:1.25rem;text-align:center;}
-        .stat-card .stat-num{font-size:2rem;font-weight:800;color:#fb923c;}
-        .stat-card .stat-label{font-size:0.8rem;color:#64748b;margin-top:0.25rem;}
-        .prompt-box{background:#0f172a;border:1px solid #334155;border-left:4px solid #f97316;border-radius:0.5rem;padding:1.25rem;margin:1.5rem 0;font-family:monospace;font-size:0.85rem;color:#fbbf24;line-height:1.8;white-space:pre-wrap;}
-        .funnel-diagram{background:#0f172a;border:1px solid #334155;border-radius:1rem;padding:2rem;margin:2rem 0;overflow-x:auto;}
-        .funnel-step{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(249,115,22,0.1);border:1px solid #f97316;border-radius:0.5rem;padding:0.5rem 1rem;font-size:0.9rem;font-weight:600;color:#fb923c;white-space:nowrap;}
-        .funnel-arrow{color:#475569;font-weight:800;margin:0 0.25rem;font-size:1.1rem;}
+        .cta-box{background:linear-gradient(135deg,#0a1411 0%,#102a1a 100%);border:2px solid #2bff88;border-radius:1rem;padding:2.5rem;margin:3rem 0;text-align:center;}
+        .checklist-item{display:flex;align-items:start;gap:0.75rem;padding:1rem;background:rgba(15,23,42,0.5);border-radius:0.5rem;margin-bottom:0.75rem;border:1px solid #16352a;transition:all 0.3s ease;}
+        .checklist-item:hover{border-color:#2bff88;}
+        .step-badge{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;background:rgba(249,115,22,0.15);border:1px solid #2bff88;border-radius:50%;color:#7dffb3;font-weight:800;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+        .hero-image{width:100%;border-radius:1rem;border:1px solid #16352a;margin-bottom:2rem;display:block;}
+        .price-tag{display:inline-block;background:rgba(249,115,22,0.15);border:1px solid #2bff88;color:#7dffb3;font-weight:800;padding:0.25rem 0.75rem;border-radius:0.5rem;font-size:0.9rem;}
+        .stat-card{background:rgba(15,23,42,0.8);border:1px solid #16352a;border-radius:0.75rem;padding:1.25rem;text-align:center;}
+        .stat-card .stat-num{font-size:2rem;font-weight:800;color:#7dffb3;}
+        .stat-card .stat-label{font-size:0.8rem;color:#5f8f72;margin-top:0.25rem;}
+        .prompt-box{background:#0a1411;border:1px solid #16352a;border-left:4px solid #2bff88;border-radius:0.5rem;padding:1.25rem;margin:1.5rem 0;font-family:monospace;font-size:0.85rem;color:#c6ff3d;line-height:1.8;white-space:pre-wrap;}
+        .funnel-diagram{background:#0a1411;border:1px solid #16352a;border-radius:1rem;padding:2rem;margin:2rem 0;overflow-x:auto;}
+        .funnel-step{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(249,115,22,0.1);border:1px solid #2bff88;border-radius:0.5rem;padding:0.5rem 1rem;font-size:0.9rem;font-weight:600;color:#7dffb3;white-space:nowrap;}
+        .funnel-arrow{color:#1d4636;font-weight:800;margin:0 0.25rem;font-size:1.1rem;}
         .takeaways-box{background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.3);border-radius:1rem;padding:1.5rem 2rem;margin:2rem 0;}
-        .faq-item{background:rgba(15,23,42,0.6);border:1px solid #334155;border-radius:0.75rem;padding:1.5rem;margin-bottom:1rem;}
+        .faq-item{background:rgba(15,23,42,0.6);border:1px solid #16352a;border-radius:0.75rem;padding:1.5rem;margin-bottom:1rem;}
         .faq-q{font-weight:700;color:#fff;margin-bottom:0.75rem;font-size:1rem;}
-        .faq-a{color:#94a3b8;font-size:0.95rem;line-height:1.7;margin:0;}
-        .citation-capsule{background:rgba(249,115,22,0.05);border:1px solid rgba(249,115,22,0.2);border-radius:0.5rem;padding:1.25rem;margin:1.5rem 0;font-style:italic;color:#94a3b8;font-size:0.9rem;line-height:1.7;}
-        .citation-capsule cite{display:block;margin-top:0.5rem;font-style:normal;color:#64748b;font-size:0.8rem;}
+        .faq-a{color:#8fcaa6;font-size:0.95rem;line-height:1.7;margin:0;}
+        .citation-capsule{background:rgba(249,115,22,0.05);border:1px solid rgba(249,115,22,0.2);border-radius:0.5rem;padding:1.25rem;margin:1.5rem 0;font-style:italic;color:#8fcaa6;font-size:0.9rem;line-height:1.7;}
+        .citation-capsule cite{display:block;margin-top:0.5rem;font-style:normal;color:#5f8f72;font-size:0.8rem;}
     </style>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#04070a;color:#d6f5e4;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Inter Tight',sans-serif}
+  h1{letter-spacing:-0.03em}
+  .display{letter-spacing:-0.04em;line-height:0.95}
+  .label{font-family:'JetBrains Mono',monospace;letter-spacing:0.2em}
+  .gradient-text{background:linear-gradient(90deg,#2bff88,#7dffb3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 26px rgba(43,255,136,.25)}
+  .neon-text{color:#2bff88;text-shadow:0 0 8px rgba(43,255,136,.55),0 0 28px rgba(43,255,136,.35)}
+  .neon-line{box-shadow:0 0 14px rgba(43,255,136,.45)}
+  #spot{position:fixed;inset:0;z-index:30;pointer-events:none;background:radial-gradient(360px circle at var(--mx,-200px) var(--my,-200px),rgba(43,255,136,.08),transparent 60%);transition:background .08s linear}
+  ::selection{background:#2bff88;color:#04070a}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#spot{display:none}}
+</style>
 </head>
-<body class="antialiased selection:bg-orange-500 selection:text-white">
+<body class="antialiased">
+<div id="spot"></div>
 
 <!-- NAV -->
-<nav class="border-b border-slate-800/50 sticky top-0 backdrop-blur-lg bg-slate-950/80 z-50">
-    <div class="container mx-auto px-6 py-4 max-w-4xl">
-        <div class="flex justify-between items-center">
-            <a href="/" class="text-xl font-bold text-white hover:text-orange-400 transition"><i class="fas fa-arrow-left mr-2"></i>Владислав Сарамуд</a>
-            <div class="flex gap-4">
-                <a href="/services/" class="text-slate-400 hover:text-orange-400 transition text-sm">Услуги</a>
-                <a href="/blog/" class="text-slate-400 hover:text-orange-400 transition text-sm">Статьи</a>
-                <a href="https://t.me/lilymakarovaa" target="_blank" class="text-orange-500 hover:text-orange-400 transition text-sm"><i class="fab fa-telegram"></i> Связаться</a>
-            </div>
-        </div>
+<header class="sticky top-0 z-40 border-b border-line/70 bg-ink/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="display flex items-center gap-2 text-lg font-extrabold tracking-tight">
+      <span class="inline-block h-2 w-2 rounded-full bg-neon neon-line"></span>САРАМУД<span class="text-neon">_</span>ВЛАДИСЛАВ
+    </a>
+    <div class="label hidden gap-8 text-[11px] uppercase text-neon/60 md:flex">
+      <a href="/#cases" class="transition hover:text-neon">Кейсы</a>
+      <a href="/#services" class="transition hover:text-neon">Услуги</a>
+      <a href="/#shashlik" class="transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="transition hover:text-neon">Блог</a>
     </div>
-</nav>
+    <div class="flex items-center gap-3">
+      <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="label hidden rounded-none border border-neon px-4 py-2 text-[11px] uppercase text-neon transition hover:bg-neon hover:text-ink md:inline-block">Обсудить →</a>
+      <button id="burger" aria-label="Меню" aria-expanded="false" class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden">
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden border-t border-line bg-ink md:hidden">
+    <div class="flex flex-col px-6 pb-5 pt-2 label text-[13px] uppercase text-emerald-100/80">
+      <a href="/#services" class="border-b border-line/60 py-3.5 transition hover:text-neon">Услуги</a>
+      <a href="/#cases" class="border-b border-line/60 py-3.5 transition hover:text-neon">Кейсы</a>
+      <a href="/#reviews" class="border-b border-line/60 py-3.5 transition hover:text-neon">Отзывы</a>
+      <a href="/#shashlik" class="border-b border-line/60 py-3.5 transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="py-3.5 transition hover:text-neon">Блог</a>
+    </div>
+  </div>
+</header>
 
 <!-- BREADCRUMB -->
 <div class="container mx-auto px-6 py-4 max-w-4xl">
-    <nav class="text-sm text-slate-500">
-        <a href="/" class="hover:text-orange-400 transition">Главная</a>
+    <nav class="text-sm text-neon">
+        <a href="/" class="hover:text-neon transition">Главная</a>
         <span class="mx-2">/</span>
-        <a href="/blog/" class="hover:text-orange-400 transition">Статьи</a>
+        <a href="/blog/" class="hover:text-neon transition">Статьи</a>
         <span class="mx-2">/</span>
-        <span class="text-slate-400">Автоворонка Telegram 2026</span>
+        <span class="text-neon">Автоворонка Telegram 2026</span>
     </nav>
 </div>
 
@@ -118,26 +152,26 @@
     <!-- HEADER -->
     <header class="mb-10">
         <div class="flex items-center gap-3 mb-4 flex-wrap">
-            <span class="px-3 py-1 bg-orange-900/30 text-orange-400 text-xs font-bold uppercase rounded-full border border-orange-800/50">Автоматизация</span>
-            <span class="px-3 py-1 bg-slate-800/60 text-slate-400 text-xs font-bold uppercase rounded-full border border-slate-700/50">Telegram</span>
-            <span class="px-3 py-1 bg-slate-800/60 text-slate-400 text-xs font-bold uppercase rounded-full border border-slate-700/50">n8n</span>
-            <span class="text-slate-500 text-sm"><i class="far fa-clock mr-1"></i>22 минуты чтения</span>
+            <span class="px-3 py-1 bg-neon/30 text-neon text-xs font-bold uppercase rounded-full border border-neon/50">Автоматизация</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">Telegram</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">n8n</span>
+            <span class="text-neon text-sm"><i class="far fa-clock mr-1"></i>22 минуты чтения</span>
         </div>
         <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
             Автоворонка продаж в Telegram 2026: <span class="gradient-text">бот + n8n за 1 день без программиста</span>
         </h1>
-        <p class="text-xl text-slate-400 leading-relaxed mb-6">
+        <p class="text-xl text-neon leading-relaxed mb-6">
             Единственный в Рунете пошаговый гайд по связке Telegram-бот + n8n. Четыре сценария, шесть конкретных шагов и реальные цифры конверсий из практики. Никакого кода, никаких западных сервисов, заблокированных в РФ.
         </p>
-        <div class="flex items-center gap-4 text-sm text-slate-500 border-t border-slate-800 pt-4">
+        <div class="flex items-center gap-4 text-sm text-neon border-t border-line pt-4">
             <div class="flex items-center gap-2">
-                <img src="/avatar.webp" alt="Владислав Сарамуд — маркетинг-директор, эксперт по автоворонкам Telegram" class="w-10 h-10 rounded-full border-2 border-orange-600">
+                <img src="/avatar.webp" alt="Владислав Сарамуд — маркетинг-директор, эксперт по автоворонкам Telegram" class="w-10 h-10 rounded-full border-2 border-neon">
                 <div>
-                    <div class="text-white font-semibold"><a href="/about/" class="hover:text-orange-400 transition">Владислав Сарамуд</a></div>
+                    <div class="text-white font-semibold"><a href="/about/" class="hover:text-neon transition">Владислав Сарамуд</a></div>
                     <div>Маркетинг-директор, 6+ лет в digital</div>
                 </div>
             </div>
-            <span class="text-slate-700">|</span>
+            <span class="text-line">|</span>
             <time datetime="2026-05-28">28 мая 2026</time>
         </div>
     </header>
@@ -152,23 +186,23 @@
             height="420"
             loading="eager"
         >
-        <p class="text-xs text-slate-600 text-center mt-2">Архитектура автоворонки Telegram-бот + n8n — май 2026</p>
+        <p class="text-xs text-neon text-center mt-2">Архитектура автоворонки Telegram-бот + n8n — май 2026</p>
     </div>
 
     <article class="prose prose-invert max-w-none">
 
         <!-- INTRO -->
-        <p>47,7% россиян открывают Telegram каждый день (<a href="https://mediascope.net" target="_blank" rel="noopener" class="text-orange-400 hover:text-orange-300">Mediascope</a>, 2026). Это 110 миллионов человек на территории России. При этом сообщения в Telegram-боте открывают 70-80% получателей, тогда как email-рассылку читают лишь 15-25% (<a href="https://mailchimp.com/resources/email-marketing-benchmarks/" target="_blank" rel="noopener" class="text-orange-400 hover:text-orange-300">Mailchimp Benchmarks</a>, 2024).</p>
+        <p>47,7% россиян открывают Telegram каждый день (<a href="https://mediascope.net" target="_blank" rel="noopener" class="text-neon hover:text-neon">Mediascope</a>, 2026). Это 110 миллионов человек на территории России. При этом сообщения в Telegram-боте открывают 70-80% получателей, тогда как email-рассылку читают лишь 15-25% (<a href="https://mailchimp.com/resources/email-marketing-benchmarks/" target="_blank" rel="noopener" class="text-neon hover:text-neon">Mailchimp Benchmarks</a>, 2024).</p>
 
         <p>Разрыв в 4 раза. Именно здесь живут деньги, которые большинство предпринимателей оставляют на столе. Автоворонка продаж в Telegram-боте закрывает эту дыру. Только один вопрос стоял между идеей и запуском: нужен ли разработчик? Нет. Я покажу, как собрать всё через n8n за один рабочий день.</p>
 
         <!-- INTERNAL LINK ZONE - related pillar -->
-        <p class="text-sm text-slate-500 italic">Если вы только планируете запустить трафик в Telegram, сначала прочитайте <a href="/articles/telegram-ads-2026/" class="text-orange-400 hover:text-orange-300">полный гайд по Telegram Ads в 2026</a> — там разобраны форматы и бюджеты для привлечения подписчиков в бота.</p>
+        <p class="text-sm text-neon italic">Если вы только планируете запустить трафик в Telegram, сначала прочитайте <a href="/articles/telegram-ads-2026/" class="text-neon hover:text-neon">полный гайд по Telegram Ads в 2026</a> — там разобраны форматы и бюджеты для привлечения подписчиков в бота.</p>
 
         <!-- KEY TAKEAWAYS -->
         <div class="takeaways-box">
-            <p class="text-orange-400 font-bold mb-3 text-sm uppercase tracking-wider"><i class="fas fa-bolt mr-2"></i>Главное за 60 секунд</p>
-            <ul class="text-slate-300 text-sm space-y-2 mb-0" style="list-style:none;padding:0;">
+            <p class="text-neon font-bold mb-3 text-sm uppercase tracking-wider"><i class="fas fa-bolt mr-2"></i>Главное за 60 секунд</p>
+            <ul class="text-emerald-200 text-sm space-y-2 mb-0" style="list-style:none;padding:0;">
                 <li>- Открываемость Telegram-бота: <strong>70-80%</strong> против 15-25% у email (Mailchimp, 2024)</li>
                 <li>- Автоворонки дают конверсию в продажу <strong>в 3-5 раз</strong> выше холодного трафика</li>
                 <li>- Инструменты: <strong>@BotFather</strong> (бесплатно) + <strong>n8n</strong> (от 300 ₽/мес на VPS)</li>
@@ -180,7 +214,7 @@
         <!-- ======================================= -->
         <h2>Что такое автоворонка в Telegram и зачем она нужна бизнесу?</h2>
 
-        <p>Автоворонка продаж в Telegram-боте — это цепочка автоматических сообщений, которая ведёт нового подписчика от первого касания до покупки. По данным исследования <a href="https://www.salesforce.com/resources/research-reports/state-of-marketing/" target="_blank" rel="noopener" class="text-orange-400 hover:text-orange-300">Salesforce State of Marketing</a> (2024), компании, использующие автоматизированные воронки, получают конверсию в 3-5 раз выше, чем при работе с холодным трафиком напрямую.</p>
+        <p>Автоворонка продаж в Telegram-боте — это цепочка автоматических сообщений, которая ведёт нового подписчика от первого касания до покупки. По данным исследования <a href="https://www.salesforce.com/resources/research-reports/state-of-marketing/" target="_blank" rel="noopener" class="text-neon hover:text-neon">Salesforce State of Marketing</a> (2024), компании, использующие автоматизированные воронки, получают конверсию в 3-5 раз выше, чем при работе с холодным трафиком напрямую.</p>
 
         <p>Классическая схема продаж требует менеджера: он встречает лид, прогревает, отвечает на вопросы и закрывает на продажу. Автоворонка делает то же самое, только 24 часа в сутки, без выходных и без оклада. В EdTech-проектах, с которыми я работал, воронка обрабатывала до 300 новых подписчиков в день без единого ручного действия.</p>
 
@@ -190,7 +224,7 @@
         </div>
 
         <!-- INTERNAL LINK ZONE -->
-        <p class="text-sm text-slate-500 italic">Связанная тема: <a href="/articles/ai-content-cost/" class="text-orange-400 hover:text-orange-300">как AI снижает стоимость контента</a> для прогревных цепочек — актуально при наполнении воронки сообщениями.</p>
+        <p class="text-sm text-neon italic">Связанная тема: <a href="/articles/ai-content-cost/" class="text-neon hover:text-neon">как AI снижает стоимость контента</a> для прогревных цепочек — актуально при наполнении воронки сообщениями.</p>
 
         <h3>Почему именно Telegram в 2026?</h3>
 
@@ -223,7 +257,7 @@
 
         <!-- FUNNEL DIAGRAM -->
         <div class="funnel-diagram">
-            <p class="text-slate-400 text-xs uppercase tracking-wider font-bold mb-4">Схема автоворонки</p>
+            <p class="text-neon text-xs uppercase tracking-wider font-bold mb-4">Схема автоворонки</p>
             <div class="flex flex-wrap items-center gap-1">
                 <span class="funnel-step"><i class="fab fa-telegram mr-1"></i>Новый подписчик</span>
                 <span class="funnel-arrow">&#8594;</span>
@@ -241,7 +275,7 @@
 
         <h3>Сценарий 1: Лид-магнит</h3>
 
-        <p>Человек нажимает /start, бот мгновенно отправляет обещанный бесплатный материал — PDF, чек-лист, видеоурок или промокод. Это первое касание задаёт тон всей воронке. Скорость имеет значение: по данным <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener" class="text-orange-400 hover:text-orange-300">Harvard Business Review</a>, ответ в первую минуту повышает шанс квалифицировать лид в 7 раз.</p>
+        <p>Человек нажимает /start, бот мгновенно отправляет обещанный бесплатный материал — PDF, чек-лист, видеоурок или промокод. Это первое касание задаёт тон всей воронке. Скорость имеет значение: по данным <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener" class="text-neon hover:text-neon">Harvard Business Review</a>, ответ в первую минуту повышает шанс квалифицировать лид в 7 раз.</p>
 
         <p>Бот не может «устать» или забыть. Он отправит файл подписчику номер один и подписчику номер триста одинаково быстро. Именно в этом и есть смысл автоматизации.</p>
 
@@ -260,12 +294,12 @@
 
         <h3>Сценарий 4: Апсейл</h3>
 
-        <p>После покупки автоматически уходит сообщение с предложением дополнительного продукта. Это самый дешёвый трафик в воронке: человек уже купил, он доверяет. По данным <a href="https://www.klaviyo.com/blog/post-purchase-email-statistics" target="_blank" rel="noopener" class="text-orange-400 hover:text-orange-300">Klaviyo</a> (2023), вероятность продажи существующему покупателю составляет 60-70% против 5-20% для нового лида.</p>
+        <p>После покупки автоматически уходит сообщение с предложением дополнительного продукта. Это самый дешёвый трафик в воронке: человек уже купил, он доверяет. По данным <a href="https://www.klaviyo.com/blog/post-purchase-email-statistics" target="_blank" rel="noopener" class="text-neon hover:text-neon">Klaviyo</a> (2023), вероятность продажи существующему покупателю составляет 60-70% против 5-20% для нового лида.</p>
 
         <!-- ======================================= -->
         <h2>Инструменты: почему Telegram Bot API + n8n, а не Zapier?</h2>
 
-        <p>Zapier — мировой лидер no-code автоматизации с ROI $5.44 на $1 (<a href="https://zapier.com/state-of-business-automation" target="_blank" rel="noopener" class="text-orange-400 hover:text-orange-300">Zapier, 2024</a>). Но в России он недоступен с 2022 года: заблокирован, не принимает российские карты и требует VPN для работы. Для бизнеса это не вариант.</p>
+        <p>Zapier — мировой лидер no-code автоматизации с ROI $5.44 на $1 (<a href="https://zapier.com/state-of-business-automation" target="_blank" rel="noopener" class="text-neon hover:text-neon">Zapier, 2024</a>). Но в России он недоступен с 2022 года: заблокирован, не принимает российские карты и требует VPN для работы. Для бизнеса это не вариант.</p>
 
         <p>n8n — open-source альтернатива, которую разворачиваешь на собственном российском VPS. Никаких санкционных рисков, никакого VPN. Функционально n8n богаче Zapier: 400+ интеграций, условная логика, работа с переменными, циклы. Для Telegram-воронок это то, что нужно.</p>
 
@@ -284,29 +318,29 @@
                     <tr>
                         <td><strong>n8n</strong></td>
                         <td>Бесплатно (self-hosted)<br><span class="price-tag">от $20/мес</span> (облако)</td>
-                        <td class="text-emerald-400 font-bold">Да</td>
-                        <td class="text-emerald-400 font-bold">Да (400+ нод)</td>
-                        <td class="text-emerald-400 font-bold">Да</td>
+                        <td class="text-neon font-bold">Да</td>
+                        <td class="text-neon font-bold">Да (400+ нод)</td>
+                        <td class="text-neon font-bold">Да</td>
                     </tr>
                     <tr>
                         <td><strong>Zapier</strong></td>
                         <td>от $19.99/мес</td>
                         <td class="text-red-400 font-bold">Нет</td>
-                        <td class="text-emerald-400 font-bold">Да</td>
+                        <td class="text-neon font-bold">Да</td>
                         <td class="text-red-400 font-bold">Нет</td>
                     </tr>
                     <tr>
                         <td><strong>Make (Integromat)</strong></td>
                         <td>от $9/мес</td>
-                        <td class="text-orange-400 font-bold">Частично</td>
-                        <td class="text-emerald-400 font-bold">Да</td>
+                        <td class="text-neon font-bold">Частично</td>
+                        <td class="text-neon font-bold">Да</td>
                         <td class="text-red-400 font-bold">Нет</td>
                     </tr>
                     <tr>
                         <td><strong>BotHelp/Salebot</strong></td>
                         <td>от 1 990 ₽/мес</td>
-                        <td class="text-emerald-400 font-bold">Да</td>
-                        <td class="text-emerald-400 font-bold">Да (нативно)</td>
+                        <td class="text-neon font-bold">Да</td>
+                        <td class="text-neon font-bold">Да (нативно)</td>
                         <td class="text-red-400 font-bold">Нет</td>
                     </tr>
                 </tbody>
@@ -314,8 +348,8 @@
         </div>
 
         <div class="n8n-box">
-            <p class="font-semibold mb-2" style="color:#fb923c"><i class="fas fa-server mr-2"></i>Где поднять n8n за 300 ₽/месяц</p>
-            <p class="text-slate-300 text-sm mb-0">VPS с 1 ГБ RAM достаточно для воронки до 10 000 подписчиков. Подойдут: <strong>Timeweb Cloud, Beget VPS, Selectel, Reg.ru</strong>. Устанавливаешь через Docker одной командой — официальная документация n8n содержит пошаговую инструкцию на русском. На VPS от 300 ₽/мес всё работает стабильно.</p>
+            <p class="font-semibold mb-2" style="color:#7dffb3"><i class="fas fa-server mr-2"></i>Где поднять n8n за 300 ₽/месяц</p>
+            <p class="text-emerald-200 text-sm mb-0">VPS с 1 ГБ RAM достаточно для воронки до 10 000 подписчиков. Подойдут: <strong>Timeweb Cloud, Beget VPS, Selectel, Reg.ru</strong>. Устанавливаешь через Docker одной командой — официальная документация n8n содержит пошаговую инструкцию на русском. На VPS от 300 ₽/мес всё работает стабильно.</p>
         </div>
 
         <div class="citation-capsule">
@@ -329,7 +363,7 @@
         <p>Прежде чем начать, подготовьте три вещи: аккаунт в Telegram, VPS или облачный аккаунт n8n и 3-7 написанных прогревных сообщений. Контент воронки пишется заранее — именно он определяет конверсию. Техника вторична.</p>
 
         <!-- INTERNAL LINK ZONE -->
-        <p class="text-sm text-slate-500 italic">Нужна помощь с написанием прогревных сообщений? Читайте, <a href="/articles/ai-content-cost/" class="text-orange-400 hover:text-orange-300">как AI сокращает стоимость создания контента</a> — там разобрана связка ChatGPT + редактор для быстрой подготовки серии.</p>
+        <p class="text-sm text-neon italic">Нужна помощь с написанием прогревных сообщений? Читайте, <a href="/articles/ai-content-cost/" class="text-neon hover:text-neon">как AI сокращает стоимость создания контента</a> — там разобрана связка ChatGPT + редактор для быстрой подготовки серии.</p>
 
         <h3>Шаг 1: Создание бота через @BotFather</h3>
 
@@ -337,7 +371,7 @@
             <div class="step-badge">1</div>
             <div>
                 <strong>Открой @BotFather в Telegram и отправь /newbot</strong><br>
-                <span class="text-sm text-slate-400">BotFather спросит имя бота (видимое пользователям, например «Академия Продаж») и юзернейм (латиница, заканчивается на _bot, например sales_academy_bot). Юзернейм должен быть уникальным.</span>
+                <span class="text-sm text-neon">BotFather спросит имя бота (видимое пользователям, например «Академия Продаж») и юзернейм (латиница, заканчивается на _bot, например sales_academy_bot). Юзернейм должен быть уникальным.</span>
             </div>
         </div>
 
@@ -345,7 +379,7 @@
             <div class="step-badge">2</div>
             <div>
                 <strong>Сохрани API Token</strong><br>
-                <span class="text-sm text-slate-400">BotFather выдаёт токен вида <code class="text-orange-400">1234567890:AABBccDDeeFFggHHiiJJkkLLmmNNooP</code>. Скопируй и сохрани. Это единственный ключ доступа к боту. Никому не показывай.</span>
+                <span class="text-sm text-neon">BotFather выдаёт токен вида <code class="text-neon">1234567890:AABBccDDeeFFggHHiiJJkkLLmmNNooP</code>. Скопируй и сохрани. Это единственный ключ доступа к боту. Никому не показывай.</span>
             </div>
         </div>
 
@@ -353,7 +387,7 @@
             <div class="step-badge">3</div>
             <div>
                 <strong>Настрой описание через /setdescription и /setabouttext</strong><br>
-                <span class="text-sm text-slate-400">Описание видно до нажатия «Старт». Оффер должен быть здесь. Например: «Получи бесплатный чек-лист: 10 шагов запуска автоворонки за 1 день». Призыв к действию в описании увеличивает конверсию в старт на 20-35%.</span>
+                <span class="text-sm text-neon">Описание видно до нажатия «Старт». Оффер должен быть здесь. Например: «Получи бесплатный чек-лист: 10 шагов запуска автоворонки за 1 день». Призыв к действию в описании увеличивает конверсию в старт на 20-35%.</span>
             </div>
         </div>
 
@@ -370,7 +404,7 @@
             <div class="step-badge">1</div>
             <div>
                 <strong>В n8n создай новый Workflow и добавь ноду «Telegram Trigger»</strong><br>
-                <span class="text-sm text-slate-400">В поле Credential вставь API Token из шага 1. Выбери Updates: «message». Нода будет получать все сообщения от подписчиков боту.</span>
+                <span class="text-sm text-neon">В поле Credential вставь API Token из шага 1. Выбери Updates: «message». Нода будет получать все сообщения от подписчиков боту.</span>
             </div>
         </div>
 
@@ -378,7 +412,7 @@
             <div class="step-badge">2</div>
             <div>
                 <strong>Добавь IF-ноду для фильтрации по команде /start</strong><br>
-                <span class="text-sm text-slate-400">Условие: <code class="text-orange-400">{{$json.message.text}} equals /start</code>. Это разделяет новых подписчиков от тех, кто пишет произвольные сообщения. На ветку TRUE вешаешь всю воронку.</span>
+                <span class="text-sm text-neon">Условие: <code class="text-neon">{{$json.message.text}} equals /start</code>. Это разделяет новых подписчиков от тех, кто пишет произвольные сообщения. На ветку TRUE вешаешь всю воронку.</span>
             </div>
         </div>
 
@@ -386,7 +420,7 @@
             <div class="step-badge">3</div>
             <div>
                 <strong>Сохрани chat_id подписчика в переменную</strong><br>
-                <span class="text-sm text-slate-400">Используй ноду «Set» и пропиши: <code class="text-orange-400">chatId = {{$json.message.chat.id}}</code>. Этот ID нужен для всех последующих отправок. Также стоит сохранить имя: <code class="text-orange-400">firstName = {{$json.message.from.first_name}}</code>.</span>
+                <span class="text-sm text-neon">Используй ноду «Set» и пропиши: <code class="text-neon">chatId = {{$json.message.chat.id}}</code>. Этот ID нужен для всех последующих отправок. Также стоит сохранить имя: <code class="text-neon">firstName = {{$json.message.from.first_name}}</code>.</span>
             </div>
         </div>
 
@@ -417,7 +451,7 @@
             <div class="step-badge">A</div>
             <div>
                 <strong>Вариант А: PDF-файл</strong><br>
-                <span class="text-sm text-slate-400">Загрузи файл в облако (Яндекс.Диск, S3 Timeweb) и вставь прямую ссылку в ноду «Send Document». Telegram скачивает файл и отправляет его как вложение. Лимит через Bot API — до 50 МБ.</span>
+                <span class="text-sm text-neon">Загрузи файл в облако (Яндекс.Диск, S3 Timeweb) и вставь прямую ссылку в ноду «Send Document». Telegram скачивает файл и отправляет его как вложение. Лимит через Bot API — до 50 МБ.</span>
             </div>
         </div>
 
@@ -425,7 +459,7 @@
             <div class="step-badge">B</div>
             <div>
                 <strong>Вариант Б: Ссылка на Google Doc / Notion</strong><br>
-                <span class="text-sm text-slate-400">Используй «Send Message» с текстом и кнопкой. Кнопка типа «url» открывает ссылку прямо в Telegram через in-app browser. Удобно для чек-листов и статей, которые нужно обновлять без перезагрузки воронки.</span>
+                <span class="text-sm text-neon">Используй «Send Message» с текстом и кнопкой. Кнопка типа «url» открывает ссылку прямо в Telegram через in-app browser. Удобно для чек-листов и статей, которые нужно обновлять без перезагрузки воронки.</span>
             </div>
         </div>
 
@@ -442,8 +476,8 @@
 День 7 (+48ч):  Сообщение 5 — ОФФЕР (первая продажа)</div>
 
         <div class="warning-box">
-            <p class="text-orange-300 font-semibold mb-1"><i class="fas fa-clock mr-2"></i>Важно про время отправки</p>
-            <p class="text-orange-200 text-sm mb-0">Нода Wait в n8n отсчитывает время от момента запуска, а не от «удобного для пользователя» времени. Если человек подписался в 3 ночи — следующее сообщение уйдёт в 3 ночи +24 часа. Для лучших открываемостей используй HTTP Request к Telegram API с отложенной отправкой через расписание, или принимай это как допустимую погрешность на старте.</p>
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-clock mr-2"></i>Важно про время отправки</p>
+            <p class="text-neon text-sm mb-0">Нода Wait в n8n отсчитывает время от момента запуска, а не от «удобного для пользователя» времени. Если человек подписался в 3 ночи — следующее сообщение уйдёт в 3 ночи +24 часа. Для лучших открываемостей используй HTTP Request к Telegram API с отложенной отправкой через расписание, или принимай это как допустимую погрешность на старте.</p>
         </div>
 
         <h3>Шаг 6: Триггер на продажу</h3>
@@ -532,59 +566,59 @@
         <p>За 6 лет работы с командой из 17 таргетологов я видел одни и те же ошибки снова и снова. Вот пять из них, каждая из которых гарантированно режет конверсию. [PERSONAL EXPERIENCE]</p>
 
         <div class="warning-box">
-            <p class="text-orange-300 font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 1: Продажа в первом сообщении</p>
-            <p class="text-orange-200 text-sm mb-0">Человек только подписался — он ничего о тебе не знает. Оффер в приветствии воспринимается как спам. Минимум три касания (лид-магнит + два прогревных) до первого упоминания цены. Исключение: ретаргетинг на тёплую аудиторию, которая уже взаимодействовала с брендом.</p>
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 1: Продажа в первом сообщении</p>
+            <p class="text-neon text-sm mb-0">Человек только подписался — он ничего о тебе не знает. Оффер в приветствии воспринимается как спам. Минимум три касания (лид-магнит + два прогревных) до первого упоминания цены. Исключение: ретаргетинг на тёплую аудиторию, которая уже взаимодействовала с брендом.</p>
         </div>
 
         <div class="warning-box">
-            <p class="text-orange-300 font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 2: Одно сообщение в день в период прогрева</p>
-            <p class="text-orange-200 text-sm mb-0">Частые сообщения кажутся логичными — больше касаний, больше продаж. Нет. Интервал в 24-48 часов — это минимум. Воронки, отправляющие больше одного сообщения в день, дают рост отписок на 40-60%. Проверено на практике в нише онлайн-образования.</p>
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 2: Одно сообщение в день в период прогрева</p>
+            <p class="text-neon text-sm mb-0">Частые сообщения кажутся логичными — больше касаний, больше продаж. Нет. Интервал в 24-48 часов — это минимум. Воронки, отправляющие больше одного сообщения в день, дают рост отписок на 40-60%. Проверено на практике в нише онлайн-образования.</p>
         </div>
 
         <div class="warning-box">
-            <p class="text-orange-300 font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 3: Нет сегментации по кнопкам</p>
-            <p class="text-orange-200 text-sm mb-0">Если кнопки в боте есть, но воронка одна для всех — это потерянные деньги. Нажал «уже покупал» — отправляй апсейл-цепочку. Нажал «первый раз» — базовую прогревную. n8n позволяет развилки на callback_query без лишних усилий. Персонализация поднимает CR в оплату в 1,5-2 раза.</p>
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 3: Нет сегментации по кнопкам</p>
+            <p class="text-neon text-sm mb-0">Если кнопки в боте есть, но воронка одна для всех — это потерянные деньги. Нажал «уже покупал» — отправляй апсейл-цепочку. Нажал «первый раз» — базовую прогревную. n8n позволяет развилки на callback_query без лишних усилий. Персонализация поднимает CR в оплату в 1,5-2 раза.</p>
         </div>
 
         <div class="warning-box">
-            <p class="text-orange-300 font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 4: Отсутствие UTM-меток на входе в воронку</p>
-            <p class="text-orange-200 text-sm mb-0">Ссылка на бота без UTM — как реклама без аналитики. Используй формат <code class="text-orange-300 text-xs">t.me/your_bot?start=utm_source_tg_ads</code>. Параметр после start попадает в <code class="text-orange-300 text-xs">$json.message.text</code> и сохраняется в переменную. Потом видишь: из Telegram Ads пришли 200 человек, из посевов — 80, продали первым в 4 раза больше.</p>
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 4: Отсутствие UTM-меток на входе в воронку</p>
+            <p class="text-neon text-sm mb-0">Ссылка на бота без UTM — как реклама без аналитики. Используй формат <code class="text-neon text-xs">t.me/your_bot?start=utm_source_tg_ads</code>. Параметр после start попадает в <code class="text-neon text-xs">$json.message.text</code> и сохраняется в переменную. Потом видишь: из Telegram Ads пришли 200 человек, из посевов — 80, продали первым в 4 раза больше.</p>
         </div>
 
         <div class="warning-box">
-            <p class="text-orange-300 font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 5: Воронка без follow-up на «молчунов»</p>
-            <p class="text-orange-200 text-sm mb-0">Если человек получил оффер и не купил — воронка закончилась? Нет. Через 7-14 дней добавь реактивационное сообщение: «Ты смотрел наш курс, но не успел забрать по спеццене. Открываю ещё на 48 часов». По данным из проектов недвижимости, реактивация закрывала 8-12% «отказников».</p>
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 5: Воронка без follow-up на «молчунов»</p>
+            <p class="text-neon text-sm mb-0">Если человек получил оффер и не купил — воронка закончилась? Нет. Через 7-14 дней добавь реактивационное сообщение: «Ты смотрел наш курс, но не успел забрать по спеццене. Открываю ещё на 48 часов». По данным из проектов недвижимости, реактивация закрывала 8-12% «отказников».</p>
         </div>
 
         <!-- INTERNAL LINK ZONE -->
-        <p class="text-sm text-slate-500 italic">Строите системный маркетинг? Читайте, <a href="/articles/marketing-department-2026/" class="text-orange-400 hover:text-orange-300">как построить отдел маркетинга с нуля в 2026</a> — там разобрана роль автоматизации в общей системе.</p>
+        <p class="text-sm text-neon italic">Строите системный маркетинг? Читайте, <a href="/articles/marketing-department-2026/" class="text-neon hover:text-neon">как построить отдел маркетинга с нуля в 2026</a> — там разобрана роль автоматизации в общей системе.</p>
 
         <!-- ======================================= -->
         <h2>Чек-лист перед запуском: готова ли ваша воронка?</h2>
 
         <p>[UNIQUE INSIGHT] Техническая настройка n8n занимает 20% времени, остальные 80% — подготовка контента и тестирование логики. Прежде чем нажать «Активировать» в n8n, пройдитесь по этому списку.</p>
 
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 mb-8">
+        <div class="bg-surface border border-line rounded-xl p-6 mb-8">
             <ul class="space-y-3 mb-0">
-                <li class="flex items-start gap-3"><span class="text-orange-500 font-bold mt-0.5">&#9745;</span><span>Бот создан в @BotFather, API Token сохранён</span></li>
-                <li class="flex items-start gap-3"><span class="text-orange-500 font-bold mt-0.5">&#9745;</span><span>n8n поднят на VPS или в облаке, Telegram Credential добавлен</span></li>
-                <li class="flex items-start gap-3"><span class="text-orange-500 font-bold mt-0.5">&#9745;</span><span>Написаны: приветствие, лид-магнит, 3-5 прогревных, оффер, апсейл</span></li>
-                <li class="flex items-start gap-3"><span class="text-orange-500 font-bold mt-0.5">&#9745;</span><span>Лид-магнит загружен в облако, ссылка рабочая</span></li>
-                <li class="flex items-start gap-3"><span class="text-orange-500 font-bold mt-0.5">&#9745;</span><span>Ссылка на бота содержит параметр start= для отслеживания источника</span></li>
-                <li class="flex items-start gap-3"><span class="text-orange-500 font-bold mt-0.5">&#9745;</span><span>Воронка протестирована на тестовом аккаунте вручную</span></li>
-                <li class="flex items-start gap-3"><span class="text-orange-500 font-bold mt-0.5">&#9745;</span><span>Настроен ответ на произвольное сообщение (не только /start)</span></li>
-                <li class="flex items-start gap-3"><span class="text-orange-500 font-bold mt-0.5">&#9745;</span><span>Добавлен сценарий реактивации на «молчунов» через 7 дней</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Бот создан в @BotFather, API Token сохранён</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>n8n поднят на VPS или в облаке, Telegram Credential добавлен</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Написаны: приветствие, лид-магнит, 3-5 прогревных, оффер, апсейл</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Лид-магнит загружен в облако, ссылка рабочая</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Ссылка на бота содержит параметр start= для отслеживания источника</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Воронка протестирована на тестовом аккаунте вручную</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Настроен ответ на произвольное сообщение (не только /start)</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Добавлен сценарий реактивации на «молчунов» через 7 дней</span></li>
             </ul>
         </div>
 
         <!-- CTA MID-ARTICLE -->
         <div class="cta-box">
-            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-orange-400 uppercase bg-orange-900/30 rounded-full border border-orange-700/50">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
                 <i class="fab fa-telegram"></i> Настрою за вас
             </div>
             <h3 class="text-2xl font-bold text-white mb-4">Нет времени разбираться самому?</h3>
-            <p class="text-slate-300 mb-6">Настрою автоворонку под ваш продукт: создам бота, соберу схему в n8n, напишу прогревную цепочку. Работаю с EdTech, недвижимостью, онлайн-сервисами. Результат через 3-5 дней.</p>
-            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-orange-900/20">
+            <p class="text-emerald-200 mb-6">Настрою автоворонку под ваш продукт: создам бота, соберу схему в n8n, напишу прогревную цепочку. Работаю с EdTech, недвижимостью, онлайн-сервисами. Результат через 3-5 дней.</p>
+            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20">
                 <i class="fab fa-telegram"></i>
                 Написать в Telegram
             </a>
@@ -594,27 +628,27 @@
         <h2>Часто задаваемые вопросы по автоворонке в Telegram</h2>
 
         <div class="faq-item">
-            <p class="faq-q"><i class="fas fa-question-circle text-orange-400 mr-2"></i>Сколько стоит запустить автоворонку в Telegram через n8n?</p>
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Сколько стоит запустить автоворонку в Telegram через n8n?</p>
             <p class="faq-a">n8n бесплатен на self-hosted варианте. VPS для его запуска — от 300 ₽/месяц. Telegram Bot API полностью бесплатный. Итоговые расходы на старте — от 300 до 2 000 ₽/мес, против 5 000-15 000 ₽/мес за готовые платформы типа BotHelp или Salebot. <!-- INTERNAL-LINK: подробнее об инструментах → статья про AI-стек маркетинга --></p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-q"><i class="fas fa-question-circle text-orange-400 mr-2"></i>Нужен ли программист для настройки автоворонки в Telegram?</p>
-            <p class="faq-a">Нет. n8n работает на принципе drag-and-drop: соединяешь блоки визуально, без кода. Для 90% задач автоворонки хватает стандартных нод Telegram + Wait + IF + Set. По данным <a href="https://zapier.com/state-of-business-automation" target="_blank" rel="noopener" class="text-orange-400 hover:text-orange-300">Zapier (2024)</a>, ROI автоматизации составляет $5.44 на каждый вложенный $1.</p>
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Нужен ли программист для настройки автоворонки в Telegram?</p>
+            <p class="faq-a">Нет. n8n работает на принципе drag-and-drop: соединяешь блоки визуально, без кода. Для 90% задач автоворонки хватает стандартных нод Telegram + Wait + IF + Set. По данным <a href="https://zapier.com/state-of-business-automation" target="_blank" rel="noopener" class="text-neon hover:text-neon">Zapier (2024)</a>, ROI автоматизации составляет $5.44 на каждый вложенный $1.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-q"><i class="fas fa-question-circle text-orange-400 mr-2"></i>Чем n8n лучше Zapier для Telegram-воронки в России?</p>
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Чем n8n лучше Zapier для Telegram-воронки в России?</p>
             <p class="faq-a">Zapier заблокирован в России с 2022 года и не принимает российские карты. n8n — open-source, разворачивается на российском VPS без VPN. Функционально богаче Zapier: 400+ интеграций, условная логика, циклы. Для Telegram-воронок это принципиальное преимущество перед любым западным no-code инструментом.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-q"><i class="fas fa-question-circle text-orange-400 mr-2"></i>Какая открываемость сообщений у Telegram-бота?</p>
-            <p class="faq-a">Открываемость сообщений в Telegram-ботах составляет 70-80%, тогда как у email-рассылок — 15-25% (<a href="https://mailchimp.com/resources/email-marketing-benchmarks/" target="_blank" rel="noopener" class="text-orange-400 hover:text-orange-300">Mailchimp Benchmarks, 2024</a>). Это в 3-4 раза выше. Причина: уведомления из бота воспринимаются как личные сообщения, а не рекламная рассылка.</p>
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Какая открываемость сообщений у Telegram-бота?</p>
+            <p class="faq-a">Открываемость сообщений в Telegram-ботах составляет 70-80%, тогда как у email-рассылок — 15-25% (<a href="https://mailchimp.com/resources/email-marketing-benchmarks/" target="_blank" rel="noopener" class="text-neon hover:text-neon">Mailchimp Benchmarks, 2024</a>). Это в 3-4 раза выше. Причина: уведомления из бота воспринимаются как личные сообщения, а не рекламная рассылка.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-q"><i class="fas fa-question-circle text-orange-400 mr-2"></i>Как часто отправлять сообщения в прогревной цепочке?</p>
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Как часто отправлять сообщения в прогревной цепочке?</p>
             <p class="faq-a">Оптимальный ритм — одно сообщение каждые 24-48 часов. Цепочки, отправляющие больше одного сообщения в день, дают рост отписок на 40-60% по сравнению с дневным интервалом. Из практики: цепочка из 5 сообщений с 48-часовым промежутком показывала лучший итоговый CR в оплату, чем цепочка из 3 сообщений с 24-часовым. <!-- INTERNAL-LINK: стратегия контента → статья о MAX мессенджере как дополнительном канале --></p>
         </div>
 
@@ -625,20 +659,20 @@
 
         <p>Узкое место — не техника, а контент. Шесть прогревных сообщений, лид-магнит и оффер нужно написать до того, как садиться в n8n. Это 80% успеха. Бот сам по себе не продаёт — продают правильные слова в правильной последовательности.</p>
 
-        <p>47,7% россиян уже в Telegram ежедневно (<a href="https://mediascope.net" target="_blank" rel="noopener" class="text-orange-400 hover:text-orange-300">Mediascope, 2026</a>). Открываемость 70-80% — это не маркетинговый миф, это реальные данные из реальных воронок. Если у вас есть продукт и трафик — автоворонка в Telegram-боте через n8n сделает остальное.</p>
+        <p>47,7% россиян уже в Telegram ежедневно (<a href="https://mediascope.net" target="_blank" rel="noopener" class="text-neon hover:text-neon">Mediascope, 2026</a>). Открываемость 70-80% — это не маркетинговый миф, это реальные данные из реальных воронок. Если у вас есть продукт и трафик — автоворонка в Telegram-боте через n8n сделает остальное.</p>
 
         <!-- INTERNAL LINK ZONE - conclusion -->
-        <p class="text-sm text-slate-500 italic">Следующий шаг — привлечение трафика в воронку: читайте <a href="/articles/telegram-ads-2026/" class="text-orange-400 hover:text-orange-300">полный гайд по Telegram Ads в 2026</a> и изучите <a href="/articles/max-messenger-2026/" class="text-orange-400 hover:text-orange-300">MAX мессенджер как дополнительный канал охвата</a>.</p>
+        <p class="text-sm text-neon italic">Следующий шаг — привлечение трафика в воронку: читайте <a href="/articles/telegram-ads-2026/" class="text-neon hover:text-neon">полный гайд по Telegram Ads в 2026</a> и изучите <a href="/articles/max-messenger-2026/" class="text-neon hover:text-neon">MAX мессенджер как дополнительный канал охвата</a>.</p>
 
         <!-- FINAL CTA -->
         <div class="cta-box">
-            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-orange-400 uppercase bg-orange-900/30 rounded-full border border-orange-700/50">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
                 <i class="fas fa-rocket"></i> Запустить воронку
             </div>
             <h3 class="text-2xl font-bold text-white mb-4">Готов помочь с запуском автоворонки</h3>
-            <p class="text-slate-300 mb-2">Владислав Сарамуд — маркетинг-директор, 6+ лет опыта. Руководил командой из 17 таргетологов, настраивал автоворонки для EdTech и недвижимости. Стоимость подписчика в готовых воронках — от 80 до 240 ₽, ROI проектов — 200-400%.</p>
-            <p class="text-slate-400 text-sm mb-6">Расскажи о продукте и текущем трафике — предложу оптимальную архитектуру воронки под вашу задачу.</p>
-            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-orange-900/20 text-lg">
+            <p class="text-emerald-200 mb-2">Владислав Сарамуд — маркетинг-директор, 6+ лет опыта. Руководил командой из 17 таргетологов, настраивал автоворонки для EdTech и недвижимости. Стоимость подписчика в готовых воронках — от 80 до 240 ₽, ROI проектов — 200-400%.</p>
+            <p class="text-neon text-sm mb-6">Расскажи о продукте и текущем трафике — предложу оптимальную архитектуру воронки под вашу задачу.</p>
+            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20 text-lg">
                 <i class="fab fa-telegram"></i>
                 Написать в Telegram
             </a>
@@ -647,30 +681,30 @@
     </article>
 
     <!-- RELATED ARTICLES -->
-    <p style="font-size:0.9rem;color:#64748b;font-style:italic;margin:1.5rem 0 0;">Больше по теме трафика — в подборке <a href="/reklama-i-trafik/" style="color:#fb923c;">реклама и трафик</a>: Яндекс Директ, Telegram Ads, ВКонтакте и автоворонки. А для контента под этот трафик — <a href="/neyroseti-dlya-kontenta/" style="color:#fb923c;">нейросети для контента</a>.</p>
+    <p style="font-size:0.9rem;color:#5f8f72;font-style:italic;margin:1.5rem 0 0;">Больше по теме трафика — в подборке <a href="/reklama-i-trafik/" style="color:#7dffb3;">реклама и трафик</a>: Яндекс Директ, Telegram Ads, ВКонтакте и автоворонки. А для контента под этот трафик — <a href="/neyroseti-dlya-kontenta/" style="color:#7dffb3;">нейросети для контента</a>.</p>
 
-    <div class="mt-16 pt-8 border-t border-slate-800">
+    <div class="mt-16 pt-8 border-t border-line">
         <h3 class="text-2xl font-bold text-white mb-6">Читайте также:</h3>
         <div class="grid md:grid-cols-2 gap-6">
-            <a href="/articles/telegram-ads-2026/" class="block bg-slate-900/50 rounded-xl border border-slate-800 p-6 hover:border-sky-600 transition group">
+            <a href="/articles/telegram-ads-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-sky-600 transition group">
                 <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Реклама</span>
                 <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-sky-400 transition">Telegram Ads в 2026: полный гайд</h4>
-                <p class="text-slate-400 text-sm">Как запустить рекламу в Телеграм с минимальным бюджетом, реальные CPM и форматы объявлений...</p>
+                <p class="text-neon text-sm">Как запустить рекламу в Телеграм с минимальным бюджетом, реальные CPM и форматы объявлений...</p>
             </a>
-            <a href="/articles/max-messenger-2026/" class="block bg-slate-900/50 rounded-xl border border-slate-800 p-6 hover:border-blue-600 transition group">
+            <a href="/articles/max-messenger-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-blue-600 transition group">
                 <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Мессенджеры</span>
                 <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-blue-400 transition">MAX мессенджер 2026: продвижение с нуля</h4>
-                <p class="text-slate-400 text-sm">110 млн пользователей, подписчик от 22 ₽ — альтернативный канал для тех же воронок...</p>
+                <p class="text-neon text-sm">110 млн пользователей, подписчик от 22 ₽ — альтернативный канал для тех же воронок...</p>
             </a>
-            <a href="/articles/marketing-department-2026/" class="block bg-slate-900/50 rounded-xl border border-slate-800 p-6 hover:border-emerald-600 transition group">
-                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Маркетинг</span>
-                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-emerald-400 transition">Как построить отдел маркетинга с нуля</h4>
-                <p class="text-slate-400 text-sm">Структура команды, AI-стек, n8n в системе маркетинга — от 0 до системы за 90 дней...</p>
+            <a href="/articles/marketing-department-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">Маркетинг</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">Как построить отдел маркетинга с нуля</h4>
+                <p class="text-neon text-sm">Структура команды, AI-стек, n8n в системе маркетинга — от 0 до системы за 90 дней...</p>
             </a>
-            <a href="/articles/ai-content-cost/" class="block bg-slate-900/50 rounded-xl border border-slate-800 p-6 hover:border-violet-600 transition group">
-                <span class="text-xs font-bold text-violet-400 uppercase tracking-wider">AI &amp; Контент</span>
-                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-violet-400 transition">Как AI снижает стоимость контента</h4>
-                <p class="text-slate-400 text-sm">Как использовать AI для написания прогревных серий, лид-магнитов и офферов для воронки...</p>
+            <a href="/articles/ai-content-cost/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">AI &amp; Контент</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">Как AI снижает стоимость контента</h4>
+                <p class="text-neon text-sm">Как использовать AI для написания прогревных серий, лид-магнитов и офферов для воронки...</p>
             </a>
         </div>
     </div>
@@ -678,21 +712,35 @@
 </main>
 
 <!-- FOOTER -->
-<footer class="bg-slate-900 border-t border-slate-800 py-12 mt-20">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-        <a href="/" class="flex items-center justify-center gap-2 text-white font-bold text-lg mb-4">
-            <div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center text-sm font-black">VS</div>
-            Владислав Сарамуд
-        </a>
-        <p class="text-slate-400 text-sm mb-6">Системный маркетинг и AI-решения для бизнеса</p>
-        <div class="flex items-center justify-center gap-6 text-sm text-slate-500">
-            <a href="/blog/" class="hover:text-white transition">Блог</a>
-            <a href="/services/" class="hover:text-white transition">Услуги</a>
-            <a href="https://t.me/saramudvlad" class="hover:text-white transition">Telegram</a>
-        </div>
-        <p class="text-slate-700 text-sm mt-8">© 2026 Владислав Сарамуд. Все права защищены.</p>
+<footer class="border-t border-line bg-surface/40 mt-20">
+  <div class="mx-auto max-w-6xl px-6 py-14 text-center">
+    <div class="mb-8 flex justify-center gap-5">
+      <a href="https://t.me/saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-telegram"></i></a>
+      <a href="https://www.instagram.com/saramudvlad/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-youtube"></i></a>
     </div>
+    <div class="mb-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 label text-[11px] uppercase text-neon/55">
+      <a href="/blog/" class="transition hover:text-neon">Блог</a><span class="text-line">/</span>
+      <a href="/neyroseti-dlya-kontenta/" class="transition hover:text-neon">Нейросети для контента</a><span class="text-line">/</span>
+      <a href="/reklama-i-trafik/" class="transition hover:text-neon">Реклама и трафик</a><span class="text-line">/</span>
+      <a href="/services/" class="transition hover:text-neon">Услуги</a><span class="text-line">/</span>
+      <a href="/about/" class="transition hover:text-neon">Об авторе</a>
+    </div>
+    <div class="mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-neon/35">
+      <a href="https://disk.yandex.ru/i/Ncd0GgyZTdE2OQ" class="transition hover:text-neon/70">Публичная оферта</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/3Zig9pNfq_A0Ww" class="transition hover:text-neon/70">Политика конфиденциальности</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/RhsYX71b6lmmVg" class="transition hover:text-neon/70">Согласие на обработку ПД</a>
+    </div>
+    <p class="mx-auto mb-5 max-w-2xl text-[11px] leading-relaxed text-neon/25">* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
+    <p class="label text-[11px] uppercase text-neon/30">© 2026 Владислав Сарамуд</p>
+  </div>
 </footer>
 
+<script>
+const _reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){const b=document.getElementById('burger'),m=document.getElementById('mobile-menu');if(!b||!m)return;const s=b.querySelectorAll('span');function o(open){m.classList.toggle('hidden',!open);b.setAttribute('aria-expanded',open);s[0].style.transform=open?'translateY(8px) rotate(45deg)':'';s[1].style.opacity=open?'0':'';s[2].style.transform=open?'translateY(-8px) rotate(-45deg)':'';}b.addEventListener('click',()=>o(m.classList.contains('hidden')));m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>o(false)));})();
+if(!_reduce){const sp=document.getElementById('spot');if(sp)window.addEventListener('pointermove',e=>{sp.style.setProperty('--mx',e.clientX+'px');sp.style.setProperty('--my',e.clientY+'px');});}
+</script>
 </body>
 </html>

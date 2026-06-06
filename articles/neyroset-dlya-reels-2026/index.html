@@ -35,6 +35,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://mc.yandex.ru">
     <link rel="stylesheet" href="/dist/tailwind.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Нейросеть для Reels: контент на поток без съёмок","description":"Как делать Reels с помощью нейросети без камеры и съёмок: сценарий, нейроаватар HeyGen, озвучка ElevenLabs, монтаж и субтитры. Конвейер «один ролик за 20 минут» и месяц контента за один заход.","image":"https://saramudvlad.ru/images/neyroset-dlya-reels.webp","author":{"@type":"Person","name":"Владислав Сарамуд","url":"https://saramudvlad.ru"},"publisher":{"@type":"Person","name":"Владислав Сарамуд","logo":{"@type":"ImageObject","url":"https://saramudvlad.ru/avatar.webp"}},"datePublished":"2026-06-03","dateModified":"2026-06-03","mainEntityOfPage":{"@type":"WebPage","@id":"https://saramudvlad.ru/articles/neyroset-dlya-reels-2026/"}}</script>
@@ -45,76 +46,109 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-        body{font-family:'Inter',sans-serif;background-color:#020617;color:#e2e8f0;}
-        .gradient-text{background:linear-gradient(to right,#f97316,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-        article h2{font-size:1.875rem;font-weight:800;color:#fff;margin-top:3rem;margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid #f97316;}
-        article h3{font-size:1.5rem;font-weight:700;color:#fb923c;margin-top:2rem;margin-bottom:1rem;}
-        article p{margin-bottom:1.5rem;line-height:1.8;color:#cbd5e1;}
-        article ul,article ol{margin-bottom:1.5rem;padding-left:1.5rem;color:#cbd5e1;}
+        body{font-family:'Inter',sans-serif;background-color:#04070a;color:#d6f5e4;}
+        .gradient-text{background:linear-gradient(to right,#2bff88,#c6ff3d,#c6ff3d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        article h2{font-size:1.875rem;font-weight:800;color:#fff;margin-top:3rem;margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid #2bff88;}
+        article h3{font-size:1.5rem;font-weight:700;color:#7dffb3;margin-top:2rem;margin-bottom:1rem;}
+        article p{margin-bottom:1.5rem;line-height:1.8;color:#bfe9cf;}
+        article ul,article ol{margin-bottom:1.5rem;padding-left:1.5rem;color:#bfe9cf;}
         article li{margin-bottom:0.75rem;line-height:1.7;}
         article strong{color:#fff;font-weight:700;}
-        .highlight-box{background:linear-gradient(135deg,#ea580c 0%,#d97706 100%);border-left:4px solid #fb923c;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
-        .warning-box{background:rgba(234,88,12,0.1);border-left:4px solid #ea580c;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .highlight-box{background:linear-gradient(135deg,#1fd673 0%,#a3d92e 100%);border-left:4px solid #7dffb3;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .warning-box{background:rgba(234,88,12,0.1);border-left:4px solid #1fd673;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
         .info-box{background:rgba(59,130,246,0.1);border-left:4px solid #3b82f6;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
-        .law-box{background:rgba(148,163,184,0.08);border-left:4px solid #94a3b8;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
-        .pay-box{background:rgba(16,185,129,0.08);border-left:4px solid #10b981;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
-        .comparison-table{background:rgba(15,23,42,0.5);border:1px solid #334155;border-radius:1rem;overflow:hidden;margin:2rem 0;overflow-x:auto;}
+        .law-box{background:rgba(148,163,184,0.08);border-left:4px solid #8fcaa6;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .pay-box{background:rgba(16,185,129,0.08);border-left:4px solid #2bff88;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .comparison-table{background:rgba(15,23,42,0.5);border:1px solid #16352a;border-radius:1rem;overflow:hidden;margin:2rem 0;overflow-x:auto;}
         .comparison-table table{width:100%;border-collapse:collapse;min-width:560px;}
-        .comparison-table th{background:rgba(249,115,22,0.1);padding:1rem;text-align:left;font-weight:700;color:#fb923c;border-bottom:2px solid #334155;}
-        .comparison-table td{padding:1rem;border-bottom:1px solid #334155;color:#cbd5e1;}
+        .comparison-table th{background:rgba(249,115,22,0.1);padding:1rem;text-align:left;font-weight:700;color:#7dffb3;border-bottom:2px solid #16352a;}
+        .comparison-table td{padding:1rem;border-bottom:1px solid #16352a;color:#bfe9cf;}
         .comparison-table tr:last-child td{border-bottom:none;}
-        .cta-box{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);border:2px solid #f97316;border-radius:1rem;padding:2.5rem;margin:3rem 0;text-align:center;}
-        .step-badge{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;background:rgba(249,115,22,0.15);border:1px solid #f97316;border-radius:50%;color:#fb923c;font-weight:800;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
-        .checklist-item{display:flex;align-items:start;gap:0.75rem;padding:1rem;background:rgba(15,23,42,0.5);border-radius:0.5rem;margin-bottom:0.75rem;border:1px solid #334155;transition:all 0.3s ease;}
-        .checklist-item:hover{border-color:#f97316;}
-        .price-tag{display:inline-block;background:rgba(249,115,22,0.15);border:1px solid #f97316;color:#fb923c;font-weight:800;padding:0.25rem 0.75rem;border-radius:0.5rem;font-size:0.9rem;}
+        .cta-box{background:linear-gradient(135deg,#0a1411 0%,#102a1a 100%);border:2px solid #2bff88;border-radius:1rem;padding:2.5rem;margin:3rem 0;text-align:center;}
+        .step-badge{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;background:rgba(249,115,22,0.15);border:1px solid #2bff88;border-radius:50%;color:#7dffb3;font-weight:800;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+        .checklist-item{display:flex;align-items:start;gap:0.75rem;padding:1rem;background:rgba(15,23,42,0.5);border-radius:0.5rem;margin-bottom:0.75rem;border:1px solid #16352a;transition:all 0.3s ease;}
+        .checklist-item:hover{border-color:#2bff88;}
+        .price-tag{display:inline-block;background:rgba(249,115,22,0.15);border:1px solid #2bff88;color:#7dffb3;font-weight:800;padding:0.25rem 0.75rem;border-radius:0.5rem;font-size:0.9rem;}
         .takeaways-box{background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.3);border-radius:1rem;padding:1.5rem 2rem;margin:2rem 0;}
         article h2[id]{scroll-margin-top:90px;}
         .ai-summary{background:linear-gradient(135deg,rgba(249,115,22,0.10),rgba(168,85,247,0.10));border:1px solid rgba(249,115,22,0.35);border-radius:1rem;padding:1.75rem 2rem;margin:0 0 2rem;}
         .ai-summary .ai-tag{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;color:#c084fc;background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.3);padding:0.25rem 0.6rem;border-radius:999px;margin-bottom:0.9rem;}
         .ai-summary .ai-tldr{color:#fff;font-weight:700;font-size:1.05rem;margin-bottom:0.85rem;line-height:1.6;}
         .ai-summary ul{list-style:none;padding:0;margin:0.5rem 0 0;}
-        .ai-summary li{position:relative;padding-left:1.5rem;margin-bottom:0.6rem;font-size:0.95rem;color:#e2e8f0;line-height:1.6;}
-        .ai-summary li::before{content:"\2192";position:absolute;left:0;color:#fb923c;font-weight:800;}
+        .ai-summary li{position:relative;padding-left:1.5rem;margin-bottom:0.6rem;font-size:0.95rem;color:#d6f5e4;line-height:1.6;}
+        .ai-summary li::before{content:"\2192";position:absolute;left:0;color:#7dffb3;font-weight:800;}
         .ai-nav{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(148,163,184,0.15);}
-        .ai-nav a{font-size:0.85rem;font-weight:700;color:#fb923c;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);border-radius:0.5rem;padding:0.4rem 0.9rem;transition:all 0.2s ease;}
+        .ai-nav a{font-size:0.85rem;font-weight:700;color:#7dffb3;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);border-radius:0.5rem;padding:0.4rem 0.9rem;transition:all 0.2s ease;}
         .ai-nav a:hover{background:rgba(249,115,22,0.2);}
-        .faq-item{background:rgba(15,23,42,0.6);border:1px solid #334155;border-radius:0.75rem;padding:1.5rem;margin-bottom:1rem;}
+        .faq-item{background:rgba(15,23,42,0.6);border:1px solid #16352a;border-radius:0.75rem;padding:1.5rem;margin-bottom:1rem;}
         .faq-q{font-weight:700;color:#fff;margin-bottom:0.75rem;font-size:1rem;}
-        .faq-a{color:#94a3b8;font-size:0.95rem;line-height:1.7;margin:0;}
-        .svc-link{display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.1rem;background:rgba(16,185,129,0.12);border:1px solid #10b981;color:#34d399;font-weight:700;border-radius:0.6rem;font-size:0.9rem;transition:all 0.2s ease;margin:0.25rem 0.5rem 0.25rem 0;}
+        .faq-a{color:#8fcaa6;font-size:0.95rem;line-height:1.7;margin:0;}
+        .svc-link{display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.1rem;background:rgba(16,185,129,0.12);border:1px solid #2bff88;color:#7dffb3;font-weight:700;border-radius:0.6rem;font-size:0.9rem;transition:all 0.2s ease;margin:0.25rem 0.5rem 0.25rem 0;}
         .svc-link:hover{background:rgba(16,185,129,0.2);}
         .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0;}
         @media(max-width:640px){.proof-grid{grid-template-columns:1fr;}}
-        .proof-card{display:flex;align-items:center;gap:0.75rem;padding:1rem;background:rgba(15,23,42,0.6);border:1px solid #334155;border-radius:0.75rem;transition:all 0.2s ease;}
-        .proof-card:hover{border-color:#f97316;transform:translateY(-2px);}
-        .proof-play{display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;flex-shrink:0;background:rgba(249,115,22,0.15);border:1px solid #f97316;border-radius:50%;color:#fb923c;}
+        .proof-card{display:flex;align-items:center;gap:0.75rem;padding:1rem;background:rgba(15,23,42,0.6);border:1px solid #16352a;border-radius:0.75rem;transition:all 0.2s ease;}
+        .proof-card:hover{border-color:#2bff88;transform:translateY(-2px);}
+        .proof-play{display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;flex-shrink:0;background:rgba(249,115,22,0.15);border:1px solid #2bff88;border-radius:50%;color:#7dffb3;}
     </style>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#04070a;color:#d6f5e4;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Inter Tight',sans-serif}
+  h1{letter-spacing:-0.03em}
+  .display{letter-spacing:-0.04em;line-height:0.95}
+  .label{font-family:'JetBrains Mono',monospace;letter-spacing:0.2em}
+  .gradient-text{background:linear-gradient(90deg,#2bff88,#7dffb3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 26px rgba(43,255,136,.25)}
+  .neon-text{color:#2bff88;text-shadow:0 0 8px rgba(43,255,136,.55),0 0 28px rgba(43,255,136,.35)}
+  .neon-line{box-shadow:0 0 14px rgba(43,255,136,.45)}
+  #spot{position:fixed;inset:0;z-index:30;pointer-events:none;background:radial-gradient(360px circle at var(--mx,-200px) var(--my,-200px),rgba(43,255,136,.08),transparent 60%);transition:background .08s linear}
+  ::selection{background:#2bff88;color:#04070a}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#spot{display:none}}
+</style>
 </head>
-<body class="antialiased selection:bg-orange-500 selection:text-white">
+<body class="antialiased">
+<div id="spot"></div>
 
 <!-- NAV -->
-<nav class="border-b border-slate-800/50 sticky top-0 backdrop-blur-lg bg-slate-950/80 z-50">
-    <div class="container mx-auto px-6 py-4 max-w-4xl">
-        <div class="flex justify-between items-center">
-            <a href="/" class="text-xl font-bold text-white hover:text-orange-400 transition"><i class="fas fa-arrow-left mr-2"></i>Владислав Сарамуд</a>
-            <div class="flex gap-4">
-                <a href="/services/" class="text-slate-400 hover:text-orange-400 transition text-sm">Услуги</a>
-                <a href="/blog/" class="text-slate-400 hover:text-orange-400 transition text-sm">Статьи</a>
-                <a href="https://t.me/lilymakarovaa" target="_blank" class="text-orange-500 hover:text-orange-400 transition text-sm"><i class="fab fa-telegram"></i> Связаться</a>
-            </div>
-        </div>
+<header class="sticky top-0 z-40 border-b border-line/70 bg-ink/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="display flex items-center gap-2 text-lg font-extrabold tracking-tight">
+      <span class="inline-block h-2 w-2 rounded-full bg-neon neon-line"></span>САРАМУД<span class="text-neon">_</span>ВЛАДИСЛАВ
+    </a>
+    <div class="label hidden gap-8 text-[11px] uppercase text-neon/60 md:flex">
+      <a href="/#cases" class="transition hover:text-neon">Кейсы</a>
+      <a href="/#services" class="transition hover:text-neon">Услуги</a>
+      <a href="/#shashlik" class="transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="transition hover:text-neon">Блог</a>
     </div>
-</nav>
+    <div class="flex items-center gap-3">
+      <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="label hidden rounded-none border border-neon px-4 py-2 text-[11px] uppercase text-neon transition hover:bg-neon hover:text-ink md:inline-block">Обсудить →</a>
+      <button id="burger" aria-label="Меню" aria-expanded="false" class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden">
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden border-t border-line bg-ink md:hidden">
+    <div class="flex flex-col px-6 pb-5 pt-2 label text-[13px] uppercase text-emerald-100/80">
+      <a href="/#services" class="border-b border-line/60 py-3.5 transition hover:text-neon">Услуги</a>
+      <a href="/#cases" class="border-b border-line/60 py-3.5 transition hover:text-neon">Кейсы</a>
+      <a href="/#reviews" class="border-b border-line/60 py-3.5 transition hover:text-neon">Отзывы</a>
+      <a href="/#shashlik" class="border-b border-line/60 py-3.5 transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="py-3.5 transition hover:text-neon">Блог</a>
+    </div>
+  </div>
+</header>
 
 <!-- BREADCRUMB -->
 <div class="container mx-auto px-6 py-4 max-w-4xl">
-    <nav class="text-sm text-slate-500">
-        <a href="/" class="hover:text-orange-400 transition">Главная</a>
+    <nav class="text-sm text-neon">
+        <a href="/" class="hover:text-neon transition">Главная</a>
         <span class="mx-2">/</span>
-        <a href="/blog/" class="hover:text-orange-400 transition">Статьи</a>
+        <a href="/blog/" class="hover:text-neon transition">Статьи</a>
         <span class="mx-2">/</span>
-        <span class="text-slate-400">Нейросеть для Reels без съёмок 2026</span>
+        <span class="text-neon">Нейросеть для Reels без съёмок 2026</span>
     </nav>
 </div>
 
@@ -123,26 +157,26 @@
     <!-- HEADER -->
     <header class="mb-10">
         <div class="flex items-center gap-3 mb-4 flex-wrap">
-            <span class="px-3 py-1 bg-emerald-900/30 text-emerald-400 text-xs font-bold uppercase rounded-full border border-emerald-800/50">SMM &amp; ИИ</span>
-            <span class="px-3 py-1 bg-slate-800/60 text-slate-400 text-xs font-bold uppercase rounded-full border border-slate-700/50">Reels</span>
-            <span class="px-3 py-1 bg-slate-800/60 text-slate-400 text-xs font-bold uppercase rounded-full border border-slate-700/50">Видео</span>
-            <span class="text-slate-500 text-sm"><i class="far fa-clock mr-1"></i>17 минут чтения</span>
+            <span class="px-3 py-1 bg-neon/30 text-neon text-xs font-bold uppercase rounded-full border border-neon/50">SMM &amp; ИИ</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">Reels</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">Видео</span>
+            <span class="text-neon text-sm"><i class="far fa-clock mr-1"></i>17 минут чтения</span>
         </div>
         <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
             Нейросеть для Reels: контент <span class="gradient-text">на поток без съёмок</span>
         </h1>
-        <p class="text-xl text-slate-400 leading-relaxed mb-6">
+        <p class="text-xl text-neon leading-relaxed mb-6">
             Камера, свет, монтаж по полдня — больше не обязательны. Разбираю систему, в которой Reels собирается полностью на нейросетях: сценарий, спикер в кадре, голос и субтитры. Конвейер «один ролик за 20 минут» и как сделать месяц контента за один заход.
         </p>
-        <div class="flex items-center gap-4 text-sm text-slate-500 border-t border-slate-800 pt-4">
+        <div class="flex items-center gap-4 text-sm text-neon border-t border-line pt-4">
             <div class="flex items-center gap-2">
-                <img src="/avatar.webp" alt="Владислав Сарамуд — маркетинг-директор, эксперт по AI-инструментам" class="w-10 h-10 rounded-full border-2 border-orange-600">
+                <img src="/avatar.webp" alt="Владислав Сарамуд — маркетинг-директор, эксперт по AI-инструментам" class="w-10 h-10 rounded-full border-2 border-neon">
                 <div>
-                    <div class="text-white font-semibold"><a href="/about/" class="hover:text-orange-400 transition">Владислав Сарамуд</a></div>
+                    <div class="text-white font-semibold"><a href="/about/" class="hover:text-neon transition">Владислав Сарамуд</a></div>
                     <div>Маркетинг-директор, 6+ лет в digital</div>
                 </div>
             </div>
-            <span class="text-slate-700">|</span>
+            <span class="text-line">|</span>
             <time datetime="2026-06-03">3 июня 2026</time>
         </div>
     </header>
@@ -152,7 +186,7 @@
         <img
             src="/images/neyroset-dlya-reels.webp"
             alt="Нейросеть для Reels — производство вертикальных видео без съёмок: сценарий, нейроаватар, озвучка, монтаж"
-            class="w-full rounded-2xl border border-slate-800"
+            class="w-full rounded-2xl border border-line"
             width="1200"
             height="670"
             loading="eager"
@@ -185,8 +219,8 @@
         <p>Коротко: <strong>сделать Reels на нейросетях без съёмок реально уже сегодня</strong>, и это не один волшебный сервис, а связка из четырёх инструментов. Языковая модель пишет <strong>сценарий</strong>, нейроаватар (например, HeyGen) играет роль <strong>спикера в кадре</strong>, ElevenLabs синтезирует <strong>голос</strong>, а монтаж и субтитры собираются в редакторе с AI-функциями. Когда шаблон аватара и голоса настроен один раз, дальше каждый новый ролик собирается за <strong>15–25 минут</strong> — а значит, контент можно ставить на поток и заранее заготавливать на месяц вперёд. Ниже — вся система по шагам, таблица инструментов и честный разбор, где этот подход работает, а где нет.</p>
 
         <div class="law-box">
-            <p class="font-semibold mb-2" style="color:#cbd5e1"><i class="fas fa-circle-info mr-2"></i>«Reels» — это про формат, а не про одну площадку</p>
-            <p class="text-slate-400 text-sm mb-0">Под «Reels» в статье понимается формат вертикального короткого ролика. Тот же клип публикуется в <strong>VK Клипы, YouTube Shorts, TikTok и Telegram</strong>. Reels как название принадлежит Instagram (принадлежит компании Meta, признанной в РФ экстремистской и запрещённой) — мы используем слово как привычное обозначение формата, а саму систему вы применяете на любых доступных площадках.</p>
+            <p class="font-semibold mb-2" style="color:#bfe9cf"><i class="fas fa-circle-info mr-2"></i>«Reels» — это про формат, а не про одну площадку</p>
+            <p class="text-neon text-sm mb-0">Под «Reels» в статье понимается формат вертикального короткого ролика. Тот же клип публикуется в <strong>VK Клипы, YouTube Shorts, TikTok и Telegram</strong>. Reels как название принадлежит Instagram (принадлежит компании Meta, признанной в РФ экстремистской и запрещённой) — мы используем слово как привычное обозначение формата, а саму систему вы применяете на любых доступных площадках.</p>
         </div>
 
         <!-- ======================================= -->
@@ -230,7 +264,7 @@
         </div>
 
         <!-- INTERNAL LINK ZONE -->
-        <p class="text-sm text-slate-500 italic">Сценарии и хуки удобно генерировать по готовым шаблонам: загляните в <a href="/articles/prompty-chatgpt-smm/" class="text-orange-400 hover:text-orange-300">50 промптов для ChatGPT в SMM</a> — там есть отдельный блок под Reels и короткие видео.</p>
+        <p class="text-sm text-neon italic">Сценарии и хуки удобно генерировать по готовым шаблонам: загляните в <a href="/articles/prompty-chatgpt-smm/" class="text-neon hover:text-neon">50 промптов для ChatGPT в SMM</a> — там есть отдельный блок под Reels и короткие видео.</p>
 
         <!-- ======================================= -->
         <h2 id="konveyer">Пошаговый конвейер: один Reels за 20 минут</h2>
@@ -241,35 +275,35 @@
             <div class="step-badge">1</div>
             <div>
                 <strong>Сценарий — 5 минут</strong><br>
-                <span class="text-sm text-slate-400">Даёте модели тему, аудиторию и формат. На выходе — текст на 30–40 секунд: хук в первой строке, 2–3 тезиса, призыв в конце.</span>
+                <span class="text-sm text-neon">Даёте модели тему, аудиторию и формат. На выходе — текст на 30–40 секунд: хук в первой строке, 2–3 тезиса, призыв в конце.</span>
             </div>
         </div>
         <div class="checklist-item">
             <div class="step-badge">2</div>
             <div>
                 <strong>Озвучка и аватар — 5–10 минут</strong><br>
-                <span class="text-sm text-slate-400">Вставляете текст в нейроаватар или генерируете голос в ElevenLabs. Сервис отдаёт видео «говорящей головы» или аудиодорожку под видеоряд.</span>
+                <span class="text-sm text-neon">Вставляете текст в нейроаватар или генерируете голос в ElevenLabs. Сервис отдаёт видео «говорящей головы» или аудиодорожку под видеоряд.</span>
             </div>
         </div>
         <div class="checklist-item">
             <div class="step-badge">3</div>
             <div>
                 <strong>Видеоряд — 3–5 минут</strong><br>
-                <span class="text-sm text-slate-400">Подбираете b-roll, стоки или генерируете короткие вставки. Для «говорящей головы» фон — вторичен, для закадрового формата — это основа кадра.</span>
+                <span class="text-sm text-neon">Подбираете b-roll, стоки или генерируете короткие вставки. Для «говорящей головы» фон — вторичен, для закадрового формата — это основа кадра.</span>
             </div>
         </div>
         <div class="checklist-item">
             <div class="step-badge">4</div>
             <div>
                 <strong>Монтаж и субтитры — 5 минут</strong><br>
-                <span class="text-sm text-slate-400">Собираете дорожки в редакторе, включаете авто-субтитры, добавляете музыку и переходы. Проверяете первый кадр — он решает, досмотрят ли ролик.</span>
+                <span class="text-sm text-neon">Собираете дорожки в редакторе, включаете авто-субтитры, добавляете музыку и переходы. Проверяете первый кадр — он решает, досмотрят ли ролик.</span>
             </div>
         </div>
         <div class="checklist-item">
             <div class="step-badge">5</div>
             <div>
                 <strong>Экспорт и публикация — 2 минуты</strong><br>
-                <span class="text-sm text-slate-400">Экспортируете в вертикали 9:16 и раскладываете на все площадки: VK Клипы, Shorts, TikTok, Telegram. Один ролик — четыре точки контакта.</span>
+                <span class="text-sm text-neon">Экспортируете в вертикали 9:16 и раскладываете на все площадки: VK Клипы, Shorts, TikTok, Telegram. Один ролик — четыре точки контакта.</span>
             </div>
         </div>
 
@@ -281,15 +315,15 @@
         <div class="proof-grid">
             <a href="https://vk.ru/clip-214804737_456239777" target="_blank" rel="noopener noreferrer" class="proof-card">
                 <span class="proof-play"><i class="fas fa-play"></i></span>
-                <span class="text-sm text-slate-300 font-semibold">Пример ролика №1</span>
+                <span class="text-sm text-emerald-200 font-semibold">Пример ролика №1</span>
             </a>
             <a href="https://vk.ru/clip-214804737_456239775" target="_blank" rel="noopener noreferrer" class="proof-card">
                 <span class="proof-play"><i class="fas fa-play"></i></span>
-                <span class="text-sm text-slate-300 font-semibold">Пример ролика №2</span>
+                <span class="text-sm text-emerald-200 font-semibold">Пример ролика №2</span>
             </a>
             <a href="https://vk.ru/clip-214804737_456239774" target="_blank" rel="noopener noreferrer" class="proof-card">
                 <span class="proof-play"><i class="fas fa-play"></i></span>
-                <span class="text-sm text-slate-300 font-semibold">Пример ролика №3</span>
+                <span class="text-sm text-emerald-200 font-semibold">Пример ролика №3</span>
             </a>
         </div>
 
@@ -311,20 +345,20 @@
                 </thead>
                 <tbody>
                     <tr><td><strong>ChatGPT / Claude</strong></td><td>Сценарий</td><td>Сценарии, хуки, заголовки</td><td>от $20/мес</td><td>Посредник / карта</td></tr>
-                    <tr><td><strong>GigaChat / YandexGPT</strong></td><td>Сценарий</td><td>Сценарии на русском</td><td><span class="price-tag">часто бесплатно</span></td><td class="text-emerald-400 font-bold">Российская карта</td></tr>
+                    <tr><td><strong>GigaChat / YandexGPT</strong></td><td>Сценарий</td><td>Сценарии на русском</td><td><span class="price-tag">часто бесплатно</span></td><td class="text-neon font-bold">Российская карта</td></tr>
                     <tr><td><strong>HeyGen</strong></td><td>Аватар</td><td>«Говорящая голова», спикер в кадре</td><td>от $24/мес</td><td>Посредник / карта</td></tr>
                     <tr><td><strong>ElevenLabs</strong></td><td>Озвучка</td><td>Синтез и клонирование голоса</td><td>от $5/мес</td><td>Посредник / карта</td></tr>
                     <tr><td><strong>Runway / Kling</strong></td><td>Видео</td><td>Генерация видеовставок, b-roll</td><td>от $12/мес</td><td>Посредник / карта</td></tr>
-                    <tr><td><strong>Шедеврум / Kandinsky</strong></td><td>Картинки</td><td>Изображения и кадры под видеоряд</td><td><span class="price-tag">бесплатно</span></td><td class="text-emerald-400 font-bold">Без оплаты</td></tr>
+                    <tr><td><strong>Шедеврум / Kandinsky</strong></td><td>Картинки</td><td>Изображения и кадры под видеоряд</td><td><span class="price-tag">бесплатно</span></td><td class="text-neon font-bold">Без оплаты</td></tr>
                     <tr><td><strong>CapCut</strong></td><td>Монтаж</td><td>Сборка, авто-субтитры, переходы</td><td>есть бесплатный план</td><td>Зависит от плана</td></tr>
                 </tbody>
             </table>
         </div>
 
-        <p class="text-xs text-slate-600">Тарифы — ориентир на июнь 2026, у большинства сервисов есть несколько планов и бесплатные лимиты. Точную сумму в рублях считайте с учётом курса и комиссии на момент оплаты.</p>
+        <p class="text-xs text-neon">Тарифы — ориентир на июнь 2026, у большинства сервисов есть несколько планов и бесплатные лимиты. Точную сумму в рублях считайте с учётом курса и комиссии на момент оплаты.</p>
 
         <!-- INTERNAL LINK ZONE -->
-        <p class="text-sm text-slate-500 italic">Зарубежные сервисы (HeyGen, ElevenLabs, Runway) российской картой не оплатить напрямую. Как это обойти — в гайде <a href="/articles/oplatit-chatgpt-iz-rossii-2026/" class="text-orange-400 hover:text-orange-300">как оплатить ChatGPT, Claude и нейросети из России</a>: те же способы работают для всех AI-сервисов из таблицы.</p>
+        <p class="text-sm text-neon italic">Зарубежные сервисы (HeyGen, ElevenLabs, Runway) российской картой не оплатить напрямую. Как это обойти — в гайде <a href="/articles/oplatit-chatgpt-iz-rossii-2026/" class="text-neon hover:text-neon">как оплатить ChatGPT, Claude и нейросети из России</a>: те же способы работают для всех AI-сервисов из таблицы.</p>
 
         <!-- ======================================= -->
         <h2>Контент-завод: месяц Reels за один заход</h2>
@@ -337,35 +371,35 @@
             <div class="step-badge">1</div>
             <div>
                 <strong>Контент-план пачкой</strong><br>
-                <span class="text-sm text-slate-400">Просите модель сразу 20–30 тем под вашу нишу и воронку: проблемные, обучающие, продающие. Получаете список на месяц за один промпт.</span>
+                <span class="text-sm text-neon">Просите модель сразу 20–30 тем под вашу нишу и воронку: проблемные, обучающие, продающие. Получаете список на месяц за один промпт.</span>
             </div>
         </div>
         <div class="checklist-item">
             <div class="step-badge">2</div>
             <div>
                 <strong>Сценарии конвейером</strong><br>
-                <span class="text-sm text-slate-400">По единому шаблону генерируете сценарии ко всем темам подряд. 20 сценариев — это 30–40 минут, а не неделя.</span>
+                <span class="text-sm text-neon">По единому шаблону генерируете сценарии ко всем темам подряд. 20 сценариев — это 30–40 минут, а не неделя.</span>
             </div>
         </div>
         <div class="checklist-item">
             <div class="step-badge">3</div>
             <div>
                 <strong>Озвучка и аватар партией</strong><br>
-                <span class="text-sm text-slate-400">Прогоняете все сценарии через аватар/озвучку за один сеанс — пока настройки и стиль в голове, делать однотипное быстрее.</span>
+                <span class="text-sm text-neon">Прогоняете все сценарии через аватар/озвучку за один сеанс — пока настройки и стиль в голове, делать однотипное быстрее.</span>
             </div>
         </div>
         <div class="checklist-item">
             <div class="step-badge">4</div>
             <div>
                 <strong>Монтаж по шаблону</strong><br>
-                <span class="text-sm text-slate-400">Один раз собранный шаблон монтажа (субтитры, шрифты, переходы) применяете ко всем роликам. Остаётся подставить дорожки.</span>
+                <span class="text-sm text-neon">Один раз собранный шаблон монтажа (субтитры, шрифты, переходы) применяете ко всем роликам. Остаётся подставить дорожки.</span>
             </div>
         </div>
         <div class="checklist-item">
             <div class="step-badge">5</div>
             <div>
                 <strong>Отложенная публикация</strong><br>
-                <span class="text-sm text-slate-400">Загружаете ролики в планировщик и раскладываете по календарю. Месяц регулярного контента выходит «на автопилоте».</span>
+                <span class="text-sm text-neon">Загружаете ролики в планировщик и раскладываете по календарю. Месяц регулярного контента выходит «на автопилоте».</span>
             </div>
         </div>
 
@@ -373,7 +407,7 @@
 
         <div class="highlight-box">
             <p class="text-white font-bold mb-2"><i class="fas fa-bolt mr-2"></i>Правило контент-завода</p>
-            <p class="text-orange-50 text-sm mb-0">Разделяйте труд по типам, а не по роликам. Сначала все сценарии, потом вся озвучка, потом весь монтаж. Переключение между разными задачами съедает больше времени, чем сами задачи — а конвейер это переключение убирает.</p>
+            <p class="text-neon text-sm mb-0">Разделяйте труд по типам, а не по роликам. Сначала все сценарии, потом вся озвучка, потом весь монтаж. Переключение между разными задачами съедает больше времени, чем сами задачи — а конвейер это переключение убирает.</p>
         </div>
 
         <!-- ======================================= -->
@@ -407,12 +441,12 @@
 
         <!-- CTA MID -->
         <div class="cta-box">
-            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-orange-400 uppercase bg-orange-900/30 rounded-full border border-orange-700/50">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
                 <i class="fas fa-gift"></i> Бесплатно
             </div>
             <h3 class="text-2xl font-bold text-white mb-4">Сценарии для Reels — на автомате</h3>
-            <p class="text-slate-300 mb-6">Забери базу из <strong>2000+ готовых промптов</strong> для контента, Reels и продаж — хуки, сценарии, заголовки. Просто копируй и вставляй в любую нейросеть. Бесплатно, отдаёт бот.</p>
-            <a href="https://t.me/saramudvlad_bot?start=article_reels" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-orange-900/20">
+            <p class="text-emerald-200 mb-6">Забери базу из <strong>2000+ готовых промптов</strong> для контента, Reels и продаж — хуки, сценарии, заголовки. Просто копируй и вставляй в любую нейросеть. Бесплатно, отдаёт бот.</p>
+            <a href="https://t.me/saramudvlad_bot?start=article_reels" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20">
                 <i class="fab fa-telegram"></i>
                 Забрать 2000+ промптов
             </a>
@@ -422,32 +456,32 @@
         <h2 id="faq">Часто задаваемые вопросы</h2>
 
         <div class="faq-item">
-            <p class="faq-q"><i class="fas fa-question-circle text-orange-400 mr-2"></i>Можно ли делать Reels полностью на нейросетях, без камеры и съёмок?</p>
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Можно ли делать Reels полностью на нейросетях, без камеры и съёмок?</p>
             <p class="faq-a">Да. Сценарий пишет языковая модель (ChatGPT, Claude, GigaChat), «спикера» в кадре заменяет нейроаватар (HeyGen или аналог), голос синтезирует ElevenLabs, а монтаж и субтитры собираются в редакторе с AI-функциями. Камера, микрофон и студия не нужны — весь ролик собирается за компьютером.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-q"><i class="fas fa-question-circle text-orange-400 mr-2"></i>Сколько времени уходит на один Reels на нейросетях?</p>
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Сколько времени уходит на один Reels на нейросетях?</p>
             <p class="faq-a">После того как настроен шаблон аватара и голоса, один ролик собирается за 15–25 минут: 5 минут на сценарий, 5–10 на генерацию видео и озвучки, 5 на монтаж и субтитры. Первый ролик займёт дольше — пока вы настраиваете аватар и стиль, — но дальше процесс превращается в конвейер.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-q"><i class="fas fa-question-circle text-orange-400 mr-2"></i>Какая нейросеть лучше для Reels?</p>
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Какая нейросеть лучше для Reels?</p>
             <p class="faq-a">Одной нейросети «для Reels» не существует — работает связка: языковая модель для сценария, HeyGen для нейроаватара и говорящей головы, ElevenLabs для озвучки, генераторы вроде Runway или Kling для видеовставок. Для роликов на русском сценарий можно писать в GigaChat или YandexGPT без зарубежной оплаты.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-q"><i class="fas fa-question-circle text-orange-400 mr-2"></i>Нужно ли платить за зарубежные сервисы и как это сделать из России?</p>
-            <p class="faq-a">HeyGen, ElevenLabs, Runway и другие зарубежные сервисы российскую карту не принимают. Оплатить их можно через сервис-посредник рублями или зарубежной виртуальной картой — теми же способами, что и ChatGPT (подробный разбор — в <a href="/articles/oplatit-chatgpt-iz-rossii-2026/" class="text-orange-400 hover:text-orange-300">отдельной статье</a>). Часть задач — сценарий, идеи — закрывают российские модели без зарубежной оплаты вообще.</p>
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Нужно ли платить за зарубежные сервисы и как это сделать из России?</p>
+            <p class="faq-a">HeyGen, ElevenLabs, Runway и другие зарубежные сервисы российскую карту не принимают. Оплатить их можно через сервис-посредник рублями или зарубежной виртуальной картой — теми же способами, что и ChatGPT (подробный разбор — в <a href="/articles/oplatit-chatgpt-iz-rossii-2026/" class="text-neon hover:text-neon">отдельной статье</a>). Часть задач — сценарий, идеи — закрывают российские модели без зарубежной оплаты вообще.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-q"><i class="fas fa-question-circle text-orange-400 mr-2"></i>Не будет ли видно, что в кадре нейроаватар, а не живой человек?</p>
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Не будет ли видно, что в кадре нейроаватар, а не живой человек?</p>
             <p class="faq-a">Современные нейроаватары выглядят естественно, но опытный зритель часто всё же отличает их от живой съёмки. Поэтому аватар хорошо работает в форматах, где важна не «личность в кадре», а информация: обзоры, инструкции, новости, разборы. Для личного бренда аватар лучше сочетать с живыми роликами, а не заменять их полностью.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-q"><i class="fas fa-question-circle text-orange-400 mr-2"></i>На каких площадках работают ролики, собранные на нейросетях?</p>
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>На каких площадках работают ролики, собранные на нейросетях?</p>
             <p class="faq-a">Формат вертикального ролика универсален: один и тот же клип публикуется в VK Клипы, YouTube Shorts, TikTok и Telegram. Это и есть главный смысл подхода — собрали ролик один раз нейросетями и разложили на все площадки сразу, без отдельной съёмки под каждую.</p>
         </div>
 
@@ -459,16 +493,16 @@
         <p>Что точно остаётся за вами: идея, понимание аудитории и сценарий. Нейросети убирают рутину производства, но не думают за вас. Соберите систему, поставьте контент-завод на поток — и регулярность, которой так не хватает большинству, перестанет быть проблемой.</p>
 
         <!-- INTERNAL LINK ZONE - conclusion -->
-        <p class="text-sm text-slate-500 italic">Дальше по теме: <a href="/articles/kontent-plan-neyroset-2026/" class="text-orange-400 hover:text-orange-300">контент-план на месяц с нейросетью</a>, <a href="/articles/prompty-chatgpt-smm/" class="text-orange-400 hover:text-orange-300">50 промптов для ChatGPT в SMM</a> и <a href="/articles/oplatit-chatgpt-iz-rossii-2026/" class="text-orange-400 hover:text-orange-300">как оплатить нейросети из России</a>.</p>
+        <p class="text-sm text-neon italic">Дальше по теме: <a href="/articles/kontent-plan-neyroset-2026/" class="text-neon hover:text-neon">контент-план на месяц с нейросетью</a>, <a href="/articles/prompty-chatgpt-smm/" class="text-neon hover:text-neon">50 промптов для ChatGPT в SMM</a> и <a href="/articles/oplatit-chatgpt-iz-rossii-2026/" class="text-neon hover:text-neon">как оплатить нейросети из России</a>.</p>
 
         <!-- FINAL CTA -->
         <div class="cta-box">
-            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-orange-400 uppercase bg-orange-900/30 rounded-full border border-orange-700/50">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
                 <i class="fas fa-fire"></i> GPT-Шашлык
             </div>
             <h3 class="text-2xl font-bold text-white mb-4">Хочешь собрать такую систему под себя?</h3>
-            <p class="text-slate-300 mb-6">Практические материалы по AI для контента: сценарии, нейроаватары HeyGen, озвучка ElevenLabs, монтаж и автоворонки — всё, чтобы поставить Reels на поток. Той же стратегией автор набрал 18 000 подписчиков за год.</p>
-            <a href="/gpt-shashlik/" class="inline-flex items-center gap-2 px-8 py-4 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-orange-900/20 text-lg">
+            <p class="text-emerald-200 mb-6">Практические материалы по AI для контента: сценарии, нейроаватары HeyGen, озвучка ElevenLabs, монтаж и автоворонки — всё, чтобы поставить Reels на поток. Той же стратегией автор набрал 18 000 подписчиков за год.</p>
+            <a href="/gpt-shashlik/" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20 text-lg">
                 <i class="fas fa-fire"></i>
                 Смотреть GPT-Шашлык
             </a>
@@ -477,28 +511,28 @@
     </article>
 
     <!-- RELATED ARTICLES -->
-    <div class="mt-16 pt-8 border-t border-slate-800">
+    <div class="mt-16 pt-8 border-t border-line">
         <h3 class="text-2xl font-bold text-white mb-6">Читайте также:</h3>
         <div class="grid md:grid-cols-2 gap-6">
-            <a href="/articles/kontent-plan-neyroset-2026/" class="block bg-slate-900/50 rounded-xl border border-slate-800 p-6 hover:border-teal-600 transition group">
-                <span class="text-xs font-bold text-teal-400 uppercase tracking-wider">SMM &amp; ИИ</span>
-                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-teal-400 transition">Контент-план с нейросетью за 30 минут</h4>
-                <p class="text-slate-400 text-sm">Система из 3 шагов и готовые промпты для контент-плана в ВК и Telegram...</p>
+            <a href="/articles/kontent-plan-neyroset-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">SMM &amp; ИИ</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">Контент-план с нейросетью за 30 минут</h4>
+                <p class="text-neon text-sm">Система из 3 шагов и готовые промпты для контент-плана в ВК и Telegram...</p>
             </a>
-            <a href="/articles/prompty-chatgpt-smm/" class="block bg-slate-900/50 rounded-xl border border-slate-800 p-6 hover:border-orange-600 transition group">
-                <span class="text-xs font-bold text-orange-400 uppercase tracking-wider">Промпты</span>
-                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-orange-400 transition">50 промптов для ChatGPT в SMM</h4>
-                <p class="text-slate-400 text-sm">Готовые шаблоны для постов, сценариев Reels, рекламных текстов — копируй и вставляй...</p>
+            <a href="/articles/prompty-chatgpt-smm/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">Промпты</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">50 промптов для ChatGPT в SMM</h4>
+                <p class="text-neon text-sm">Готовые шаблоны для постов, сценариев Reels, рекламных текстов — копируй и вставляй...</p>
             </a>
-            <a href="/articles/oplatit-chatgpt-iz-rossii-2026/" class="block bg-slate-900/50 rounded-xl border border-slate-800 p-6 hover:border-violet-600 transition group">
-                <span class="text-xs font-bold text-violet-400 uppercase tracking-wider">AI &amp; Автоматизация</span>
-                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-violet-400 transition">Как оплатить нейросети из России</h4>
-                <p class="text-slate-400 text-sm">5 способов оплатить ChatGPT, Claude, HeyGen, ElevenLabs и 15+ сервисов из РФ...</p>
+            <a href="/articles/oplatit-chatgpt-iz-rossii-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">AI &amp; Автоматизация</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">Как оплатить нейросети из России</h4>
+                <p class="text-neon text-sm">5 способов оплатить ChatGPT, Claude, HeyGen, ElevenLabs и 15+ сервисов из РФ...</p>
             </a>
-            <a href="/articles/ai-content-cost/" class="block bg-slate-900/50 rounded-xl border border-slate-800 p-6 hover:border-emerald-600 transition group">
-                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">AI &amp; Контент</span>
-                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-emerald-400 transition">Сколько стоит AI-контент</h4>
-                <p class="text-slate-400 text-sm">Как считать расходы на нейросети для контента и не переплачивать...</p>
+            <a href="/articles/ai-content-cost/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">AI &amp; Контент</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">Сколько стоит AI-контент</h4>
+                <p class="text-neon text-sm">Как считать расходы на нейросети для контента и не переплачивать...</p>
             </a>
         </div>
     </div>
@@ -506,21 +540,35 @@
 </main>
 
 <!-- FOOTER -->
-<footer class="bg-slate-900 border-t border-slate-800 py-12 mt-20">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-        <a href="/" class="flex items-center justify-center gap-2 text-white font-bold text-lg mb-4">
-            <div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center text-sm font-black">VS</div>
-            Владислав Сарамуд
-        </a>
-        <p class="text-slate-400 text-sm mb-6">Системный маркетинг и AI-решения для бизнеса</p>
-        <div class="flex items-center justify-center gap-6 text-sm text-slate-500">
-            <a href="/blog/" class="hover:text-white transition">Блог</a>
-            <a href="/services/" class="hover:text-white transition">Услуги</a>
-            <a href="https://t.me/saramudvlad" class="hover:text-white transition">Telegram</a>
-        </div>
-        <p class="text-slate-700 text-sm mt-8">© 2026 Владислав Сарамуд. Все права защищены.</p>
+<footer class="border-t border-line bg-surface/40 mt-20">
+  <div class="mx-auto max-w-6xl px-6 py-14 text-center">
+    <div class="mb-8 flex justify-center gap-5">
+      <a href="https://t.me/saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-telegram"></i></a>
+      <a href="https://www.instagram.com/saramudvlad/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-youtube"></i></a>
     </div>
+    <div class="mb-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 label text-[11px] uppercase text-neon/55">
+      <a href="/blog/" class="transition hover:text-neon">Блог</a><span class="text-line">/</span>
+      <a href="/neyroseti-dlya-kontenta/" class="transition hover:text-neon">Нейросети для контента</a><span class="text-line">/</span>
+      <a href="/reklama-i-trafik/" class="transition hover:text-neon">Реклама и трафик</a><span class="text-line">/</span>
+      <a href="/services/" class="transition hover:text-neon">Услуги</a><span class="text-line">/</span>
+      <a href="/about/" class="transition hover:text-neon">Об авторе</a>
+    </div>
+    <div class="mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-neon/35">
+      <a href="https://disk.yandex.ru/i/Ncd0GgyZTdE2OQ" class="transition hover:text-neon/70">Публичная оферта</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/3Zig9pNfq_A0Ww" class="transition hover:text-neon/70">Политика конфиденциальности</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/RhsYX71b6lmmVg" class="transition hover:text-neon/70">Согласие на обработку ПД</a>
+    </div>
+    <p class="mx-auto mb-5 max-w-2xl text-[11px] leading-relaxed text-neon/25">* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
+    <p class="label text-[11px] uppercase text-neon/30">© 2026 Владислав Сарамуд</p>
+  </div>
 </footer>
 
+<script>
+const _reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){const b=document.getElementById('burger'),m=document.getElementById('mobile-menu');if(!b||!m)return;const s=b.querySelectorAll('span');function o(open){m.classList.toggle('hidden',!open);b.setAttribute('aria-expanded',open);s[0].style.transform=open?'translateY(8px) rotate(45deg)':'';s[1].style.opacity=open?'0':'';s[2].style.transform=open?'translateY(-8px) rotate(-45deg)':'';}b.addEventListener('click',()=>o(m.classList.contains('hidden')));m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>o(false)));})();
+if(!_reduce){const sp=document.getElementById('spot');if(sp)window.addEventListener('pointermove',e=>{sp.style.setProperty('--mx',e.clientX+'px');sp.style.setProperty('--my',e.clientY+'px');});}
+</script>
 </body>
 </html>

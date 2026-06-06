@@ -52,6 +52,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://mc.yandex.ru">
     <link rel="stylesheet" href="/dist/tailwind.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <!-- Structured Data (Schema.org) для статьи -->
@@ -111,12 +112,12 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: #020617; 
-            color: #e2e8f0; 
+            background-color: #04070a; 
+            color: #d6f5e4; 
         }
         
         .gradient-text {
-            background: linear-gradient(to right, #34d399, #2dd4bf, #a3e635);
+            background: linear-gradient(to right, #7dffb3, #7dffb3, #a3e635);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -129,13 +130,13 @@
             margin-top: 3rem;
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #10b981;
+            border-bottom: 2px solid #2bff88;
         }
         
         article h3 {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #34d399;
+            color: #7dffb3;
             margin-top: 2rem;
             margin-bottom: 1rem;
         }
@@ -143,13 +144,13 @@
         article p {
             margin-bottom: 1.5rem;
             line-height: 1.8;
-            color: #cbd5e1;
+            color: #bfe9cf;
         }
         
         article ul, article ol {
             margin-bottom: 1.5rem;
             padding-left: 1.5rem;
-            color: #cbd5e1;
+            color: #bfe9cf;
         }
         
         article li {
@@ -163,8 +164,8 @@
         }
         
         .highlight-box {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            border-left: 4px solid #34d399;
+            background: linear-gradient(135deg, #2bff88 0%, #1fd673 100%);
+            border-left: 4px solid #7dffb3;
             padding: 1.5rem;
             margin: 2rem 0;
             border-radius: 0.5rem;
@@ -172,7 +173,7 @@
         
         .warning-box {
             background: rgba(234, 88, 12, 0.1);
-            border-left: 4px solid #ea580c;
+            border-left: 4px solid #1fd673;
             padding: 1.5rem;
             margin: 2rem 0;
             border-radius: 0.5rem;
@@ -186,18 +187,18 @@
             background: rgba(15, 23, 42, 0.5);
             border-radius: 0.5rem;
             margin-bottom: 0.75rem;
-            border: 1px solid #334155;
+            border: 1px solid #16352a;
             transition: all 0.3s ease;
         }
         
         .checklist-item:hover {
-            border-color: #10b981;
+            border-color: #2bff88;
             background: rgba(15, 23, 42, 0.8);
         }
         
         .day-card {
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
-            border: 1px solid #334155;
+            border: 1px solid #16352a;
             border-radius: 1rem;
             padding: 2rem;
             margin-bottom: 2rem;
@@ -205,48 +206,77 @@
         }
         
         .day-card:hover {
-            border-color: #10b981;
+            border-color: #2bff88;
             box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.2);
         }
         
         .cta-box {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            border: 2px solid #10b981;
+            background: linear-gradient(135deg, #0a1411 0%, #102a1a 100%);
+            border: 2px solid #2bff88;
             border-radius: 1rem;
             padding: 2.5rem;
             margin: 3rem 0;
             text-align: center;
         }
     </style>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#04070a;color:#d6f5e4;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Inter Tight',sans-serif}
+  h1{letter-spacing:-0.03em}
+  .display{letter-spacing:-0.04em;line-height:0.95}
+  .label{font-family:'JetBrains Mono',monospace;letter-spacing:0.2em}
+  .gradient-text{background:linear-gradient(90deg,#2bff88,#7dffb3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 26px rgba(43,255,136,.25)}
+  .neon-text{color:#2bff88;text-shadow:0 0 8px rgba(43,255,136,.55),0 0 28px rgba(43,255,136,.35)}
+  .neon-line{box-shadow:0 0 14px rgba(43,255,136,.45)}
+  #spot{position:fixed;inset:0;z-index:30;pointer-events:none;background:radial-gradient(360px circle at var(--mx,-200px) var(--my,-200px),rgba(43,255,136,.08),transparent 60%);transition:background .08s linear}
+  ::selection{background:#2bff88;color:#04070a}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#spot{display:none}}
+</style>
 </head>
-<body class="antialiased selection:bg-emerald-500 selection:text-white">
+<body class="antialiased">
+<div id="spot"></div>
 
     <!-- Навигация -->
-    <nav class="border-b border-slate-800/50 sticky top-0 backdrop-blur-lg bg-slate-950/80 z-50">
-        <div class="container mx-auto px-6 py-4 max-w-4xl">
-            <div class="flex justify-between items-center">
-                <a href="/" class="text-xl font-bold text-white hover:text-emerald-400 transition">
-                    <i class="fas fa-arrow-left mr-2"></i>Владислав Сарамуд
-                </a>
-                <div class="flex gap-4">
-                    <a href="/#services" class="text-slate-400 hover:text-emerald-400 transition text-sm">Услуги</a>
-                    <a href="/blog/" class="text-slate-400 hover:text-emerald-400 transition text-sm">Статьи</a>
-                    <a href="https://t.me/saramudvlad" target="_blank" class="text-emerald-500 hover:text-emerald-400 transition text-sm">
-                        <i class="fab fa-telegram"></i> Связаться
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <header class="sticky top-0 z-40 border-b border-line/70 bg-ink/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="display flex items-center gap-2 text-lg font-extrabold tracking-tight">
+      <span class="inline-block h-2 w-2 rounded-full bg-neon neon-line"></span>САРАМУД<span class="text-neon">_</span>ВЛАДИСЛАВ
+    </a>
+    <div class="label hidden gap-8 text-[11px] uppercase text-neon/60 md:flex">
+      <a href="/#cases" class="transition hover:text-neon">Кейсы</a>
+      <a href="/#services" class="transition hover:text-neon">Услуги</a>
+      <a href="/#shashlik" class="transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="transition hover:text-neon">Блог</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="label hidden rounded-none border border-neon px-4 py-2 text-[11px] uppercase text-neon transition hover:bg-neon hover:text-ink md:inline-block">Обсудить →</a>
+      <button id="burger" aria-label="Меню" aria-expanded="false" class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden">
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden border-t border-line bg-ink md:hidden">
+    <div class="flex flex-col px-6 pb-5 pt-2 label text-[13px] uppercase text-emerald-100/80">
+      <a href="/#services" class="border-b border-line/60 py-3.5 transition hover:text-neon">Услуги</a>
+      <a href="/#cases" class="border-b border-line/60 py-3.5 transition hover:text-neon">Кейсы</a>
+      <a href="/#reviews" class="border-b border-line/60 py-3.5 transition hover:text-neon">Отзывы</a>
+      <a href="/#shashlik" class="border-b border-line/60 py-3.5 transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="py-3.5 transition hover:text-neon">Блог</a>
+    </div>
+  </div>
+</header>
 
     <!-- Хлебные крошки -->
     <div class="container mx-auto px-6 py-4 max-w-4xl">
-        <nav class="text-sm text-slate-500">
-            <a href="/" class="hover:text-emerald-400 transition">Главная</a>
+        <nav class="text-sm text-neon">
+            <a href="/" class="hover:text-neon transition">Главная</a>
             <span class="mx-2">/</span>
-            <a href="/blog/" class="hover:text-emerald-400 transition">Статьи</a>
+            <a href="/blog/" class="hover:text-neon transition">Статьи</a>
             <span class="mx-2">/</span>
-            <span class="text-slate-400">Как запустить контент-маркетинг</span>
+            <span class="text-neon">Как запустить контент-маркетинг</span>
         </nav>
     </div>
 
@@ -256,28 +286,28 @@
         <!-- Заголовок статьи -->
         <header class="mb-12">
             <div class="flex items-center gap-3 mb-4">
-                <span class="px-3 py-1 bg-emerald-900/30 text-emerald-400 text-xs font-bold uppercase rounded-full border border-emerald-800/50">
+                <span class="px-3 py-1 bg-neon/30 text-neon text-xs font-bold uppercase rounded-full border border-neon/50">
                     Контент-маркетинг
                 </span>
-                <span class="text-slate-500 text-sm">
+                <span class="text-neon text-sm">
                     <i class="far fa-clock mr-1"></i> 15 минут чтения
                 </span>
             </div>
             <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
                 Как запустить контент-маркетинг с нуля за 7 дней: <span class="gradient-text">пошаговый план 2026</span>
             </h1>
-            <p class="text-xl text-slate-400 leading-relaxed mb-6">
+            <p class="text-xl text-neon leading-relaxed mb-6">
                 Подробная инструкция по запуску контент-маркетинга для малого бизнеса. Без агентств, больших бюджетов и сложных терминов. Только практика и конкретные действия.
             </p>
-            <div class="flex items-center gap-4 text-sm text-slate-500 border-t border-slate-800 pt-4">
+            <div class="flex items-center gap-4 text-sm text-neon border-t border-line pt-4">
                 <div class="flex items-center gap-2">
-                    <img src="/avatar.webp" alt="Владислав Сарамуд" class="w-10 h-10 rounded-full border-2 border-emerald-600">
+                    <img src="/avatar.webp" alt="Владислав Сарамуд" class="w-10 h-10 rounded-full border-2 border-neon">
                     <div>
-                        <div class="text-white font-semibold"><a href="/about/" class="hover:text-orange-400 transition">Владислав Сарамуд</a></div>
+                        <div class="text-white font-semibold"><a href="/about/" class="hover:text-neon transition">Владислав Сарамуд</a></div>
                         <div>Маркетинг-директор</div>
                     </div>
                 </div>
-                <span class="text-slate-700">|</span>
+                <span class="text-line">|</span>
                 <time datetime="2026-02-11">11 февраля 2026</time>
             </div>
         </header>
@@ -291,14 +321,14 @@
                 height="420"
                 loading="eager"
             >
-            <p class="text-xs text-slate-600 text-center mt-2">Запуск контент-маркетинга за 7 дней — практический план</p>
+            <p class="text-xs text-neon text-center mt-2">Запуск контент-маркетинга за 7 дней — практический план</p>
         </div>
 
         <!-- Содержание статьи -->
         <article class="prose prose-invert max-w-none">
             
             <div class="highlight-box">
-                <p class="text-white font-semibold mb-2"><i class="fas fa-lightbulb text-yellow-400 mr-2"></i> Главное за 30 секунд:</p>
+                <p class="text-white font-semibold mb-2"><i class="fas fa-lightbulb text-lime-400 mr-2"></i> Главное за 30 секунд:</p>
                 <p class="text-white text-sm mb-0">Контент-маркетинг — это не про «написать 10 постов». Это система привлечения и прогрева клиентов через полезный контент. В этой статье вы получите готовый план на 7 дней, который можно запустить самостоятельно, даже если раньше не занимались маркетингом.</p>
             </div>
 
@@ -321,7 +351,7 @@
             
             <div class="day-card">
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold text-xl">
+                    <div class="w-12 h-12 rounded-full bg-neon flex items-center justify-center text-white font-bold text-xl">
                         1
                     </div>
                     <h3 class="!mt-0 !mb-0">Создаём портрет клиента</h3>
@@ -330,35 +360,35 @@
                 <p>Без понимания аудитории контент-маркетинг превращается в лотерею. Нужно ответить на 5 ключевых вопросов:</p>
                 
                 <div class="checklist-item">
-                    <i class="fas fa-check-circle text-emerald-500 text-xl mt-1"></i>
+                    <i class="fas fa-check-circle text-neon text-xl mt-1"></i>
                     <div>
                         <strong>Кто ваш клиент?</strong> Пол, возраст, семейное положение, род занятий. Например: «Женщина 30-45 лет, замужем, руководитель отдела продаж в B2B-компании».
                     </div>
                 </div>
                 
                 <div class="checklist-item">
-                    <i class="fas fa-check-circle text-emerald-500 text-xl mt-1"></i>
+                    <i class="fas fa-check-circle text-neon text-xl mt-1"></i>
                     <div>
                         <strong>Какая у него проблема?</strong> Не просто «хочет похудеть», а «стесняется выйти на пляж, потому что набрала 15 кг после родов».
                     </div>
                 </div>
                 
                 <div class="checklist-item">
-                    <i class="fas fa-check-circle text-emerald-500 text-xl mt-1"></i>
+                    <i class="fas fa-check-circle text-neon text-xl mt-1"></i>
                     <div>
                         <strong>Что он уже пробовал?</strong> Где прошлые решения не сработали? Это важно, чтобы не повторять чужие ошибки.
                     </div>
                 </div>
                 
                 <div class="checklist-item">
-                    <i class="fas fa-check-circle text-emerald-500 text-xl mt-1"></i>
+                    <i class="fas fa-check-circle text-neon text-xl mt-1"></i>
                     <div>
                         <strong>Где он сейчас ищет решение?</strong> Telegram-каналы? YouTube? Отраслевые форумы? Там и нужно быть с вашим контентом.
                     </div>
                 </div>
                 
                 <div class="checklist-item">
-                    <i class="fas fa-check-circle text-emerald-500 text-xl mt-1"></i>
+                    <i class="fas fa-check-circle text-neon text-xl mt-1"></i>
                     <div>
                         <strong>Что его останавливает от покупки?</strong> Цена? Недоверие? Страх ошибиться? Ваш контент должен закрывать эти возражения.
                     </div>
@@ -371,7 +401,7 @@
             
             <div class="day-card">
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold text-xl">
+                    <div class="w-12 h-12 rounded-full bg-neon flex items-center justify-center text-white font-bold text-xl">
                         2
                     </div>
                     <h3 class="!mt-0 !mb-0">Где публиковаться и в каком формате</h3>
@@ -389,8 +419,8 @@
                 </ul>
                 
                 <div class="warning-box">
-                    <p class="text-orange-300 font-semibold mb-2"><i class="fas fa-exclamation-triangle mr-2"></i> Частая ошибка:</p>
-                    <p class="text-orange-200 text-sm mb-0">Предприниматели запускают сразу 4-5 соцсетей, тратят по 30 минут на каждую и выгорают через неделю. Лучше качественно вести один канал, чем посредственно — пять.</p>
+                    <p class="text-neon font-semibold mb-2"><i class="fas fa-exclamation-triangle mr-2"></i> Частая ошибка:</p>
+                    <p class="text-neon text-sm mb-0">Предприниматели запускают сразу 4-5 соцсетей, тратят по 30 минут на каждую и выгорают через неделю. Лучше качественно вести один канал, чем посредственно — пять.</p>
                 </div>
                 
                 <h3>Какие форматы работают?</h3>
@@ -410,7 +440,7 @@
             
             <div class="day-card">
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold text-xl">
+                    <div class="w-12 h-12 rounded-full bg-neon flex items-center justify-center text-white font-bold text-xl">
                         3
                     </div>
                     <h3 class="!mt-0 !mb-0">Планируем контент наперёд</h3>
@@ -429,8 +459,8 @@
                 
                 <p><strong>Пример контент-плана для маркетолога (Telegram):</strong></p>
                 
-                <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700 text-sm mb-4">
-                    <p class="text-emerald-400 font-semibold mb-2">Неделя 1:</p>
+                <div class="bg-surface/50 rounded-lg p-4 border border-line text-sm mb-4">
+                    <p class="text-neon font-semibold mb-2">Неделя 1:</p>
                     <ul class="space-y-1 mb-0">
                         <li>ПН: Инструкция «Как составить УТП за 15 минут»</li>
                         <li>СР: Личная история «Мой первый провал в рекламе и что я понял»</li>
@@ -438,8 +468,8 @@
                     </ul>
                 </div>
                 
-                <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700 text-sm mb-4">
-                    <p class="text-orange-400 font-semibold mb-2">Неделя 2:</p>
+                <div class="bg-surface/50 rounded-lg p-4 border border-line text-sm mb-4">
+                    <p class="text-neon font-semibold mb-2">Неделя 2:</p>
                     <ul class="space-y-1 mb-0">
                         <li>ПН: Обзор «3 инструмента для сквозной аналитики в 2026»</li>
                         <li>СР: Опрос «Какая самая большая проблема в вашем маркетинге?»</li>
@@ -454,7 +484,7 @@
             
             <div class="day-card">
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold text-xl">
+                    <div class="w-12 h-12 rounded-full bg-neon flex items-center justify-center text-white font-bold text-xl">
                         4
                     </div>
                     <h3 class="!mt-0 !mb-0">Создаём контент</h3>
@@ -465,28 +495,28 @@
                 <h3>Формула сильного поста:</h3>
                 
                 <div class="checklist-item">
-                    <i class="fas fa-check-circle text-emerald-500 text-xl mt-1"></i>
+                    <i class="fas fa-check-circle text-neon text-xl mt-1"></i>
                     <div>
                         <strong>Цепляющий заголовок</strong> — обещание выгоды или интриги («Как я увеличил конверсию на 340% за неделю»)
                     </div>
                 </div>
                 
                 <div class="checklist-item">
-                    <i class="fas fa-check-circle text-emerald-500 text-xl mt-1"></i>
+                    <i class="fas fa-check-circle text-neon text-xl mt-1"></i>
                     <div>
                         <strong>Хук в первых 2 строках</strong> — зацепите внимание («Большинство маркетологов делают эту ошибку, даже не подозревая об этом...»)
                     </div>
                 </div>
                 
                 <div class="checklist-item">
-                    <i class="fas fa-check-circle text-emerald-500 text-xl mt-1"></i>
+                    <i class="fas fa-check-circle text-neon text-xl mt-1"></i>
                     <div>
                         <strong>Конкретика вместо воды</strong> — не «повысили продажи», а «с 30 до 87 заявок в месяц»
                     </div>
                 </div>
                 
                 <div class="checklist-item">
-                    <i class="fas fa-check-circle text-emerald-500 text-xl mt-1"></i>
+                    <i class="fas fa-check-circle text-neon text-xl mt-1"></i>
                     <div>
                         <strong>Призыв к действию</strong> — что делать дальше? (подписаться, написать в личку, сохранить пост)
                     </div>
@@ -495,8 +525,8 @@
                 <p><strong>Лайфхак:</strong> Используйте AI для генерации черновиков. ChatGPT или Claude помогут написать основу за 5 минут. Вы только дополните личным опытом и отредактируете.</p>
                 
                 <div class="highlight-box">
-                    <p class="text-white font-semibold mb-2"><i class="fas fa-robot text-emerald-300 mr-2"></i> Промпт для ChatGPT:</p>
-                    <p class="text-white text-sm font-mono bg-slate-950/50 p-3 rounded mb-0">
+                    <p class="text-white font-semibold mb-2"><i class="fas fa-robot text-neon mr-2"></i> Промпт для ChatGPT:</p>
+                    <p class="text-white text-sm font-mono bg-ink/50 p-3 rounded mb-0">
                         «Напиши пост для Telegram-канала про маркетинг. Тема: "Как составить УТП за 15 минут". Структура: проблема → решение → чек-лист. Тон: дружелюбный эксперт. Объём: 800-1000 символов.»
                     </p>
                 </div>
@@ -508,7 +538,7 @@
             
             <div class="day-card">
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold text-xl">
+                    <div class="w-12 h-12 rounded-full bg-neon flex items-center justify-center text-white font-bold text-xl">
                         5
                     </div>
                     <h3 class="!mt-0 !mb-0">Внедряем инструменты для экономии времени</h3>
@@ -533,7 +563,7 @@
             
             <div class="day-card">
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold text-xl">
+                    <div class="w-12 h-12 rounded-full bg-neon flex items-center justify-center text-white font-bold text-xl">
                         6
                     </div>
                     <h3 class="!mt-0 !mb-0">Публикуем и анализируем</h3>
@@ -559,7 +589,7 @@
             
             <div class="day-card">
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold text-xl">
+                    <div class="w-12 h-12 rounded-full bg-neon flex items-center justify-center text-white font-bold text-xl">
                         7
                     </div>
                     <h3 class="!mt-0 !mb-0">Превращаем подписчиков в лиды</h3>
@@ -581,21 +611,21 @@
                 
                 <h3>Простая воронка на старте:</h3>
                 
-                <div class="bg-slate-900/50 rounded-lg p-6 border border-slate-700 mb-6">
+                <div class="bg-surface/50 rounded-lg p-6 border border-line mb-6">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold">1</div>
+                        <div class="w-8 h-8 rounded-full bg-neon flex items-center justify-center text-white font-bold">1</div>
                         <p class="mb-0"><strong>Подписчик видит ваш пост</strong> → узнаёт о проблеме или решении</p>
                     </div>
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold">2</div>
+                        <div class="w-8 h-8 rounded-full bg-neon flex items-center justify-center text-white font-bold">2</div>
                         <p class="mb-0"><strong>Переходит по ссылке</strong> → скачивает лид-магнит (оставляет email/TG)</p>
                     </div>
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold">3</div>
+                        <div class="w-8 h-8 rounded-full bg-neon flex items-center justify-center text-white font-bold">3</div>
                         <p class="mb-0"><strong>Получает серию писем</strong> → прогревается через кейсы и пользу</p>
                     </div>
                     <div class="flex items-center gap-4">
-                        <div class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold">4</div>
+                        <div class="w-8 h-8 rounded-full bg-neon flex items-center justify-center text-white font-bold">4</div>
                         <p class="mb-0"><strong>Видит оффер</strong> → записывается на консультацию или покупает</p>
                     </div>
                 </div>
@@ -615,8 +645,8 @@
             </ul>
             
             <div class="warning-box">
-                <p class="text-orange-300 font-semibold mb-2"><i class="fas fa-exclamation-triangle mr-2"></i> Важно понимать:</p>
-                <p class="text-orange-200 text-sm mb-0">Первый месяц — это фундамент. Вы строите репутацию, прогреваете аудиторию, тестируете гипотезы. Взрывной рост начинается на 2-3 месяце, когда алгоритмы «поймут» вашу аудиторию и контент.</p>
+                <p class="text-neon font-semibold mb-2"><i class="fas fa-exclamation-triangle mr-2"></i> Важно понимать:</p>
+                <p class="text-neon text-sm mb-0">Первый месяц — это фундамент. Вы строите репутацию, прогреваете аудиторию, тестируете гипотезы. Взрывной рост начинается на 2-3 месяце, когда алгоритмы «поймут» вашу аудиторию и контент.</p>
             </div>
 
             <h2>Главные ошибки новичков (и как их избежать)</h2>
@@ -637,8 +667,8 @@
 
             <div class="cta-box">
                 <h3 class="text-2xl font-bold text-white mb-4">Нужна помощь с запуском?</h3>
-                <p class="text-slate-300 mb-6">Я помогаю предпринимателям и маркетологам выстраивать системный маркетинг с нуля. Если хотите запустить контент-стратегию быстрее и избежать типичных ошибок — напишите мне.</p>
-                <a href="https://t.me/m/AxbAs2U9MmJi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-emerald-900/20">
+                <p class="text-emerald-200 mb-6">Я помогаю предпринимателям и маркетологам выстраивать системный маркетинг с нуля. Если хотите запустить контент-стратегию быстрее и избежать типичных ошибок — напишите мне.</p>
+                <a href="https://t.me/m/AxbAs2U9MmJi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20">
                     <i class="fab fa-telegram-plane"></i>
                     Написать в Telegram
                 </a>
@@ -646,50 +676,50 @@
 
             <h2>Коротко: ваш чек-лист на 7 дней</h2>
             
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <div class="bg-surface border border-line rounded-xl p-6">
                 <ul class="space-y-3 mb-0">
                     <li class="flex items-start gap-3">
-                        <span class="text-emerald-500 font-bold">☐</span>
+                        <span class="text-neon font-bold">☐</span>
                         <span><strong>День 1:</strong> Опросите 5-10 клиентов, создайте портрет аудитории</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-emerald-500 font-bold">☐</span>
+                        <span class="text-neon font-bold">☐</span>
                         <span><strong>День 2:</strong> Выберите 1 платформу и 2-3 формата контента</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-emerald-500 font-bold">☐</span>
+                        <span class="text-neon font-bold">☐</span>
                         <span><strong>День 3:</strong> Составьте контент-план на месяц (12-16 публикаций)</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-emerald-500 font-bold">☐</span>
+                        <span class="text-neon font-bold">☐</span>
                         <span><strong>День 4:</strong> Напишите 3 первых поста (с помощью AI или самостоятельно)</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-emerald-500 font-bold">☐</span>
+                        <span class="text-neon font-bold">☐</span>
                         <span><strong>День 5:</strong> Подключите инструменты автоматизации (SMMplanner, Canva)</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-emerald-500 font-bold">☐</span>
+                        <span class="text-neon font-bold">☐</span>
                         <span><strong>День 6:</strong> Опубликуйте первый пост, соберите обратную связь</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-emerald-500 font-bold">☐</span>
+                        <span class="text-neon font-bold">☐</span>
                         <span><strong>День 7:</strong> Создайте лид-магнит и простую воронку захвата контактов</span>
                     </li>
                 </ul>
             </div>
 
-            <p class="mt-8 text-slate-400 text-sm">* Instagram — продукт компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
+            <p class="mt-8 text-neon text-sm">* Instagram — продукт компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
 
         </article>
 
         <!-- ЛИДФОРМА -->
-        <div class="my-16 p-8 md:p-12 bg-gradient-to-br from-emerald-900/20 to-teal-900/20 border-2 border-emerald-600/50 rounded-2xl relative overflow-hidden">
+        <div class="my-16 p-8 md:p-12 bg-gradient-to-br from-neon/20 to-neon/20 border-2 border-neon/50 rounded-2xl relative overflow-hidden">
             <!-- Декоративный фон -->
-            <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-neon/5 to-transparent pointer-events-none"></div>
             
             <div class="relative z-10 max-w-2xl mx-auto text-center">
-                <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 text-xs font-bold text-emerald-400 uppercase bg-emerald-900/30 rounded-full border border-emerald-700/50">
+                <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
                     <i class="fas fa-gift"></i>
                     Бонус для читателей статьи
                 </div>
@@ -698,7 +728,7 @@
                     Получите персональный разбор вашей стратегии
                 </h3>
                 
-                <p class="text-lg text-slate-300 mb-8">
+                <p class="text-lg text-emerald-200 mb-8">
                     Оставьте заявку, и я проведу 15-минутный экспресс-аудит вашего контент-маркетинга. 
                     Разберём, что можно улучшить прямо сейчас, и составим план на ближайший месяц.
                 </p>
@@ -713,7 +743,7 @@
                                 name="name" 
                                 placeholder="Ваше имя" 
                                 required
-                                class="w-full px-6 py-4 bg-slate-900/80 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition"
+                                class="w-full px-6 py-4 bg-surface/80 border border-line rounded-xl text-white placeholder-neon focus:border-neon focus:outline-none focus:ring-2 focus:ring-neon/50 transition"
                             >
                         </div>
                         <div>
@@ -723,29 +753,29 @@
                                 name="phone" 
                                 placeholder="+7 (___) ___-__-__" 
                                 required
-                                class="w-full px-6 py-4 bg-slate-900/80 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition"
+                                class="w-full px-6 py-4 bg-surface/80 border border-line rounded-xl text-white placeholder-neon focus:border-neon focus:outline-none focus:ring-2 focus:ring-neon/50 transition"
                             >
                         </div>
                     </div>
                     
                     <button 
                         type="submit" 
-                        class="w-full md:w-auto px-10 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-emerald-900/30 hover:shadow-emerald-900/50 hover:scale-105 flex items-center justify-center gap-3 mx-auto"
+                        class="w-full md:w-auto px-10 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/30 hover:shadow-neon/50 hover:scale-105 flex items-center justify-center gap-3 mx-auto"
                     >
                         <i class="fab fa-telegram-plane text-xl"></i>
                         Получить консультацию в Telegram
                     </button>
                 </form>
                 
-                <p class="text-xs text-slate-500">
+                <p class="text-xs text-neon">
                     <i class="fas fa-lock mr-1"></i> 
                     Ваши данные защищены
-                <p class="text-xs text-slate-500">
+                <p class="text-xs text-neon">
                 <a href="https://disk.yandex.ru/i/RhsYX71b6lmmVg" class="fas fa-lock mr-1"></i> Согласие на обработку ПД</a>
                 
                 <!-- Сообщение об успехе (скрыто по умолчанию) -->
-                <div id="successMessage" class="hidden mt-6 p-4 bg-emerald-900/30 border border-emerald-600/50 rounded-xl">
-                    <p class="text-emerald-300 font-semibold">
+                <div id="successMessage" class="hidden mt-6 p-4 bg-neon/30 border border-neon/50 rounded-xl">
+                    <p class="text-neon font-semibold">
                         <i class="fas fa-check-circle mr-2"></i>
                         Отлично! Переходим в Telegram...
                     </p>
@@ -755,42 +785,42 @@
         <!-- /ЛИДФОРМА -->
 
         <!-- Блок "Поделиться" -->
-        <div class="mt-12 pt-8 border-t border-slate-800">
-            <p class="text-slate-400 mb-4 font-semibold">Поделиться статьёй:</p>
+        <div class="mt-12 pt-8 border-t border-line">
+            <p class="text-neon mb-4 font-semibold">Поделиться статьёй:</p>
             <div class="flex gap-4">
-                <a href="https://t.me/share/url?url=https://saramudvlad.ru/articles/content-marketing-launch/" target="_blank" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition">
+                <a href="https://t.me/share/url?url=https://saramudvlad.ru/articles/content-marketing-launch/" target="_blank" class="px-6 py-3 bg-line hover:bg-line text-white rounded-lg transition">
                     <i class="fab fa-telegram mr-2"></i> Telegram
                 </a>
-                <a href="https://vk.com/share.php?url=https://saramudvlad.ru/articles/content-marketing-launch/" target="_blank" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition">
+                <a href="https://vk.com/share.php?url=https://saramudvlad.ru/articles/content-marketing-launch/" target="_blank" class="px-6 py-3 bg-line hover:bg-line text-white rounded-lg transition">
                     <i class="fab fa-vk mr-2"></i> VK
                 </a>
-                <button onclick="navigator.clipboard.writeText(window.location.href)" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition">
+                <button onclick="navigator.clipboard.writeText(window.location.href)" class="px-6 py-3 bg-line hover:bg-line text-white rounded-lg transition">
                     <i class="fas fa-link mr-2"></i> Скопировать
                 </button>
             </div>
         </div>
 
         <!-- Другие статьи -->
-        <div class="mt-16 pt-8 border-t border-slate-800">
+        <div class="mt-16 pt-8 border-t border-line">
             <h3 class="text-2xl font-bold text-white mb-6">Читайте также:</h3>
             <div class="grid md:grid-cols-2 gap-6">
                 
-                <a href="/articles/ai-content-cost/" class="block bg-slate-900/50 rounded-xl border border-slate-800 p-6 hover:border-emerald-600 transition group">
-                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">AI & Автоматизация</span>
-                    <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-emerald-400 transition">
+                <a href="/articles/ai-content-cost/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                    <span class="text-xs font-bold text-neon uppercase tracking-wider">AI & Автоматизация</span>
+                    <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">
                         Как AI снижает стоимость контента на 80%
                     </h4>
-                    <p class="text-slate-400 text-sm">
+                    <p class="text-neon text-sm">
                         Практический гайд по внедрению нейросетей в контент-маркетинг...
                     </p>
                 </a>
                 
-                <a href="#" class="block bg-slate-900/50 rounded-xl border border-slate-800 p-6 hover:border-orange-600 transition group">
-                    <span class="text-xs font-bold text-orange-400 uppercase tracking-wider">Аналитика</span>
-                    <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-orange-400 transition">
+                <a href="#" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                    <span class="text-xs font-bold text-neon uppercase tracking-wider">Аналитика</span>
+                    <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">
                         Сквозная аналитика: зачем она нужна
                     </h4>
-                    <p class="text-slate-400 text-sm">
+                    <p class="text-neon text-sm">
                         Почему без правильной аналитики вы сливаете бюджет в трубу...
                     </p>
                 </a>
@@ -803,22 +833,30 @@
 </main>
 
     <!-- Футер -->
-    <footer class="py-10 text-center border-t border-slate-800/50 mt-16">
-        <div class="flex justify-center gap-6 mb-8">
-            <a href="https://t.me/saramudvlad" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-emerald-500 transition text-2xl"><i class="fab fa-telegram"></i></a>
-            <a href="https://www.instagram.com/saramudvlad/" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-pink-500 transition text-2xl"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@saramudvlad" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-teal-400 transition text-2xl"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.youtube.com/@saramudvlad" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-red-600 transition text-2xl"><i class="fab fa-youtube"></i></a>
-        </div>
-        <div class="text-xs text-slate-600 mb-4 space-x-4">
-            <a href="/" class="hover:text-slate-400">Главная</a>
-            <span>|</span>
-            <a href="/#services" class="hover:text-slate-400">Услуги</a>
-            <span>|</span>
-            <a href="/blog/" class="hover:text-slate-400">Все статьи</a>
-        </div>
-        <p class="text-slate-700 text-sm">© 2026 Владислав Сарамуд. Все права защищены.</p>
-    </footer>
+    <footer class="border-t border-line bg-surface/40 mt-20">
+  <div class="mx-auto max-w-6xl px-6 py-14 text-center">
+    <div class="mb-8 flex justify-center gap-5">
+      <a href="https://t.me/saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-telegram"></i></a>
+      <a href="https://www.instagram.com/saramudvlad/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="mb-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 label text-[11px] uppercase text-neon/55">
+      <a href="/blog/" class="transition hover:text-neon">Блог</a><span class="text-line">/</span>
+      <a href="/neyroseti-dlya-kontenta/" class="transition hover:text-neon">Нейросети для контента</a><span class="text-line">/</span>
+      <a href="/reklama-i-trafik/" class="transition hover:text-neon">Реклама и трафик</a><span class="text-line">/</span>
+      <a href="/services/" class="transition hover:text-neon">Услуги</a><span class="text-line">/</span>
+      <a href="/about/" class="transition hover:text-neon">Об авторе</a>
+    </div>
+    <div class="mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-neon/35">
+      <a href="https://disk.yandex.ru/i/Ncd0GgyZTdE2OQ" class="transition hover:text-neon/70">Публичная оферта</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/3Zig9pNfq_A0Ww" class="transition hover:text-neon/70">Политика конфиденциальности</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/RhsYX71b6lmmVg" class="transition hover:text-neon/70">Согласие на обработку ПД</a>
+    </div>
+    <p class="mx-auto mb-5 max-w-2xl text-[11px] leading-relaxed text-neon/25">* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
+    <p class="label text-[11px] uppercase text-neon/30">© 2026 Владислав Сарамуд</p>
+  </div>
+</footer>
 
  <!-- Скрипт обработки лидформы -->
     <script>
@@ -885,13 +923,18 @@
         });
     </script>
 
-        <div class="text-xs text-slate-600 mb-4 space-x-4">
-            <a href="https://disk.yandex.ru/i/Ncd0GgyZTdE2OQ" class="hover:text-slate-400">Публичная оферта</a>
+        <div class="text-xs text-neon mb-4 space-x-4">
+            <a href="https://disk.yandex.ru/i/Ncd0GgyZTdE2OQ" class="hover:text-neon">Публичная оферта</a>
             <span>|</span>
-            <a href="https://disk.yandex.ru/i/3Zig9pNfq_A0Ww" class="hover:text-slate-400">Политика конфиденциальности</a>
+            <a href="https://disk.yandex.ru/i/3Zig9pNfq_A0Ww" class="hover:text-neon">Политика конфиденциальности</a>
             <span>|</span>
-            <a href="https://disk.yandex.ru/i/RhsYX71b6lmmVg" class="hover:text-slate-400">Согласие на обработку ПД</a>
+            <a href="https://disk.yandex.ru/i/RhsYX71b6lmmVg" class="hover:text-neon">Согласие на обработку ПД</a>
     </footer>
 
+<script>
+const _reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){const b=document.getElementById('burger'),m=document.getElementById('mobile-menu');if(!b||!m)return;const s=b.querySelectorAll('span');function o(open){m.classList.toggle('hidden',!open);b.setAttribute('aria-expanded',open);s[0].style.transform=open?'translateY(8px) rotate(45deg)':'';s[1].style.opacity=open?'0':'';s[2].style.transform=open?'translateY(-8px) rotate(-45deg)':'';}b.addEventListener('click',()=>o(m.classList.contains('hidden')));m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>o(false)));})();
+if(!_reduce){const sp=document.getElementById('spot');if(sp)window.addEventListener('pointermove',e=>{sp.style.setProperty('--mx',e.clientX+'px');sp.style.setProperty('--my',e.clientY+'px');});}
+</script>
 </body>
 </html>
