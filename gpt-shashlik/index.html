@@ -1373,6 +1373,7 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
         f.setAttribute('allow', 'autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;');
         f.setAttribute('allowfullscreen', '');
         el.replaceWith(f);
+        try { if (typeof ym === 'function') ym(106768627, 'reachGoal', 'video_view'); } catch (e) {}
     };
     var facades = document.querySelectorAll('.vk-facade');
     if ('IntersectionObserver' in window) {
@@ -1408,6 +1409,19 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     document.querySelectorAll('a[href="#tarify"]').forEach(function(a) {
         a.addEventListener('click', function() { goal('to_pricing'); });
     });
+    // Лид-магнит: клики на материалы (Яндекс.Диск)
+    document.querySelectorAll('a[href*="disk.yandex"]').forEach(function(a) {
+        a.addEventListener('click', function() { goal('lead_magnet'); });
+    });
+    // Глубина просмотра: дочитал до тарифов
+    var scrolled = false;
+    var pricing = document.getElementById('tarify');
+    if (pricing && 'IntersectionObserver' in window) {
+        var so = new IntersectionObserver(function(en) {
+            if (en[0].isIntersecting && !scrolled) { scrolled = true; goal('scroll_pricing'); so.disconnect(); }
+        }, { threshold: 0.4 });
+        so.observe(pricing);
+    }
 })();
 </script>
 
