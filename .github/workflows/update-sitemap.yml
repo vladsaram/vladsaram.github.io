@@ -5,9 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'articles/**'
-      - 'blog/**'
-      - 'gpt-shashlik/**'
+      - '**/index.html'
   workflow_dispatch:
 
 concurrency:
@@ -28,21 +26,29 @@ jobs:
 
           today = date.today().isoformat()
           base = "https://saramudvlad.ru"
-          urls = []
+          EXCLUDE = {"node_modules","dist","src","images","js","articles",".git","admin","private",".github"}
+          PRIO = {"blog":("daily","0.9"), "services":("monthly","0.9"), "gpt-shashlik":("weekly","0.9")}
 
-          urls.append(("", "weekly", "1.0", today))
-          urls.append(("services/", "monthly", "0.9", today))
-          urls.append(("gpt-shashlik/", "weekly", "0.9", today))
-          urls.append(("blog/", "daily", "0.9", today))
+          def lastmod(path):
+              try: return datetime.fromtimestamp(os.path.getmtime(path)).strftime('%Y-%m-%d')
+              except Exception: return today
 
-          articles_dir = "articles"
-          if os.path.isdir(articles_dir):
-              for entry in sorted(os.scandir(articles_dir), key=lambda e: e.name, reverse=True):
+          urls = [("", "weekly", "1.0", today)]
+
+          # top-level pages (auto-discovery: any dir with index.html)
+          for name in sorted(os.listdir(".")):
+              if name in EXCLUDE or not os.path.isdir(name): continue
+              if not os.path.exists(os.path.join(name, "index.html")): continue
+              if name in PRIO: freq, prio = PRIO[name]
+              elif name.startswith("kalkulyator"): freq, prio = "monthly", "0.8"
+              else: freq, prio = "monthly", "0.7"
+              urls.append((name + "/", freq, prio, lastmod(os.path.join(name, "index.html"))))
+
+          # articles
+          if os.path.isdir("articles"):
+              for entry in sorted(os.scandir("articles"), key=lambda e: e.name, reverse=True):
                   if entry.is_dir() and os.path.exists(os.path.join(entry.path, "index.html")):
-                      slug = entry.name
-                      mtime = os.path.getmtime(os.path.join(entry.path, "index.html"))
-                      lastmod = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
-                      urls.append((f"articles/{slug}/", "monthly", "0.8", lastmod))
+                      urls.append((f"articles/{entry.name}/", "monthly", "0.8", lastmod(os.path.join(entry.path, "index.html"))))
 
           xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
           xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n\n'
