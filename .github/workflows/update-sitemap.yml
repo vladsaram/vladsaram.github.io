@@ -7,7 +7,12 @@ on:
     paths:
       - 'articles/**'
       - 'blog/**'
+      - 'gpt-shashlik/**'
   workflow_dispatch:
+
+concurrency:
+  group: site-autocommit
+  cancel-in-progress: false
 
 jobs:
   update-sitemap:
@@ -27,6 +32,7 @@ jobs:
 
           urls.append(("", "weekly", "1.0", today))
           urls.append(("services/", "monthly", "0.9", today))
+          urls.append(("gpt-shashlik/", "weekly", "0.9", today))
           urls.append(("blog/", "daily", "0.9", today))
 
           articles_dir = "articles"
@@ -55,10 +61,15 @@ jobs:
           print(f"Done: {len(urls)} URLs")
           PYEOF
 
-      - name: Commit sitemap
+      - name: Commit and push sitemap
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add sitemap.xml
-          git diff --staged --quiet || git commit -m "Auto-update sitemap"
-          git push
+          if git diff --staged --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "Auto-update sitemap"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin main && git push && exit 0
+            echo "Retry $i after push race..."; sleep 5
+          done
+          echo "Push failed after 5 retries"; exit 1
