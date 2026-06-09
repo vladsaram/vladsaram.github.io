@@ -739,13 +739,13 @@
                     </div>
                     <div class="car-slide">
                         <a href="/images/otziv-nikita.webp" target="_blank" rel="noopener" class="block bg-slate-900/60 border border-slate-800 rounded-2xl p-4 h-full">
-                            <img src="/images/otziv-nikita.webp" alt="Отзыв: классные ролики нейросети делают, даже не понял что это нейросеть" class="w-full max-h-[440px] object-contain rounded-xl mx-auto" loading="lazy">
+                            <img src="/images/otziv-nikita.webp" alt="Отзыв: классные ролики нейросети делают, даже не понял что это нейросеть" class="w-full max-h-[440px] object-contain rounded-xl mx-auto" loading="lazy" width="1080" height="310">
                             <p class="text-center text-xs text-slate-500 mt-3">Никита · менеджер застройщика, Москва</p>
                         </a>
                     </div>
                     <div class="car-slide">
                         <a href="/images/otziv-stylist.webp" target="_blank" rel="noopener" class="block bg-slate-900/60 border border-slate-800 rounded-2xl p-4 h-full">
-                            <img src="/images/otziv-stylist.webp" alt="Отзыв от блогера в нише обучения стилистов" class="w-full max-h-[440px] object-contain rounded-xl mx-auto" loading="lazy">
+                            <img src="/images/otziv-stylist.webp" alt="Отзыв от блогера в нише обучения стилистов" class="w-full max-h-[440px] object-contain rounded-xl mx-auto" loading="lazy" width="667" height="880">
                             <p class="text-center text-xs text-slate-500 mt-3">Блогер · ниша обучения стилистов</p>
                         </a>
                     </div>
@@ -1281,12 +1281,12 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
     var block = document.getElementById('price-block');
     var dotsBox = document.getElementById('price-dots');
     var root = document.getElementById('price-carousel');
-    var MAX = 20, pending = MAX, found = [];
+    var MAX = 20, pending = MAX, found = [], dims = {};
 
     for (var i = 1; i <= MAX; i++) {
         (function(n) {
             var img = new Image();
-            img.onload = function() { found.push(n); finish(); };
+            img.onload = function() { found.push(n); dims[n] = { w: this.naturalWidth, h: this.naturalHeight }; finish(); };
             img.onerror = function() { finish(); };
             img.src = '/images/price-' + n + '.webp';
         })(i);
@@ -1297,9 +1297,10 @@ document.querySelectorAll('[data-count]').forEach(function(el) { countIO.observe
         if (!found.length) return; // нет скринов — секция остаётся скрытой
         found.sort(function(a, b) { return a - b; });
         track.innerHTML = found.map(function(n) {
+            var d = dims[n] || { w: 600, h: 800 };
             return '<div class="price-slide">' +
                 '<a href="/images/price-' + n + '.webp" target="_blank" rel="noopener">' +
-                '<img src="/images/price-' + n + '.webp" alt="Отклик на вакансию: цена за AI-видео" class="price-shot" loading="lazy"></a>' +
+                '<img src="/images/price-' + n + '.webp" alt="Отклик на вакансию: цена за AI-видео" class="price-shot" loading="lazy" width="' + d.w + '" height="' + d.h + '"></a>' +
                 '</div>';
         }).join('');
         block.style.display = 'block';
