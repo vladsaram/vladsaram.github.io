@@ -6,7 +6,16 @@
     <atom:link href="https://saramudvlad.ru/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Практические статьи о маркетинге, нейросетях для контента, рекламе и автоматизации бизнеса.</description>
     <language>ru</language>
-    <lastBuildDate>Thu, 04 Jun 2026 10:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 08 Jun 2026 10:00:00 +0300</lastBuildDate>
+    <item>
+      <title>Как продавать на Wildberries и Ozon в 2026: гайд через юнит-экономику</title>
+      <link>https://saramudvlad.ru/articles/kak-prodavat-na-wb-ozon-2026/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/kak-prodavat-na-wb-ozon-2026/</guid>
+      <description>Рынок WB+Ozon — 8,59 трлн ₽, но число продавцов впервые упало. Как выйти на маркетплейс в 2026 и не уйти в минус: юнит-экономика, комиссии, FBO/FBS, формула прибыли и реальные цифры.</description>
+      <category>Маркетплейсы</category>
+      <pubDate>Sun, 08 Jun 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/kak-prodavat-wb-ozon-2026.webp" type="image/webp"/>
+    </item>
     <item>
       <title>Нейросети для создания видео 2026: бесплатные и платные</title>
       <link>https://saramudvlad.ru/articles/neyroseti-dlya-video-2026/</link>
