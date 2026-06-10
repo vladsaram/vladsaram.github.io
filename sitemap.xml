@@ -373,6 +373,20 @@
   </url>
 
   <url>
+    <loc>https://saramudvlad.ru/articles/n8n-vs-make/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://saramudvlad.ru/articles/midjourney-vs-kandinsky/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://saramudvlad.ru/articles/metriki-marketinga/</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
@@ -402,6 +416,20 @@
 
   <url>
     <loc>https://saramudvlad.ru/articles/kak-prodavat-na-wb-ozon-2026/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://saramudvlad.ru/articles/heygen-analogi/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://saramudvlad.ru/articles/elevenlabs-analogi/</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -491,32 +519,4 @@
     <priority>0.8</priority>
   </url>
 
-
-  <url>
-    <loc>https://saramudvlad.ru/articles/midjourney-vs-kandinsky/</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://saramudvlad.ru/articles/heygen-analogi/</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://saramudvlad.ru/articles/elevenlabs-analogi/</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://saramudvlad.ru/articles/n8n-vs-make/</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
 </urlset>
