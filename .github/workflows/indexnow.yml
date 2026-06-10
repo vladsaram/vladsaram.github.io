@@ -1,0 +1,52 @@
+name: IndexNow Ping
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'articles/**/index.html'
+      - 'articles.json'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Submit URLs to IndexNow (Yandex + Bing)
+        run: |
+          # Дать GitHub Pages опубликовать свежий контент перед пингом
+          sleep 60
+          python3 - << 'PYEOF'
+          import json, urllib.request, urllib.error
+
+          host = "saramudvlad.ru"
+          key = "46717115505b5a7cd436168958f2d55e"
+          arts = json.load(open("articles.json", encoding="utf-8"))
+          urls = [f"https://{host}/", f"https://{host}/blog/"]
+          urls += [f"https://{host}{a['url']}" for a in arts]
+
+          body = json.dumps({
+              "host": host,
+              "key": key,
+              "keyLocation": f"https://{host}/{key}.txt",
+              "urlList": urls,
+          }).encode("utf-8")
+
+          print(f"Submitting {len(urls)} URLs to IndexNow…")
+          for ep in ["https://yandex.com/indexnow", "https://api.indexnow.org/indexnow"]:
+              req = urllib.request.Request(
+                  ep, data=body,
+                  headers={"Content-Type": "application/json; charset=utf-8"},
+                  method="POST")
+              try:
+                  r = urllib.request.urlopen(req, timeout=30)
+                  print(f"  {ep} -> HTTP {r.status}")
+              except urllib.error.HTTPError as e:
+                  print(f"  {ep} -> HTTP {e.code}")
+              except Exception as e:
+                  print(f"  {ep} -> ERR {e}")
+          print("Done. (200/202 = принято)")
+          PYEOF

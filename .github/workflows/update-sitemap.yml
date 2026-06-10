@@ -1,4 +1,4 @@
-name: Update Sitemap
+name: Update Sitemap & Internal Links
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - '**/index.html'
+      - 'articles.json'
   workflow_dispatch:
 
 concurrency:
@@ -67,13 +68,45 @@ jobs:
           print(f"Done: {len(urls)} URLs")
           PYEOF
 
-      - name: Commit and push sitemap
+      - name: Generate static internal links
+        run: |
+          python3 - << 'PYEOF'
+          import json, re
+
+          arts = json.load(open("articles.json", encoding="utf-8"))
+          items = "".join(
+              '<li><a href="%s" class="text-emerald-100/70 transition hover:text-neon">%s</a></li>'
+              % (a["url"], a["title"]) for a in arts)
+          block = (
+              '<!-- STATIC ARTICLE LINKS (crawlable SEO index) -->\n'
+              '<section class="border-t border-line bg-ink/40">\n'
+              '  <div class="mx-auto max-w-6xl px-6 py-10">\n'
+              '    <h2 class="label text-[11px] uppercase tracking-[0.2em] text-emerald-300/50 mb-5">Все статьи блога</h2>\n'
+              '    <ul class="grid grid-cols-1 gap-x-8 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-3 text-sm list-none p-0 m-0">'
+              + items +
+              '</ul>\n'
+              '  </div>\n'
+              '</section>\n'
+          )
+          MARK = "STATIC ARTICLE LINKS (crawlable SEO index)"
+          for f in ["index.html", "blog/index.html"]:
+              s = open(f, encoding="utf-8").read()
+              if MARK in s:
+                  s = re.sub(r"<!-- " + re.escape(MARK) + r" -->.*?</section>\n", block, s, count=1, flags=re.S)
+              else:
+                  idx = s.find("<footer")
+                  s = s[:idx] + block + "\n" + s[idx:]
+              open(f, "w", encoding="utf-8").write(s)
+              print(f"links updated: {f} ({len(arts)} links)")
+          PYEOF
+
+      - name: Commit and push sitemap & links
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add sitemap.xml
+          git add sitemap.xml index.html blog/index.html
           if git diff --staged --quiet; then echo "No changes"; exit 0; fi
-          git commit -m "Auto-update sitemap"
+          git commit -m "Auto-update sitemap + internal links"
           for i in 1 2 3 4 5; do
             git pull --rebase --autostash origin main && git push && exit 0
             echo "Retry $i after push race..."; sleep 5
