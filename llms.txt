@@ -33,6 +33,7 @@
 - [Нейросети для контента — все гайды и инструменты (хаб)](https://saramudvlad.ru/neyroseti-dlya-kontenta/)
 - [Промпты для нейросетей — база из 100+ готовых шаблонов для бизнеса (хаб)](https://saramudvlad.ru/articles/prompty-dlya-neyrosetey/) — формула рабочего промпта + подборки: Reels, маркетплейсы (WB/Ozon), Avito, таргетолог, копирайтинг, email, отзывы, продажи
 - [Нейросети для бизнеса — какие выбрать и для чего (хаб)](https://saramudvlad.ru/articles/neyroseti-dlya-biznesa/) — навигатор по инструментам: нейросеть для текста, картинок, презентаций, логотипа, таблиц/Excel, ChatGPT на русском из России
+- [Метрики маркетинга — словарь (хаб)](https://saramudvlad.ru/articles/metriki-marketinga/) — что такое CAC, LTV, ROAS, ДРР, маржинальность, точка безубыточности, юнит-экономика: формулы, примеры и связь с калькуляторами
 - [Реклама и трафик — все гайды по настройке (хаб)](https://saramudvlad.ru/reklama-i-trafik/)
 - [Об авторе — Владислав Сарамуд](https://saramudvlad.ru/about/)
 - [Нейросети для создания видео 2026: бесплатные и платные](https://saramudvlad.ru/articles/neyroseti-dlya-video-2026/)
