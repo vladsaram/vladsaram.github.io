@@ -1,5 +1,19 @@
 [
   {
+    "slug": "kak-ustanovit-n8n-na-vps-2026",
+    "title": "Как установить n8n на VPS в 2026: пошаговая инструкция на русском",
+    "desc": "Установка n8n на свой VPS за 30–40 минут: выбор сервера, Docker, домен и SSL, первый workflow и обновления. Пошагово, с готовым docker-compose и типовыми ошибками.",
+    "category": "AI & Автоматизация",
+    "categoryColor": "purple",
+    "icon": "fa-server",
+    "iconBg": "from-purple-600 to-violet-700",
+    "read": "10 мин",
+    "url": "/articles/kak-ustanovit-n8n-na-vps-2026/",
+    "image": "/images/kak-ustanovit-n8n-na-vps-2026.webp",
+    "date": "2026-06-12",
+    "dateLabel": "12 июня 2026"
+  },
+  {
     "slug": "ii-agenty-na-n8n-2026",
     "title": "ИИ-агенты на n8n для бизнеса 2026: как собрать без кода",
     "desc": "К концу 2026 года 40% бизнес-приложений получат ИИ-агентов (Gartner). Как собрать агента на n8n без кода: какие процессы отдать, анатомия LLM+tools+память, ROI и где проваливаются.",

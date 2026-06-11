@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <title>Как установить n8n на VPS в 2026: пошаговая инструкция на русском</title>
+    <meta name="description" content="Установка n8n на свой VPS за 30–40 минут: выбор сервера, Docker, домен и SSL, первый workflow и обновления. Пошагово, с готовым docker-compose и типовыми ошибками.">
+    <meta name="keywords" content="установить n8n на vps, n8n инструкция на русском, n8n docker установка, n8n self-hosted, n8n на сервере">
+    <meta name="author" content="Владислав Сарамуд">
+    <link rel="canonical" href="https://saramudvlad.ru/articles/kak-ustanovit-n8n-na-vps-2026/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://saramudvlad.ru/articles/kak-ustanovit-n8n-na-vps-2026/">
+    <meta property="og:title" content="Как установить n8n на VPS в 2026: пошаговая инструкция на русском">
+    <meta property="og:description" content="Свой n8n за 30–40 минут: VPS, Docker, домен и SSL, первый workflow. Готовый docker-compose и типовые ошибки.">
+    <meta property="og:image" content="https://saramudvlad.ru/images/kak-ustanovit-n8n-na-vps-2026.webp">
+    <meta property="article:published_time" content="2026-06-12T10:00:00+03:00">
+    <meta property="article:author" content="Владислав Сарамуд">
+    <meta property="article:section" content="AI & Автоматизация">
+    <meta property="article:tag" content="n8n">
+    <meta property="article:tag" content="VPS">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Как установить n8n на VPS в 2026: пошаговая инструкция">
+    <meta name="twitter:description" content="Свой n8n за 30–40 минут: VPS, Docker, домен и SSL, первый workflow. Готовый docker-compose.">
+    <meta name="twitter:image" content="https://saramudvlad.ru/images/kak-ustanovit-n8n-na-vps-2026.webp">
+
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=106768627','ym');
+    ym(106768627,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106768627" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="stylesheet" href="/dist/tailwind.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Как установить n8n на VPS в 2026: пошаговая инструкция на русском","description":"Установка n8n на свой VPS за 30–40 минут: выбор сервера, Docker, домен и SSL, первый workflow и обновления. С готовым docker-compose и типовыми ошибками.","image":"https://saramudvlad.ru/images/kak-ustanovit-n8n-na-vps-2026.webp","author":{"@type":"Person","name":"Владислав Сарамуд","url":"https://saramudvlad.ru"},"publisher":{"@type":"Person","name":"Владислав Сарамуд","logo":{"@type":"ImageObject","url":"https://saramudvlad.ru/avatar.webp"}},"datePublished":"2026-06-12","dateModified":"2026-06-12","mainEntityOfPage":{"@type":"WebPage","@id":"https://saramudvlad.ru/articles/kak-ustanovit-n8n-na-vps-2026/"}}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://saramudvlad.ru"},{"@type":"ListItem","position":2,"name":"Статьи","item":"https://saramudvlad.ru/blog/"},{"@type":"ListItem","position":3,"name":"Как установить n8n на VPS 2026"}]}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Какой VPS нужен для n8n?","acceptedAnswer":{"@type":"Answer","text":"Для старта достаточно 2 vCPU, 2–4 ГБ RAM и 20 ГБ SSD — это 300–600 ₽/мес у российских хостеров (Timeweb, Beget, Selectel, REG.RU). ОС — Ubuntu 22.04/24.04 LTS. Для агентов с большим потоком и базой знаний лучше 4 ГБ RAM. Российский VPS снимает вопросы доступности: n8n работает без VPN, а данные клиентов остаются в РФ."}},{"@type":"Question","name":"Можно ли установить n8n бесплатно?","acceptedAnswer":{"@type":"Answer","text":"Да. n8n распространяется по модели fair-code: self-hosted версия бесплатна без ограничений по количеству workflow и операций. Платите только за сам сервер (от ~300 ₽/мес). Для сравнения: облачный n8n Cloud стоит от $20/мес, а Make тарифицирует каждую операцию."}},{"@type":"Question","name":"Нужно ли уметь программировать для установки n8n?","acceptedAnswer":{"@type":"Answer","text":"Нет. Установка — это 5–6 команд в терминале, которые копируются из инструкции: установить Docker, создать docker-compose.yml, запустить контейнер, привязать домен и SSL. Дальше вся работа идёт в визуальном веб-интерфейсе n8n drag-and-drop, без кода."}},{"@type":"Question","name":"Как обновлять n8n на VPS?","acceptedAnswer":{"@type":"Answer","text":"Две команды: docker compose pull (скачать свежий образ) и docker compose up -d (перезапустить). Данные workflow хранятся в volume и при обновлении не теряются. Перед мажорными обновлениями стоит делать бэкап папки данных n8n."}},{"@type":"Question","name":"Что лучше: n8n на своём VPS или n8n Cloud?","acceptedAnswer":{"@type":"Answer","text":"Свой VPS — дешевле (300–600 ₽/мес против $20+), без лимитов на workflow, данные под вашим контролем и в РФ. n8n Cloud — быстрее старт и не нужно следить за сервером. Для бизнеса в России self-hosted почти всегда выгоднее: оплата облака зарубежной картой — отдельная боль."}}]}</script>
+
+    <style>
+        body{font-family:'Inter',sans-serif;background-color:#04070a;color:#d6f5e4;}
+        .gradient-text{background:linear-gradient(to right,#2bff88,#c6ff3d,#c6ff3d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        article h2{font-size:1.875rem;font-weight:800;color:#fff;margin-top:3rem;margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid #2bff88;}
+        article h3{font-size:1.5rem;font-weight:700;color:#7dffb3;margin-top:2rem;margin-bottom:1rem;}
+        article p{margin-bottom:1.5rem;line-height:1.8;color:#bfe9cf;}
+        article ul,article ol{margin-bottom:1.5rem;padding-left:1.5rem;color:#bfe9cf;}
+        article li{margin-bottom:0.75rem;line-height:1.7;}
+        article strong{color:#fff;font-weight:700;}
+        .warning-box{background:rgba(234,88,12,0.1);border-left:4px solid #1fd673;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .ai-box{background:rgba(131,56,236,0.1);border-left:4px solid #8338ec;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .comparison-table{background:rgba(15,23,42,0.5);border:1px solid #16352a;border-radius:1rem;overflow:hidden;margin:2rem 0;}
+        .comparison-table table{width:100%;border-collapse:collapse;}
+        .comparison-table th{background:rgba(249,115,22,0.1);padding:1rem;text-align:left;font-weight:700;color:#7dffb3;border-bottom:2px solid #16352a;}
+        .comparison-table td{padding:1rem;border-bottom:1px solid #16352a;color:#bfe9cf;}
+        .comparison-table tr:last-child td{border-bottom:none;}
+        .cta-box{background:linear-gradient(135deg,#0a1411 0%,#102a1a 100%);border:2px solid #2bff88;border-radius:1rem;padding:2.5rem;margin:3rem 0;text-align:center;}
+        .checklist-item{display:flex;align-items:start;gap:0.75rem;padding:1rem;background:rgba(15,23,42,0.5);border-radius:0.5rem;margin-bottom:0.75rem;border:1px solid #16352a;transition:all 0.3s ease;}
+        .checklist-item:hover{border-color:#2bff88;}
+        .step-badge{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;background:rgba(249,115,22,0.15);border:1px solid #2bff88;border-radius:50%;color:#7dffb3;font-weight:800;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+        .hero-image{width:100%;border-radius:1rem;border:1px solid #16352a;margin-bottom:2rem;display:block;}
+        .prompt-box{background:#0a1411;border:1px solid #16352a;border-left:4px solid #2bff88;border-radius:0.5rem;padding:1.25rem;margin:1.5rem 0;font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:#c6ff3d;line-height:1.8;white-space:pre-wrap;overflow-x:auto;}
+        .takeaways-box{background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.3);border-radius:1rem;padding:1.5rem 2rem;margin:2rem 0;}
+        .faq-item{background:rgba(15,23,42,0.6);border:1px solid #16352a;border-radius:0.75rem;padding:1.5rem;margin-bottom:1rem;}
+        .faq-q{font-weight:700;color:#fff;margin-bottom:0.75rem;font-size:1rem;}
+        .faq-a{color:#8fcaa6;font-size:0.95rem;line-height:1.7;margin:0;}
+    </style>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#04070a;color:#d6f5e4;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Inter Tight',sans-serif}
+  h1{letter-spacing:-0.03em}
+  .display{letter-spacing:-0.04em;line-height:0.95}
+  .label{font-family:'JetBrains Mono',monospace;letter-spacing:0.2em}
+  .gradient-text{background:linear-gradient(90deg,#2bff88,#7dffb3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 26px rgba(43,255,136,.25)}
+  .neon-text{color:#2bff88;text-shadow:0 0 8px rgba(43,255,136,.55),0 0 28px rgba(43,255,136,.35)}
+  .neon-line{box-shadow:0 0 14px rgba(43,255,136,.45)}
+  #spot{position:fixed;inset:0;z-index:30;pointer-events:none;background:radial-gradient(360px circle at var(--mx,-200px) var(--my,-200px),rgba(43,255,136,.08),transparent 60%);transition:background .08s linear}
+  ::selection{background:#2bff88;color:#04070a}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#spot{display:none}}
+</style>
+</head>
+<body class="antialiased">
+<div id="spot"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-40 border-b border-line/70 bg-ink/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="display flex items-center gap-2 text-lg font-extrabold tracking-tight">
+      <span class="inline-block h-2 w-2 rounded-full bg-neon neon-line"></span>САРАМУД<span class="text-neon">_</span>ВЛАДИСЛАВ
+    </a>
+    <div class="label hidden gap-8 text-[11px] uppercase text-neon/60 md:flex">
+      <a href="/#cases" class="transition hover:text-neon">Кейсы</a>
+      <a href="/#services" class="transition hover:text-neon">Услуги</a>
+      <a href="/#shashlik" class="transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="transition hover:text-neon">Блог</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="label hidden rounded-none border border-neon px-4 py-2 text-[11px] uppercase text-neon transition hover:bg-neon hover:text-ink md:inline-block">Обсудить →</a>
+      <button id="burger" aria-label="Меню" aria-expanded="false" class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden">
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden border-t border-line bg-ink md:hidden">
+    <div class="flex flex-col px-6 pb-5 pt-2 label text-[13px] uppercase text-emerald-100/80">
+      <a href="/#services" class="border-b border-line/60 py-3.5 transition hover:text-neon">Услуги</a>
+      <a href="/#cases" class="border-b border-line/60 py-3.5 transition hover:text-neon">Кейсы</a>
+      <a href="/#shashlik" class="border-b border-line/60 py-3.5 transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="py-3.5 transition hover:text-neon">Блог</a>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="container mx-auto px-6 py-4 max-w-4xl">
+    <nav class="text-sm text-neon">
+        <a href="/" class="hover:text-neon transition">Главная</a>
+        <span class="mx-2">/</span>
+        <a href="/blog/" class="hover:text-neon transition">Статьи</a>
+        <span class="mx-2">/</span>
+        <span class="text-neon">Как установить n8n на VPS 2026</span>
+    </nav>
+</div>
+
+<main class="container mx-auto px-6 py-8 max-w-4xl">
+
+    <!-- HEADER -->
+    <header class="mb-10">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+            <span class="px-3 py-1 bg-neon/30 text-neon text-xs font-bold uppercase rounded-full border border-neon/50">AI &amp; Автоматизация</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">n8n</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">Гайд</span>
+            <span class="text-neon text-sm"><i class="far fa-clock mr-1"></i>10 минут чтения</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+            Как установить n8n на VPS в 2026: <span class="gradient-text">инструкция на русском</span>
+        </h1>
+        <p class="text-xl text-neon leading-relaxed mb-6">
+            Свой n8n на сервере за 300–600 ₽/мес — без лимитов на workflow, без VPN и с данными под вашим контролем. Пошагово: выбор VPS, Docker, домен с SSL, первый workflow и обновления. 30–40 минут, программировать не нужно.
+        </p>
+        <div class="flex items-center gap-4 text-sm text-neon border-t border-line pt-4">
+            <div class="flex items-center gap-2">
+                <img src="/avatar.webp" alt="Владислав Сарамуд — маркетинг-директор, эксперт по автоматизации на n8n" class="w-10 h-10 rounded-full border-2 border-neon">
+                <div>
+                    <div class="text-white font-semibold"><a href="/about/" class="hover:text-neon transition">Владислав Сарамуд</a></div>
+                    <div>Маркетинг-директор, 6+ лет в digital</div>
+                </div>
+            </div>
+            <span class="text-line">|</span>
+            <time datetime="2026-06-12">12 июня 2026</time>
+        </div>
+    </header>
+
+    <!-- HERO IMAGE -->
+    <div class="mb-10">
+        <img
+            src="/images/kak-ustanovit-n8n-na-vps-2026.webp"
+            alt="Установка n8n на VPS: docker compose up -d — n8n запущен на своём домене с SSL"
+            class="hero-image"
+            width="800"
+            height="420"
+            loading="eager"
+        >
+        <p class="text-xs text-neon text-center mt-2">Вся установка n8n сводится к одной команде — если правильно подготовить сервер</p>
+    </div>
+
+    <article class="prose prose-invert max-w-none">
+
+        <!-- INTRO -->
+        <p>n8n — open-source платформа автоматизации, на которой собираются <a href="/articles/ii-agenty-na-n8n-2026/" class="text-neon hover:text-neon">ИИ-агенты для бизнеса</a> и <a href="/articles/avtovoronka-telegram-2026/" class="text-neon hover:text-neon">автоворонки в Telegram</a>. Self-hosted версия бесплатна без ограничений: платите только за сервер. В этом гайде — путь от пустого VPS до рабочего n8n на своём домене с SSL.</p>
+
+        <p>Я разворачивал n8n для своих проектов и клиентских внедрений не раз — здесь тот порядок, который даёт рабочий сервер с первого прохода, и ошибки, на которые сам наступал.</p>
+
+        <!-- KEY TAKEAWAYS -->
+        <div class="takeaways-box">
+            <p class="text-neon font-bold mb-3 text-sm uppercase tracking-wider"><i class="fas fa-bolt mr-2"></i>Главное за 60 секунд</p>
+            <ul class="text-emerald-200 text-sm space-y-2 mb-0" style="list-style:none;padding:0;">
+                <li>- Self-hosted n8n <strong>бесплатен</strong> — платите только за VPS от <strong>~300 ₽/мес</strong></li>
+                <li>- Минимум: <strong>2 vCPU / 2–4 ГБ RAM</strong>, Ubuntu 22.04+, российский хостер — без VPN</li>
+                <li>- Установка = <strong>Docker + docker-compose.yml + домен с SSL</strong>, 30–40 минут</li>
+                <li>- Обновление — <strong>2 команды</strong>, данные сохраняются в volume</li>
+                <li>- Главная ошибка — запуск <strong>без HTTPS</strong>: вебхуки Telegram не заработают</li>
+            </ul>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Шаг 1. Выбрать VPS: что реально нужно</h2>
+
+        <p><strong>Коротко: 2 vCPU, 2–4 ГБ RAM, 20 ГБ SSD, Ubuntu 22.04/24.04 LTS.</strong> Такой сервер у российских хостеров (Timeweb, Beget, Selectel, REG.RU) стоит 300–600 ₽/мес. Российский хостер — осознанный выбор: n8n работает без VPN, пинг до ваших же сервисов ниже, данные клиентов остаются в РФ.</p>
+
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr><th>Сценарий</th><th>Конфигурация</th><th>Цена/мес</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Старт: воронки, боты, до ~10 workflow</td><td>2 vCPU / 2 ГБ</td><td class="text-neon font-bold">300–450 ₽</td></tr>
+                    <tr><td>ИИ-агенты с базой знаний, 10–50 workflow</td><td>2 vCPU / 4 ГБ</td><td class="text-neon font-bold">500–800 ₽</td></tr>
+                    <tr><td>Связка агентов + очереди, высокий поток</td><td>4 vCPU / 8 ГБ</td><td>1 200–2 000 ₽</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>При заказе выберите образ <strong>Ubuntu 24.04 LTS</strong> и добавьте SSH-ключ. Сразу купите или привяжите <strong>домен/поддомен</strong> (например, n8n.вашсайт.ru) — он понадобится для SSL и вебхуков: создайте A-запись на IP сервера.</p>
+
+        <!-- ======================================= -->
+        <h2>Шаг 2. Установить Docker</h2>
+
+        <p>Подключитесь к серверу по SSH и поставьте Docker одной официальной командой:</p>
+
+        <div class="prompt-box">ssh root@ВАШ_IP
+
+# Docker + Compose одной командой
+curl -fsSL https://get.docker.com | sh
+
+# проверка
+docker --version &amp;&amp; docker compose version</div>
+
+        <p>Если обе команды вернули версии — фундамент готов. Docker изолирует n8n в контейнере: обновления и переносы становятся тривиальными, а система остаётся чистой.</p>
+
+        <!-- ======================================= -->
+        <h2>Шаг 3. Запустить n8n через docker-compose</h2>
+
+        <p><strong>Коротко: один файл конфигурации — и n8n работает.</strong> Создайте папку и файл <code class="text-neon">docker-compose.yml</code>:</p>
+
+        <div class="prompt-box">mkdir -p /opt/n8n &amp;&amp; cd /opt/n8n
+nano docker-compose.yml</div>
+
+        <p>Содержимое файла (замените домен и часовой пояс на свои):</p>
+
+        <div class="prompt-box">services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    restart: always
+    ports:
+      - "127.0.0.1:5678:5678"
+    environment:
+      - N8N_HOST=n8n.вашсайт.ru
+      - WEBHOOK_URL=https://n8n.вашсайт.ru/
+      - N8N_PROTOCOL=https
+      - GENERIC_TIMEZONE=Europe/Moscow
+      - TZ=Europe/Moscow
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:</div>
+
+        <div class="prompt-box"># запуск
+docker compose up -d
+
+# логи (Ctrl+C для выхода)
+docker compose logs -f</div>
+
+        <p>Ключевые моменты конфига: порт привязан к <strong>127.0.0.1</strong> — n8n не торчит в интернет напрямую (наружу его выпустит nginx с SSL на следующем шаге); <strong>volume n8n_data</strong> хранит все ваши workflow и креденшелы — они переживут любые обновления и пересоздания контейнера.</p>
+
+        <!-- ======================================= -->
+        <h2>Шаг 4. Домен и SSL: nginx + certbot</h2>
+
+        <p><strong>Коротко: без HTTPS n8n полноценно не работает</strong> — Telegram и большинство сервисов не шлют вебхуки на голый HTTP. Ставим nginx как реверс-прокси и бесплатный сертификат Let's Encrypt:</p>
+
+        <div class="prompt-box">apt update &amp;&amp; apt install -y nginx certbot python3-certbot-nginx
+
+nano /etc/nginx/sites-available/n8n</div>
+
+        <div class="prompt-box">server {
+    server_name n8n.вашсайт.ru;
+
+    location / {
+        proxy_pass http://127.0.0.1:5678;
+        proxy_set_header Host $host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_http_version 1.1;
+        proxy_read_timeout 300s;
+    }
+}</div>
+
+        <div class="prompt-box">ln -s /etc/nginx/sites-available/n8n /etc/nginx/sites-enabled/
+nginx -t &amp;&amp; systemctl reload nginx
+
+# SSL в одну команду (certbot сам поправит конфиг)
+certbot --nginx -d n8n.вашсайт.ru</div>
+
+        <p>Заголовки <code class="text-neon">Upgrade/Connection</code> обязательны: интерфейс n8n работает по WebSocket, без них редактор не загрузится. После certbot откройте <strong>https://n8n.вашсайт.ru</strong> — n8n предложит создать аккаунт владельца. Сразу задайте сильный пароль: интерфейс смотрит в интернет.</p>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Сервер готов — дальше сборка: <a href="/articles/ii-agenty-na-n8n-2026/" class="text-neon hover:text-neon">ИИ-агенты на n8n для бизнеса</a> — анатомия агента и какие процессы ему отдать.</p>
+
+        <!-- ======================================= -->
+        <h2>Шаг 5. Первый workflow и обновления</h2>
+
+        <p>Проверьте связку end-to-end: создайте workflow с триггером <strong>Webhook</strong>, нажмите «Listen for test event» и дёрните URL из браузера. Если событие пришло — вебхуки работают, можно подключать Telegram-ботов, CRM и LLM.</p>
+
+        <p>Обновление n8n — две команды (workflow и настройки сохраняются в volume):</p>
+
+        <div class="prompt-box">cd /opt/n8n
+docker compose pull &amp;&amp; docker compose up -d</div>
+
+        <p>Бэкап перед мажорными версиями: <code class="text-neon">docker run --rm -v n8n_n8n_data:/data -v $(pwd):/backup alpine tar czf /backup/n8n-backup.tar.gz /data</code> — архив папки данных в текущую директорию.</p>
+
+        <!-- ======================================= -->
+        <h2>3 ошибки, из-за которых «n8n не работает»</h2>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 1: нет WEBHOOK_URL и HTTPS</p>
+            <p class="text-neon text-sm mb-0">Самая частая. Без переменной WEBHOOK_URL с https-адресом n8n генерирует вебхуки на localhost — Telegram до них не достучится. Симптом: workflow в тесте работает, в проде — молчит.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 2: порт 5678 открыт наружу</p>
+            <p class="text-neon text-sm mb-0">Если в ports указать "5678:5678" без 127.0.0.1, n8n доступен по голому IP в обход nginx и SSL. Привязывайте порт к localhost и выпускайте наружу только через реверс-прокси.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 3: данные не в volume</p>
+            <p class="text-neon text-sm mb-0">Запуск через docker run без -v = все workflow живут внутри контейнера и умирают вместе с ним при обновлении. Если уже потеряли — впредь только compose с named volume, как в конфиге выше.</p>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Чек-лист готового сервера</h2>
+
+        <div class="bg-surface border border-line rounded-xl p-6 mb-8">
+            <ul class="space-y-3 mb-0">
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>VPS 2 vCPU / 2–4 ГБ, Ubuntu LTS, SSH-ключ</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>A-запись домена указывает на IP сервера</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Docker установлен, n8n запущен через compose с volume</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>nginx + certbot: интерфейс открывается по https</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>WEBHOOK_URL задан, тестовый webhook ловит события</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Пароль владельца сильный, бэкап настроен</span></li>
+            </ul>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Часто задаваемые вопросы</h2>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Какой VPS нужен для n8n?</p>
+            <p class="faq-a">Для старта — 2 vCPU, 2–4 ГБ RAM, 20 ГБ SSD (300–600 ₽/мес у Timeweb, Beget, Selectel, REG.RU), ОС Ubuntu 22.04/24.04 LTS. Для агентов с большим потоком — 4 ГБ RAM. Российский хостер = без VPN и данные в РФ.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Можно ли установить n8n бесплатно?</p>
+            <p class="faq-a">Да, self-hosted n8n бесплатен без лимитов на workflow и операции (fair-code). Платите только за сервер от ~300 ₽/мес. Облачный n8n Cloud — от $20/мес, Make тарифицирует каждую операцию.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Нужно ли уметь программировать?</p>
+            <p class="faq-a">Нет. Установка — 5–6 команд, копируемых из этого гайда. Дальше вся работа в визуальном интерфейсе drag-and-drop. Код может пригодиться позже для экзотических интеграций, но не обязателен.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Как обновлять n8n?</p>
+            <p class="faq-a">docker compose pull, затем docker compose up -d. Данные живут в volume и не теряются. Перед мажорными обновлениями — бэкап папки данных.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Свой VPS или n8n Cloud?</p>
+            <p class="faq-a">VPS дешевле (300–600 ₽ против $20+), без лимитов и с данными под контролем; Cloud — быстрее старт. Для бизнеса в России self-hosted почти всегда выгоднее, тем более оплата зарубежного облака — отдельная задача.</p>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Итог: сервер за вечер, автоматизация — навсегда</h2>
+
+        <p>Установка n8n на VPS — задача одного вечера даже без технического бэкграунда: сервер, Docker, compose-файл, nginx с SSL. На выходе — собственная платформа автоматизации без лимитов и подписок, на которой строятся воронки, боты и ИИ-агенты.</p>
+
+        <!-- INTERNAL LINK ZONE - conclusion -->
+        <p class="text-sm text-neon italic">Что собирать на готовом сервере: <a href="/articles/ii-agenty-na-n8n-2026/" class="text-neon hover:text-neon">ИИ-агенты на n8n</a>, <a href="/articles/avtovoronka-telegram-2026/" class="text-neon hover:text-neon">автоворонка в Telegram за 1 день</a>, а если сомневаетесь в платформе — <a href="/articles/n8n-vs-make/" class="text-neon hover:text-neon">n8n vs Make</a>.</p>
+
+        <!-- FINAL CTA -->
+        <div class="cta-box">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
+                <i class="fas fa-server"></i> Под ключ
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Не хочется возиться с сервером?</h3>
+            <p class="text-emerald-200 mb-6">Разверну n8n на вашем VPS и соберу первую автоматизацию под задачу: воронка, бот или ИИ-агент. Вы получаете рабочую систему и доступ владельца — без привязки ко мне.</p>
+            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20">
+                <i class="fab fa-telegram"></i>
+                Написать в Telegram
+            </a>
+        </div>
+
+    </article>
+
+    <!-- RELATED ARTICLES -->
+    <div class="mt-16 pt-8 border-t border-line">
+        <h3 class="text-2xl font-bold text-white mb-6">Читайте также:</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <a href="/articles/ii-agenty-na-n8n-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-orange-600 transition group">
+                <span class="text-xs font-bold text-orange-400 uppercase tracking-wider">AI &amp; Автоматизация</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-orange-400 transition">ИИ-агенты на n8n для бизнеса</h4>
+                <p class="text-neon text-sm">Что собирать на готовом сервере: анатомия агента и тир-лист процессов...</p>
+            </a>
+            <a href="/articles/avtovoronka-telegram-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-emerald-600 transition group">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Автоматизация</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-emerald-400 transition">Автоворонка в Telegram через n8n</h4>
+                <p class="text-neon text-sm">Первый практический проект для вашего нового сервера...</p>
+            </a>
+            <a href="/articles/n8n-vs-make/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-emerald-600 transition group">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Сравнения</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-emerald-400 transition">n8n vs Make: что выбрать</h4>
+                <p class="text-neon text-sm">Если ещё сомневаетесь, нужен ли вам self-hosted...</p>
+            </a>
+            <a href="/articles/neyroagent-dlya-otdela-prodazh-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">Продажи</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">Нейроагент для отдела продаж</h4>
+                <p class="text-neon text-sm">Самое окупаемое, что можно собрать на этом сервере...</p>
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-line bg-surface/40 mt-20">
+  <div class="mx-auto max-w-6xl px-6 py-14 text-center">
+    <div class="mb-8 flex justify-center gap-5">
+      <a href="https://t.me/saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-telegram"></i></a>
+      <a href="https://www.instagram.com/saramudvlad/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="mb-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 label text-[11px] uppercase text-neon/55">
+      <a href="/blog/" class="transition hover:text-neon">Блог</a><span class="text-line">/</span>
+      <a href="/neyroseti-dlya-kontenta/" class="transition hover:text-neon">Нейросети для контента</a><span class="text-line">/</span>
+      <a href="/reklama-i-trafik/" class="transition hover:text-neon">Реклама и трафик</a><span class="text-line">/</span>
+      <a href="/services/" class="transition hover:text-neon">Услуги</a><span class="text-line">/</span>
+      <a href="/about/" class="transition hover:text-neon">Об авторе</a>
+    </div>
+    <div class="mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-neon/35">
+      <a href="https://disk.yandex.ru/i/Ncd0GgyZTdE2OQ" class="transition hover:text-neon/70">Публичная оферта</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/3Zig9pNfq_A0Ww" class="transition hover:text-neon/70">Политика конфиденциальности</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/RhsYX71b6lmmVg" class="transition hover:text-neon/70">Согласие на обработку ПД</a>
+    </div>
+    <p class="mx-auto mb-5 max-w-2xl text-[11px] leading-relaxed text-neon/25">* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
+    <p class="label text-[11px] uppercase text-neon/30">© 2026 Владислав Сарамуд</p>
+  </div>
+</footer>
+
+<script>
+const _reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){const b=document.getElementById('burger'),m=document.getElementById('mobile-menu');if(!b||!m)return;const s=b.querySelectorAll('span');function o(open){m.classList.toggle('hidden',!open);b.setAttribute('aria-expanded',open);s[0].style.transform=open?'translateY(8px) rotate(45deg)':'';s[1].style.opacity=open?'0':'';s[2].style.transform=open?'translateY(-8px) rotate(-45deg)':'';}b.addEventListener('click',()=>o(m.classList.contains('hidden')));m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>o(false)));})();
+if(!_reduce){const sp=document.getElementById('spot');if(sp)window.addEventListener('pointermove',e=>{sp.style.setProperty('--mx',e.clientX+'px');sp.style.setProperty('--my',e.clientY+'px');});}
+</script>
+</body>
+</html>
