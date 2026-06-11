@@ -143,11 +143,24 @@ jobs:
           print(f"feed.xml: {len(arts)} items")
           PYEOF
 
+      - name: Update llms.txt articles section
+        run: |
+          python3 - << 'PYEOF'
+          import json, re
+          arts = json.load(open("articles.json", encoding="utf-8"))[:25]
+          lines = "".join(f"- [{a['title']}](https://saramudvlad.ru{a['url']})\n" for a in arts)
+          block = "## Статьи и материалы\n\n" + lines + "\n"
+          s = open("llms.txt", encoding="utf-8").read()
+          s = re.sub(r"## Статьи и материалы\n.*?(?=## )", block, s, count=1, flags=re.S)
+          open("llms.txt", "w", encoding="utf-8").write(s)
+          print(f"llms.txt: {len(arts)} articles")
+          PYEOF
+
       - name: Commit and push sitemap & links
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add sitemap.xml feed.xml index.html blog/index.html
+          git add sitemap.xml feed.xml llms.txt index.html blog/index.html
           if git diff --staged --quiet; then echo "No changes"; exit 0; fi
           git commit -m "Auto-update sitemap + internal links"
           for i in 1 2 3 4 5; do
