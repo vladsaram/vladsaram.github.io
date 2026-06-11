@@ -6,7 +6,16 @@
     <atom:link href="https://saramudvlad.ru/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Практические статьи о маркетинге, нейросетях для контента, рекламе и автоматизации бизнеса.</description>
     <language>ru</language>
-    <lastBuildDate>Wed, 10 Jun 2026 10:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 11 Jun 2026 10:00:00 +0300</lastBuildDate>
+    <item>
+      <title>Нейроагент для отдела продаж 2026: ИИ-менеджер, который не спит</title>
+      <link>https://saramudvlad.ru/articles/neyroagent-dlya-otdela-prodazh-2026/</link>
+      <guid isPermaLink="true">https://saramudvlad.ru/articles/neyroagent-dlya-otdela-prodazh-2026/</guid>
+      <description>Лид ждёт ответ 3–5 минут и уходит. Нейроагент отвечает за секунды 24/7, квалифицирует и греет. Как собрать ИИ-менеджера продаж в 2026: задачи, архитектура LLM+CRM+n8n, ROI.</description>
+      <category>AI &amp; Автоматизация</category>
+      <pubDate>Wed, 11 Jun 2026 10:00:00 +0300</pubDate>
+      <enclosure url="https://saramudvlad.ru/images/neyroagent-dlya-otdela-prodazh-2026.webp" type="image/webp"/>
+    </item>
     <item>
       <title>Продвижение на Авито 2026: как вывести объявление в топ</title>
       <link>https://saramudvlad.ru/articles/prodvizhenie-na-avito-2026/</link>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <title>Нейроагент для отдела продаж 2026: ИИ-менеджер, который не спит</title>
+    <meta name="description" content="Лид ждёт ответ 3–5 минут и уходит. Нейроагент отвечает за секунды 24/7, квалифицирует и греет. Как собрать ИИ-менеджера продаж в 2026: задачи, архитектура LLM+CRM+n8n, ROI.">
+    <meta name="keywords" content="нейроагент для продаж, ии агент отдел продаж 2026, чат-бот для продаж, ai менеджер продаж, автоматизация продаж нейросеть">
+    <meta name="author" content="Владислав Сарамуд">
+    <link rel="canonical" href="https://saramudvlad.ru/articles/neyroagent-dlya-otdela-prodazh-2026/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://saramudvlad.ru/articles/neyroagent-dlya-otdela-prodazh-2026/">
+    <meta property="og:title" content="Нейроагент для отдела продаж 2026: ИИ-менеджер, который не спит">
+    <meta property="og:description" content="ИИ-агент отвечает за секунды 24/7, квалифицирует и греет лиды. Задачи, архитектура LLM+CRM+n8n и реальная экономика внедрения.">
+    <meta property="og:image" content="https://saramudvlad.ru/images/neyroagent-dlya-otdela-prodazh-2026.webp">
+    <meta property="article:published_time" content="2026-06-11T10:00:00+03:00">
+    <meta property="article:author" content="Владислав Сарамуд">
+    <meta property="article:section" content="AI & Автоматизация">
+    <meta property="article:tag" content="Нейроагент">
+    <meta property="article:tag" content="Продажи">
+    <meta property="article:tag" content="Автоматизация">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Нейроагент для отдела продаж 2026: ИИ-менеджер, который не спит">
+    <meta name="twitter:description" content="ИИ-агент отвечает за секунды 24/7, квалифицирует и греет лиды. Задачи, архитектура LLM+CRM+n8n и ROI.">
+    <meta name="twitter:image" content="https://saramudvlad.ru/images/neyroagent-dlya-otdela-prodazh-2026.webp">
+
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=106768627','ym');
+    ym(106768627,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106768627" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="stylesheet" href="/dist/tailwind.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Нейроагент для отдела продаж 2026: ИИ-менеджер, который не спит","description":"Как собрать ИИ-агента для отдела продаж в 2026: какие задачи доверить, архитектура LLM+CRM+n8n, скорость ответа и реальная экономика внедрения.","image":"https://saramudvlad.ru/images/neyroagent-dlya-otdela-prodazh-2026.webp","author":{"@type":"Person","name":"Владислав Сарамуд","url":"https://saramudvlad.ru"},"publisher":{"@type":"Person","name":"Владислав Сарамуд","logo":{"@type":"ImageObject","url":"https://saramudvlad.ru/avatar.webp"}},"datePublished":"2026-06-11","dateModified":"2026-06-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://saramudvlad.ru/articles/neyroagent-dlya-otdela-prodazh-2026/"}}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://saramudvlad.ru"},{"@type":"ListItem","position":2,"name":"Статьи","item":"https://saramudvlad.ru/blog/"},{"@type":"ListItem","position":3,"name":"Нейроагент для отдела продаж 2026"}]}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Чем нейроагент отличается от обычного чат-бота?","acceptedAnswer":{"@type":"Answer","text":"Обычный чат-бот работает по жёсткому сценарию: кнопки и заранее прописанные ответы, шаг влево — и он ломается. Нейроагент построен на большой языковой модели (LLM), понимает естественную речь, помнит контекст и историю переписки, знает вашу базу знаний и отвечает свободно, как живой менеджер. Он не просто отвечает по скрипту, а ведёт диалог, квалифицирует лид и адаптируется под клиента."}},{"@type":"Question","name":"Какие задачи можно доверить нейроагенту в продажах?","acceptedAnswer":{"@type":"Answer","text":"Лучше всего нейроагент закрывает: мгновенный ответ на входящие 24/7, квалификацию лида (выясняет потребность, бюджет, сроки), ответы на типовые вопросы о продукте и цене, запись на встречу или звонок, прогрев и сбор контактов в CRM. Сложные переговоры с торгом, нестандартные возражения и финальное закрытие крупных сделок лучше оставить живому менеджеру — нейроагент передаёт ему уже тёплый квалифицированный лид."}},{"@type":"Question","name":"Насколько скорость ответа влияет на конверсию?","acceptedAnswer":{"@type":"Answer","text":"Критично. Большая часть клиентов ждут ответ 3–5 минут и больше не возвращаются в чат. Нейроагент отвечает за секунды в любое время суток. По данным исследований, воронки с чат-ботом конвертируют в 2,4 раза лучше статичных форм, а внедрение ИИ-чатов повышает конверсию примерно на 23%. Скорость первого ответа — один из сильнейших рычагов конверсии в продажах."}},{"@type":"Question","name":"Сколько стоит нейроагент и какой у него ROI?","acceptedAnswer":{"@type":"Answer","text":"Одно обращение, обработанное нейроагентом, стоит примерно $0,5–0,7 против $4–6 у живого оператора. Бизнес обычно снижает стоимость лида на 40–60% и получает возврат в 3–10 раз за первый год, выходя на окупаемость за 3–6 месяцев. Конкретные цифры зависят от объёма обращений: чем больше входящего потока, тем быстрее окупается автоматизация рутины."}},{"@type":"Question","name":"Нужен ли программист, чтобы собрать нейроагента для продаж?","acceptedAnswer":{"@type":"Answer","text":"Нет. Нейроагент собирается на связке LLM (ChatGPT, Claude, YandexGPT, GigaChat) + CRM + мессенджеры через визуальный конструктор автоматизации вроде n8n — без единой строки кода. n8n разворачивается на российском VPS, подключается к Telegram, WhatsApp и amoCRM/Bitrix24 нодами drag-and-drop. Главная работа — не техника, а проработка базы знаний и сценариев квалификации."}}]}</script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body{font-family:'Inter',sans-serif;background-color:#04070a;color:#d6f5e4;}
+        .gradient-text{background:linear-gradient(to right,#2bff88,#c6ff3d,#c6ff3d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        article h2{font-size:1.875rem;font-weight:800;color:#fff;margin-top:3rem;margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid #2bff88;}
+        article h3{font-size:1.5rem;font-weight:700;color:#7dffb3;margin-top:2rem;margin-bottom:1rem;}
+        article p{margin-bottom:1.5rem;line-height:1.8;color:#bfe9cf;}
+        article ul,article ol{margin-bottom:1.5rem;padding-left:1.5rem;color:#bfe9cf;}
+        article li{margin-bottom:0.75rem;line-height:1.7;}
+        article strong{color:#fff;font-weight:700;}
+        .highlight-box{background:linear-gradient(135deg,#1fd673 0%,#a3d92e 100%);border-left:4px solid #7dffb3;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .warning-box{background:rgba(234,88,12,0.1);border-left:4px solid #1fd673;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .info-box{background:rgba(59,130,246,0.1);border-left:4px solid #3b82f6;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .ai-box{background:rgba(131,56,236,0.1);border-left:4px solid #8338ec;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .tool-card{background:linear-gradient(135deg,rgba(249,115,22,0.05) 0%,rgba(217,119,6,0.05) 100%);border:1px solid #16352a;border-radius:1rem;padding:2rem;margin-bottom:2rem;transition:all 0.3s ease;}
+        .tool-card:hover{border-color:#2bff88;box-shadow:0 20px 40px -15px rgba(249,115,22,0.2);}
+        .comparison-table{background:rgba(15,23,42,0.5);border:1px solid #16352a;border-radius:1rem;overflow:hidden;margin:2rem 0;}
+        .comparison-table table{width:100%;border-collapse:collapse;}
+        .comparison-table th{background:rgba(249,115,22,0.1);padding:1rem;text-align:left;font-weight:700;color:#7dffb3;border-bottom:2px solid #16352a;}
+        .comparison-table td{padding:1rem;border-bottom:1px solid #16352a;color:#bfe9cf;}
+        .comparison-table tr:last-child td{border-bottom:none;}
+        .tier-list{border:1px solid #16352a;border-radius:1rem;overflow:hidden;margin:2rem 0;}
+        .tier-row{display:flex;align-items:stretch;border-bottom:1px solid #16352a;}
+        .tier-row:last-child{border-bottom:none;}
+        .tier-badge{flex-shrink:0;width:60px;display:flex;align-items:center;justify-content:center;font-family:'Inter Tight',sans-serif;font-weight:800;font-size:1.5rem;color:#04070a;}
+        .tier-s .tier-badge{background:#2bff88;}
+        .tier-a .tier-badge{background:#c6ff3d;}
+        .tier-b .tier-badge{background:#7dffb3;}
+        .tier-c .tier-badge{background:#5f8f72;color:#04070a;}
+        .tier-d .tier-badge{background:#1d4636;color:#bfe9cf;}
+        .tier-items{flex:1;padding:0.9rem 1.1rem;background:rgba(15,23,42,0.5);color:#bfe9cf;font-size:0.92rem;line-height:1.5;display:flex;align-items:center;}
+        .cta-box{background:linear-gradient(135deg,#0a1411 0%,#102a1a 100%);border:2px solid #2bff88;border-radius:1rem;padding:2.5rem;margin:3rem 0;text-align:center;}
+        .checklist-item{display:flex;align-items:start;gap:0.75rem;padding:1rem;background:rgba(15,23,42,0.5);border-radius:0.5rem;margin-bottom:0.75rem;border:1px solid #16352a;transition:all 0.3s ease;}
+        .checklist-item:hover{border-color:#2bff88;}
+        .step-badge{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;background:rgba(249,115,22,0.15);border:1px solid #2bff88;border-radius:50%;color:#7dffb3;font-weight:800;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+        .hero-image{width:100%;border-radius:1rem;border:1px solid #16352a;margin-bottom:2rem;display:block;}
+        .price-tag{display:inline-block;background:rgba(249,115,22,0.15);border:1px solid #2bff88;color:#7dffb3;font-weight:800;padding:0.25rem 0.75rem;border-radius:0.5rem;font-size:0.9rem;}
+        .stat-card{background:rgba(15,23,42,0.8);border:1px solid #16352a;border-radius:0.75rem;padding:1.25rem;text-align:center;}
+        .stat-card .stat-num{font-size:2rem;font-weight:800;color:#7dffb3;}
+        .stat-card .stat-label{font-size:0.8rem;color:#5f8f72;margin-top:0.25rem;}
+        .prompt-box{background:#0a1411;border:1px solid #16352a;border-left:4px solid #2bff88;border-radius:0.5rem;padding:1.25rem;margin:1.5rem 0;font-family:monospace;font-size:0.85rem;color:#c6ff3d;line-height:1.8;white-space:pre-wrap;}
+        .funnel-diagram{background:#0a1411;border:1px solid #16352a;border-radius:1rem;padding:2rem;margin:2rem 0;overflow-x:auto;}
+        .funnel-step{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(249,115,22,0.1);border:1px solid #2bff88;border-radius:0.5rem;padding:0.5rem 1rem;font-size:0.9rem;font-weight:600;color:#7dffb3;white-space:nowrap;}
+        .funnel-arrow{color:#1d4636;font-weight:800;margin:0 0.25rem;font-size:1.1rem;}
+        .takeaways-box{background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.3);border-radius:1rem;padding:1.5rem 2rem;margin:2rem 0;}
+        .faq-item{background:rgba(15,23,42,0.6);border:1px solid #16352a;border-radius:0.75rem;padding:1.5rem;margin-bottom:1rem;}
+        .faq-q{font-weight:700;color:#fff;margin-bottom:0.75rem;font-size:1rem;}
+        .faq-a{color:#8fcaa6;font-size:0.95rem;line-height:1.7;margin:0;}
+        .citation-capsule{background:rgba(249,115,22,0.05);border:1px solid rgba(249,115,22,0.2);border-radius:0.5rem;padding:1.25rem;margin:1.5rem 0;font-style:italic;color:#8fcaa6;font-size:0.9rem;line-height:1.7;}
+        .citation-capsule cite{display:block;margin-top:0.5rem;font-style:normal;color:#5f8f72;font-size:0.8rem;}
+    </style>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#04070a;color:#d6f5e4;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Inter Tight',sans-serif}
+  h1{letter-spacing:-0.03em}
+  .display{letter-spacing:-0.04em;line-height:0.95}
+  .label{font-family:'JetBrains Mono',monospace;letter-spacing:0.2em}
+  .gradient-text{background:linear-gradient(90deg,#2bff88,#7dffb3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 26px rgba(43,255,136,.25)}
+  .neon-text{color:#2bff88;text-shadow:0 0 8px rgba(43,255,136,.55),0 0 28px rgba(43,255,136,.35)}
+  .neon-line{box-shadow:0 0 14px rgba(43,255,136,.45)}
+  #spot{position:fixed;inset:0;z-index:30;pointer-events:none;background:radial-gradient(360px circle at var(--mx,-200px) var(--my,-200px),rgba(43,255,136,.08),transparent 60%);transition:background .08s linear}
+  ::selection{background:#2bff88;color:#04070a}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#spot{display:none}}
+</style>
+</head>
+<body class="antialiased">
+<div id="spot"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-40 border-b border-line/70 bg-ink/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="display flex items-center gap-2 text-lg font-extrabold tracking-tight">
+      <span class="inline-block h-2 w-2 rounded-full bg-neon neon-line"></span>САРАМУД<span class="text-neon">_</span>ВЛАДИСЛАВ
+    </a>
+    <div class="label hidden gap-8 text-[11px] uppercase text-neon/60 md:flex">
+      <a href="/#cases" class="transition hover:text-neon">Кейсы</a>
+      <a href="/#services" class="transition hover:text-neon">Услуги</a>
+      <a href="/#shashlik" class="transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="transition hover:text-neon">Блог</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="label hidden rounded-none border border-neon px-4 py-2 text-[11px] uppercase text-neon transition hover:bg-neon hover:text-ink md:inline-block">Обсудить →</a>
+      <button id="burger" aria-label="Меню" aria-expanded="false" class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden">
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden border-t border-line bg-ink md:hidden">
+    <div class="flex flex-col px-6 pb-5 pt-2 label text-[13px] uppercase text-emerald-100/80">
+      <a href="/#services" class="border-b border-line/60 py-3.5 transition hover:text-neon">Услуги</a>
+      <a href="/#cases" class="border-b border-line/60 py-3.5 transition hover:text-neon">Кейсы</a>
+      <a href="/#reviews" class="border-b border-line/60 py-3.5 transition hover:text-neon">Отзывы</a>
+      <a href="/#shashlik" class="border-b border-line/60 py-3.5 transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="py-3.5 transition hover:text-neon">Блог</a>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="container mx-auto px-6 py-4 max-w-4xl">
+    <nav class="text-sm text-neon">
+        <a href="/" class="hover:text-neon transition">Главная</a>
+        <span class="mx-2">/</span>
+        <a href="/blog/" class="hover:text-neon transition">Статьи</a>
+        <span class="mx-2">/</span>
+        <span class="text-neon">Нейроагент для отдела продаж 2026</span>
+    </nav>
+</div>
+
+<main class="container mx-auto px-6 py-8 max-w-4xl">
+
+    <!-- HEADER -->
+    <header class="mb-10">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+            <span class="px-3 py-1 bg-neon/30 text-neon text-xs font-bold uppercase rounded-full border border-neon/50">AI &amp; Автоматизация</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">Продажи</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">n8n</span>
+            <span class="text-neon text-sm"><i class="far fa-clock mr-1"></i>17 минут чтения</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+            Нейроагент для отдела продаж 2026: <span class="gradient-text">ИИ-менеджер, который не спит</span>
+        </h1>
+        <p class="text-xl text-neon leading-relaxed mb-6">
+            Лид пишет в 23:40, менеджер ответит утром — а лид уже купил у конкурента. Нейроагент отвечает за секунды круглые сутки, квалифицирует и греет, отдавая живому менеджеру только тёплых. Разбираю, какие задачи ему доверить (тир-лист), из чего собрать и сколько это окупает.
+        </p>
+        <div class="flex items-center gap-4 text-sm text-neon border-t border-line pt-4">
+            <div class="flex items-center gap-2">
+                <img src="/avatar.webp" alt="Владислав Сарамуд — маркетинг-директор, эксперт по автоматизации продаж и нейроагентам" class="w-10 h-10 rounded-full border-2 border-neon">
+                <div>
+                    <div class="text-white font-semibold"><a href="/about/" class="hover:text-neon transition">Владислав Сарамуд</a></div>
+                    <div>Маркетинг-директор, 6+ лет в digital</div>
+                </div>
+            </div>
+            <span class="text-line">|</span>
+            <time datetime="2026-06-11">11 июня 2026</time>
+        </div>
+    </header>
+
+    <!-- HERO IMAGE -->
+    <div class="mb-10">
+        <img
+            src="/images/neyroagent-dlya-otdela-prodazh-2026.webp"
+            alt="Нейроагент для отдела продаж: ИИ-менеджер на базе LLM отвечает 24/7, квалифицирует лиды и передаёт их в CRM"
+            class="hero-image"
+            width="800"
+            height="420"
+            loading="eager"
+        >
+        <p class="text-xs text-neon text-center mt-2">Архитектура нейроагента продаж: LLM + CRM + мессенджеры — июнь 2026</p>
+    </div>
+
+    <article class="prose prose-invert max-w-none">
+
+        <!-- INTRO -->
+        <p>39% российских компаний уже используют ИИ-агентов в бизнесе (<a href="https://www.bitrix24.ru/journal/tehnologii-iskusstvennogo-intellekta-dlya-avtomatizatsii-prodazh/" target="_blank" rel="noopener" class="text-neon hover:text-neon">данные СберАналитики</a>, 2026). И главная причина — скорость. Большая часть клиентов ждут ответ 3–5 минут и больше не возвращаются в чат. Менеджер физически не может отвечать всем мгновенно и круглосуточно. Нейроагент — может.</p>
+
+        <p>Это не «бот с кнопками». Нейроагент на базе большой языковой модели понимает живую речь, помнит контекст переписки, знает ваш продукт и ведёт диалог как менеджер. Разберу, какие задачи ему стоит доверить, а какие — нет (тир-лист), как его собрать на связке LLM + CRM + n8n и сколько он реально окупает.</p>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Нейроагент — следующий уровень автоматизации после воронки. Сначала разберитесь с базой: <a href="/articles/avtovoronka-telegram-2026/" class="text-neon hover:text-neon">автоворонка продаж в Telegram через n8n за 1 день</a>.</p>
+
+        <!-- KEY TAKEAWAYS -->
+        <div class="takeaways-box">
+            <p class="text-neon font-bold mb-3 text-sm uppercase tracking-wider"><i class="fas fa-bolt mr-2"></i>Главное за 60 секунд</p>
+            <ul class="text-emerald-200 text-sm space-y-2 mb-0" style="list-style:none;padding:0;">
+                <li>- <strong>39%</strong> компаний РФ уже используют ИИ-агентов (СберАналитика, 2026)</li>
+                <li>- Клиент ждёт ответ <strong>3–5 минут</strong> и уходит — нейроагент отвечает за секунды 24/7</li>
+                <li>- Воронки с ИИ-чатом конвертируют в <strong>2,4 раза</strong> лучше статичных форм</li>
+                <li>- Обращение через нейроагента — <strong>$0,5–0,7</strong> против $4–6 у живого оператора</li>
+                <li>- Окупаемость за <strong>3–6 месяцев</strong>, ROI 3–10× за первый год</li>
+            </ul>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Чат-бот vs нейроагент: в чём принципиальная разница</h2>
+
+        <p><strong>Коротко: чат-бот идёт по жёсткому сценарию, нейроагент — думает.</strong> Это разница между автоответчиком и менеджером. Обычный бот ломается на любом вопросе вне скрипта; нейроагент понимает суть и отвечает по существу.</p>
+
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Параметр</th>
+                        <th>Чат-бот (сценарный)</th>
+                        <th>Нейроагент (LLM)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Логика</strong></td>
+                        <td>Кнопки и жёсткий сценарий</td>
+                        <td class="text-neon font-bold">Понимает живую речь</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Вопрос вне скрипта</strong></td>
+                        <td>Ломается / «не понимаю»</td>
+                        <td class="text-neon font-bold">Отвечает по сути</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Память контекста</strong></td>
+                        <td>Нет или ограничена</td>
+                        <td class="text-neon font-bold">Помнит всю переписку</td>
+                    </tr>
+                    <tr>
+                        <td><strong>База знаний</strong></td>
+                        <td>Заранее прописанные ответы</td>
+                        <td class="text-neon font-bold">Изучил ваш продукт и документы</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Квалификация лида</strong></td>
+                        <td>По формальным кнопкам</td>
+                        <td class="text-neon font-bold">Через осмысленный диалог</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>В 2026 году продвинутые нейроагенты на базе GPT и Claude автономно закрывают до 94,6% входящих обращений без передачи человеку, с оценкой удовлетворённости 4,4 из 5 (<a href="https://www.envive.ai/post/ai-sales-agent-statistics" target="_blank" rel="noopener" class="text-neon hover:text-neon">Envive AI Statistics</a>, 2026). Это уже не эксперимент, а рабочий инструмент.</p>
+
+        <!-- ======================================= -->
+        <h2>Что доверить нейроагенту: тир-лист задач</h2>
+
+        <p>Главное в статье. Не всё в продажах стоит отдавать ИИ. Вот честный тир-лист: что нейроагент закрывает отлично, а что лучше оставить живому менеджеру. [PERSONAL EXPERIENCE]</p>
+
+        <div class="tier-list">
+            <div class="tier-row tier-s">
+                <div class="tier-badge">S</div>
+                <div class="tier-items"><strong>Мгновенный ответ 24/7</strong> на входящие · <strong>Квалификация лида</strong> (потребность, бюджет, сроки)</div>
+            </div>
+            <div class="tier-row tier-a">
+                <div class="tier-badge">A</div>
+                <div class="tier-items">Ответы на типовые вопросы (продукт, цена, условия) · Запись на встречу/звонок · Сбор контактов в CRM</div>
+            </div>
+            <div class="tier-row tier-b">
+                <div class="tier-badge">B</div>
+                <div class="tier-items">Прогрев и допродажа · Реактивация молчунов · Первичная консультация по каталогу</div>
+            </div>
+            <div class="tier-row tier-c">
+                <div class="tier-badge">C</div>
+                <div class="tier-items">Сложные переговоры с торгом · Нестандартные возражения · Индивидуальные условия</div>
+            </div>
+            <div class="tier-row tier-d">
+                <div class="tier-badge">D</div>
+                <div class="tier-items">Финальное закрытие крупной сделки · Конфликтные ситуации · Юридические и финансовые гарантии</div>
+            </div>
+        </div>
+
+        <h3>S-тир: скорость и квалификация</h3>
+        <p>Здесь нейроагент бьёт человека вчистую. Он отвечает мгновенно в любое время, не устаёт и не забывает спросить ключевые вопросы. <strong>Квалификация</strong> — его суперсила: пока менеджер спит, агент выясняет потребность, бюджет и сроки, отсеивает нецелевых и помечает горячих. 55% компаний с ИИ-чатами отмечают рост числа качественных лидов именно за счёт этого.</p>
+
+        <h3>Почему C и D остаются за человеком</h3>
+        <p>Сложный торг, нестандартные возражения и эмоционально заряженные ситуации требуют гибкости, эмпатии и полномочий, которых у агента нет. Здесь его задача — не закрыть сделку, а <strong>передать живому менеджеру уже тёплый квалифицированный лид</strong> со всей историей переписки. ИИ + человек вместе сильнее каждого по отдельности.</p>
+
+        <div class="citation-capsule">
+            Воронки с чат-ботом конвертируют в 2,4 раза лучше статичных веб-форм, а внедрение ИИ-чатов повышает конверсию примерно на 23% и ускоряет обработку обращений на 18%. Ключевой фактор — скорость первого ответа: большинство клиентов ждут реакции 3–5 минут и уходят, тогда как нейроагент отвечает за секунды круглосуточно.
+            <cite>Glassix Study, 2026; Envive AI Sales Agent Statistics, 2026</cite>
+        </div>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Промпты и сценарии для агента можно собрать заранее: смотрите <a href="/articles/prompty-dlya-prodazh/" class="text-neon hover:text-neon">промпты для продаж</a> — готовые формулировки для квалификации и отработки возражений.</p>
+
+        <!-- ======================================= -->
+        <h2>Из чего собрать нейроагента: LLM + CRM + мессенджеры</h2>
+
+        <p><strong>Коротко: нейроагент — это связка из трёх слоёв, и собирается она без кода.</strong> Мозг (LLM), руки (автоматизация n8n) и каналы (мессенджеры + CRM). Каждый слой подключается визуально.</p>
+
+        <div class="funnel-diagram">
+            <p class="text-neon text-xs uppercase tracking-wider font-bold mb-4">Архитектура нейроагента</p>
+            <div class="flex flex-wrap items-center gap-1">
+                <span class="funnel-step">Клиент в мессенджере</span>
+                <span class="funnel-arrow">&#8594;</span>
+                <span class="funnel-step">n8n (оркестратор)</span>
+                <span class="funnel-arrow">&#8594;</span>
+                <span class="funnel-step">LLM + база знаний</span>
+                <span class="funnel-arrow">&#8594;</span>
+                <span class="funnel-step">Ответ клиенту</span>
+                <span class="funnel-arrow">&#8594;</span>
+                <span class="funnel-step">Запись в CRM</span>
+            </div>
+        </div>
+
+        <ul>
+            <li><strong>Мозг — LLM.</strong> ChatGPT, Claude, YandexGPT или GigaChat. Здесь живёт понимание речи и ваша база знаний (продукт, прайс, FAQ, скрипты).</li>
+            <li><strong>Оркестратор — n8n.</strong> Принимает сообщение, передаёт в LLM, получает ответ, решает, что делать дальше (ответить, записать в CRM, позвать менеджера). Без кода, на российском VPS.</li>
+            <li><strong>Каналы — мессенджеры + CRM.</strong> Telegram, WhatsApp, чат на сайте + amoCRM/Bitrix24. Нейроагент работает там, где уже общаются ваши клиенты.</li>
+        </ul>
+
+        <div class="ai-box">
+            <p class="font-semibold mb-2" style="color:#b388ff"><i class="fas fa-server mr-2"></i>Почему n8n как ядро</p>
+            <p class="text-emerald-100 text-sm mb-0">n8n — open-source конструктор автоматизации, который разворачивается на российском VPS без VPN и санкционных рисков. Он соединяет LLM, мессенджеры и CRM визуально, drag-and-drop, и даёт полный контроль над логикой агента: когда отвечать самому, когда передавать человеку, что писать в карточку сделки. Это ядро, вокруг которого собирается весь нейроагент.</p>
+        </div>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Выбираете платформу автоматизации? Сравнение: <a href="/articles/n8n-vs-make/" class="text-neon hover:text-neon">n8n vs Make — что выбрать в 2026</a>.</p>
+
+        <!-- ======================================= -->
+        <h2>Скорость ответа — главный рычаг конверсии</h2>
+
+        <p><strong>Коротко: первый ответ за секунды важнее красивого скрипта.</strong> Лид горячий ровно в момент обращения. Через 5 минут он остыл, через час — ушёл к конкуренту. Нейроагент ловит этот момент всегда.</p>
+
+        <!-- STATS GRID -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+            <div class="stat-card">
+                <div class="stat-num">2.4x</div>
+                <div class="stat-label">конверсия vs статичные формы</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">+23%</div>
+                <div class="stat-label">рост конверсии с ИИ-чатом</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">94,6%</div>
+                <div class="stat-label">обращений закрывает сам</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">4,4/5</div>
+                <div class="stat-label">оценка ответов агента</div>
+            </div>
+        </div>
+
+        <p>Цифры из практики совпадают: основная потеря лидов происходит не на этапе продажи, а на этапе первого касания — когда некому ответить. Нейроагент закрывает именно эту дыру, и потому даёт прирост конверсии раньше любых улучшений скрипта.</p>
+
+        <!-- ======================================= -->
+        <h2>Экономика: сколько стоит и какой ROI</h2>
+
+        <p><strong>Коротко: одно обращение через нейроагента стоит в 6–10 раз дешевле живого оператора.</strong> Обработка обращения агентом — примерно $0,5–0,7 против $4–6 у человека (<a href="https://www.envive.ai/post/ai-sales-agent-statistics" target="_blank" rel="noopener" class="text-neon hover:text-neon">Envive</a>, 2026).</p>
+
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Показатель</th>
+                        <th>Значение</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Стоимость обращения (нейроагент)</td>
+                        <td class="text-neon font-bold">$0,5–0,7</td>
+                    </tr>
+                    <tr>
+                        <td>Стоимость обращения (живой оператор)</td>
+                        <td>$4–6</td>
+                    </tr>
+                    <tr>
+                        <td>Снижение стоимости лида</td>
+                        <td class="text-neon font-bold">40–60%</td>
+                    </tr>
+                    <tr>
+                        <td>ROI за первый год</td>
+                        <td class="text-neon font-bold">3–10×</td>
+                    </tr>
+                    <tr>
+                        <td>Срок окупаемости</td>
+                        <td>3–6 месяцев</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Логика та же, что у любой автоматизации: чем больше входящего потока, тем быстрее окупается нейроагент. При 10 обращениях в день экономия скромная, при 200 — он заменяет смену операторов и окупается за пару месяцев. И это без учёта недополученных продаж от медленных ответов, которые он спасает.</p>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Посчитайте экономику внедрения на своих числах: <a href="/kalkulyator-yunit-ekonomiki/" class="text-neon hover:text-neon">калькулятор юнит-экономики</a> — стоимость лида, CAC и окупаемость.</p>
+
+        <!-- ======================================= -->
+        <h2>Пошаговый план внедрения нейроагента</h2>
+
+        <p>[UNIQUE INSIGHT] 80% успеха нейроагента — не техника, а проработанная база знаний и сценарии. Техническая сборка — последние 20%. Вот порядок. [PERSONAL EXPERIENCE]</p>
+
+        <div class="checklist-item">
+            <div class="step-badge">1</div>
+            <div>
+                <strong>Собери базу знаний</strong><br>
+                <span class="text-sm text-neon">Продукт, прайс, частые вопросы, отработка возражений, скрипты квалификации. Это «обучение» агента — чем полнее, тем лучше он отвечает.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">2</div>
+            <div>
+                <strong>Опиши сценарий квалификации</strong><br>
+                <span class="text-sm text-neon">Какие вопросы агент задаёт, как определяет горячего лида, в какой момент зовёт менеджера. Это граница между S/A и C/D-тиром.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">3</div>
+            <div>
+                <strong>Подними n8n и подключи LLM</strong><br>
+                <span class="text-sm text-neon">VPS + n8n, нода LLM (ChatGPT/Claude/YandexGPT) с системным промптом и базой знаний. Drag-and-drop, без кода.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">4</div>
+            <div>
+                <strong>Подключи каналы и CRM</strong><br>
+                <span class="text-sm text-neon">Telegram/WhatsApp/чат сайта + amoCRM или Bitrix24. Агент пишет историю и статус лида прямо в карточку сделки.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">5</div>
+            <div>
+                <strong>Настрой передачу менеджеру</strong><br>
+                <span class="text-sm text-neon">Триггеры эскалации: горячий лид, запрос на торг, конфликт. Агент зовёт человека и отдаёт ему весь контекст.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">6</div>
+            <div>
+                <strong>Тестируй и дообучай</strong><br>
+                <span class="text-sm text-neon">Читай реальные диалоги, лови провалы, дополняй базу знаний. Первые 2 недели — активная отладка, дальше агент стабилизируется.</span>
+            </div>
+        </div>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Нейроагент — часть большой системы. Как встроить его в общую структуру: <a href="/articles/marketing-department-2026/" class="text-neon hover:text-neon">как построить отдел маркетинга с нуля в 2026</a>.</p>
+
+        <!-- ======================================= -->
+        <h2>5 ошибок при внедрении нейроагента</h2>
+
+        <p>Типичные провалы, которые превращают перспективный инструмент в разочарование. [PERSONAL EXPERIENCE]</p>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 1: пустая база знаний</p>
+            <p class="text-neon text-sm mb-0">Запустить агента без проработанной базы = получить вежливого собеседника, который ничего толком не знает о продукте. 80% качества — в базе знаний. Сначала контент, потом запуск.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 2: отдать ИИ всё подряд</p>
+            <p class="text-neon text-sm mb-0">Заставлять агента закрывать сложные сделки и конфликты (C/D-тир) — путь к потере клиентов. Его роль — скорость и квалификация, а не замена сильного переговорщика.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 3: нет передачи человеку</p>
+            <p class="text-neon text-sm mb-0">Агент без эскалации запирает горячего лида в диалоге с ИИ, когда тот уже готов говорить с менеджером. Триггеры передачи человеку обязательны.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 4: маскировать ИИ под человека</p>
+            <p class="text-neon text-sm mb-0">Обман вскрывается и бьёт по доверию. Честное «я ИИ-ассистент, отвечу мгновенно и позову менеджера по сложным вопросам» работает лучше, чем неловкая имитация человека.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 5: запустить и забыть</p>
+            <p class="text-neon text-sm mb-0">Нейроагент требует дообучения по реальным диалогам, особенно первые недели. Без чтения логов и пополнения базы он застывает на ошибках. Это живой инструмент, а не «настроил и ушёл».</p>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Чек-лист перед запуском</h2>
+
+        <div class="bg-surface border border-line rounded-xl p-6 mb-8">
+            <ul class="space-y-3 mb-0">
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>База знаний собрана: продукт, прайс, FAQ, отработка возражений</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Описан сценарий квалификации и критерий «горячего» лида</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>n8n поднят на VPS, LLM подключён с системным промптом</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Подключены каналы (мессенджеры/чат) и CRM</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Настроены триггеры передачи живому менеджеру</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Агент честно представляется как ИИ-ассистент</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Запланирована отладка по логам первые 2 недели</span></li>
+            </ul>
+        </div>
+
+        <!-- CTA MID-ARTICLE -->
+        <div class="cta-box">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
+                <i class="fas fa-robot"></i> Соберу за вас
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Нужен нейроагент под ваш отдел продаж?</h3>
+            <p class="text-emerald-200 mb-6">Соберу ИИ-агента под вашу нишу: база знаний, сценарии квалификации, связка LLM + n8n + CRM, передача менеджеру. Отвечает за секунды 24/7 и отдаёт продавцам тёплых лидов.</p>
+            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20">
+                <i class="fab fa-telegram"></i>
+                Написать в Telegram
+            </a>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Часто задаваемые вопросы</h2>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Чем нейроагент отличается от обычного чат-бота?</p>
+            <p class="faq-a">Чат-бот работает по жёсткому сценарию: кнопки и заранее прописанные ответы, шаг вне скрипта — и он ломается. Нейроагент на базе LLM понимает живую речь, помнит контекст, знает вашу базу знаний и ведёт диалог как менеджер — квалифицирует и адаптируется под клиента, а не просто отвечает по скрипту.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Какие задачи можно доверить нейроагенту?</p>
+            <p class="faq-a">Лучше всего: мгновенный ответ 24/7, квалификацию лида (потребность, бюджет, сроки), ответы на типовые вопросы, запись на встречу, прогрев и сбор контактов в CRM. Сложные переговоры с торгом, нестандартные возражения и закрытие крупных сделок лучше оставить менеджеру — агент передаёт ему уже тёплый квалифицированный лид.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Насколько скорость ответа влияет на конверсию?</p>
+            <p class="faq-a">Критично. Большинство клиентов ждут ответ 3–5 минут и уходят. Нейроагент отвечает за секунды круглосуточно. Воронки с чат-ботом конвертируют в 2,4 раза лучше статичных форм, а ИИ-чаты повышают конверсию примерно на 23%. Скорость первого ответа — один из сильнейших рычагов конверсии.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Сколько стоит нейроагент и какой ROI?</p>
+            <p class="faq-a">Одно обращение через агента — примерно $0,5–0,7 против $4–6 у живого оператора. Бизнес снижает стоимость лида на 40–60% и получает возврат 3–10× за первый год, окупаясь за 3–6 месяцев. Чем больше входящий поток, тем быстрее окупается автоматизация.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Нужен ли программист, чтобы собрать нейроагента?</p>
+            <p class="faq-a">Нет. Агент собирается на связке LLM (ChatGPT, Claude, YandexGPT, GigaChat) + CRM + мессенджеры через визуальный конструктор n8n без кода. n8n разворачивается на российском VPS и подключается к Telegram, WhatsApp и amoCRM/Bitrix24 нодами. Главная работа — база знаний и сценарии, а не техника.</p>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Итоги: нейроагент не заменяет продавцов, а усиливает их</h2>
+
+        <p>Нейроагент в 2026 — не про «уволить отдел продаж», а про то, чтобы менеджеры занимались сделками, а не отвечали на «а сколько стоит» в полночь. Он закрывает самую дорогую дыру воронки — медленный первый ответ — и отдаёт людям тёплых квалифицированных лидов.</p>
+
+        <p>Формула проста: доверь агенту S/A-тир (скорость, квалификация, рутина), оставь человеку C/D-тир (сложные сделки, эмоции), собери связку LLM + n8n + CRM и не забывай дообучать. Тогда ИИ и команда вместе дают то, чего по отдельности не может ни тот, ни другой: мгновенную реакцию плюс человеческое закрытие.</p>
+
+        <p>39% компаний уже это сделали. Через год вопрос будет не «зачем нейроагент», а «почему его до сих пор нет».</p>
+
+        <!-- INTERNAL LINK ZONE - conclusion -->
+        <p class="text-sm text-neon italic">Следующий шаг — соберите воронку, в которую встанет агент: <a href="/articles/avtovoronka-telegram-2026/" class="text-neon hover:text-neon">автоворонка в Telegram через n8n</a>, и изучите <a href="/articles/neyroseti-dlya-biznesa/" class="text-neon hover:text-neon">нейросети для бизнеса</a> целиком.</p>
+
+        <!-- RELATED TOOLS -->
+        <div class="not-prose my-10 rounded-xl border border-line bg-surface/40 p-6">
+            <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-neon mb-4">Посчитайте свои цифры</div>
+            <div class="grid gap-3 sm:grid-cols-2"><a href="/kalkulyator-yunit-ekonomiki/" class="group flex items-center justify-between rounded-lg border border-line bg-ink/40 px-4 py-3 no-underline transition hover:border-neon"><span class="text-emerald-100/85 transition group-hover:text-neon">Калькулятор юнит-экономики: CAC, ROAS, LTV</span><span class="text-neon transition group-hover:translate-x-1">→</span></a><a href="/kalkulyator-rentabelnosti/" class="group flex items-center justify-between rounded-lg border border-line bg-ink/40 px-4 py-3 no-underline transition hover:border-neon"><span class="text-emerald-100/85 transition group-hover:text-neon">Калькуляторы рентабельности по 17 нишам</span><span class="text-neon transition group-hover:translate-x-1">→</span></a></div>
+        </div>
+
+        <!-- FINAL CTA -->
+        <div class="cta-box">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
+                <i class="fas fa-rocket"></i> Автоматизировать продажи
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Помогу внедрить нейроагента в продажи</h3>
+            <p class="text-emerald-200 mb-2">Владислав Сарамуд — маркетинг-директор, 6+ лет опыта. Строю системы автоматизации продаж на связке LLM + n8n + CRM. База знаний, квалификация, эскалация — агент, который реально приводит сделки.</p>
+            <p class="text-neon text-sm mb-6">Расскажите про продукт и поток обращений — предложу архитектуру нейроагента под вашу задачу.</p>
+            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20 text-lg">
+                <i class="fab fa-telegram"></i>
+                Написать в Telegram
+            </a>
+        </div>
+
+    </article>
+
+    <!-- RELATED ARTICLES -->
+    <p style="font-size:0.9rem;color:#5f8f72;font-style:italic;margin:1.5rem 0 0;">Больше про автоматизацию и ИИ — в подборке <a href="/neyroseti-dlya-kontenta/" style="color:#7dffb3;">нейросети для контента</a> и <a href="/reklama-i-trafik/" style="color:#7dffb3;">реклама и трафик</a>.</p>
+
+    <div class="mt-16 pt-8 border-t border-line">
+        <h3 class="text-2xl font-bold text-white mb-6">Читайте также:</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <a href="/articles/avtovoronka-telegram-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-orange-600 transition group">
+                <span class="text-xs font-bold text-orange-400 uppercase tracking-wider">Автоматизация</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-orange-400 transition">Автоворонка в Telegram через n8n</h4>
+                <p class="text-neon text-sm">Фундамент, в который встаёт нейроагент: бот + n8n за 1 день без программиста...</p>
+            </a>
+            <a href="/articles/n8n-vs-make/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-emerald-600 transition group">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Сравнения</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-emerald-400 transition">n8n vs Make: что выбрать</h4>
+                <p class="text-neon text-sm">Ядро нейроагента: какой конструктор автоматизации взять в 2026...</p>
+            </a>
+            <a href="/articles/prompty-dlya-prodazh/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-emerald-600 transition group">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Промпты</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-emerald-400 transition">Промпты для продаж</h4>
+                <p class="text-neon text-sm">Готовые формулировки для квалификации и отработки возражений агентом...</p>
+            </a>
+            <a href="/articles/marketing-department-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">Маркетинг</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">Отдел маркетинга с нуля</h4>
+                <p class="text-neon text-sm">Куда встроить нейроагента в общую систему привлечения и продаж...</p>
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-line bg-surface/40 mt-20">
+  <div class="mx-auto max-w-6xl px-6 py-14 text-center">
+    <div class="mb-8 flex justify-center gap-5">
+      <a href="https://t.me/saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-telegram"></i></a>
+      <a href="https://www.instagram.com/saramudvlad/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="mb-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 label text-[11px] uppercase text-neon/55">
+      <a href="/blog/" class="transition hover:text-neon">Блог</a><span class="text-line">/</span>
+      <a href="/neyroseti-dlya-kontenta/" class="transition hover:text-neon">Нейросети для контента</a><span class="text-line">/</span>
+      <a href="/reklama-i-trafik/" class="transition hover:text-neon">Реклама и трафик</a><span class="text-line">/</span>
+      <a href="/services/" class="transition hover:text-neon">Услуги</a><span class="text-line">/</span>
+      <a href="/about/" class="transition hover:text-neon">Об авторе</a>
+    </div>
+    <div class="mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-neon/35">
+      <a href="https://disk.yandex.ru/i/Ncd0GgyZTdE2OQ" class="transition hover:text-neon/70">Публичная оферта</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/3Zig9pNfq_A0Ww" class="transition hover:text-neon/70">Политика конфиденциальности</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/RhsYX71b6lmmVg" class="transition hover:text-neon/70">Согласие на обработку ПД</a>
+    </div>
+    <p class="mx-auto mb-5 max-w-2xl text-[11px] leading-relaxed text-neon/25">* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
+    <p class="label text-[11px] uppercase text-neon/30">© 2026 Владислав Сарамуд</p>
+  </div>
+</footer>
+
+<script>
+const _reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){const b=document.getElementById('burger'),m=document.getElementById('mobile-menu');if(!b||!m)return;const s=b.querySelectorAll('span');function o(open){m.classList.toggle('hidden',!open);b.setAttribute('aria-expanded',open);s[0].style.transform=open?'translateY(8px) rotate(45deg)':'';s[1].style.opacity=open?'0':'';s[2].style.transform=open?'translateY(-8px) rotate(-45deg)':'';}b.addEventListener('click',()=>o(m.classList.contains('hidden')));m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>o(false)));})();
+if(!_reduce){const sp=document.getElementById('spot');if(sp)window.addEventListener('pointermove',e=>{sp.style.setProperty('--mx',e.clientX+'px');sp.style.setProperty('--my',e.clientY+'px');});}
+</script>
+</body>
+</html>

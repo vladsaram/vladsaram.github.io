@@ -1,5 +1,19 @@
 [
   {
+    "slug": "neyroagent-dlya-otdela-prodazh-2026",
+    "title": "Нейроагент для отдела продаж 2026: ИИ-менеджер, который не спит",
+    "desc": "Лид ждёт ответ 3–5 минут и уходит. Нейроагент отвечает за секунды 24/7, квалифицирует и греет. Как собрать ИИ-менеджера продаж в 2026: задачи, архитектура LLM+CRM+n8n, ROI.",
+    "category": "AI & Автоматизация",
+    "categoryColor": "purple",
+    "icon": "fa-headset",
+    "iconBg": "from-purple-600 to-violet-700",
+    "read": "17 мин",
+    "url": "/articles/neyroagent-dlya-otdela-prodazh-2026/",
+    "image": "/images/neyroagent-dlya-otdela-prodazh-2026.webp",
+    "date": "2026-06-11",
+    "dateLabel": "11 июня 2026"
+  },
+  {
     "slug": "prodvizhenie-na-avito-2026",
     "title": "Продвижение на Авито 2026: как вывести объявление в топ",
     "desc": "72 млн аудитория, алгоритм Avito Ranker 3 и «кредит доверия». Как продвигать объявления на Авито в 2026: тир-лист рычагов, карточка, рейтинг, платное продвижение без слива бюджета.",
