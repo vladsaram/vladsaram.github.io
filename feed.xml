@@ -6,7 +6,14 @@
     <description>Системный маркетинг, реклама и AI-автоматизация: статьи, гайды, разборы инструментов.</description>
     <language>ru</language>
     <atom:link href="https://saramudvlad.ru/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 11 Jun 2026 10:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jun 2026 10:00:00 +0300</lastBuildDate>
+    <item>
+      <title>Как установить n8n на VPS в 2026: пошаговая инструкция на русском</title>
+      <link>https://saramudvlad.ru/articles/kak-ustanovit-n8n-na-vps-2026/</link>
+      <guid>https://saramudvlad.ru/articles/kak-ustanovit-n8n-na-vps-2026/</guid>
+      <description>Установка n8n на свой VPS за 30–40 минут: выбор сервера, Docker, домен и SSL, первый workflow и обновления. Пошагово, с готовым docker-compose и типовыми ошибками.</description>
+      <pubDate>Fri, 12 Jun 2026 10:00:00 +0300</pubDate>
+    </item>
     <item>
       <title>ИИ-агенты на n8n для бизнеса 2026: как собрать без кода</title>
       <link>https://saramudvlad.ru/articles/ii-agenty-na-n8n-2026/</link>
@@ -208,13 +215,6 @@
       <link>https://saramudvlad.ru/articles/prompty-dlya-marketpleysov/</link>
       <guid>https://saramudvlad.ru/articles/prompty-dlya-marketpleysov/</guid>
       <description>Продающие SEO-описания, буллеты, инфографика и ответы на вопросы — отдельно под WB и Ozon.</description>
-      <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
-    </item>
-    <item>
-      <title>Промпты для Reels: сценарии и хуки нейросетью 2026</title>
-      <link>https://saramudvlad.ru/articles/prompty-dlya-reels/</link>
-      <guid>https://saramudvlad.ru/articles/prompty-dlya-reels/</guid>
-      <description>Вирусные хуки и сценарии коротких видео на 15–60 секунд. Готовые промпты с примерами.</description>
       <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
     </item>
   </channel>
