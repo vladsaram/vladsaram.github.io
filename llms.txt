@@ -48,6 +48,8 @@
 - [Как построить отдел маркетинга с нуля в 2026–2027](https://saramudvlad.ru/articles/marketing-department-2026/)
 - [Telegram Ads в 2026: полный гайд](https://saramudvlad.ru/articles/telegram-ads-2026/)
 - [Реклама ВКонтакте в 2026: настройка с нуля](https://saramudvlad.ru/articles/reklama-vkontakte-2026/)
+- [Продвижение на Авито 2026: как вывести объявление в топ](https://saramudvlad.ru/articles/prodvizhenie-na-avito-2026/)
+- [Нейроагент для отдела продаж 2026: ИИ-менеджер 24/7 (LLM + CRM + n8n)](https://saramudvlad.ru/articles/neyroagent-dlya-otdela-prodazh-2026/)
 - [50 промптов для ChatGPT в SMM](https://saramudvlad.ru/articles/prompty-chatgpt-smm/)
 - [Как AI снижает стоимость контента на 80%](https://saramudvlad.ru/articles/ai-content-cost/)
 - [Контент-маркетинг с нуля за 7 дней](https://saramudvlad.ru/articles/content-marketing-launch/)
