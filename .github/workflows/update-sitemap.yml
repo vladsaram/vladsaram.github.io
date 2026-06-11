@@ -100,11 +100,54 @@ jobs:
               print(f"links updated: {f} ({len(arts)} links)")
           PYEOF
 
+      - name: Generate RSS feed
+        run: |
+          python3 - << 'PYEOF'
+          import json
+          from datetime import datetime
+          from xml.sax.saxutils import escape
+
+          base = "https://saramudvlad.ru"
+          arts = json.load(open("articles.json", encoding="utf-8"))[:30]
+
+          def rfc822(d):
+              return datetime.strptime(d, "%Y-%m-%d").strftime("%a, %d %b %Y 10:00:00 +0300")
+
+          items = ""
+          for a in arts:
+              items += (
+                  "    <item>\n"
+                  f"      <title>{escape(a['title'])}</title>\n"
+                  f"      <link>{base}{a['url']}</link>\n"
+                  f"      <guid>{base}{a['url']}</guid>\n"
+                  f"      <description>{escape(a['desc'])}</description>\n"
+                  f"      <pubDate>{rfc822(a['date'])}</pubDate>\n"
+                  "    </item>\n"
+              )
+
+          feed = (
+              '<?xml version="1.0" encoding="UTF-8"?>\n'
+              '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+              '  <channel>\n'
+              '    <title>Владислав Сарамуд — маркетинг и нейросети</title>\n'
+              f'    <link>{base}/</link>\n'
+              '    <description>Системный маркетинг, реклама и AI-автоматизация: статьи, гайды, разборы инструментов.</description>\n'
+              '    <language>ru</language>\n'
+              f'    <atom:link href="{base}/feed.xml" rel="self" type="application/rss+xml"/>\n'
+              f"    <lastBuildDate>{rfc822(arts[0]['date'])}</lastBuildDate>\n"
+              + items +
+              '  </channel>\n'
+              '</rss>\n'
+          )
+          open("feed.xml", "w", encoding="utf-8").write(feed)
+          print(f"feed.xml: {len(arts)} items")
+          PYEOF
+
       - name: Commit and push sitemap & links
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add sitemap.xml index.html blog/index.html
+          git add sitemap.xml feed.xml index.html blog/index.html
           if git diff --staged --quiet; then echo "No changes"; exit 0; fi
           git commit -m "Auto-update sitemap + internal links"
           for i in 1 2 3 4 5; do

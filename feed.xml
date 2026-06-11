@@ -2,199 +2,220 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Владислав Сарамуд — маркетинг и нейросети</title>
-    <link>https://saramudvlad.ru/blog/</link>
-    <atom:link href="https://saramudvlad.ru/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>Практические статьи о маркетинге, нейросетях для контента, рекламе и автоматизации бизнеса.</description>
+    <link>https://saramudvlad.ru/</link>
+    <description>Системный маркетинг, реклама и AI-автоматизация: статьи, гайды, разборы инструментов.</description>
     <language>ru</language>
-    <lastBuildDate>Wed, 11 Jun 2026 10:00:00 +0300</lastBuildDate>
+    <atom:link href="https://saramudvlad.ru/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Thu, 11 Jun 2026 10:00:00 +0300</lastBuildDate>
+    <item>
+      <title>ИИ-агенты на n8n для бизнеса 2026: как собрать без кода</title>
+      <link>https://saramudvlad.ru/articles/ii-agenty-na-n8n-2026/</link>
+      <guid>https://saramudvlad.ru/articles/ii-agenty-na-n8n-2026/</guid>
+      <description>К концу 2026 года 40% бизнес-приложений получат ИИ-агентов (Gartner). Как собрать агента на n8n без кода: какие процессы отдать, анатомия LLM+tools+память, ROI и где проваливаются.</description>
+      <pubDate>Thu, 11 Jun 2026 10:00:00 +0300</pubDate>
+    </item>
     <item>
       <title>Нейроагент для отдела продаж 2026: ИИ-менеджер, который не спит</title>
       <link>https://saramudvlad.ru/articles/neyroagent-dlya-otdela-prodazh-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/neyroagent-dlya-otdela-prodazh-2026/</guid>
+      <guid>https://saramudvlad.ru/articles/neyroagent-dlya-otdela-prodazh-2026/</guid>
       <description>Лид ждёт ответ 3–5 минут и уходит. Нейроагент отвечает за секунды 24/7, квалифицирует и греет. Как собрать ИИ-менеджера продаж в 2026: задачи, архитектура LLM+CRM+n8n, ROI.</description>
-      <category>AI &amp; Автоматизация</category>
-      <pubDate>Wed, 11 Jun 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/neyroagent-dlya-otdela-prodazh-2026.webp" type="image/webp"/>
+      <pubDate>Thu, 11 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
       <title>Продвижение на Авито 2026: как вывести объявление в топ</title>
       <link>https://saramudvlad.ru/articles/prodvizhenie-na-avito-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/prodvizhenie-na-avito-2026/</guid>
+      <guid>https://saramudvlad.ru/articles/prodvizhenie-na-avito-2026/</guid>
       <description>72 млн аудитория, алгоритм Avito Ranker 3 и «кредит доверия». Как продвигать объявления на Авито в 2026: тир-лист рычагов, карточка, рейтинг, платное продвижение без слива бюджета.</description>
-      <category>Маркетплейсы</category>
       <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/prodvizhenie-na-avito-2026.webp" type="image/webp"/>
     </item>
     <item>
-      <title>Как набрать 10 000 подписчиков на Reels и Shorts в 2026</title>
-      <link>https://saramudvlad.ru/articles/10000-podpischikov-reels-shorts-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/10000-podpischikov-reels-shorts-2026/</guid>
-      <description>Алгоритм решает за 2 секунды. Как набрать 10 000 подписчиков через Reels, Shorts и VK Клипы в 2026: тир-лист форматов по виральности, механика досматриваемости и конвейер контента.</description>
-      <category>SMM &amp; ИИ</category>
-      <pubDate>Mon, 09 Jun 2026 12:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/10000-podpischikov-reels-shorts-2026.webp" type="image/webp"/>
+      <title>n8n vs Make: что выбрать для автоматизации 2026</title>
+      <link>https://saramudvlad.ru/articles/n8n-vs-make/</link>
+      <guid>https://saramudvlad.ru/articles/n8n-vs-make/</guid>
+      <description>Цена, гибкость, доступ из РФ и порог входа — сравнение и вердикт.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Как набрать первые 1000 подписчиков в 2026: тир-лист каналов</title>
-      <link>https://saramudvlad.ru/articles/pervye-1000-podpischikov-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/pervye-1000-podpischikov-2026/</guid>
-      <description>Первая 1000 подписчиков — самый трудный рубеж. Тир-лист каналов привлечения (S→D), 30-дневный план и реальные цифры: 3 коротких видео дали 625 подписчиков за 6 дней. Без бюджета.</description>
-      <category>SMM &amp; ИИ</category>
-      <pubDate>Mon, 09 Jun 2026 11:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/pervye-1000-podpischikov-2026.webp" type="image/webp"/>
+      <title>Аналоги ElevenLabs: озвучка нейросетью на русском 2026</title>
+      <link>https://saramudvlad.ru/articles/elevenlabs-analogi/</link>
+      <guid>https://saramudvlad.ru/articles/elevenlabs-analogi/</guid>
+      <description>Yandex SpeechKit и другие — естественность речи, клон голоса, доступ из РФ.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Продвижение локального бизнеса 2026: Яндекс Карты и 2ГИС с нуля</title>
-      <link>https://saramudvlad.ru/articles/prodvizhenie-lokalnogo-biznesa-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/prodvizhenie-lokalnogo-biznesa-2026/</guid>
-      <description>95 млн в Яндекс Картах, 83 млн в 2ГИС, 93% выбирают по отзывам. Как вывести точку в топ карт в 2026: карточка, отзывы, ранжирование, приоритетное размещение и реальные цены.</description>
-      <category>Локальный бизнес</category>
-      <pubDate>Mon, 09 Jun 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/prodvizhenie-lokalnogo-biznesa-2026.webp" type="image/webp"/>
+      <title>Аналоги HeyGen: нейроаватары для видео на русском 2026</title>
+      <link>https://saramudvlad.ru/articles/heygen-analogi/</link>
+      <guid>https://saramudvlad.ru/articles/heygen-analogi/</guid>
+      <description>Synthesia, D-ID и российские сервисы — сравнение и что выбрать для РФ.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Как продавать на Wildberries и Ozon в 2026: гайд через юнит-экономику</title>
-      <link>https://saramudvlad.ru/articles/kak-prodavat-na-wb-ozon-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/kak-prodavat-na-wb-ozon-2026/</guid>
-      <description>Рынок WB+Ozon — 8,59 трлн ₽, но число продавцов впервые упало. Как выйти на маркетплейс в 2026 и не уйти в минус: юнит-экономика, комиссии, FBO/FBS, формула прибыли и реальные цифры.</description>
-      <category>Маркетплейсы</category>
-      <pubDate>Sun, 08 Jun 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/kak-prodavat-wb-ozon-2026.webp" type="image/webp"/>
+      <title>Midjourney vs Kandinsky: что выбрать для картинок 2026</title>
+      <link>https://saramudvlad.ru/articles/midjourney-vs-kandinsky/</link>
+      <guid>https://saramudvlad.ru/articles/midjourney-vs-kandinsky/</guid>
+      <description>Качество, русские запросы, доступ из РФ и цена — сравнение генераторов и вердикт.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Нейросети для создания видео 2026: бесплатные и платные</title>
-      <link>https://saramudvlad.ru/articles/neyroseti-dlya-video-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/neyroseti-dlya-video-2026/</guid>
-      <description>Видео из текста, оживление фото, нейроаватары и озвучка. Какие нейросети для видео работают в 2026, что бесплатно, цены платных и как оплатить из России. Таблица сервисов.</description>
-      <category>AI &amp; Автоматизация</category>
-      <pubDate>Wed, 03 Jun 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/neyroseti-dlya-video.webp" type="image/webp"/>
+      <title>Что такое точка безубыточности</title>
+      <link>https://saramudvlad.ru/articles/chto-takoe-tochka-bezubytochnosti/</link>
+      <guid>https://saramudvlad.ru/articles/chto-takoe-tochka-bezubytochnosti/</guid>
+      <description>Объём продаж для выхода в ноль: формула и пример.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Нейросеть для Reels: контент на поток без съёмок</title>
-      <link>https://saramudvlad.ru/articles/neyroset-dlya-reels-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/neyroset-dlya-reels-2026/</guid>
-      <description>Как делать Reels на нейросетях без камеры: сценарий, нейроаватар HeyGen, озвучка ElevenLabs, монтаж и субтитры. Конвейер «ролик за 20 минут» и месяц контента за один заход.</description>
-      <category>SMM &amp; ИИ</category>
-      <pubDate>Wed, 03 Jun 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/neyroset-dlya-reels.webp" type="image/webp"/>
+      <title>Что такое маржинальность: формула и пример</title>
+      <link>https://saramudvlad.ru/articles/chto-takoe-marzhinalnost/</link>
+      <guid>https://saramudvlad.ru/articles/chto-takoe-marzhinalnost/</guid>
+      <description>Доля прибыли в цене, отличие от наценки и нормы.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Как оплатить ChatGPT, Claude и нейросети из России в 2026</title>
-      <link>https://saramudvlad.ru/articles/oplatit-chatgpt-iz-rossii-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/oplatit-chatgpt-iz-rossii-2026/</guid>
-      <description>Российская карта не проходит, а нейросети нужны. 5 способов оплатить ChatGPT, Claude, Gemini, HeyGen, ElevenLabs и 15+ сервисов из России: посредники, зарубежная карта, API. Цены и риски.</description>
-      <category>AI &amp; Автоматизация</category>
-      <pubDate>Wed, 03 Jun 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/oplatit-chatgpt.webp" type="image/webp"/>
+      <title>Что такое юнит-экономика простыми словами</title>
+      <link>https://saramudvlad.ru/articles/chto-takoe-yunit-ekonomika/</link>
+      <guid>https://saramudvlad.ru/articles/chto-takoe-yunit-ekonomika/</guid>
+      <description>Прибыль с одного клиента: из чего состоит и как считать.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Разбор расходов бизнеса: где утекают деньги и что чинить первым</title>
-      <link>https://saramudvlad.ru/articles/razhor-rashoodov-biznesa-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/razhor-rashoodov-biznesa-2026/</guid>
-      <description>Реклама ест бюджет, заявки теряются, подрядчики присылают отчёты. Где реально дыра — и что с этим делать. Конкретный список действий без воды.</description>
-      <category>Консультация</category>
-      <pubDate>Sat, 30 May 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/rasxod.webp" type="image/webp"/>
+      <title>Что такое ДРР: доля рекламных расходов</title>
+      <link>https://saramudvlad.ru/articles/chto-takoe-drr/</link>
+      <guid>https://saramudvlad.ru/articles/chto-takoe-drr/</guid>
+      <description>Формула, пример и связь с ROAS — для маркетплейсов и каталогов.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Контент-план на месяц с нейросетью: система из 3 шагов + готовые промпты</title>
-      <link>https://saramudvlad.ru/articles/kontent-plan-neyroset-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/kontent-plan-neyroset-2026/</guid>
-      <description>Как составить контент-план для ВКонтакте и Telegram с помощью AI за 30 минут вместо 4 часов. 6 готовых промптов + шаблон таблицы.</description>
-      <category>SMM &amp; ИИ</category>
-      <pubDate>Thu, 28 May 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/kontent-plan-neyroset.webp" type="image/webp"/>
+      <title>Что такое ROAS: окупаемость рекламы</title>
+      <link>https://saramudvlad.ru/articles/chto-takoe-roas/</link>
+      <guid>https://saramudvlad.ru/articles/chto-takoe-roas/</guid>
+      <description>Формула, пример, отличие от ДРР и какой ROAS нормальный.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>YandexGPT vs GigaChat vs ChatGPT: честное сравнение для маркетолога 2026</title>
-      <link>https://saramudvlad.ru/articles/yandexgpt-vs-gigachat-vs-chatgpt/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/yandexgpt-vs-gigachat-vs-chatgpt/</guid>
-      <description>Протестировал все три нейросети на реальных маркетинговых задачах. Кто лучше пишет посты, контент-план и рекламные тексты — с примерами и выводами.</description>
-      <category>AI &amp; Автоматизация</category>
-      <pubDate>Thu, 28 May 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/yandexgpt-vs-gigachat.webp" type="image/webp"/>
+      <title>Что такое LTV: сколько приносит клиент</title>
+      <link>https://saramudvlad.ru/articles/chto-takoe-ltv/</link>
+      <guid>https://saramudvlad.ru/articles/chto-takoe-ltv/</guid>
+      <description>Пожизненная ценность клиента: формула, пример и как увеличить.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Автоворонка продаж в Telegram 2026: бот + n8n за 1 день без программиста</title>
-      <link>https://saramudvlad.ru/articles/avtovoronka-telegram-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/avtovoronka-telegram-2026/</guid>
-      <description>Пошаговая настройка автоворонки в Telegram через n8n без кода. Лид-магнит, прогрев, продажа — реальные конверсии и схема из практики.</description>
-      <category>Автоматизация</category>
-      <pubDate>Thu, 28 May 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/avtovoronka-telegram.webp" type="image/webp"/>
+      <title>Что такое CAC: стоимость привлечения клиента</title>
+      <link>https://saramudvlad.ru/articles/chto-takoe-cac/</link>
+      <guid>https://saramudvlad.ru/articles/chto-takoe-cac/</guid>
+      <description>Формула, пример расчёта, нормальное значение и как снизить.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>MAX мессенджер 2026–2027: как продвигаться и набирать аудиторию</title>
-      <link>https://saramudvlad.ru/articles/max-messenger-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/max-messenger-2026/</guid>
-      <description>Полный гайд по продвижению в MAX мессенджере. 110 млн пользователей, 77 млн DAU, реальные стратегии, бюджеты и монетизация канала.</description>
-      <category>SMM &amp; ИИ</category>
-      <pubDate>Tue, 26 May 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/massanger_MAX.webp" type="image/webp"/>
+      <title>Метрики маркетинга: CAC, LTV, ROAS, ДРР</title>
+      <link>https://saramudvlad.ru/articles/metriki-marketinga/</link>
+      <guid>https://saramudvlad.ru/articles/metriki-marketinga/</guid>
+      <description>Словарь главных метрик: что показывают, формулы, связи и где посчитать.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Как построить отдел маркетинга с нуля в 2026–2027</title>
-      <link>https://saramudvlad.ru/articles/marketing-department-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/marketing-department-2026/</guid>
-      <description>Структура команды, Claude MAX в России, автоматизация с n8n. Как выстроить маркетинг-систему, которая масштабируется без раздутого штата. 90-дневный план.</description>
-      <category>AI &amp; Автоматизация</category>
-      <pubDate>Tue, 26 May 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/otdel_marketinga.webp" type="image/webp"/>
+      <title>ChatGPT на русском: как пользоваться из России 2026</title>
+      <link>https://saramudvlad.ru/articles/chatgpt-na-russkom/</link>
+      <guid>https://saramudvlad.ru/articles/chatgpt-na-russkom/</guid>
+      <description>Доступ, оплата, альтернативы без VPN (YandexGPT, GigaChat) и как формулировать запросы.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Яндекс Директ 2026: полный гайд по настройке с нуля</title>
-      <link>https://saramudvlad.ru/articles/yandex-direct-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/yandex-direct-2026/</guid>
-      <description>Новый интерфейс, ЕПК, Мастер кампаний, автостратегии — всё что изменилось. Пошаговая настройка, реальные бюджеты и типичные ошибки.</description>
-      <category>Реклама</category>
-      <pubDate>Tue, 26 May 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/direct_2026.webp" type="image/webp"/>
+      <title>Нейросеть для таблиц и Excel: формулы и данные 2026</title>
+      <link>https://saramudvlad.ru/articles/neyroset-dlya-tablic/</link>
+      <guid>https://saramudvlad.ru/articles/neyroset-dlya-tablic/</guid>
+      <description>Формулы Excel и Google Sheets, разбор выгрузок и сводки — чем и как.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Telegram Ads в 2026: полный гайд по рекламе в Телеграм</title>
-      <link>https://saramudvlad.ru/articles/telegram-ads-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/telegram-ads-2026/</guid>
-      <description>Как запустить рекламу в Телеграм с минимальным бюджетом. Форматы, реальные CPM, таргетинг и ошибки которые сливают деньги.</description>
-      <category>Реклама</category>
-      <pubDate>Sun, 24 May 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/og-telegram-ads-2026.webp" type="image/webp"/>
+      <title>Нейросеть для логотипа: концепт без дизайнера 2026</title>
+      <link>https://saramudvlad.ru/articles/neyroset-dlya-logotipa/</link>
+      <guid>https://saramudvlad.ru/articles/neyroset-dlya-logotipa/</guid>
+      <description>Looka, Midjourney, Kandinsky — как описать логотип и когда ИИ достаточно.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Как настроить рекламу ВКонтакте в 2026: полный гайд с нуля</title>
-      <link>https://saramudvlad.ru/articles/reklama-vkontakte-2026/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/reklama-vkontakte-2026/</guid>
-      <description>Пошаговая инструкция по запуску таргета ВК. Форматы, аудитории, бюджеты и ошибки которые сливают деньги.</description>
-      <category>Реклама</category>
-      <pubDate>Sun, 24 May 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/og-vk-ads-2026.webp" type="image/webp"/>
+      <title>Нейросеть для презентаций: слайды за минуты 2026</title>
+      <link>https://saramudvlad.ru/articles/neyroset-dlya-prezentaciy/</link>
+      <guid>https://saramudvlad.ru/articles/neyroset-dlya-prezentaciy/</guid>
+      <description>Gamma, Tome, ChatGPT — схема из 3 шагов и промпт для структуры слайдов.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>50 промптов для ChatGPT в SMM: готовые шаблоны 2026</title>
-      <link>https://saramudvlad.ru/articles/prompty-chatgpt-smm/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/prompty-chatgpt-smm/</guid>
-      <description>Готовые промпты для постов, Reels, рекламных текстов и контент-плана. Каждый проверен на реальных проектах.</description>
-      <category>SMM &amp; ИИ</category>
-      <pubDate>Sun, 24 May 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/50-prompts.webp" type="image/webp"/>
+      <title>Нейросеть для картинок: какую выбрать 2026</title>
+      <link>https://saramudvlad.ru/articles/neyroset-dlya-kartinok/</link>
+      <guid>https://saramudvlad.ru/articles/neyroset-dlya-kartinok/</guid>
+      <description>Midjourney, Kandinsky, Шедеврум, DALL·E — сравнение и как составить запрос на изображение.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Как AI снижает стоимость контента на 80%</title>
-      <link>https://saramudvlad.ru/articles/ai-content-cost/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/ai-content-cost/</guid>
-      <description>Практический гайд по внедрению нейросетей в контент-маркетинг. Реальные цифры экономии и кейсы из практики с 20+ компаниями.</description>
-      <category>AI &amp; Автоматизация</category>
-      <pubDate>Wed, 11 Feb 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/AI_cost.webp" type="image/webp"/>
+      <title>Нейросеть для текста: какую выбрать в 2026</title>
+      <link>https://saramudvlad.ru/articles/neyroset-dlya-teksta/</link>
+      <guid>https://saramudvlad.ru/articles/neyroset-dlya-teksta/</guid>
+      <description>ChatGPT, Claude, YandexGPT, GigaChat — сравнение, формула запроса и задачи бизнеса.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
     </item>
     <item>
-      <title>Как запустить контент-маркетинг с нуля за 7 дней</title>
-      <link>https://saramudvlad.ru/articles/content-marketing-launch/</link>
-      <guid isPermaLink="true">https://saramudvlad.ru/articles/content-marketing-launch/</guid>
-      <description>Пошаговый план запуска без агентств и больших бюджетов. Только то, что работает прямо сейчас.</description>
-      <category>Контент-маркетинг</category>
-      <pubDate>Tue, 20 Jan 2026 10:00:00 +0300</pubDate>
-      <enclosure url="https://saramudvlad.ru/images/content-marketing.webp" type="image/webp"/>
+      <title>Нейросети для бизнеса: какие выбрать в 2026</title>
+      <link>https://saramudvlad.ru/articles/neyroseti-dlya-biznesa/</link>
+      <guid>https://saramudvlad.ru/articles/neyroseti-dlya-biznesa/</guid>
+      <description>Навигатор по AI-инструментам под задачи: тексты, картинки, видео, презентации, таблицы. Что работает в России без VPN.</description>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0300</pubDate>
+    </item>
+    <item>
+      <title>Промпты для продаж: холодные сообщения и скрипты B2B</title>
+      <link>https://saramudvlad.ru/articles/prompty-dlya-prodazh/</link>
+      <guid>https://saramudvlad.ru/articles/prompty-dlya-prodazh/</guid>
+      <description>Холодные сообщения, follow-up, отработка возражений, КП и скрипт созвона.</description>
+      <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
+    </item>
+    <item>
+      <title>Промпты для отзывов и ответов клиентам 2026</title>
+      <link>https://saramudvlad.ru/articles/prompty-dlya-otzyvov/</link>
+      <guid>https://saramudvlad.ru/articles/prompty-dlya-otzyvov/</guid>
+      <description>Ответы на позитив и негатив, шаблоны под ситуации, просьба оставить отзыв.</description>
+      <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
+    </item>
+    <item>
+      <title>Промпты для email-рассылок: письма и цепочки 2026</title>
+      <link>https://saramudvlad.ru/articles/prompty-dlya-email-rassylok/</link>
+      <guid>https://saramudvlad.ru/articles/prompty-dlya-email-rassylok/</guid>
+      <description>Темы письма, продающие письма, welcome-цепочки и реактивация подписчиков.</description>
+      <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
+    </item>
+    <item>
+      <title>Промпты для копирайтинга и продающих текстов 2026</title>
+      <link>https://saramudvlad.ru/articles/prompty-dlya-kopiraytinga/</link>
+      <guid>https://saramudvlad.ru/articles/prompty-dlya-kopiraytinga/</guid>
+      <description>Тексты по формулам PAS и AIDA, заголовки, лендинги, рерайт без воды.</description>
+      <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
+    </item>
+    <item>
+      <title>Промпты для таргетолога: рекламные тексты и креативы 2026</title>
+      <link>https://saramudvlad.ru/articles/prompty-dlya-targetologa/</link>
+      <guid>https://saramudvlad.ru/articles/prompty-dlya-targetologa/</guid>
+      <description>Тексты для VK Ads, Telegram Ads и Яндекс Директ, офферы и идеи креативов под A/B.</description>
+      <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
+    </item>
+    <item>
+      <title>Промпты для объявлений на Avito: продающие тексты ИИ</title>
+      <link>https://saramudvlad.ru/articles/prompty-dlya-avito/</link>
+      <guid>https://saramudvlad.ru/articles/prompty-dlya-avito/</guid>
+      <description>Заголовки под поиск, продающий текст, снятие возражений — для товаров и услуг.</description>
+      <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
+    </item>
+    <item>
+      <title>Промпты для карточек товара Wildberries и Ozon 2026</title>
+      <link>https://saramudvlad.ru/articles/prompty-dlya-marketpleysov/</link>
+      <guid>https://saramudvlad.ru/articles/prompty-dlya-marketpleysov/</guid>
+      <description>Продающие SEO-описания, буллеты, инфографика и ответы на вопросы — отдельно под WB и Ozon.</description>
+      <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
+    </item>
+    <item>
+      <title>Промпты для Reels: сценарии и хуки нейросетью 2026</title>
+      <link>https://saramudvlad.ru/articles/prompty-dlya-reels/</link>
+      <guid>https://saramudvlad.ru/articles/prompty-dlya-reels/</guid>
+      <description>Вирусные хуки и сценарии коротких видео на 15–60 секунд. Готовые промпты с примерами.</description>
+      <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
     </item>
   </channel>
 </rss>
