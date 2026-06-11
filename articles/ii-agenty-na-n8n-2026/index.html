@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <title>ИИ-агенты на n8n для бизнеса 2026: как собрать без кода</title>
+    <meta name="description" content="К концу 2026 года 40% бизнес-приложений получат ИИ-агентов (Gartner). Как собрать агента на n8n без кода: какие процессы отдать, анатомия LLM+tools+память, ROI и где проваливаются.">
+    <meta name="keywords" content="ии агенты n8n, ai агент для бизнеса 2026, автоматизация n8n, агентный ии, llm агент без кода, n8n ai agent">
+    <meta name="author" content="Владислав Сарамуд">
+    <link rel="canonical" href="https://saramudvlad.ru/articles/ii-agenty-na-n8n-2026/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://saramudvlad.ru/articles/ii-agenty-na-n8n-2026/">
+    <meta property="og:title" content="ИИ-агенты на n8n для бизнеса 2026: как собрать без кода">
+    <meta property="og:description" content="40% бизнес-приложений получат ИИ-агентов к концу 2026 (Gartner). Какие процессы отдать агенту, анатомия LLM+tools+память на n8n, ROI и где проваливаются проекты.">
+    <meta property="og:image" content="https://saramudvlad.ru/images/ii-agenty-na-n8n-2026.webp">
+    <meta property="article:published_time" content="2026-06-11T12:00:00+03:00">
+    <meta property="article:author" content="Владислав Сарамуд">
+    <meta property="article:section" content="AI & Автоматизация">
+    <meta property="article:tag" content="ИИ-агенты">
+    <meta property="article:tag" content="n8n">
+    <meta property="article:tag" content="Автоматизация">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ИИ-агенты на n8n для бизнеса 2026: как собрать без кода">
+    <meta name="twitter:description" content="40% приложений получат ИИ-агентов к концу 2026. Какие процессы отдать агенту, анатомия на n8n, ROI и где проваливаются проекты.">
+    <meta name="twitter:image" content="https://saramudvlad.ru/images/ii-agenty-na-n8n-2026.webp">
+
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=106768627','ym');
+    ym(106768627,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106768627" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="stylesheet" href="/dist/tailwind.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"ИИ-агенты на n8n для бизнеса 2026: как собрать без кода","description":"Как собрать ИИ-агента для бизнеса на n8n без кода: какие процессы отдать агенту, анатомия LLM + инструменты + память, экономика внедрения и где проекты проваливаются.","image":"https://saramudvlad.ru/images/ii-agenty-na-n8n-2026.webp","author":{"@type":"Person","name":"Владислав Сарамуд","url":"https://saramudvlad.ru"},"publisher":{"@type":"Person","name":"Владислав Сарамуд","logo":{"@type":"ImageObject","url":"https://saramudvlad.ru/avatar.webp"}},"datePublished":"2026-06-11","dateModified":"2026-06-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://saramudvlad.ru/articles/ii-agenty-na-n8n-2026/"}}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://saramudvlad.ru"},{"@type":"ListItem","position":2,"name":"Статьи","item":"https://saramudvlad.ru/blog/"},{"@type":"ListItem","position":3,"name":"ИИ-агенты на n8n для бизнеса 2026"}]}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Чем ИИ-агент на n8n отличается от обычного workflow-автоматизации?","acceptedAnswer":{"@type":"Answer","text":"Обычный workflow выполняет жёсткую заранее заданную последовательность: «пришло письмо → создай задачу → отправь уведомление». ИИ-агент на n8n получает цель и сам решает, какие действия и в каком порядке выполнить, обращаясь к подключённым инструментам (поиск в базе, запись в CRM, отправка сообщения). В основе агента — нода AI Agent, которая связывает языковую модель с набором tools и памятью. Workflow делает то, что прописано; агент рассуждает, как достичь результата."}},{"@type":"Question","name":"Нужен ли программист, чтобы собрать ИИ-агента на n8n?","acceptedAnswer":{"@type":"Answer","text":"Нет. n8n — визуальный конструктор: ИИ-агент собирается из нод drag-and-drop. Нода AI Agent подключается к языковой модели (ChatGPT, Claude, YandexGPT, GigaChat), к ней добавляются инструменты (HTTP-запросы, базы данных, CRM, мессенджеры) и память. Кода не требуется. n8n разворачивается на российском VPS без VPN и санкционных рисков. Основная работа — не техника, а описание цели агента, его инструментов и базы знаний."}},{"@type":"Question","name":"Какие процессы бизнеса стоит отдать ИИ-агенту в первую очередь?","acceptedAnswer":{"@type":"Answer","text":"Начинайте с задач, где много рутины и понятный результат: ответы на типовые обращения в поддержке, квалификация входящих лидов, сортировка и обогащение данных, генерация черновиков контента, сбор отчётов из разных систем. Это процессы с высоким объёмом и низкой ценой ошибки. Сложные переговоры, юридические решения и всё, где ошибка дорого стоит, оставляйте человеку — агент готовит данные, человек принимает решение."}},{"@type":"Question","name":"Сколько стоит внедрение ИИ-агента и какой у него ROI?","acceptedAnswer":{"@type":"Answer","text":"Сам n8n бесплатен при self-hosting, расходы — VPS (от нескольких сотен рублей в месяц) и оплата токенов языковой модели по объёму обращений. Связка из нескольких агентов для малого бизнеса обходится примерно до 200 евро в месяц и освобождает 10–15 часов команды в неделю уже за первый месяц. Компании, внедрившие агентные процессы, в среднем получают ROI около 1,7×, а средний бизнес — до 40% сокращения операционных расходов за первый год."}},{"@type":"Question","name":"Почему многие проекты с ИИ-агентами проваливаются?","acceptedAnswer":{"@type":"Answer","text":"Gartner прогнозирует, что более 40% проектов агентного ИИ будут закрыты к 2027 году из-за неясной ценности, растущих затрат и слабого управления. Около 88% агентов не доходят до продакшена — основные причины: пробелы в инфраструктуре, отсутствие контроля и управления, невозможность измерить ROI. Вывод простой: начинайте с одного узкого процесса с измеримым результатом, а не с «универсального агента на всё», и закладывайте контроль качества с первого дня."}},{"@type":"Question","name":"n8n или Make — что выбрать для сборки ИИ-агента?","acceptedAnswer":{"@type":"Answer","text":"Для ИИ-агентов в российских реалиях обычно выигрывает n8n: его можно развернуть на своём VPS, он open-source, даёт полный контроль над данными и нодой AI Agent с подключением любых LLM. Make удобнее для быстрого старта без сервера, но это облако с оплатой за операции и ограничениями доступа из РФ. Если важны контроль данных, гибкость агента и работа из России — n8n. Подробное сравнение цены, гибкости и порога входа есть в отдельном разборе n8n vs Make."}}]}</script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body{font-family:'Inter',sans-serif;background-color:#04070a;color:#d6f5e4;}
+        .gradient-text{background:linear-gradient(to right,#2bff88,#c6ff3d,#c6ff3d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        article h2{font-size:1.875rem;font-weight:800;color:#fff;margin-top:3rem;margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid #2bff88;}
+        article h3{font-size:1.5rem;font-weight:700;color:#7dffb3;margin-top:2rem;margin-bottom:1rem;}
+        article p{margin-bottom:1.5rem;line-height:1.8;color:#bfe9cf;}
+        article ul,article ol{margin-bottom:1.5rem;padding-left:1.5rem;color:#bfe9cf;}
+        article li{margin-bottom:0.75rem;line-height:1.7;}
+        article strong{color:#fff;font-weight:700;}
+        .highlight-box{background:linear-gradient(135deg,#1fd673 0%,#a3d92e 100%);border-left:4px solid #7dffb3;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .warning-box{background:rgba(234,88,12,0.1);border-left:4px solid #1fd673;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .info-box{background:rgba(59,130,246,0.1);border-left:4px solid #3b82f6;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .ai-box{background:rgba(131,56,236,0.1);border-left:4px solid #8338ec;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .tool-card{background:linear-gradient(135deg,rgba(249,115,22,0.05) 0%,rgba(217,119,6,0.05) 100%);border:1px solid #16352a;border-radius:1rem;padding:2rem;margin-bottom:2rem;transition:all 0.3s ease;}
+        .tool-card:hover{border-color:#2bff88;box-shadow:0 20px 40px -15px rgba(249,115,22,0.2);}
+        .comparison-table{background:rgba(15,23,42,0.5);border:1px solid #16352a;border-radius:1rem;overflow:hidden;margin:2rem 0;}
+        .comparison-table table{width:100%;border-collapse:collapse;}
+        .comparison-table th{background:rgba(249,115,22,0.1);padding:1rem;text-align:left;font-weight:700;color:#7dffb3;border-bottom:2px solid #16352a;}
+        .comparison-table td{padding:1rem;border-bottom:1px solid #16352a;color:#bfe9cf;}
+        .comparison-table tr:last-child td{border-bottom:none;}
+        .tier-list{border:1px solid #16352a;border-radius:1rem;overflow:hidden;margin:2rem 0;}
+        .tier-row{display:flex;align-items:stretch;border-bottom:1px solid #16352a;}
+        .tier-row:last-child{border-bottom:none;}
+        .tier-badge{flex-shrink:0;width:60px;display:flex;align-items:center;justify-content:center;font-family:'Inter Tight',sans-serif;font-weight:800;font-size:1.5rem;color:#04070a;}
+        .tier-s .tier-badge{background:#2bff88;}
+        .tier-a .tier-badge{background:#c6ff3d;}
+        .tier-b .tier-badge{background:#7dffb3;}
+        .tier-c .tier-badge{background:#5f8f72;color:#04070a;}
+        .tier-d .tier-badge{background:#1d4636;color:#bfe9cf;}
+        .tier-items{flex:1;padding:0.9rem 1.1rem;background:rgba(15,23,42,0.5);color:#bfe9cf;font-size:0.92rem;line-height:1.5;display:flex;align-items:center;}
+        .cta-box{background:linear-gradient(135deg,#0a1411 0%,#102a1a 100%);border:2px solid #2bff88;border-radius:1rem;padding:2.5rem;margin:3rem 0;text-align:center;}
+        .checklist-item{display:flex;align-items:start;gap:0.75rem;padding:1rem;background:rgba(15,23,42,0.5);border-radius:0.5rem;margin-bottom:0.75rem;border:1px solid #16352a;transition:all 0.3s ease;}
+        .checklist-item:hover{border-color:#2bff88;}
+        .step-badge{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;background:rgba(249,115,22,0.15);border:1px solid #2bff88;border-radius:50%;color:#7dffb3;font-weight:800;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+        .hero-image{width:100%;border-radius:1rem;border:1px solid #16352a;margin-bottom:2rem;display:block;}
+        .price-tag{display:inline-block;background:rgba(249,115,22,0.15);border:1px solid #2bff88;color:#7dffb3;font-weight:800;padding:0.25rem 0.75rem;border-radius:0.5rem;font-size:0.9rem;}
+        .stat-card{background:rgba(15,23,42,0.8);border:1px solid #16352a;border-radius:0.75rem;padding:1.25rem;text-align:center;}
+        .stat-card .stat-num{font-size:2rem;font-weight:800;color:#7dffb3;}
+        .stat-card .stat-label{font-size:0.8rem;color:#5f8f72;margin-top:0.25rem;}
+        .prompt-box{background:#0a1411;border:1px solid #16352a;border-left:4px solid #2bff88;border-radius:0.5rem;padding:1.25rem;margin:1.5rem 0;font-family:monospace;font-size:0.85rem;color:#c6ff3d;line-height:1.8;white-space:pre-wrap;}
+        .funnel-diagram{background:#0a1411;border:1px solid #16352a;border-radius:1rem;padding:2rem;margin:2rem 0;overflow-x:auto;}
+        .funnel-step{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(249,115,22,0.1);border:1px solid #2bff88;border-radius:0.5rem;padding:0.5rem 1rem;font-size:0.9rem;font-weight:600;color:#7dffb3;white-space:nowrap;}
+        .funnel-arrow{color:#1d4636;font-weight:800;margin:0 0.25rem;font-size:1.1rem;}
+        .takeaways-box{background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.3);border-radius:1rem;padding:1.5rem 2rem;margin:2rem 0;}
+        .faq-item{background:rgba(15,23,42,0.6);border:1px solid #16352a;border-radius:0.75rem;padding:1.5rem;margin-bottom:1rem;}
+        .faq-q{font-weight:700;color:#fff;margin-bottom:0.75rem;font-size:1rem;}
+        .faq-a{color:#8fcaa6;font-size:0.95rem;line-height:1.7;margin:0;}
+        .citation-capsule{background:rgba(249,115,22,0.05);border:1px solid rgba(249,115,22,0.2);border-radius:0.5rem;padding:1.25rem;margin:1.5rem 0;font-style:italic;color:#8fcaa6;font-size:0.9rem;line-height:1.7;}
+        .citation-capsule cite{display:block;margin-top:0.5rem;font-style:normal;color:#5f8f72;font-size:0.8rem;}
+    </style>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#04070a;color:#d6f5e4;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Inter Tight',sans-serif}
+  h1{letter-spacing:-0.03em}
+  .display{letter-spacing:-0.04em;line-height:0.95}
+  .label{font-family:'JetBrains Mono',monospace;letter-spacing:0.2em}
+  .gradient-text{background:linear-gradient(90deg,#2bff88,#7dffb3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 26px rgba(43,255,136,.25)}
+  .neon-text{color:#2bff88;text-shadow:0 0 8px rgba(43,255,136,.55),0 0 28px rgba(43,255,136,.35)}
+  .neon-line{box-shadow:0 0 14px rgba(43,255,136,.45)}
+  #spot{position:fixed;inset:0;z-index:30;pointer-events:none;background:radial-gradient(360px circle at var(--mx,-200px) var(--my,-200px),rgba(43,255,136,.08),transparent 60%);transition:background .08s linear}
+  ::selection{background:#2bff88;color:#04070a}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#spot{display:none}}
+</style>
+</head>
+<body class="antialiased">
+<div id="spot"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-40 border-b border-line/70 bg-ink/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="display flex items-center gap-2 text-lg font-extrabold tracking-tight">
+      <span class="inline-block h-2 w-2 rounded-full bg-neon neon-line"></span>САРАМУД<span class="text-neon">_</span>ВЛАДИСЛАВ
+    </a>
+    <div class="label hidden gap-8 text-[11px] uppercase text-neon/60 md:flex">
+      <a href="/#cases" class="transition hover:text-neon">Кейсы</a>
+      <a href="/#services" class="transition hover:text-neon">Услуги</a>
+      <a href="/#shashlik" class="transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="transition hover:text-neon">Блог</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="label hidden rounded-none border border-neon px-4 py-2 text-[11px] uppercase text-neon transition hover:bg-neon hover:text-ink md:inline-block">Обсудить →</a>
+      <button id="burger" aria-label="Меню" aria-expanded="false" class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden">
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden border-t border-line bg-ink md:hidden">
+    <div class="flex flex-col px-6 pb-5 pt-2 label text-[13px] uppercase text-emerald-100/80">
+      <a href="/#services" class="border-b border-line/60 py-3.5 transition hover:text-neon">Услуги</a>
+      <a href="/#cases" class="border-b border-line/60 py-3.5 transition hover:text-neon">Кейсы</a>
+      <a href="/#reviews" class="border-b border-line/60 py-3.5 transition hover:text-neon">Отзывы</a>
+      <a href="/#shashlik" class="border-b border-line/60 py-3.5 transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="py-3.5 transition hover:text-neon">Блог</a>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="container mx-auto px-6 py-4 max-w-4xl">
+    <nav class="text-sm text-neon">
+        <a href="/" class="hover:text-neon transition">Главная</a>
+        <span class="mx-2">/</span>
+        <a href="/blog/" class="hover:text-neon transition">Статьи</a>
+        <span class="mx-2">/</span>
+        <span class="text-neon">ИИ-агенты на n8n для бизнеса 2026</span>
+    </nav>
+</div>
+
+<main class="container mx-auto px-6 py-8 max-w-4xl">
+
+    <!-- HEADER -->
+    <header class="mb-10">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+            <span class="px-3 py-1 bg-neon/30 text-neon text-xs font-bold uppercase rounded-full border border-neon/50">AI &amp; Автоматизация</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">n8n</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">Агенты</span>
+            <span class="text-neon text-sm"><i class="far fa-clock mr-1"></i>16 минут чтения</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+            ИИ-агенты на n8n для бизнеса 2026: <span class="gradient-text">как собрать без кода</span>
+        </h1>
+        <p class="text-xl text-neon leading-relaxed mb-6">
+            Обычная автоматизация делает то, что прописано. ИИ-агент получает цель и сам решает, как её достичь — обращается к инструментам, помнит контекст, ведёт диалог. Разбираю, какие процессы бизнеса ему отдать (тир-лист), из чего он собирается в n8n и где такие проекты чаще всего проваливаются.
+        </p>
+        <div class="flex items-center gap-4 text-sm text-neon border-t border-line pt-4">
+            <div class="flex items-center gap-2">
+                <img src="/avatar.webp" alt="Владислав Сарамуд — маркетинг-директор, эксперт по автоматизации и ИИ-агентам на n8n" class="w-10 h-10 rounded-full border-2 border-neon">
+                <div>
+                    <div class="text-white font-semibold"><a href="/about/" class="hover:text-neon transition">Владислав Сарамуд</a></div>
+                    <div>Маркетинг-директор, 6+ лет в digital</div>
+                </div>
+            </div>
+            <span class="text-line">|</span>
+            <time datetime="2026-06-11">11 июня 2026</time>
+        </div>
+    </header>
+
+    <!-- HERO IMAGE -->
+    <div class="mb-10">
+        <img
+            src="/images/ii-agenty-na-n8n-2026.webp"
+            alt="ИИ-агент на n8n: триггер → нода AI Agent с LLM и инструментами → память и база знаний → действие"
+            class="hero-image"
+            width="800"
+            height="420"
+            loading="eager"
+        >
+        <p class="text-xs text-neon text-center mt-2">Анатомия ИИ-агента на n8n: триггер → LLM + инструменты + память → действие — июнь 2026</p>
+    </div>
+
+    <article class="prose prose-invert max-w-none">
+
+        <!-- INTRO -->
+        <p>К концу 2026 года 40% корпоративных приложений будут содержать ИИ-агентов под конкретные задачи — против менее чем 5% в 2025-м (<a href="https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025" target="_blank" rel="noopener" class="text-neon hover:text-neon">прогноз Gartner</a>). Бизнес массово переходит от «ботов с кнопками» к агентам, которые сами решают задачу. И собрать такого агента сегодня можно без программиста — на n8n.</p>
+
+        <p>n8n — open-source конструктор автоматизации с нодой AI Agent: он связывает языковую модель, набор инструментов и память в одного работающего агента. В октябре 2025-го платформа подняла $180 млн и оценку в $2,5 млрд — показатель того, насколько быстро бизнес тащит автоматизацию на агентные рельсы. Разберу, чем агент отличается от обычного workflow, какие процессы ему отдать (тир-лист), из чего он собирается и где такие проекты чаще всего проваливаются.</p>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Это опорный разбор по агентам в целом. Если нужен конкретный агент под продажи — смотрите <a href="/articles/neyroagent-dlya-otdela-prodazh-2026/" class="text-neon hover:text-neon">нейроагент для отдела продаж</a>: задачи, скорость ответа и экономика именно для sales.</p>
+
+        <!-- KEY TAKEAWAYS -->
+        <div class="takeaways-box">
+            <p class="text-neon font-bold mb-3 text-sm uppercase tracking-wider"><i class="fas fa-bolt mr-2"></i>Главное за 60 секунд</p>
+            <ul class="text-emerald-200 text-sm space-y-2 mb-0" style="list-style:none;padding:0;">
+                <li>- <strong>40%</strong> бизнес-приложений получат ИИ-агентов к концу 2026 (Gartner)</li>
+                <li>- Агент ≠ workflow: получает <strong>цель</strong> и сам выбирает действия, а не идёт по жёсткому сценарию</li>
+                <li>- Собирается на n8n <strong>без кода</strong>: нода AI Agent + LLM + инструменты + память</li>
+                <li>- Связка агентов экономит <strong>10–15 часов</strong> команды в неделю, ROI ~<strong>1,7×</strong></li>
+                <li>- <strong>40%+</strong> агентных проектов закроют к 2027 (Gartner) — начинайте с одного узкого процесса</li>
+            </ul>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Workflow vs ИИ-агент: в чём принципиальная разница</h2>
+
+        <p><strong>Коротко: workflow выполняет шаги, агент достигает цели.</strong> Обычная автоматизация — это рельсы: «пришло сообщение → создай задачу → отправь уведомление». Шаг влево от сценария — и она встаёт. ИИ-агент получает цель («разберись с этим обращением») и сам решает, какие инструменты и в каком порядке задействовать.</p>
+
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Параметр</th>
+                        <th>Workflow (сценарий)</th>
+                        <th>ИИ-агент (LLM)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Что задаётся</strong></td>
+                        <td>Жёсткая последовательность шагов</td>
+                        <td class="text-neon font-bold">Цель и набор инструментов</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Решение «что делать»</strong></td>
+                        <td>Прописано заранее</td>
+                        <td class="text-neon font-bold">Агент рассуждает сам</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Нестандартный ввод</strong></td>
+                        <td>Ломается / уходит в ошибку</td>
+                        <td class="text-neon font-bold">Адаптируется по смыслу</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Память контекста</strong></td>
+                        <td>Нет</td>
+                        <td class="text-neon font-bold">Помнит диалог и историю</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Когда брать</strong></td>
+                        <td>Строгий повторяемый процесс</td>
+                        <td class="text-neon font-bold">Задачи с вариативностью</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Это не значит, что агент всегда лучше. Для строгих повторяемых операций (выгрузка отчёта по расписанию, синхронизация таблиц) обычный workflow надёжнее и дешевле. Агент нужен там, где входные данные каждый раз разные и требуется «подумать» — переписка с клиентом, разбор заявки, обработка свободного текста.</p>
+
+        <!-- ======================================= -->
+        <h2>Какие процессы отдать ИИ-агенту: тир-лист</h2>
+
+        <p>Главное в статье. Не всё в бизнесе стоит отдавать агенту. Вот честный тир-лист по отделам: что ИИ-агент закрывает отлично, а что лучше оставить человеку. [PERSONAL EXPERIENCE]</p>
+
+        <div class="tier-list">
+            <div class="tier-row tier-s">
+                <div class="tier-badge">S</div>
+                <div class="tier-items"><strong>Поддержка 1-й линии</strong> (типовые вопросы 24/7) · <strong>Квалификация входящих лидов</strong></div>
+            </div>
+            <div class="tier-row tier-a">
+                <div class="tier-badge">A</div>
+                <div class="tier-items">Сортировка и маршрутизация заявок · Обогащение данных в CRM · Черновики контента и ответов</div>
+            </div>
+            <div class="tier-row tier-b">
+                <div class="tier-badge">B</div>
+                <div class="tier-items">Сбор отчётов из разных систем · Реактивация и follow-up · Ресёрч и саммари документов</div>
+            </div>
+            <div class="tier-row tier-c">
+                <div class="tier-badge">C</div>
+                <div class="tier-items">Сложные переговоры и торг · Нестандартные возражения · Решения с высокой ценой ошибки</div>
+            </div>
+            <div class="tier-row tier-d">
+                <div class="tier-badge">D</div>
+                <div class="tier-items">Юридические и финансовые гарантии · Конфликты и претензии · Стратегические решения</div>
+            </div>
+        </div>
+
+        <h3>S и A: высокий объём, понятный результат</h3>
+        <p>Здесь агент даёт максимум пользы. <strong>Поддержка первой линии</strong> и <strong>квалификация лидов</strong> — это сотни однотипных диалогов, где скорость и доступность 24/7 важнее изящества. Агент отвечает мгновенно, обращается к базе знаний, а сложное эскалирует человеку. Сюда же — рутина данных: разложить заявку по полям, дополнить карточку, набросать черновик. Низкая цена ошибки + большой объём = идеальный кандидат на автоматизацию.</p>
+
+        <h3>Почему C и D остаются за человеком</h3>
+        <p>Чем выше цена ошибки и чем больше нужна эмпатия, полномочия и ответственность — тем меньше там места агенту. В C/D-тире его роль не «решать», а <strong>готовить данные и контекст для человека</strong>: собрать историю, подтянуть факты, предложить варианты. Финальное решение принимает специалист. Это и есть здоровая модель: агент снимает рутину, человек берёт на себя то, где он незаменим.</p>
+
+        <div class="citation-capsule">
+            Компании, уже внедрившие агентные процессы, получают в среднем 1,7× ROI, а средний бизнес — до 40% сокращения операционных расходов за первый год. При этом более 40% проектов агентного ИИ рискуют быть закрытыми к 2027 году из-за неясной ценности и слабого управления. Разница между этими сценариями — в фокусе: успешные команды автоматизируют один конкретный процесс с измеримым результатом, а не «всё сразу».
+            <cite>Gartner, 2025–2026; отраслевые данные по агентному ИИ, 2026</cite>
+        </div>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Для контентных задач агента пригодятся готовые формулировки: <a href="/articles/prompty-dlya-neyrosetey/" class="text-neon hover:text-neon">промпты для нейросетей</a> и <a href="/articles/kontent-plan-neyroset-2026/" class="text-neon hover:text-neon">контент-план нейросетью</a>.</p>
+
+        <!-- ======================================= -->
+        <h2>Анатомия ИИ-агента в n8n: 4 слоя</h2>
+
+        <p><strong>Коротко: любой агент в n8n — это нода AI Agent, к которой подключены модель, инструменты и память.</strong> Всё визуально, без кода. Вот из чего он собирается.</p>
+
+        <div class="funnel-diagram">
+            <p class="text-neon text-xs uppercase tracking-wider font-bold mb-4">Поток работы агента</p>
+            <div class="flex flex-wrap items-center gap-1">
+                <span class="funnel-step">Триггер (сообщение / событие)</span>
+                <span class="funnel-arrow">&#8594;</span>
+                <span class="funnel-step">Нода AI Agent</span>
+                <span class="funnel-arrow">&#8594;</span>
+                <span class="funnel-step">LLM + инструменты + память</span>
+                <span class="funnel-arrow">&#8594;</span>
+                <span class="funnel-step">Действие (ответ / запись)</span>
+            </div>
+        </div>
+
+        <ul>
+            <li><strong>Модель (мозг).</strong> ChatGPT, Claude, YandexGPT или GigaChat. Понимает запрос, рассуждает, формулирует ответ. Подключается в одну ноду.</li>
+            <li><strong>Инструменты (руки).</strong> То, чем агент действует: HTTP-запросы, поиск в базе, чтение/запись в CRM, отправка в мессенджер, вызов другого workflow. Агент сам решает, какой инструмент применить.</li>
+            <li><strong>Память.</strong> Контекст диалога и история — чтобы агент помнил, о чём шла речь, и не начинал каждый раз с нуля.</li>
+            <li><strong>База знаний (RAG).</strong> Ваши документы, прайс, регламенты, FAQ. Агент ищет в них ответ перед тем, как отвечать — так он говорит фактами вашего бизнеса, а не выдумывает.</li>
+        </ul>
+
+        <div class="ai-box">
+            <p class="font-semibold mb-2" style="color:#b388ff"><i class="fas fa-server mr-2"></i>Почему n8n как ядро для агентов</p>
+            <p class="text-emerald-100 text-sm mb-0">n8n разворачивается на российском VPS без VPN и санкционных рисков, он open-source и даёт полный контроль над данными. Нода AI Agent подключает любую LLM и любые инструменты drag-and-drop, а вокруг агента легко достроить обычную логику: когда отвечать самому, когда звать человека, что писать в CRM. Это ядро, на котором собирается и один агент, и связка из нескольких.</p>
+        </div>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Выбираете платформу под агента? Разбор цены, гибкости и доступа из РФ: <a href="/articles/n8n-vs-make/" class="text-neon hover:text-neon">n8n vs Make — что выбрать в 2026</a>.</p>
+
+        <!-- ======================================= -->
+        <h2>5 готовых агентов под отделы бизнеса</h2>
+
+        <p>Чтобы было предметно — вот пять агентов, которые реально собираются на n8n и быстро окупаются. От каждого можно отталкиваться под свою нишу.</p>
+
+        <div class="tool-card">
+            <h3 class="mt-0">1. Агент поддержки (1-я линия)</h3>
+            <p class="mb-0">Принимает обращения в Telegram/WhatsApp/чате сайта, ищет ответ в базе знаний, отвечает мгновенно 24/7. Простое закрывает сам, сложное эскалирует оператору с готовым контекстом. Снимает основную массу повторяющихся вопросов.</p>
+        </div>
+
+        <div class="tool-card">
+            <h3 class="mt-0">2. Агент квалификации лидов</h3>
+            <p class="mb-0">Встречает входящий лид, выясняет потребность, бюджет и сроки, помечает горячих и пишет всё в CRM. Менеджеру отдаёт уже тёплых. Подробно этот сценарий разобран в материале про <a href="/articles/neyroagent-dlya-otdela-prodazh-2026/" class="text-neon hover:text-neon">нейроагента для отдела продаж</a>.</p>
+        </div>
+
+        <div class="tool-card">
+            <h3 class="mt-0">3. Контент-агент</h3>
+            <p class="mb-0">Генерирует черновики постов, рассылок и ответов по вашему tone of voice и базе знаний. Человек редактирует и публикует — скорость производства контента растёт кратно, качество держит редактор.</p>
+        </div>
+
+        <div class="tool-card">
+            <h3 class="mt-0">4. Операционный агент (документы и заявки)</h3>
+            <p class="mb-0">Читает входящие заявки и документы, раскладывает по полям, обогащает данными, ставит задачи в таск-трекер и уведомляет ответственного. Снимает ручной разбор почты и форм.</p>
+        </div>
+
+        <div class="tool-card">
+            <h3 class="mt-0">5. Аналитический агент (отчёты)</h3>
+            <p class="mb-0">Собирает данные из рекламных кабинетов, CRM и таблиц, сводит в отчёт и присылает саммари с выводами по расписанию. Освобождает маркетолога от ручной выгрузки цифр каждое утро.</p>
+        </div>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Агенты — часть большой системы. Куда они встают в общую структуру: <a href="/articles/marketing-department-2026/" class="text-neon hover:text-neon">как построить отдел маркетинга с нуля в 2026</a>, и обзорно — <a href="/articles/neyroseti-dlya-biznesa/" class="text-neon hover:text-neon">нейросети для бизнеса</a>.</p>
+
+        <!-- ======================================= -->
+        <h2>Скорость ответа — главный рычаг конверсии</h2>
+
+        <p><strong>Коротко: агент берёт на себя объём и скорость, которые человек физически не вытягивает.</strong> Цифры по рынку показывают, на что реально опираться при оценке внедрения.</p>
+
+        <!-- STATS GRID -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+            <div class="stat-card">
+                <div class="stat-num">40%</div>
+                <div class="stat-label">приложений с агентами к 2026</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">1.7×</div>
+                <div class="stat-label">средний ROI агентных процессов</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">10–15ч</div>
+                <div class="stat-label">экономии команды в неделю</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">−40%</div>
+                <div class="stat-label">операционных расходов за год</div>
+            </div>
+        </div>
+
+        <p>Логика та же, что у любой автоматизации: чем больше однотипного потока, тем быстрее окупается агент. На десятке обращений в день экономия скромная; на сотнях — он заменяет смену сотрудников и окупается за пару месяцев. Главное — не пытаться измерить пользу «вообще», а привязать её к конкретному процессу: сколько часов он снимает и сколько обращений закрывает сам.</p>
+
+        <!-- ======================================= -->
+        <h2>Экономика: сколько стоит и какой ROI</h2>
+
+        <p><strong>Коротко: сам n8n бесплатен, платите за сервер и токены модели.</strong> Связка из нескольких агентов для малого бизнеса обходится примерно до 200 евро в месяц и освобождает 10–15 часов команды в неделю уже в первый месяц.</p>
+
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Показатель</th>
+                        <th>Значение</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Лицензия n8n (self-hosting)</td>
+                        <td class="text-neon font-bold">Бесплатно (open-source)</td>
+                    </tr>
+                    <tr>
+                        <td>VPS под n8n</td>
+                        <td>от нескольких сотен ₽/мес</td>
+                    </tr>
+                    <tr>
+                        <td>Оплата LLM</td>
+                        <td>по объёму обращений (токены)</td>
+                    </tr>
+                    <tr>
+                        <td>Экономия времени команды</td>
+                        <td class="text-neon font-bold">10–15 часов/неделю</td>
+                    </tr>
+                    <tr>
+                        <td>Средний ROI агентных процессов</td>
+                        <td class="text-neon font-bold">~1,7×</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Главная статья расходов — не платформа, а токены модели и время на проработку базы знаний. Чем больше входящего потока агент обрабатывает сам, тем дешевле выходит одно обращение и тем быстрее окупается вся конструкция.</p>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Посчитайте окупаемость на своих числах: <a href="/kalkulyator-yunit-ekonomiki/" class="text-neon hover:text-neon">калькулятор юнит-экономики</a> — стоимость обращения, CAC и возврат вложений.</p>
+
+        <!-- ======================================= -->
+        <h2>Пошаговый запуск первого агента</h2>
+
+        <p>[UNIQUE INSIGHT] 80% успеха агента — не техника, а узкая задача и проработанная база знаний. Техническая сборка в n8n — последние 20%. Вот порядок. [PERSONAL EXPERIENCE]</p>
+
+        <div class="checklist-item">
+            <div class="step-badge">1</div>
+            <div>
+                <strong>Выбери один узкий процесс</strong><br>
+                <span class="text-sm text-neon">Не «агент на всё», а конкретное: поддержка 1-й линии или квалификация лидов. С измеримым результатом — сколько часов снимает, сколько обращений закрывает.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">2</div>
+            <div>
+                <strong>Собери базу знаний</strong><br>
+                <span class="text-sm text-neon">Документы, прайс, FAQ, регламенты, скрипты. Это то, на чём агент строит ответы. Чем полнее и точнее — тем меньше выдумок.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">3</div>
+            <div>
+                <strong>Подними n8n и подключи LLM</strong><br>
+                <span class="text-sm text-neon">VPS + n8n, нода AI Agent, модель (ChatGPT/Claude/YandexGPT) с системным промптом — кто агент, что умеет, как себя ведёт.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">4</div>
+            <div>
+                <strong>Дай инструменты и память</strong><br>
+                <span class="text-sm text-neon">Подключи нужные tools (поиск по базе, CRM, мессенджер) и память диалога. Агент должен уметь не только говорить, но и действовать.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">5</div>
+            <div>
+                <strong>Настрой эскалацию человеку</strong><br>
+                <span class="text-sm text-neon">Триггеры передачи: сложный запрос, конфликт, горячий лид. Агент зовёт человека и отдаёт ему весь контекст — граница между S/A и C/D-тиром.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">6</div>
+            <div>
+                <strong>Тестируй и дообучай</strong><br>
+                <span class="text-sm text-neon">Читай реальные диалоги, лови провалы, дополняй базу знаний. Первые 2 недели — активная отладка, дальше масштабируешь на соседние процессы.</span>
+            </div>
+        </div>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Готовый пример агента «под ключ» с пошаговой сборкой: <a href="/articles/avtovoronka-telegram-2026/" class="text-neon hover:text-neon">автоворонка в Telegram через n8n за 1 день</a>.</p>
+
+        <!-- ======================================= -->
+        <h2>Где ИИ-агенты проваливаются: 5 ошибок</h2>
+
+        <p>Gartner прогнозирует, что более 40% проектов агентного ИИ закроют к 2027 году, а около 88% агентов вообще не доходят до продакшена. Причины повторяются. [PERSONAL EXPERIENCE]</p>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 1: «универсальный агент на всё»</p>
+            <p class="text-neon text-sm mb-0">Размытая цель = неизмеримый результат = проект закрывают. Начинайте с одного узкого процесса, докажите пользу цифрами, потом расширяйте.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 2: пустая база знаний</p>
+            <p class="text-neon text-sm mb-0">Агент без проработанной базы вежливо выдумывает. 80% качества — в базе знаний и RAG. Сначала контент и факты, потом запуск.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 3: нет контроля и метрик</p>
+            <p class="text-neon text-sm mb-0">Без измерения ROI и контроля качества проект невозможно защитить. С первого дня закладывайте, что считаем (снятые часы, доля закрытых обращений) и как проверяем ответы.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 4: нет эскалации человеку</p>
+            <p class="text-neon text-sm mb-0">Агент без передачи человеку запирает сложные и конфликтные случаи на себе и бьёт по клиенту. Триггеры эскалации обязательны с первого дня.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 5: запустить и забыть</p>
+            <p class="text-neon text-sm mb-0">Агент требует дообучения по реальным диалогам, особенно первые недели. Без чтения логов и пополнения базы он застывает на ошибках. Это живой инструмент, а не «настроил и ушёл».</p>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Чек-лист перед запуском</h2>
+
+        <div class="bg-surface border border-line rounded-xl p-6 mb-8">
+            <ul class="space-y-3 mb-0">
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Выбран один узкий процесс с измеримым результатом</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>База знаний собрана: документы, прайс, FAQ, регламенты</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>n8n поднят на VPS, нода AI Agent с LLM и системным промптом</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Подключены инструменты (CRM, мессенджеры, поиск по базе) и память</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Настроены триггеры эскалации живому сотруднику</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Определены метрики успеха (снятые часы, доля закрытых обращений)</span></li>
+                <li class="flex items-start gap-3"><span class="text-neon font-bold mt-0.5">&#9745;</span><span>Запланирована отладка по логам первые 2 недели</span></li>
+            </ul>
+        </div>
+
+        <!-- CTA MID-ARTICLE -->
+        <div class="cta-box">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
+                <i class="fas fa-robot"></i> Соберу за вас
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Нужен ИИ-агент под ваш процесс?</h3>
+            <p class="text-emerald-200 mb-6">Соберу агента на n8n под конкретную задачу: база знаний, инструменты, память, эскалация человеку. Один узкий процесс с измеримым результатом — а дальше масштабируем на соседние.</p>
+            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20">
+                <i class="fab fa-telegram"></i>
+                Написать в Telegram
+            </a>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Часто задаваемые вопросы</h2>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Чем ИИ-агент на n8n отличается от обычной автоматизации?</p>
+            <p class="faq-a">Обычный workflow выполняет жёсткую последовательность шагов и ломается на нестандартном вводе. ИИ-агент получает цель и сам решает, какие инструменты и в каком порядке задействовать. В основе — нода AI Agent, связывающая языковую модель с набором tools и памятью. Workflow делает то, что прописано; агент рассуждает, как достичь результата.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Нужен ли программист, чтобы собрать агента на n8n?</p>
+            <p class="faq-a">Нет. n8n — визуальный конструктор, агент собирается из нод drag-and-drop. Нода AI Agent подключается к LLM (ChatGPT, Claude, YandexGPT, GigaChat), к ней добавляются инструменты и память. Кода не нужно. n8n разворачивается на российском VPS без VPN. Основная работа — описание цели агента и базы знаний, а не техника.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Какие процессы отдать агенту в первую очередь?</p>
+            <p class="faq-a">Начинайте с рутины с понятным результатом: поддержка 1-й линии, квалификация лидов, сортировка и обогащение данных, черновики контента, сбор отчётов. Это высокий объём при низкой цене ошибки. Сложные переговоры, юридические решения и всё, где ошибка дорого стоит, оставляйте человеку — агент готовит данные, человек решает.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Сколько стоит агент и какой ROI?</p>
+            <p class="faq-a">Сам n8n бесплатен при self-hosting, расходы — VPS (от нескольких сотен рублей в месяц) и токены LLM по объёму. Связка агентов для малого бизнеса обходится примерно до 200 евро в месяц и освобождает 10–15 часов команды в неделю. Внедрившие агентные процессы получают в среднем 1,7× ROI, а средний бизнес — до 40% сокращения операционных расходов за первый год.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Почему многие проекты с агентами проваливаются?</p>
+            <p class="faq-a">Gartner прогнозирует закрытие более 40% агентных проектов к 2027 году, а около 88% агентов не доходят до продакшена — из-за пробелов в инфраструктуре, слабого управления и неизмеримого ROI. Вывод: начинайте с одного узкого процесса с измеримым результатом и контролем качества с первого дня, а не с «универсального агента на всё».</p>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Итоги: агент снимает рутину, человек принимает решения</h2>
+
+        <p>ИИ-агенты на n8n в 2026 — это не «заменить сотрудников», а снять с команды объём однотипной работы: ответы на типовое, квалификацию, разбор заявок, сбор отчётов. К концу года почти половина бизнес-приложений будет с агентами внутри — это уже не эксперимент, а новая норма.</p>
+
+        <p>Формула рабочего внедрения проста: возьми один узкий процесс из S/A-тира, собери под него агента на связке AI Agent + LLM + инструменты + память, настрой эскалацию человеку и меряй результат в часах и обращениях. Не «агент на всё», а «агент, который точно окупается» — и потом масштабирование на соседние задачи.</p>
+
+        <p>40% проектов закроют именно потому, что начнут с размытой цели. Начни с узкой — и окажешься в тех, кто получает 1,7× и 10–15 часов команды каждую неделю.</p>
+
+        <!-- INTERNAL LINK ZONE - conclusion -->
+        <p class="text-sm text-neon italic">Следующий шаг — конкретные агенты: <a href="/articles/neyroagent-dlya-otdela-prodazh-2026/" class="text-neon hover:text-neon">нейроагент для отдела продаж</a> и <a href="/articles/avtovoronka-telegram-2026/" class="text-neon hover:text-neon">автоворонка в Telegram через n8n</a>.</p>
+
+        <!-- RELATED TOOLS -->
+        <div class="not-prose my-10 rounded-xl border border-line bg-surface/40 p-6">
+            <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-neon mb-4">Посчитайте свои цифры</div>
+            <div class="grid gap-3 sm:grid-cols-2"><a href="/kalkulyator-yunit-ekonomiki/" class="group flex items-center justify-between rounded-lg border border-line bg-ink/40 px-4 py-3 no-underline transition hover:border-neon"><span class="text-emerald-100/85 transition group-hover:text-neon">Калькулятор юнит-экономики: CAC, ROAS, LTV</span><span class="text-neon transition group-hover:translate-x-1">→</span></a><a href="/kalkulyator-rentabelnosti/" class="group flex items-center justify-between rounded-lg border border-line bg-ink/40 px-4 py-3 no-underline transition hover:border-neon"><span class="text-emerald-100/85 transition group-hover:text-neon">Калькуляторы рентабельности по 17 нишам</span><span class="text-neon transition group-hover:translate-x-1">→</span></a></div>
+        </div>
+
+        <!-- FINAL CTA -->
+        <div class="cta-box">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
+                <i class="fas fa-rocket"></i> Автоматизировать бизнес
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Помогу внедрить ИИ-агента в ваш бизнес</h3>
+            <p class="text-emerald-200 mb-2">Владислав Сарамуд — маркетинг-директор, 6+ лет опыта. Собираю ИИ-агентов на n8n под конкретные процессы: поддержка, квалификация, контент, операции, отчёты. Узкая задача, измеримый результат, контроль качества.</p>
+            <p class="text-neon text-sm mb-6">Расскажите про процесс и объём — предложу архитектуру агента под вашу задачу.</p>
+            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20 text-lg">
+                <i class="fab fa-telegram"></i>
+                Написать в Telegram
+            </a>
+        </div>
+
+    </article>
+
+    <!-- RELATED ARTICLES -->
+    <p style="font-size:0.9rem;color:#5f8f72;font-style:italic;margin:1.5rem 0 0;">Больше про автоматизацию и ИИ — в подборке <a href="/neyroseti-dlya-kontenta/" style="color:#7dffb3;">нейросети для контента</a> и <a href="/reklama-i-trafik/" style="color:#7dffb3;">реклама и трафик</a>.</p>
+
+    <div class="mt-16 pt-8 border-t border-line">
+        <h3 class="text-2xl font-bold text-white mb-6">Читайте также:</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <a href="/articles/neyroagent-dlya-otdela-prodazh-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-orange-600 transition group">
+                <span class="text-xs font-bold text-orange-400 uppercase tracking-wider">AI &amp; Автоматизация</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-orange-400 transition">Нейроагент для отдела продаж</h4>
+                <p class="text-neon text-sm">Конкретный агент под sales: задачи, скорость ответа 24/7 и экономика внедрения...</p>
+            </a>
+            <a href="/articles/avtovoronka-telegram-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-emerald-600 transition group">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Автоматизация</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-emerald-400 transition">Автоворонка в Telegram через n8n</h4>
+                <p class="text-neon text-sm">Пример агента «под ключ»: бот + n8n за 1 день без программиста...</p>
+            </a>
+            <a href="/articles/n8n-vs-make/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-emerald-600 transition group">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Сравнения</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-emerald-400 transition">n8n vs Make: что выбрать</h4>
+                <p class="text-neon text-sm">Платформа под агента: цена, гибкость и доступ из РФ в 2026...</p>
+            </a>
+            <a href="/articles/neyroseti-dlya-biznesa/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">Нейросети</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">Нейросети для бизнеса</h4>
+                <p class="text-neon text-sm">Обзор инструментов ИИ для разных задач бизнеса в 2026...</p>
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-line bg-surface/40 mt-20">
+  <div class="mx-auto max-w-6xl px-6 py-14 text-center">
+    <div class="mb-8 flex justify-center gap-5">
+      <a href="https://t.me/saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-telegram"></i></a>
+      <a href="https://www.instagram.com/saramudvlad/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="mb-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 label text-[11px] uppercase text-neon/55">
+      <a href="/blog/" class="transition hover:text-neon">Блог</a><span class="text-line">/</span>
+      <a href="/neyroseti-dlya-kontenta/" class="transition hover:text-neon">Нейросети для контента</a><span class="text-line">/</span>
+      <a href="/reklama-i-trafik/" class="transition hover:text-neon">Реклама и трафик</a><span class="text-line">/</span>
+      <a href="/services/" class="transition hover:text-neon">Услуги</a><span class="text-line">/</span>
+      <a href="/about/" class="transition hover:text-neon">Об авторе</a>
+    </div>
+    <div class="mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-neon/35">
+      <a href="https://disk.yandex.ru/i/Ncd0GgyZTdE2OQ" class="transition hover:text-neon/70">Публичная оферта</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/3Zig9pNfq_A0Ww" class="transition hover:text-neon/70">Политика конфиденциальности</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/RhsYX71b6lmmVg" class="transition hover:text-neon/70">Согласие на обработку ПД</a>
+    </div>
+    <p class="mx-auto mb-5 max-w-2xl text-[11px] leading-relaxed text-neon/25">* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
+    <p class="label text-[11px] uppercase text-neon/30">© 2026 Владислав Сарамуд</p>
+  </div>
+</footer>
+
+<script>
+const _reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){const b=document.getElementById('burger'),m=document.getElementById('mobile-menu');if(!b||!m)return;const s=b.querySelectorAll('span');function o(open){m.classList.toggle('hidden',!open);b.setAttribute('aria-expanded',open);s[0].style.transform=open?'translateY(8px) rotate(45deg)':'';s[1].style.opacity=open?'0':'';s[2].style.transform=open?'translateY(-8px) rotate(-45deg)':'';}b.addEventListener('click',()=>o(m.classList.contains('hidden')));m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>o(false)));})();
+if(!_reduce){const sp=document.getElementById('spot');if(sp)window.addEventListener('pointermove',e=>{sp.style.setProperty('--mx',e.clientX+'px');sp.style.setProperty('--my',e.clientY+'px');});}
+</script>
+</body>
+</html>
