@@ -13,6 +13,9 @@ concurrency:
   group: site-autocommit
   cancel-in-progress: false
 
+permissions:
+  contents: write
+
 jobs:
   update-sitemap:
     runs-on: ubuntu-latest
