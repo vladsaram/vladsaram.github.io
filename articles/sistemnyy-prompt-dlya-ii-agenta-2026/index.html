@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://mc.yandex.ru https://yastatic.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru wss://mc.yandex.ru https://yastatic.net; frame-src https://mc.yandex.ru; worker-src 'self' blob:; child-src blob:; object-src 'none'; base-uri 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Системный промпт для ИИ-агента 2026: структура и готовый шаблон</title>
+    <meta name="description" content="Системный промпт задаёт характер ИИ-агента: роль, задачи, правила, тон и эскалацию. Разбор структуры из 5 блоков, готовый шаблон для копирования и 7 ошибок, из-за которых агент ведёт себя не так.">
+    <meta name="keywords" content="системный промпт для агента, system prompt, промпт для чат-бота, role prompt, системный промпт ии агент, как написать системный промпт">
+    <meta name="author" content="Владислав Сарамуд">
+    <link rel="canonical" href="https://saramudvlad.ru/articles/sistemnyy-prompt-dlya-ii-agenta-2026/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://saramudvlad.ru/articles/sistemnyy-prompt-dlya-ii-agenta-2026/">
+    <meta property="og:title" content="Системный промпт для ИИ-агента 2026: структура и готовый шаблон">
+    <meta property="og:description" content="Системный промпт задаёт характер агента: роль, задачи, правила, тон, эскалация. Структура из 5 блоков, готовый шаблон и 7 ошибок.">
+    <meta property="og:image" content="https://saramudvlad.ru/images/sistemnyy-prompt-dlya-ii-agenta-2026.webp">
+    <meta property="article:published_time" content="2026-06-23T12:00:00+03:00">
+    <meta property="article:author" content="Владислав Сарамуд">
+    <meta property="article:section" content="AI & Автоматизация">
+    <meta property="article:tag" content="Промпты">
+    <meta property="article:tag" content="ИИ-агенты">
+    <meta property="article:tag" content="n8n">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Системный промпт для ИИ-агента 2026: структура и шаблон">
+    <meta name="twitter:description" content="Роль, задачи, правила, тон, эскалация. Структура из 5 блоков, готовый шаблон и 7 ошибок.">
+    <meta name="twitter:image" content="https://saramudvlad.ru/images/sistemnyy-prompt-dlya-ii-agenta-2026.webp">
+
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=106768627','ym');
+    ym(106768627,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106768627" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="stylesheet" href="/dist/tailwind.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Системный промпт для ИИ-агента 2026: структура и готовый шаблон","description":"Как написать системный промпт для ИИ-агента: структура из 5 блоков (роль, задачи, правила, тон, эскалация), готовый шаблон для копирования и 7 типовых ошибок.","image":"https://saramudvlad.ru/images/sistemnyy-prompt-dlya-ii-agenta-2026.webp","author":{"@type":"Person","name":"Владислав Сарамуд","url":"https://saramudvlad.ru"},"publisher":{"@type":"Person","name":"Владислав Сарамуд","logo":{"@type":"ImageObject","url":"https://saramudvlad.ru/avatar.webp"}},"datePublished":"2026-06-23","dateModified":"2026-06-23","mainEntityOfPage":{"@type":"WebPage","@id":"https://saramudvlad.ru/articles/sistemnyy-prompt-dlya-ii-agenta-2026/"}}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://saramudvlad.ru"},{"@type":"ListItem","position":2,"name":"Статьи","item":"https://saramudvlad.ru/blog/"},{"@type":"ListItem","position":3,"name":"Системный промпт для ИИ-агента 2026"}]}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что такое системный промпт?","acceptedAnswer":{"@type":"Answer","text":"Системный промпт — это постоянная инструкция, которая задаёт характер ИИ-агента: кто он, какие задачи решает, по каким правилам, каким тоном и когда передаёт диалог человеку. В отличие от обычного сообщения пользователя, системный промпт действует на весь диалог и определяет поведение агента по умолчанию. Это «личность и устав» агента в одном тексте."}},{"@type":"Question","name":"Чем системный промпт отличается от обычного промпта?","acceptedAnswer":{"@type":"Answer","text":"Обычный промпт — это разовый запрос пользователя («напиши текст про X»). Системный промпт задаётся один раз и работает фоном для каждого ответа агента: он определяет роль, границы и стиль. Пользователь может менять свои запросы, но системный промпт остаётся и держит агента в рамках. Поэтому именно от него зависит, будет агент полезным и предсказуемым или начнёт уходить от темы."}},{"@type":"Question","name":"Из каких блоков состоит хороший системный промпт?","acceptedAnswer":{"@type":"Answer","text":"Из пяти: роль (кто агент и от чьего лица говорит), задачи (что он делает и чего не делает), правила и ограничения (например, отвечать только из базы знаний и не выдумывать), тон (как разговаривает) и эскалация (в каких случаях зовёт человека). Эти пять блоков покрывают 90% поведения агента и делают его предсказуемым."}},{"@type":"Question","name":"Какой длины должен быть системный промпт?","acceptedAnswer":{"@type":"Answer","text":"Достаточной, чтобы покрыть пять блоков, но без воды — обычно от половины до полутора страниц. Слишком короткий промпт оставляет агенту свободу выдумывать, слишком длинный и противоречивый запутывает модель. Конкретные правила и примеры работают лучше общих фраз вроде «будь полезным»: пишите «отвечай только из базы знаний, если ответа нет — скажи, что уточнишь у оператора»."}},{"@type":"Question","name":"Где задаётся системный промпт в n8n?","acceptedAnswer":{"@type":"Answer","text":"В ноде AI Agent есть поле System Message (системное сообщение) — туда и вставляется системный промпт. Рядом подключаются база знаний и инструменты. Промпт можно править в любой момент без перезапуска агента, поэтому его дорабатывают итеративно: читают реальные диалоги, находят, где агент повёл себя не так, и уточняют соответствующий блок."}}]}</script>
+
+    <style>
+        body{font-family:'Inter',sans-serif;background-color:#04070a;color:#d6f5e4;}
+        .gradient-text{background:linear-gradient(to right,#2bff88,#c6ff3d,#c6ff3d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        article h2{font-size:1.875rem;font-weight:800;color:#fff;margin-top:3rem;margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid #2bff88;}
+        article h3{font-size:1.5rem;font-weight:700;color:#7dffb3;margin-top:2rem;margin-bottom:1rem;}
+        article p{margin-bottom:1.5rem;line-height:1.8;color:#bfe9cf;}
+        article ul,article ol{margin-bottom:1.5rem;padding-left:1.5rem;color:#bfe9cf;}
+        article li{margin-bottom:0.75rem;line-height:1.7;}
+        article strong{color:#fff;font-weight:700;}
+        .warning-box{background:rgba(234,88,12,0.1);border-left:4px solid #1fd673;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .ai-box{background:rgba(131,56,236,0.1);border-left:4px solid #8338ec;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .comparison-table{background:rgba(15,23,42,0.5);border:1px solid #16352a;border-radius:1rem;overflow:hidden;margin:2rem 0;}
+        .comparison-table table{width:100%;border-collapse:collapse;}
+        .comparison-table th{background:rgba(249,115,22,0.1);padding:1rem;text-align:left;font-weight:700;color:#7dffb3;border-bottom:2px solid #16352a;}
+        .comparison-table td{padding:1rem;border-bottom:1px solid #16352a;color:#bfe9cf;}
+        .comparison-table tr:last-child td{border-bottom:none;}
+        .cta-box{background:linear-gradient(135deg,#0a1411 0%,#102a1a 100%);border:2px solid #2bff88;border-radius:1rem;padding:2.5rem;margin:3rem 0;text-align:center;}
+        .checklist-item{display:flex;align-items:start;gap:0.75rem;padding:1rem;background:rgba(15,23,42,0.5);border-radius:0.5rem;margin-bottom:0.75rem;border:1px solid #16352a;transition:all 0.3s ease;}
+        .checklist-item:hover{border-color:#2bff88;}
+        .step-badge{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;background:rgba(249,115,22,0.15);border:1px solid #2bff88;border-radius:50%;color:#7dffb3;font-weight:800;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+        .hero-image{width:100%;border-radius:1rem;border:1px solid #16352a;margin-bottom:2rem;display:block;}
+        .stat-card{background:rgba(15,23,42,0.8);border:1px solid #16352a;border-radius:0.75rem;padding:1.25rem;text-align:center;}
+        .stat-card .stat-num{font-size:2rem;font-weight:800;color:#7dffb3;}
+        .stat-card .stat-label{font-size:0.8rem;color:#5f8f72;margin-top:0.25rem;}
+        .prompt-box{background:#0a1411;border:1px solid #16352a;border-left:4px solid #2bff88;border-radius:0.5rem;padding:1.25rem;margin:1.5rem 0;font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:#c6ff3d;line-height:1.8;white-space:pre-wrap;overflow-x:auto;}
+        .takeaways-box{background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.3);border-radius:1rem;padding:1.5rem 2rem;margin:2rem 0;}
+        .faq-item{background:rgba(15,23,42,0.6);border:1px solid #16352a;border-radius:0.75rem;padding:1.5rem;margin-bottom:1rem;}
+        .faq-q{font-weight:700;color:#fff;margin-bottom:0.75rem;font-size:1rem;}
+        .faq-a{color:#8fcaa6;font-size:0.95rem;line-height:1.7;margin:0;}
+        .citation-capsule{background:rgba(249,115,22,0.05);border:1px solid rgba(249,115,22,0.2);border-radius:0.5rem;padding:1.25rem;margin:1.5rem 0;font-style:italic;color:#8fcaa6;font-size:0.9rem;line-height:1.7;}
+        .citation-capsule cite{display:block;margin-top:0.5rem;font-style:normal;color:#5f8f72;font-size:0.8rem;}
+    </style>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#04070a;color:#d6f5e4;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Inter Tight',sans-serif}
+  h1{letter-spacing:-0.03em}
+  .display{letter-spacing:-0.04em;line-height:0.95}
+  .label{font-family:'JetBrains Mono',monospace;letter-spacing:0.2em}
+  .gradient-text{background:linear-gradient(90deg,#2bff88,#7dffb3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 26px rgba(43,255,136,.25)}
+  .neon-text{color:#2bff88;text-shadow:0 0 8px rgba(43,255,136,.55),0 0 28px rgba(43,255,136,.35)}
+  .neon-line{box-shadow:0 0 14px rgba(43,255,136,.45)}
+  #spot{position:fixed;inset:0;z-index:30;pointer-events:none;background:radial-gradient(360px circle at var(--mx,-200px) var(--my,-200px),rgba(43,255,136,.08),transparent 60%);transition:background .08s linear}
+  ::selection{background:#2bff88;color:#04070a}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#spot{display:none}}
+</style>
+</head>
+<body class="antialiased">
+<div id="spot"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-40 border-b border-line/70 bg-ink/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="display flex items-center gap-2 text-lg font-extrabold tracking-tight">
+      <span class="inline-block h-2 w-2 rounded-full bg-neon neon-line"></span>САРАМУД<span class="text-neon">_</span>ВЛАДИСЛАВ
+    </a>
+    <div class="label hidden gap-8 text-[11px] uppercase text-neon/60 md:flex">
+      <a href="/#cases" class="transition hover:text-neon">Кейсы</a>
+      <a href="/#services" class="transition hover:text-neon">Услуги</a>
+      <a href="/#shashlik" class="transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="transition hover:text-neon">Блог</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="label hidden rounded-none border border-neon px-4 py-2 text-[11px] uppercase text-neon transition hover:bg-neon hover:text-ink md:inline-block">Обсудить →</a>
+      <button id="burger" aria-label="Меню" aria-expanded="false" class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden">
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden border-t border-line bg-ink md:hidden">
+    <div class="flex flex-col px-6 pb-5 pt-2 label text-[13px] uppercase text-emerald-100/80">
+      <a href="/#services" class="border-b border-line/60 py-3.5 transition hover:text-neon">Услуги</a>
+      <a href="/#cases" class="border-b border-line/60 py-3.5 transition hover:text-neon">Кейсы</a>
+      <a href="/#shashlik" class="border-b border-line/60 py-3.5 transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="py-3.5 transition hover:text-neon">Блог</a>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="container mx-auto px-6 py-4 max-w-4xl">
+    <nav class="text-sm text-neon">
+        <a href="/" class="hover:text-neon transition">Главная</a>
+        <span class="mx-2">/</span>
+        <a href="/blog/" class="hover:text-neon transition">Статьи</a>
+        <span class="mx-2">/</span>
+        <span class="text-neon">Системный промпт для ИИ-агента 2026</span>
+    </nav>
+</div>
+
+<main class="container mx-auto px-6 py-8 max-w-4xl">
+
+    <!-- HEADER -->
+    <header class="mb-10">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+            <span class="px-3 py-1 bg-neon/30 text-neon text-xs font-bold uppercase rounded-full border border-neon/50">AI &amp; Автоматизация</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">Промпты</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">ИИ-агенты</span>
+            <span class="text-neon text-sm"><i class="far fa-clock mr-1"></i>12 минут чтения</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+            Системный промпт для ИИ-агента: <span class="gradient-text">структура и готовый шаблон</span>
+        </h1>
+        <p class="text-xl text-neon leading-relaxed mb-6">
+            Один и тот же агент с разным системным промптом ведёт себя как два разных сотрудника: один чётко решает задачу и вовремя зовёт человека, другой выдумывает и уходит от темы. Системный промпт — это характер агента. Разбираю структуру из 5 блоков, даю готовый шаблон для копирования и 7 ошибок, из-за которых агент ведёт себя не так.
+        </p>
+        <div class="flex items-center gap-4 text-sm text-neon border-t border-line pt-4">
+            <div class="flex items-center gap-2">
+                <img src="/avatar.webp" alt="Владислав Сарамуд — маркетинг-директор, эксперт по ИИ-агентам и промптам на n8n" class="w-10 h-10 rounded-full border-2 border-neon">
+                <div>
+                    <div class="text-white font-semibold"><a href="/about/" class="hover:text-neon transition">Владислав Сарамуд</a></div>
+                    <div>Маркетинг-директор, 6+ лет в digital</div>
+                </div>
+            </div>
+            <span class="text-line">|</span>
+            <time datetime="2026-06-23">23 июня 2026</time>
+        </div>
+    </header>
+
+    <!-- HERO IMAGE -->
+    <div class="mb-10">
+        <img
+            src="/images/sistemnyy-prompt-dlya-ii-agenta-2026.webp"
+            alt="Системный промпт для ИИ-агента: блоки роль, задачи, правила, тон и эскалация"
+            class="hero-image"
+            width="800"
+            height="420"
+            loading="eager"
+        >
+        <p class="text-xs text-neon text-center mt-2">Системный промпт = роль + задачи + правила + тон + эскалация — июнь 2026</p>
+    </div>
+
+    <article class="prose prose-invert max-w-none">
+
+        <!-- INTRO -->
+        <p>Когда <a href="/articles/ii-agenty-na-n8n-2026/" class="text-neon hover:text-neon">ИИ-агент</a> ведёт себя не так — выдумывает, уходит от темы, не зовёт человека на сложном — почти всегда дело не в модели, а в системном промпте. Это постоянная инструкция, которая задаёт характер агента: кто он, что делает, по каким правилам и когда передаёт диалог оператору. Хороший системный промпт превращает «умную болталку» в предсказуемого сотрудника.</p>
+
+        <p>Разберу по полочкам: чем системный промпт отличается от обычного, из каких 5 блоков состоит, дам готовый шаблон, который можно скопировать и адаптировать, и покажу 7 ошибок, которые ломают поведение агента.</p>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Системный промпт — часть архитектуры агента. Общая картина: <a href="/articles/ii-agenty-na-n8n-2026/" class="text-neon hover:text-neon">ИИ-агенты на n8n для бизнеса</a>.</p>
+
+        <!-- KEY TAKEAWAYS -->
+        <div class="takeaways-box">
+            <p class="text-neon font-bold mb-3 text-sm uppercase tracking-wider"><i class="fas fa-bolt mr-2"></i>Главное за 60 секунд</p>
+            <ul class="text-emerald-200 text-sm space-y-2 mb-0" style="list-style:none;padding:0;">
+                <li>- <strong>Системный промпт</strong> — постоянная инструкция, задающая характер агента</li>
+                <li>- 5 блоков: <strong>роль · задачи · правила · тон · эскалация</strong></li>
+                <li>- Конкретные правила работают лучше общих фраз вроде «будь полезным»</li>
+                <li>- В n8n задаётся в поле <strong>System Message</strong> ноды AI Agent</li>
+                <li>- Дорабатывается итеративно — по чтению реальных диалогов</li>
+            </ul>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Системный промпт vs обычный промпт</h2>
+
+        <p><strong>Коротко: обычный промпт — разовый запрос, системный — постоянный устав агента.</strong> Пользователь меняет свои сообщения, а системный промпт работает фоном для каждого ответа и держит агента в рамках.</p>
+
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Параметр</th>
+                        <th>Обычный промпт</th>
+                        <th>Системный промпт</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Кто задаёт</strong></td>
+                        <td>Пользователь в диалоге</td>
+                        <td class="text-neon font-bold">Вы при настройке агента</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Когда действует</strong></td>
+                        <td>На один ответ</td>
+                        <td class="text-neon font-bold">На весь диалог</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Что определяет</strong></td>
+                        <td>Конкретную задачу</td>
+                        <td class="text-neon font-bold">Роль, границы, стиль</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Меняется</strong></td>
+                        <td>Каждое сообщение</td>
+                        <td class="text-neon font-bold">Редко, при доработке</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Именно поэтому от системного промпта зависит предсказуемость агента. Дайте слабый промпт — и на одинаковые вопросы агент будет отвечать по-разному и уходить от темы. Дайте чёткий — и поведение станет стабильным, как у обученного сотрудника по регламенту.</p>
+
+        <!-- ======================================= -->
+        <h2>5 блоков системного промпта</h2>
+
+        <p>Главное в статье. Хороший системный промпт собирается из пяти блоков — они покрывают 90% поведения агента. Разберём каждый, а потом соберём в готовый шаблон.</p>
+
+        <h3>1. Роль — кто агент</h3>
+        <p>Кем агент себя считает и от чьего лица говорит. «Ты — ассистент поддержки компании X». Роль задаёт точку зрения и уровень экспертизы. Сразу честно обозначьте, что это ИИ, — обман вскрывается и бьёт по доверию.</p>
+
+        <h3>2. Задачи — что он делает и чего не делает</h3>
+        <p>Конкретный список: на что отвечает, что собирает, что оформляет. И так же важно — <strong>чего не делает</strong>: «не даёшь юридических консультаций», «не обещаешь скидок». Границы важнее, чем кажется: без них агент берётся за всё подряд.</p>
+
+        <h3>3. Правила и ограничения</h3>
+        <p>Самый важный блок для борьбы с выдумками. «Отвечай только на основе базы знаний. Если ответа нет — скажи, что уточнишь, и не придумывай». Здесь же — запреты и приоритеты. Конкретика бьёт абстракцию: «не выдумывай цены» работает, «будь точным» — нет.</p>
+
+        <h3>4. Тон — как разговаривает</h3>
+        <p>Стиль общения под ваш бренд: дружелюбно или строго, на «ты» или «вы», с эмодзи или без, коротко или развёрнуто. Тон — это голос компании в каждом ответе, поэтому его прописывают явно, а не оставляют на усмотрение модели.</p>
+
+        <h3>5. Эскалация — когда зовёт человека</h3>
+        <p>Триггеры передачи оператору: «при запросе возврата, жалобе, упоминании суда или если клиент трижды переспрашивает — позови человека и передай контекст». Это граница между тем, что агент решает сам, и тем, где нужен человек. Без неё агент либо запирает сложное на себе, либо зовёт людей по любому поводу.</p>
+
+        <div class="ai-box">
+            <p class="font-semibold mb-2" style="color:#b388ff"><i class="fas fa-lightbulb mr-2"></i>Принцип: конкретные правила и примеры</p>
+            <p class="text-emerald-100 text-sm mb-0">Модель плохо понимает абстракции вроде «будь полезным и вежливым» и отлично — конкретные инструкции с примерами. Вместо «помогай клиентам» напишите «отвечай на вопрос за 1–3 предложения, предлагай следующий шаг, при отсутствии данных — уточняй у оператора». Чем точнее правило, тем предсказуемее агент.</p>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Готовый шаблон системного промпта</h2>
+
+        <p>Скопируйте и адаптируйте под свою нишу — подставьте компанию, продукт и правила. Это рабочий каркас для агента поддержки; для продаж или другого процесса меняется блок задач и эскалации.</p>
+
+        <div class="prompt-box"># РОЛЬ
+Ты — ИИ-ассистент поддержки компании «{Компания}».
+Ты честно представляешься ассистентом, не выдаёшь себя за человека.
+
+# ЗАДАЧИ
+- Отвечаешь на вопросы о продукте, условиях, заказе и оплате.
+- Помогаешь решить типовые проблемы по инструкциям из базы знаний.
+- Собираешь данные клиента перед передачей оператору.
+Не делаешь: не обещаешь скидок и сроков вне регламента,
+не даёшь юридических и медицинских консультаций.
+
+# ПРАВИЛА
+- Отвечай ТОЛЬКО на основе базы знаний. Не выдумывай факты,
+  цены и условия. Если данных нет — скажи, что уточнишь у оператора.
+- Будь краток: 1–3 предложения, затем предложи следующий шаг.
+- Если не уверен — не угадывай, а уточняй или эскалируй.
+
+# ТОН
+Дружелюбный, на «вы», без канцелярита и без избыточных эмодзи.
+Голос спокойного, компетентного помощника.
+
+# ЭСКАЛАЦИЯ
+Передавай оператору и сообщай об этом клиенту, если:
+- запрос на возврат, компенсацию или претензия;
+- клиент раздражён или трижды переспрашивает;
+- вопрос вне твоей базы знаний.
+При передаче приложи краткий контекст: суть проблемы и что уже проверено.</div>
+
+        <p>Этот шаблон не финальный — он отправная точка. Реальную доводку даёт чтение диалогов: видите, где агент повёл себя не так, — уточняете соответствующий блок. Промпт правится за минуту, без перезапуска.</p>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Готовые формулировки под маркетинговые задачи — отдельно: <a href="/articles/prompty-dlya-neyrosetey/" class="text-neon hover:text-neon">промпты для нейросетей</a> (100+ шаблонов).</p>
+
+        <!-- ======================================= -->
+        <h2>Где задать системный промпт в n8n</h2>
+
+        <p><strong>Коротко: в ноде AI Agent есть поле System Message — туда и вставляется промпт.</strong> Рядом подключаются <a href="/articles/rag-baza-znaniy-dlya-ii-agenta-2026/" class="text-neon hover:text-neon">база знаний (RAG)</a> и инструменты. Связка проста: промпт задаёт поведение, база знаний — факты, инструменты — действия.</p>
+
+        <div class="funnel-diagram" style="background:#0a1411;border:1px solid #16352a;border-radius:1rem;padding:2rem;margin:2rem 0;overflow-x:auto;">
+            <p class="text-neon text-xs uppercase tracking-wider font-bold mb-4">Что определяет поведение агента</p>
+            <div class="flex flex-wrap items-center gap-1">
+                <span class="funnel-step" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(249,115,22,0.1);border:1px solid #2bff88;border-radius:0.5rem;padding:0.5rem 1rem;font-size:0.9rem;font-weight:600;color:#7dffb3;white-space:nowrap;">Системный промпт (как себя вести)</span>
+                <span class="funnel-arrow" style="color:#1d4636;font-weight:800;margin:0 0.25rem;font-size:1.1rem;">+</span>
+                <span class="funnel-step" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(249,115,22,0.1);border:1px solid #2bff88;border-radius:0.5rem;padding:0.5rem 1rem;font-size:0.9rem;font-weight:600;color:#7dffb3;white-space:nowrap;">База знаний (чем отвечать)</span>
+                <span class="funnel-arrow" style="color:#1d4636;font-weight:800;margin:0 0.25rem;font-size:1.1rem;">+</span>
+                <span class="funnel-step" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(249,115,22,0.1);border:1px solid #2bff88;border-radius:0.5rem;padding:0.5rem 1rem;font-size:0.9rem;font-weight:600;color:#7dffb3;white-space:nowrap;">Инструменты (что делать)</span>
+            </div>
+        </div>
+
+        <p>Промпт можно менять в любой момент прямо в ноде — это самый быстрый рычаг настройки агента. Поменять поведение через промпт в разы быстрее, чем перетряхивать базу знаний или дописывать инструменты.</p>
+
+        <!-- ======================================= -->
+        <h2>7 ошибок в системном промпте</h2>
+
+        <p>Типичные промахи, из-за которых агент ведёт себя не так, как задумано.</p>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 1: общие фразы вместо правил</p>
+            <p class="text-neon text-sm mb-0">«Будь полезным и вежливым» модель понимает как угодно. Заменяйте на конкретику: что делать, в каком объёме, что под запретом.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 2: нет запрета выдумывать</p>
+            <p class="text-neon text-sm mb-0">Без явного «отвечай только из базы знаний, не придумывай» агент уверенно сочиняет цены и условия. Это правило — обязательное.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 3: не описана эскалация</p>
+            <p class="text-neon text-sm mb-0">Без триггеров передачи человеку агент либо запирает сложное на себе, либо зовёт оператора по любому пустяку. Опишите случаи явно.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 4: противоречивые инструкции</p>
+            <p class="text-neon text-sm mb-0">«Будь краток» и «подробно объясняй каждый пункт» в одном промпте путают модель. Проверяйте промпт на внутренние конфликты.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 5: перегруз промпта</p>
+            <p class="text-neon text-sm mb-0">Простыня на пять страниц с десятками исключений размывает главное. Держите ядро из 5 блоков, частные случаи выносите в базу знаний.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 6: маскировка под человека</p>
+            <p class="text-neon text-sm mb-0">Инструкция «представляйся менеджером Анной» создаёт обман, который вскрывается. Честное «я ИИ-ассистент» работает лучше для доверия.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 7: написать и забыть</p>
+            <p class="text-neon text-sm mb-0">Промпт доводится по реальным диалогам. Без итераций он застывает на первых ошибках. Читайте логи и уточняйте блоки.</p>
+        </div>
+
+        <!-- CTA MID-ARTICLE -->
+        <div class="cta-box">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
+                <i class="fas fa-wand-magic-sparkles"></i> Соберу за вас
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Нужен агент с правильным поведением?</h3>
+            <p class="text-emerald-200 mb-6">Соберу ИИ-агента на n8n под вашу задачу: системный промпт, база знаний, эскалация, инструменты. Предсказуемое поведение и контроль качества с первого дня.</p>
+            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20">
+                <i class="fab fa-telegram"></i>
+                Написать в Telegram
+            </a>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Часто задаваемые вопросы</h2>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Что такое системный промпт?</p>
+            <p class="faq-a">Это постоянная инструкция, задающая характер ИИ-агента: кто он, какие задачи решает, по каким правилам, каким тоном и когда передаёт диалог человеку. Он действует на весь диалог и определяет поведение агента по умолчанию — «личность и устав» в одном тексте.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Чем системный промпт отличается от обычного?</p>
+            <p class="faq-a">Обычный промпт — разовый запрос пользователя. Системный задаётся один раз и работает фоном для каждого ответа: определяет роль, границы и стиль. От него зависит, будет агент предсказуемым или начнёт уходить от темы.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Из каких блоков состоит хороший системный промпт?</p>
+            <p class="faq-a">Из пяти: роль, задачи (и чего не делать), правила и ограничения, тон, эскалация. Эти блоки покрывают около 90% поведения агента и делают его предсказуемым.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Какой длины должен быть системный промпт?</p>
+            <p class="faq-a">Достаточной, чтобы покрыть 5 блоков, без воды — обычно от половины до полутора страниц. Слишком короткий оставляет свободу выдумывать, слишком длинный и противоречивый запутывает. Конкретные правила работают лучше общих фраз.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Где задаётся системный промпт в n8n?</p>
+            <p class="faq-a">В ноде AI Agent есть поле System Message — туда вставляется промпт, рядом подключаются база знаний и инструменты. Промпт правится в любой момент без перезапуска, поэтому его дорабатывают итеративно по реальным диалогам.</p>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Итоги: промпт — самый быстрый рычаг настройки</h2>
+
+        <p>Системный промпт определяет, будет ваш агент предсказуемым сотрудником или непредсказуемой болталкой. Пять блоков — роль, задачи, правила, тон, эскалация — покрывают почти всё поведение, а конкретные формулировки с примерами работают в разы лучше общих пожеланий.</p>
+
+        <p>Начните с шаблона выше, адаптируйте под нишу и доводите по реальным диалогам: промпт правится за минуту и остаётся самым быстрым способом изменить поведение агента. База знаний даёт факты, инструменты — действия, а системный промпт связывает их в характер.</p>
+
+        <!-- INTERNAL LINK ZONE - conclusion -->
+        <p class="text-sm text-neon italic">Дальше — соберите агента целиком: <a href="/articles/ii-agenty-na-n8n-2026/" class="text-neon hover:text-neon">ИИ-агенты на n8n</a>, <a href="/articles/rag-baza-znaniy-dlya-ii-agenta-2026/" class="text-neon hover:text-neon">база знаний (RAG)</a> и <a href="/articles/ii-agent-podderzhki-klientov-2026/" class="text-neon hover:text-neon">агент поддержки клиентов</a>.</p>
+
+        <!-- RELATED TOOLS -->
+        <div class="not-prose my-10 rounded-xl border border-line bg-surface/40 p-6">
+            <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-neon mb-4">Готовые промпты под задачи</div>
+            <div class="grid gap-3 sm:grid-cols-2"><a href="/articles/prompty-dlya-neyrosetey/" class="group flex items-center justify-between rounded-lg border border-line bg-ink/40 px-4 py-3 no-underline transition hover:border-neon"><span class="text-emerald-100/85 transition group-hover:text-neon">Промпты для нейросетей: 100+ шаблонов</span><span class="text-neon transition group-hover:translate-x-1">→</span></a><a href="/articles/prompty-dlya-prodazh/" class="group flex items-center justify-between rounded-lg border border-line bg-ink/40 px-4 py-3 no-underline transition hover:border-neon"><span class="text-emerald-100/85 transition group-hover:text-neon">Промпты для продаж: скрипты и сообщения</span><span class="text-neon transition group-hover:translate-x-1">→</span></a></div>
+        </div>
+
+        <!-- FINAL CTA -->
+        <div class="cta-box">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
+                <i class="fas fa-rocket"></i> Внедрить ИИ-агента
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Помогу собрать агента под вашу задачу</h3>
+            <p class="text-emerald-200 mb-2">Владислав Сарамуд — маркетинг-директор, 6+ лет опыта. Строю ИИ-агентов на n8n: системный промпт, база знаний, эскалация, метрики. Предсказуемое поведение и измеримый результат.</p>
+            <p class="text-neon text-sm mb-6">Расскажите про процесс и продукт — предложу архитектуру агента и его системный промпт.</p>
+            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20 text-lg">
+                <i class="fab fa-telegram"></i>
+                Написать в Telegram
+            </a>
+        </div>
+
+    </article>
+
+    <!-- RELATED ARTICLES -->
+    <p style="font-size:0.9rem;color:#5f8f72;font-style:italic;margin:1.5rem 0 0;">Больше про автоматизацию и ИИ — в подборке <a href="/neyroseti-dlya-kontenta/" style="color:#7dffb3;">нейросети для контента</a> и <a href="/reklama-i-trafik/" style="color:#7dffb3;">реклама и трафик</a>.</p>
+
+    <div class="mt-16 pt-8 border-t border-line">
+        <h3 class="text-2xl font-bold text-white mb-6">Читайте также:</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <a href="/articles/ii-agenty-na-n8n-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-orange-600 transition group">
+                <span class="text-xs font-bold text-orange-400 uppercase tracking-wider">AI &amp; Автоматизация</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-orange-400 transition">ИИ-агенты на n8n для бизнеса</h4>
+                <p class="text-neon text-sm">Опорный разбор: куда встаёт системный промпт в архитектуре агента...</p>
+            </a>
+            <a href="/articles/rag-baza-znaniy-dlya-ii-agenta-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-emerald-600 transition group">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">RAG</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-emerald-400 transition">RAG и база знаний для агента</h4>
+                <p class="text-neon text-sm">Промпт задаёт поведение, база знаний — факты для ответов...</p>
+            </a>
+            <a href="/articles/ii-agent-podderzhki-klientov-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-emerald-600 transition group">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Поддержка</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-emerald-400 transition">ИИ-агент поддержки клиентов</h4>
+                <p class="text-neon text-sm">Где системный промпт держит агента в рамках 24/7...</p>
+            </a>
+            <a href="/articles/prompty-dlya-neyrosetey/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">Промпты</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">Промпты для нейросетей</h4>
+                <p class="text-neon text-sm">100+ готовых формулировок под маркетинговые задачи...</p>
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-line bg-surface/40 mt-20">
+  <div class="mx-auto max-w-6xl px-6 py-14 text-center">
+    <div class="mb-8 flex justify-center gap-5">
+      <a href="https://t.me/saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-telegram"></i></a>
+      <a href="https://www.instagram.com/saramudvlad/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="mb-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 label text-[11px] uppercase text-neon/55">
+      <a href="/blog/" class="transition hover:text-neon">Блог</a><span class="text-line">/</span>
+      <a href="/neyroseti-dlya-kontenta/" class="transition hover:text-neon">Нейросети для контента</a><span class="text-line">/</span>
+      <a href="/reklama-i-trafik/" class="transition hover:text-neon">Реклама и трафик</a><span class="text-line">/</span>
+      <a href="/services/" class="transition hover:text-neon">Услуги</a><span class="text-line">/</span>
+      <a href="/about/" class="transition hover:text-neon">Об авторе</a>
+    </div>
+    <div class="mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-neon/35">
+      <a href="https://disk.yandex.ru/i/Ncd0GgyZTdE2OQ" class="transition hover:text-neon/70">Публичная оферта</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/3Zig9pNfq_A0Ww" class="transition hover:text-neon/70">Политика конфиденциальности</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/RhsYX71b6lmmVg" class="transition hover:text-neon/70">Согласие на обработку ПД</a>
+    </div>
+    <p class="mx-auto mb-5 max-w-2xl text-[11px] leading-relaxed text-neon/25">* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
+    <p class="label text-[11px] uppercase text-neon/30">© 2026 Владислав Сарамуд</p>
+  </div>
+</footer>
+
+<script>
+const _reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){const b=document.getElementById('burger'),m=document.getElementById('mobile-menu');if(!b||!m)return;const s=b.querySelectorAll('span');function o(open){m.classList.toggle('hidden',!open);b.setAttribute('aria-expanded',open);s[0].style.transform=open?'translateY(8px) rotate(45deg)':'';s[1].style.opacity=open?'0':'';s[2].style.transform=open?'translateY(-8px) rotate(-45deg)':'';}b.addEventListener('click',()=>o(m.classList.contains('hidden')));m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>o(false)));})();
+if(!_reduce){const sp=document.getElementById('spot');if(sp)window.addEventListener('pointermove',e=>{sp.style.setProperty('--mx',e.clientX+'px');sp.style.setProperty('--my',e.clientY+'px');});}
+</script>
+</body>
+</html>
