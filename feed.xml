@@ -8,6 +8,13 @@
     <atom:link href="https://saramudvlad.ru/feed.xml" rel="self" type="application/rss+xml"/>
     <lastBuildDate>Tue, 23 Jun 2026 10:00:00 +0300</lastBuildDate>
     <item>
+      <title>ИИ в продуктовом маркетинге 2026: 7 этапов запуска продукта</title>
+      <link>https://saramudvlad.ru/articles/ii-v-produktovom-marketinge-2026/</link>
+      <guid>https://saramudvlad.ru/articles/ii-v-produktovom-marketinge-2026/</guid>
+      <description>Где ИИ реально даёт результат в маркетинге продукта: исследование, позиционирование, упаковка, контент, реклама, аналитика. 7 этапов запуска с нейросетями, тир-лист задач и метрики 2026.</description>
+      <pubDate>Tue, 23 Jun 2026 10:00:00 +0300</pubDate>
+    </item>
+    <item>
       <title>Системный промпт для ИИ-агента 2026: структура и готовый шаблон</title>
       <link>https://saramudvlad.ru/articles/sistemnyy-prompt-dlya-ii-agenta-2026/</link>
       <guid>https://saramudvlad.ru/articles/sistemnyy-prompt-dlya-ii-agenta-2026/</guid>
@@ -208,13 +215,6 @@
       <link>https://saramudvlad.ru/articles/prompty-dlya-email-rassylok/</link>
       <guid>https://saramudvlad.ru/articles/prompty-dlya-email-rassylok/</guid>
       <description>Темы письма, продающие письма, welcome-цепочки и реактивация подписчиков.</description>
-      <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
-    </item>
-    <item>
-      <title>Промпты для копирайтинга и продающих текстов 2026</title>
-      <link>https://saramudvlad.ru/articles/prompty-dlya-kopiraytinga/</link>
-      <guid>https://saramudvlad.ru/articles/prompty-dlya-kopiraytinga/</guid>
-      <description>Тексты по формулам PAS и AIDA, заголовки, лендинги, рерайт без воды.</description>
       <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
     </item>
   </channel>
