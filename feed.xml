@@ -8,6 +8,13 @@
     <atom:link href="https://saramudvlad.ru/feed.xml" rel="self" type="application/rss+xml"/>
     <lastBuildDate>Tue, 23 Jun 2026 10:00:00 +0300</lastBuildDate>
     <item>
+      <title>Системный промпт для ИИ-агента 2026: структура и готовый шаблон</title>
+      <link>https://saramudvlad.ru/articles/sistemnyy-prompt-dlya-ii-agenta-2026/</link>
+      <guid>https://saramudvlad.ru/articles/sistemnyy-prompt-dlya-ii-agenta-2026/</guid>
+      <description>Системный промпт задаёт характер ИИ-агента: роль, задачи, правила, тон, эскалация. Структура из 5 блоков, готовый шаблон для копирования и 7 ошибок, из-за которых агент ведёт себя не так.</description>
+      <pubDate>Tue, 23 Jun 2026 10:00:00 +0300</pubDate>
+    </item>
+    <item>
       <title>RAG и база знаний для ИИ-агента 2026: как обучить ИИ на своих данных</title>
       <link>https://saramudvlad.ru/articles/rag-baza-znaniy-dlya-ii-agenta-2026/</link>
       <guid>https://saramudvlad.ru/articles/rag-baza-znaniy-dlya-ii-agenta-2026/</guid>
@@ -208,13 +215,6 @@
       <link>https://saramudvlad.ru/articles/prompty-dlya-kopiraytinga/</link>
       <guid>https://saramudvlad.ru/articles/prompty-dlya-kopiraytinga/</guid>
       <description>Тексты по формулам PAS и AIDA, заголовки, лендинги, рерайт без воды.</description>
-      <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
-    </item>
-    <item>
-      <title>Промпты для таргетолога: рекламные тексты и креативы 2026</title>
-      <link>https://saramudvlad.ru/articles/prompty-dlya-targetologa/</link>
-      <guid>https://saramudvlad.ru/articles/prompty-dlya-targetologa/</guid>
-      <description>Тексты для VK Ads, Telegram Ads и Яндекс Директ, офферы и идеи креативов под A/B.</description>
       <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
     </item>
   </channel>
