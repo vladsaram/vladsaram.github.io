@@ -30,6 +30,7 @@
 
 ## Статьи и материалы
 
+- [ИИ-агент поддержки клиентов на n8n 2026: как собрать без кода](https://saramudvlad.ru/articles/ii-agent-podderzhki-klientov-2026/)
 - [Как установить n8n на VPS в 2026: пошаговая инструкция на русском](https://saramudvlad.ru/articles/kak-ustanovit-n8n-na-vps-2026/)
 - [ИИ-агенты на n8n для бизнеса 2026: как собрать без кода](https://saramudvlad.ru/articles/ii-agenty-na-n8n-2026/)
 - [Нейроагент для отдела продаж 2026: ИИ-менеджер, который не спит](https://saramudvlad.ru/articles/neyroagent-dlya-otdela-prodazh-2026/)
@@ -54,7 +55,6 @@
 - [Нейросеть для текста: какую выбрать в 2026](https://saramudvlad.ru/articles/neyroset-dlya-teksta/)
 - [Нейросети для бизнеса: какие выбрать в 2026](https://saramudvlad.ru/articles/neyroseti-dlya-biznesa/)
 - [Промпты для продаж: холодные сообщения и скрипты B2B](https://saramudvlad.ru/articles/prompty-dlya-prodazh/)
-- [Промпты для отзывов и ответов клиентам 2026](https://saramudvlad.ru/articles/prompty-dlya-otzyvov/)
 
 ## Калькуляторы (бесплатные инструменты)
 

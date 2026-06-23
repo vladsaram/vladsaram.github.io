@@ -6,7 +6,14 @@
     <description>Системный маркетинг, реклама и AI-автоматизация: статьи, гайды, разборы инструментов.</description>
     <language>ru</language>
     <atom:link href="https://saramudvlad.ru/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 12 Jun 2026 10:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jun 2026 10:00:00 +0300</lastBuildDate>
+    <item>
+      <title>ИИ-агент поддержки клиентов на n8n 2026: как собрать без кода</title>
+      <link>https://saramudvlad.ru/articles/ii-agent-podderzhki-klientov-2026/</link>
+      <guid>https://saramudvlad.ru/articles/ii-agent-podderzhki-klientov-2026/</guid>
+      <description>ИИ-агент закрывает 55–70% обращений сам за секунды 24/7, сложное отдаёт оператору. Как собрать агента поддержки на n8n: архитектура, тир-лист задач, метрики (FRT, автозакрытие, CSAT) и экономика.</description>
+      <pubDate>Tue, 23 Jun 2026 10:00:00 +0300</pubDate>
+    </item>
     <item>
       <title>Как установить n8n на VPS в 2026: пошаговая инструкция на русском</title>
       <link>https://saramudvlad.ru/articles/kak-ustanovit-n8n-na-vps-2026/</link>
@@ -208,13 +215,6 @@
       <link>https://saramudvlad.ru/articles/prompty-dlya-avito/</link>
       <guid>https://saramudvlad.ru/articles/prompty-dlya-avito/</guid>
       <description>Заголовки под поиск, продающий текст, снятие возражений — для товаров и услуг.</description>
-      <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
-    </item>
-    <item>
-      <title>Промпты для карточек товара Wildberries и Ozon 2026</title>
-      <link>https://saramudvlad.ru/articles/prompty-dlya-marketpleysov/</link>
-      <guid>https://saramudvlad.ru/articles/prompty-dlya-marketpleysov/</guid>
-      <description>Продающие SEO-описания, буллеты, инфографика и ответы на вопросы — отдельно под WB и Ozon.</description>
       <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
     </item>
   </channel>
