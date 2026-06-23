@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://mc.yandex.ru https://yastatic.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru wss://mc.yandex.ru https://yastatic.net; frame-src https://mc.yandex.ru; worker-src 'self' blob:; child-src blob:; object-src 'none'; base-uri 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>RAG и база знаний для ИИ-агента 2026: как обучить ИИ на своих данных</title>
+    <meta name="description" content="RAG снижает галлюцинации ИИ до 50% — агент отвечает фактами ваших документов. Как собрать базу знаний для ИИ-агента: чанки, эмбеддинги, векторная база, гибридный поиск и сборка в n8n без кода.">
+    <meta name="keywords" content="rag для бизнеса, база знаний для чат-бота, как обучить ии на своих данных, retrieval augmented generation, векторная база знаний, rag n8n">
+    <meta name="author" content="Владислав Сарамуд">
+    <link rel="canonical" href="https://saramudvlad.ru/articles/rag-baza-znaniy-dlya-ii-agenta-2026/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://saramudvlad.ru/articles/rag-baza-znaniy-dlya-ii-agenta-2026/">
+    <meta property="og:title" content="RAG и база знаний для ИИ-агента 2026: как обучить ИИ на своих данных">
+    <meta property="og:description" content="RAG снижает галлюцинации до 50% — агент отвечает фактами ваших документов. Чанки, эмбеддинги, векторная база, гибридный поиск и сборка в n8n.">
+    <meta property="og:image" content="https://saramudvlad.ru/images/rag-baza-znaniy-dlya-ii-agenta-2026.webp">
+    <meta property="article:published_time" content="2026-06-23T11:00:00+03:00">
+    <meta property="article:author" content="Владислав Сарамуд">
+    <meta property="article:section" content="AI & Автоматизация">
+    <meta property="article:tag" content="RAG">
+    <meta property="article:tag" content="ИИ-агенты">
+    <meta property="article:tag" content="n8n">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RAG и база знаний для ИИ-агента 2026">
+    <meta name="twitter:description" content="RAG снижает галлюцинации до 50% — агент отвечает фактами ваших документов. Векторная база, гибридный поиск, сборка в n8n.">
+    <meta name="twitter:image" content="https://saramudvlad.ru/images/rag-baza-znaniy-dlya-ii-agenta-2026.webp">
+
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=106768627','ym');
+    ym(106768627,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106768627" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="stylesheet" href="/dist/tailwind.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"RAG и база знаний для ИИ-агента 2026: как обучить ИИ на своих данных","description":"Как собрать базу знаний для ИИ-агента через RAG: чанки, эмбеддинги, векторная база, гибридный поиск, сборка в n8n без кода и типовые ошибки.","image":"https://saramudvlad.ru/images/rag-baza-znaniy-dlya-ii-agenta-2026.webp","author":{"@type":"Person","name":"Владислав Сарамуд","url":"https://saramudvlad.ru"},"publisher":{"@type":"Person","name":"Владислав Сарамуд","logo":{"@type":"ImageObject","url":"https://saramudvlad.ru/avatar.webp"}},"datePublished":"2026-06-23","dateModified":"2026-06-23","mainEntityOfPage":{"@type":"WebPage","@id":"https://saramudvlad.ru/articles/rag-baza-znaniy-dlya-ii-agenta-2026/"}}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://saramudvlad.ru"},{"@type":"ListItem","position":2,"name":"Статьи","item":"https://saramudvlad.ru/blog/"},{"@type":"ListItem","position":3,"name":"RAG и база знаний для ИИ-агента 2026"}]}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что такое RAG простыми словами?","acceptedAnswer":{"@type":"Answer","text":"RAG (Retrieval-Augmented Generation, генерация с поиском) — это когда ИИ-агент перед ответом ищет нужный фрагмент в вашей базе знаний и отвечает на его основе, а не только по памяти модели. Простая аналогия: без RAG агент отвечает «по памяти», как студент на экзамене без конспекта; с RAG — открывает конспект (ваши документы), находит нужное и отвечает фактами. Поэтому RAG снижает выдумки и привязывает ответы к вашим данным."}},{"@type":"Question","name":"Зачем ИИ-агенту RAG, если у модели и так много знаний?","acceptedAnswer":{"@type":"Answer","text":"Языковая модель знает общие вещи, но не знает вашего прайса, регламентов, остатков и условий. Без RAG на вопрос о вашем продукте она выдумывает правдоподобный, но неверный ответ — это галлюцинация. RAG подсовывает модели актуальные фрагменты ваших документов, снижая галлюцинации до 50% и поднимая точность ответов до 90%+ на закрытых вопросах. Плюс базу знаний можно обновить за минуту, не переобучая модель."}},{"@type":"Question","name":"Что такое векторная база и эмбеддинги?","acceptedAnswer":{"@type":"Answer","text":"Эмбеддинг — это числовое представление текста, в котором близкие по смыслу фрагменты оказываются рядом. Векторная база хранит эти представления и умеет быстро находить фрагменты, семантически близкие к вопросу, — даже если в вопросе другие слова. Популярные решения — Pinecone, Milvus, Weaviate, Qdrant. Благодаря векторному поиску агент находит ответ по смыслу, а не по точному совпадению слов, как обычный поиск по сайту."}},{"@type":"Question","name":"Можно ли собрать RAG без программиста?","acceptedAnswer":{"@type":"Answer","text":"Да. В n8n есть готовые ноды для RAG: загрузка документов, разбиение на чанки, создание эмбеддингов, запись в векторную базу и нода AI Agent с подключённым хранилищем. Весь конвейер собирается визуально, без кода. Основная работа — не техника, а подготовка качественных документов и настройка разбиения на фрагменты, потому что мусор на входе даёт мусор в ответах."}},{"@type":"Question","name":"Сколько стоит RAG для бизнеса?","acceptedAnswer":{"@type":"Answer","text":"Для малого бизнеса управляемая векторная база добавляет в среднем около $500/мес к облачной инфраструктуре, но на старте можно поднять open-source хранилище (Qdrant, Weaviate) на своём VPS почти бесплатно — платите только за сервер и токены эмбеддингов. Эмбеддинги дешёвые: разовая векторизация базы знаний среднего бизнеса обходится в считанные доллары, а обновления стоят копейки."}}]}</script>
+
+    <style>
+        body{font-family:'Inter',sans-serif;background-color:#04070a;color:#d6f5e4;}
+        .gradient-text{background:linear-gradient(to right,#2bff88,#c6ff3d,#c6ff3d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        article h2{font-size:1.875rem;font-weight:800;color:#fff;margin-top:3rem;margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid #2bff88;}
+        article h3{font-size:1.5rem;font-weight:700;color:#7dffb3;margin-top:2rem;margin-bottom:1rem;}
+        article p{margin-bottom:1.5rem;line-height:1.8;color:#bfe9cf;}
+        article ul,article ol{margin-bottom:1.5rem;padding-left:1.5rem;color:#bfe9cf;}
+        article li{margin-bottom:0.75rem;line-height:1.7;}
+        article strong{color:#fff;font-weight:700;}
+        .warning-box{background:rgba(234,88,12,0.1);border-left:4px solid #1fd673;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .ai-box{background:rgba(131,56,236,0.1);border-left:4px solid #8338ec;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .comparison-table{background:rgba(15,23,42,0.5);border:1px solid #16352a;border-radius:1rem;overflow:hidden;margin:2rem 0;}
+        .comparison-table table{width:100%;border-collapse:collapse;}
+        .comparison-table th{background:rgba(249,115,22,0.1);padding:1rem;text-align:left;font-weight:700;color:#7dffb3;border-bottom:2px solid #16352a;}
+        .comparison-table td{padding:1rem;border-bottom:1px solid #16352a;color:#bfe9cf;}
+        .comparison-table tr:last-child td{border-bottom:none;}
+        .cta-box{background:linear-gradient(135deg,#0a1411 0%,#102a1a 100%);border:2px solid #2bff88;border-radius:1rem;padding:2.5rem;margin:3rem 0;text-align:center;}
+        .checklist-item{display:flex;align-items:start;gap:0.75rem;padding:1rem;background:rgba(15,23,42,0.5);border-radius:0.5rem;margin-bottom:0.75rem;border:1px solid #16352a;transition:all 0.3s ease;}
+        .checklist-item:hover{border-color:#2bff88;}
+        .step-badge{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;background:rgba(249,115,22,0.15);border:1px solid #2bff88;border-radius:50%;color:#7dffb3;font-weight:800;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+        .hero-image{width:100%;border-radius:1rem;border:1px solid #16352a;margin-bottom:2rem;display:block;}
+        .stat-card{background:rgba(15,23,42,0.8);border:1px solid #16352a;border-radius:0.75rem;padding:1.25rem;text-align:center;}
+        .stat-card .stat-num{font-size:2rem;font-weight:800;color:#7dffb3;}
+        .stat-card .stat-label{font-size:0.8rem;color:#5f8f72;margin-top:0.25rem;}
+        .funnel-diagram{background:#0a1411;border:1px solid #16352a;border-radius:1rem;padding:2rem;margin:2rem 0;overflow-x:auto;}
+        .funnel-step{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(249,115,22,0.1);border:1px solid #2bff88;border-radius:0.5rem;padding:0.5rem 1rem;font-size:0.9rem;font-weight:600;color:#7dffb3;white-space:nowrap;}
+        .funnel-arrow{color:#1d4636;font-weight:800;margin:0 0.25rem;font-size:1.1rem;}
+        .takeaways-box{background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.3);border-radius:1rem;padding:1.5rem 2rem;margin:2rem 0;}
+        .faq-item{background:rgba(15,23,42,0.6);border:1px solid #16352a;border-radius:0.75rem;padding:1.5rem;margin-bottom:1rem;}
+        .faq-q{font-weight:700;color:#fff;margin-bottom:0.75rem;font-size:1rem;}
+        .faq-a{color:#8fcaa6;font-size:0.95rem;line-height:1.7;margin:0;}
+        .citation-capsule{background:rgba(249,115,22,0.05);border:1px solid rgba(249,115,22,0.2);border-radius:0.5rem;padding:1.25rem;margin:1.5rem 0;font-style:italic;color:#8fcaa6;font-size:0.9rem;line-height:1.7;}
+        .citation-capsule cite{display:block;margin-top:0.5rem;font-style:normal;color:#5f8f72;font-size:0.8rem;}
+    </style>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#04070a;color:#d6f5e4;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Inter Tight',sans-serif}
+  h1{letter-spacing:-0.03em}
+  .display{letter-spacing:-0.04em;line-height:0.95}
+  .label{font-family:'JetBrains Mono',monospace;letter-spacing:0.2em}
+  .gradient-text{background:linear-gradient(90deg,#2bff88,#7dffb3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 26px rgba(43,255,136,.25)}
+  .neon-text{color:#2bff88;text-shadow:0 0 8px rgba(43,255,136,.55),0 0 28px rgba(43,255,136,.35)}
+  .neon-line{box-shadow:0 0 14px rgba(43,255,136,.45)}
+  #spot{position:fixed;inset:0;z-index:30;pointer-events:none;background:radial-gradient(360px circle at var(--mx,-200px) var(--my,-200px),rgba(43,255,136,.08),transparent 60%);transition:background .08s linear}
+  ::selection{background:#2bff88;color:#04070a}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#spot{display:none}}
+</style>
+</head>
+<body class="antialiased">
+<div id="spot"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-40 border-b border-line/70 bg-ink/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="display flex items-center gap-2 text-lg font-extrabold tracking-tight">
+      <span class="inline-block h-2 w-2 rounded-full bg-neon neon-line"></span>САРАМУД<span class="text-neon">_</span>ВЛАДИСЛАВ
+    </a>
+    <div class="label hidden gap-8 text-[11px] uppercase text-neon/60 md:flex">
+      <a href="/#cases" class="transition hover:text-neon">Кейсы</a>
+      <a href="/#services" class="transition hover:text-neon">Услуги</a>
+      <a href="/#shashlik" class="transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="transition hover:text-neon">Блог</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="label hidden rounded-none border border-neon px-4 py-2 text-[11px] uppercase text-neon transition hover:bg-neon hover:text-ink md:inline-block">Обсудить →</a>
+      <button id="burger" aria-label="Меню" aria-expanded="false" class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden">
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden border-t border-line bg-ink md:hidden">
+    <div class="flex flex-col px-6 pb-5 pt-2 label text-[13px] uppercase text-emerald-100/80">
+      <a href="/#services" class="border-b border-line/60 py-3.5 transition hover:text-neon">Услуги</a>
+      <a href="/#cases" class="border-b border-line/60 py-3.5 transition hover:text-neon">Кейсы</a>
+      <a href="/#shashlik" class="border-b border-line/60 py-3.5 transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="py-3.5 transition hover:text-neon">Блог</a>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="container mx-auto px-6 py-4 max-w-4xl">
+    <nav class="text-sm text-neon">
+        <a href="/" class="hover:text-neon transition">Главная</a>
+        <span class="mx-2">/</span>
+        <a href="/blog/" class="hover:text-neon transition">Статьи</a>
+        <span class="mx-2">/</span>
+        <span class="text-neon">RAG и база знаний для ИИ-агента 2026</span>
+    </nav>
+</div>
+
+<main class="container mx-auto px-6 py-8 max-w-4xl">
+
+    <!-- HEADER -->
+    <header class="mb-10">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+            <span class="px-3 py-1 bg-neon/30 text-neon text-xs font-bold uppercase rounded-full border border-neon/50">AI &amp; Автоматизация</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">RAG</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">База знаний</span>
+            <span class="text-neon text-sm"><i class="far fa-clock mr-1"></i>13 минут чтения</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+            RAG и база знаний для ИИ-агента: <span class="gradient-text">чтобы агент не выдумывал</span>
+        </h1>
+        <p class="text-xl text-neon leading-relaxed mb-6">
+            ИИ-агент без вашей базы знаний вежливо выдумывает: не знает прайс, регламенты и условия — и отвечает правдоподобной неправдой. RAG решает это: агент перед ответом ищет факты в ваших документах. Разбираю простыми словами, как устроен RAG, из чего собрать базу знаний и как поднять её на n8n без кода.
+        </p>
+        <div class="flex items-center gap-4 text-sm text-neon border-t border-line pt-4">
+            <div class="flex items-center gap-2">
+                <img src="/avatar.webp" alt="Владислав Сарамуд — маркетинг-директор, эксперт по ИИ-агентам и RAG на n8n" class="w-10 h-10 rounded-full border-2 border-neon">
+                <div>
+                    <div class="text-white font-semibold"><a href="/about/" class="hover:text-neon transition">Владислав Сарамуд</a></div>
+                    <div>Маркетинг-директор, 6+ лет в digital</div>
+                </div>
+            </div>
+            <span class="text-line">|</span>
+            <time datetime="2026-06-23">23 июня 2026</time>
+        </div>
+    </header>
+
+    <!-- HERO IMAGE -->
+    <div class="mb-10">
+        <img
+            src="/images/rag-baza-znaniy-dlya-ii-agenta-2026.webp"
+            alt="RAG для ИИ-агента: документы → чанки и эмбеддинги → векторная база → поиск по смыслу + LLM → ответ с фактами"
+            class="hero-image"
+            width="800"
+            height="420"
+            loading="eager"
+        >
+        <p class="text-xs text-neon text-center mt-2">Конвейер RAG: документы → эмбеддинги → векторная база → поиск + LLM → ответ фактами — июнь 2026</p>
+    </div>
+
+    <article class="prose prose-invert max-w-none">
+
+        <!-- INTRO -->
+        <p>Любой <a href="/articles/ii-agenty-na-n8n-2026/" class="text-neon hover:text-neon">ИИ-агент</a> хорош ровно настолько, насколько хороша его база знаний. Языковая модель знает общие вещи, но не знает вашего прайса, остатков и регламентов — и на вопрос о вашем продукте выдаёт правдоподобную неправду. Это называется галлюцинацией, и лечит её RAG: перед ответом агент ищет нужный фрагмент в ваших документах. По данным 2026 года, RAG снижает галлюцинации до 50% и поднимает точность ответов до 92% на закрытых вопросах (<a href="https://www.kernshell.com/how-rag-reduces-ai-hallucinations-and-improves-accuracy/" target="_blank" rel="noopener" class="text-neon hover:text-neon">Kernshell</a>, 2026).</p>
+
+        <p>Звучит технически, но суть простая, и собрать RAG можно без кода на n8n. Разберу по порядку: что такое RAG на пальцах, из каких частей состоит база знаний, как работает векторный поиск и как поднять всё это под своего агента.</p>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">RAG — ядро любого агента. Общая картина (LLM, инструменты, память) — в опорной статье: <a href="/articles/ii-agenty-na-n8n-2026/" class="text-neon hover:text-neon">ИИ-агенты на n8n для бизнеса</a>.</p>
+
+        <!-- KEY TAKEAWAYS -->
+        <div class="takeaways-box">
+            <p class="text-neon font-bold mb-3 text-sm uppercase tracking-wider"><i class="fas fa-bolt mr-2"></i>Главное за 60 секунд</p>
+            <ul class="text-emerald-200 text-sm space-y-2 mb-0" style="list-style:none;padding:0;">
+                <li>- <strong>RAG</strong> — агент ищет ответ в ваших документах перед тем, как ответить</li>
+                <li>- Снижает галлюцинации <strong>до 50%</strong>, точность ответов — до <strong>92%</strong></li>
+                <li>- Конвейер: документы → чанки → <strong>эмбеддинги</strong> → векторная база → поиск + LLM</li>
+                <li>- <strong>Гибридный поиск</strong> (вектор + ключевые слова) точнее чистого векторного</li>
+                <li>- Собирается на n8n <strong>без кода</strong>; 80% качества — в подготовке документов</li>
+            </ul>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Что такое RAG простыми словами</h2>
+
+        <p><strong>Коротко: RAG — это «агент с открытым конспектом».</strong> Без RAG модель отвечает по памяти, как студент на экзамене без шпаргалки: что-то помнит точно, что-то додумывает. RAG даёт ей конспект — ваши документы — и заставляет сначала найти нужное, потом ответить.</p>
+
+        <p>Аббревиатура расшифровывается как Retrieval-Augmented Generation — «генерация, усиленная поиском». Механика в одном предложении: на вопрос клиента система сначала <strong>находит</strong> релевантные фрагменты в вашей базе знаний (retrieval), <strong>добавляет</strong> их к запросу (augmented) и только потом <strong>формулирует</strong> ответ моделью (generation). Поэтому ответ опирается на ваши факты, а не на общие знания модели.</p>
+
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Параметр</th>
+                        <th>Агент без RAG</th>
+                        <th>Агент с RAG</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Источник ответа</strong></td>
+                        <td>Память модели</td>
+                        <td class="text-neon font-bold">Ваши документы</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Вопрос о вашем продукте</strong></td>
+                        <td>Выдумывает правдоподобное</td>
+                        <td class="text-neon font-bold">Отвечает фактами</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Обновление знаний</strong></td>
+                        <td>Переобучение модели</td>
+                        <td class="text-neon font-bold">Обновил документ — готово</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Свежесть данных</strong></td>
+                        <td>На момент обучения</td>
+                        <td class="text-neon font-bold">Актуальная всегда</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Галлюцинации</strong></td>
+                        <td>Высокий риск</td>
+                        <td class="text-neon font-bold">Ниже до 50%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Главный практический плюс — <strong>обновляемость</strong>. Поменялся прайс или регламент — вы правите документ в базе, и агент сразу отвечает по-новому. Никакого переобучения модели: знания живут отдельно от «мозга».</p>
+
+        <!-- ======================================= -->
+        <h2>Из чего состоит база знаний: конвейер RAG</h2>
+
+        <p><strong>Коротко: документы режут на фрагменты, превращают в векторы и кладут в базу, по которой ищут смысл.</strong> Четыре шага, каждый из которых собирается в n8n нодами.</p>
+
+        <div class="funnel-diagram">
+            <p class="text-neon text-xs uppercase tracking-wider font-bold mb-4">Как документ попадает в базу знаний</p>
+            <div class="flex flex-wrap items-center gap-1">
+                <span class="funnel-step">Документы</span>
+                <span class="funnel-arrow">&#8594;</span>
+                <span class="funnel-step">Чанки (фрагменты)</span>
+                <span class="funnel-arrow">&#8594;</span>
+                <span class="funnel-step">Эмбеддинги</span>
+                <span class="funnel-arrow">&#8594;</span>
+                <span class="funnel-step">Векторная база</span>
+            </div>
+        </div>
+
+        <h3>1. Документы</h3>
+        <p>Источник правды: FAQ, инструкции, регламенты, прайс, политика возвратов, база типовых проблем. Чем полнее и актуальнее — тем точнее агент. Мусор и противоречия на входе дают мусор в ответах.</p>
+
+        <h3>2. Чанки — разбиение на фрагменты</h3>
+        <p>Документы режут на куски по 200–500 слов с небольшим нахлёстом. Это важнее, чем кажется: слишком крупные чанки размывают смысл, слишком мелкие теряют контекст. Хороший чанк — это законченная мысль (один раздел FAQ, один регламент), которую агент сможет целиком подложить в ответ.</p>
+
+        <h3>3. Эмбеддинги — превращение в векторы</h3>
+        <p>Каждый чанк прогоняется через модель эмбеддингов и превращается в набор чисел (вектор), где близкие по смыслу фрагменты оказываются рядом. Именно это даёт поиск «по смыслу»: вопрос «как вернуть деньги» найдёт регламент про возвраты, даже если там нет слова «деньги».</p>
+
+        <h3>4. Векторная база</h3>
+        <p>Хранилище векторов с быстрым поиском ближайших: Pinecone, Milvus, Weaviate, Qdrant. На них приходится больше 60% рынка специализированных векторных баз. Для старта open-source Qdrant или Weaviate поднимаются на вашем VPS почти бесплатно.</p>
+
+        <div class="ai-box">
+            <p class="font-semibold mb-2" style="color:#b388ff"><i class="fas fa-magnifying-glass mr-2"></i>Гибридный поиск точнее чистого векторного</p>
+            <p class="text-emerald-100 text-sm mb-0">Векторный поиск отлично ловит смысл, но иногда промахивается на точных терминах, артикулах и названиях. Поэтому в 2026 году стандарт — гибридный поиск: вектор (смысл) + ключевые слова (точные совпадения). Такая связка стабильно обходит чистый векторный поиск по фактической точности — особенно там, где важны коды товаров, номера тарифов и юридические формулировки.</p>
+        </div>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Где развернуть векторную базу и сам n8n: <a href="/articles/kak-ustanovit-n8n-na-vps-2026/" class="text-neon hover:text-neon">установка n8n на VPS за 30–40 минут</a>.</p>
+
+        <!-- ======================================= -->
+        <h2>Зачем это бизнесу: цифры</h2>
+
+        <p><strong>Коротко: RAG превращает «болтливого бота» в агента, которому можно доверить клиентов.</strong> Вот что меняется в измеримых величинах.</p>
+
+        <!-- STATS GRID -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+            <div class="stat-card">
+                <div class="stat-num">−50%</div>
+                <div class="stat-label">галлюцинаций vs чистая LLM</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">92%</div>
+                <div class="stat-label">точность на закрытых вопросах</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">60%+</div>
+                <div class="stat-label">компаний строят RAG-поиск</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">~1 мин</div>
+                <div class="stat-label">обновить знание (без обучения)</div>
+            </div>
+        </div>
+
+        <p>За сухими процентами — простая ценность: агент с RAG говорит фактами вашего бизнеса и не подставляет вас выдуманными ответами клиентам. Для <a href="/articles/ii-agent-podderzhki-klientov-2026/" class="text-neon hover:text-neon">агента поддержки</a> это разница между «закрывает 60% обращений» и «злит клиентов неправильными ответами».</p>
+
+        <div class="citation-capsule">
+            Свыше 60% организаций развивают инструменты ИИ-поиска по внутренним данным, чтобы повысить надёжность и снизить галлюцинации. RAG-модели уменьшают галлюцинации до 50% и достигают 92% точности на закрытых вопросах при качественной базе. Передовые приёмы 2026 года — self-reflective и corrective RAG, где модель сама оценивает найденное и перезапрашивает базу, если уверенности мало.
+            <cite>Kernshell, 2026; обзоры рынка RAG, 2026</cite>
+        </div>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Посчитайте экономику внедрения на своих числах: <a href="/kalkulyator-yunit-ekonomiki/" class="text-neon hover:text-neon">калькулятор юнит-экономики</a>.</p>
+
+        <!-- ======================================= -->
+        <h2>Как собрать RAG на n8n: пошагово</h2>
+
+        <p>80% результата — не техника, а качество документов и разбиения на чанки. Сборка в n8n — последние 20%. Вот порядок.</p>
+
+        <div class="checklist-item">
+            <div class="step-badge">1</div>
+            <div>
+                <strong>Собери и почисти документы</strong><br>
+                <span class="text-sm text-neon">Актуальные FAQ, регламенты, прайс, инструкции. Убери противоречия и устаревшее — они дороже всего обходятся в ответах.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">2</div>
+            <div>
+                <strong>Подними векторную базу</strong><br>
+                <span class="text-sm text-neon">Qdrant или Weaviate на VPS (open-source, дёшево) либо облачный Pinecone. Это хранилище для базы знаний агента.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">3</div>
+            <div>
+                <strong>Настрой загрузку и чанкинг в n8n</strong><br>
+                <span class="text-sm text-neon">Нода загрузки документов + сплиттер на чанки по 200–500 слов с нахлёстом. n8n делает это визуально.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">4</div>
+            <div>
+                <strong>Создай эмбеддинги и запиши в базу</strong><br>
+                <span class="text-sm text-neon">Нода эмбеддингов (OpenAI, YandexGPT и др.) превращает чанки в векторы, нода векторной базы их сохраняет.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">5</div>
+            <div>
+                <strong>Подключи базу к AI Agent</strong><br>
+                <span class="text-sm text-neon">В ноде AI Agent укажи векторную базу как источник знаний. Теперь агент ищет в ней перед каждым ответом.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <div class="step-badge">6</div>
+            <div>
+                <strong>Тестируй на реальных вопросах</strong><br>
+                <span class="text-sm text-neon">Прогоняй типовые вопросы, смотри, что агент находит. Плохие ответы = чини чанкинг или дополняй документы, а не «крути промпт».</span>
+            </div>
+        </div>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Готовый агент на этой базе: <a href="/articles/ii-agent-podderzhki-klientov-2026/" class="text-neon hover:text-neon">ИИ-агент поддержки клиентов</a> и <a href="/articles/neyroagent-dlya-otdela-prodazh-2026/" class="text-neon hover:text-neon">нейроагент для продаж</a>.</p>
+
+        <!-- ======================================= -->
+        <h2>4 ошибки в базе знаний, из-за которых агент врёт</h2>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 1: мусор и противоречия в документах</p>
+            <p class="text-neon text-sm mb-0">Устаревший прайс рядом с новым, дубли регламентов — агент честно подтянет неверный фрагмент. Чистая, единственная версия правды важнее объёма.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 2: неправильный размер чанков</p>
+            <p class="text-neon text-sm mb-0">Слишком крупные куски размывают смысл, слишком мелкие теряют контекст. Цельтесь в законченные мысли по 200–500 слов с небольшим нахлёстом.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 3: только векторный поиск</p>
+            <p class="text-neon text-sm mb-0">На артикулах, тарифах и точных названиях чистый вектор промахивается. Гибридный поиск (вектор + ключевые слова) закрывает эту дыру.</p>
+        </div>
+
+        <div class="warning-box">
+            <p class="text-neon font-semibold mb-1"><i class="fas fa-times-circle mr-2"></i>Ошибка 4: база собрана один раз и забыта</p>
+            <p class="text-neon text-sm mb-0">Бизнес меняется — прайс, условия, ассортимент. База знаний без обновления устаревает, и агент начинает врать «по документам». Назначьте, кто и как её актуализирует.</p>
+        </div>
+
+        <!-- CTA MID-ARTICLE -->
+        <div class="cta-box">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
+                <i class="fas fa-database"></i> Соберу за вас
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Нужна база знаний для вашего агента?</h3>
+            <p class="text-emerald-200 mb-6">Соберу RAG под вашу нишу: подготовка документов, чанкинг, векторная база, гибридный поиск, связка с агентом на n8n. Агент будет отвечать фактами вашего бизнеса, а не выдумывать.</p>
+            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20">
+                <i class="fab fa-telegram"></i>
+                Написать в Telegram
+            </a>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Часто задаваемые вопросы</h2>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Что такое RAG простыми словами?</p>
+            <p class="faq-a">RAG (генерация с поиском) — это когда ИИ-агент перед ответом ищет нужный фрагмент в вашей базе знаний и отвечает на его основе, а не только по памяти модели. Без RAG агент отвечает «по памяти», с RAG — открывает ваш «конспект» (документы) и отвечает фактами.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Зачем агенту RAG, если модель и так много знает?</p>
+            <p class="faq-a">Модель знает общее, но не ваш прайс, регламенты и остатки — и выдумывает. RAG подсовывает ей актуальные фрагменты ваших документов, снижая галлюцинации до 50% и поднимая точность до 90%+. Плюс базу можно обновить за минуту без переобучения.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Что такое векторная база и эмбеддинги?</p>
+            <p class="faq-a">Эмбеддинг — числовое представление текста, где близкие по смыслу фрагменты рядом. Векторная база (Pinecone, Milvus, Weaviate, Qdrant) хранит их и быстро находит близкое к вопросу по смыслу, даже если слова другие.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Можно ли собрать RAG без программиста?</p>
+            <p class="faq-a">Да. В n8n есть ноды для загрузки документов, чанкинга, эмбеддингов, записи в векторную базу и AI Agent с подключённым хранилищем — всё визуально. Основная работа — подготовка качественных документов, а не код.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Сколько стоит RAG для бизнеса?</p>
+            <p class="faq-a">Управляемая векторная база добавляет около $500/мес, но на старте open-source Qdrant или Weaviate на своём VPS почти бесплатны — платите за сервер и токены эмбеддингов. Векторизация базы среднего бизнеса стоит считанные доллары, обновления — копейки.</p>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Итоги: база знаний важнее модели</h2>
+
+        <p>RAG — это то, что превращает «умную болталку» в агента, которому можно доверить клиентов. Сама по себе модель не знает вашего бизнеса; знание живёт в базе, и именно её качество определяет, будет агент помогать или вредить. Поэтому 80% работы — не в нодах n8n, а в чистых, актуальных, правильно нарезанных документах.</p>
+
+        <p>Формула простая: собери и почисти документы, нарежь на смысловые чанки, подними векторную базу, включи гибридный поиск и подключи всё к агенту на n8n. Тогда агент будет отвечать фактами вашего бизнеса — и обновлять эти факты вы сможете за минуту, а не за переобучение модели.</p>
+
+        <!-- INTERNAL LINK ZONE - conclusion -->
+        <p class="text-sm text-neon italic">Дальше — соберите самого агента: <a href="/articles/ii-agenty-na-n8n-2026/" class="text-neon hover:text-neon">ИИ-агенты на n8n для бизнеса</a> и <a href="/articles/ii-agent-podderzhki-klientov-2026/" class="text-neon hover:text-neon">агент поддержки клиентов</a>.</p>
+
+        <!-- RELATED TOOLS -->
+        <div class="not-prose my-10 rounded-xl border border-line bg-surface/40 p-6">
+            <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-neon mb-4">Посчитайте свои цифры</div>
+            <div class="grid gap-3 sm:grid-cols-2"><a href="/kalkulyator-yunit-ekonomiki/" class="group flex items-center justify-between rounded-lg border border-line bg-ink/40 px-4 py-3 no-underline transition hover:border-neon"><span class="text-emerald-100/85 transition group-hover:text-neon">Калькулятор юнит-экономики: CAC, ROAS, LTV</span><span class="text-neon transition group-hover:translate-x-1">→</span></a><a href="/kalkulyator-rentabelnosti/" class="group flex items-center justify-between rounded-lg border border-line bg-ink/40 px-4 py-3 no-underline transition hover:border-neon"><span class="text-emerald-100/85 transition group-hover:text-neon">Калькуляторы рентабельности по 17 нишам</span><span class="text-neon transition group-hover:translate-x-1">→</span></a></div>
+        </div>
+
+        <!-- FINAL CTA -->
+        <div class="cta-box">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
+                <i class="fas fa-rocket"></i> Внедрить RAG
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Помогу собрать базу знаний и агента</h3>
+            <p class="text-emerald-200 mb-2">Владислав Сарамуд — маркетинг-директор, 6+ лет опыта. Строю ИИ-агентов с RAG на n8n: подготовка документов, векторная база, гибридный поиск, контроль качества ответов.</p>
+            <p class="text-neon text-sm mb-6">Расскажите про продукт и документы — предложу архитектуру базы знаний под вашу задачу.</p>
+            <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20 text-lg">
+                <i class="fab fa-telegram"></i>
+                Написать в Telegram
+            </a>
+        </div>
+
+    </article>
+
+    <!-- RELATED ARTICLES -->
+    <p style="font-size:0.9rem;color:#5f8f72;font-style:italic;margin:1.5rem 0 0;">Больше про автоматизацию и ИИ — в подборке <a href="/neyroseti-dlya-kontenta/" style="color:#7dffb3;">нейросети для контента</a> и <a href="/reklama-i-trafik/" style="color:#7dffb3;">реклама и трафик</a>.</p>
+
+    <div class="mt-16 pt-8 border-t border-line">
+        <h3 class="text-2xl font-bold text-white mb-6">Читайте также:</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <a href="/articles/ii-agenty-na-n8n-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-orange-600 transition group">
+                <span class="text-xs font-bold text-orange-400 uppercase tracking-wider">AI &amp; Автоматизация</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-orange-400 transition">ИИ-агенты на n8n для бизнеса</h4>
+                <p class="text-neon text-sm">Опорный разбор: анатомия агента, где RAG — одно из ядер...</p>
+            </a>
+            <a href="/articles/ii-agent-podderzhki-klientov-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-emerald-600 transition group">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Поддержка</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-emerald-400 transition">ИИ-агент поддержки клиентов</h4>
+                <p class="text-neon text-sm">Главный потребитель базы знаний: агент первой линии...</p>
+            </a>
+            <a href="/articles/kak-ustanovit-n8n-na-vps-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-emerald-600 transition group">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Гайд</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-emerald-400 transition">Как установить n8n на VPS</h4>
+                <p class="text-neon text-sm">Где развернуть n8n и векторную базу под RAG...</p>
+            </a>
+            <a href="/articles/neyroagent-dlya-otdela-prodazh-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">Продажи</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">Нейроагент для отдела продаж</h4>
+                <p class="text-neon text-sm">Ещё один агент, которому нужна база знаний о продукте...</p>
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-line bg-surface/40 mt-20">
+  <div class="mx-auto max-w-6xl px-6 py-14 text-center">
+    <div class="mb-8 flex justify-center gap-5">
+      <a href="https://t.me/saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-telegram"></i></a>
+      <a href="https://www.instagram.com/saramudvlad/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="mb-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 label text-[11px] uppercase text-neon/55">
+      <a href="/blog/" class="transition hover:text-neon">Блог</a><span class="text-line">/</span>
+      <a href="/neyroseti-dlya-kontenta/" class="transition hover:text-neon">Нейросети для контента</a><span class="text-line">/</span>
+      <a href="/reklama-i-trafik/" class="transition hover:text-neon">Реклама и трафик</a><span class="text-line">/</span>
+      <a href="/services/" class="transition hover:text-neon">Услуги</a><span class="text-line">/</span>
+      <a href="/about/" class="transition hover:text-neon">Об авторе</a>
+    </div>
+    <div class="mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-neon/35">
+      <a href="https://disk.yandex.ru/i/Ncd0GgyZTdE2OQ" class="transition hover:text-neon/70">Публичная оферта</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/3Zig9pNfq_A0Ww" class="transition hover:text-neon/70">Политика конфиденциальности</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/RhsYX71b6lmmVg" class="transition hover:text-neon/70">Согласие на обработку ПД</a>
+    </div>
+    <p class="mx-auto mb-5 max-w-2xl text-[11px] leading-relaxed text-neon/25">* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
+    <p class="label text-[11px] uppercase text-neon/30">© 2026 Владислав Сарамуд</p>
+  </div>
+</footer>
+
+<script>
+const _reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){const b=document.getElementById('burger'),m=document.getElementById('mobile-menu');if(!b||!m)return;const s=b.querySelectorAll('span');function o(open){m.classList.toggle('hidden',!open);b.setAttribute('aria-expanded',open);s[0].style.transform=open?'translateY(8px) rotate(45deg)':'';s[1].style.opacity=open?'0':'';s[2].style.transform=open?'translateY(-8px) rotate(-45deg)':'';}b.addEventListener('click',()=>o(m.classList.contains('hidden')));m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>o(false)));})();
+if(!_reduce){const sp=document.getElementById('spot');if(sp)window.addEventListener('pointermove',e=>{sp.style.setProperty('--mx',e.clientX+'px');sp.style.setProperty('--my',e.clientY+'px');});}
+</script>
+</body>
+</html>
