@@ -1,5 +1,19 @@
 [
   {
+    "slug": "ii-agent-podderzhki-klientov-2026",
+    "title": "ИИ-агент поддержки клиентов на n8n 2026: как собрать без кода",
+    "desc": "ИИ-агент закрывает 55–70% обращений сам за секунды 24/7, сложное отдаёт оператору. Как собрать агента поддержки на n8n: архитектура, тир-лист задач, метрики (FRT, автозакрытие, CSAT) и экономика.",
+    "category": "AI & Автоматизация",
+    "categoryColor": "purple",
+    "icon": "fa-headset",
+    "iconBg": "from-purple-600 to-violet-700",
+    "read": "14 мин",
+    "url": "/articles/ii-agent-podderzhki-klientov-2026/",
+    "image": "/images/ii-agent-podderzhki-klientov-2026.webp",
+    "date": "2026-06-23",
+    "dateLabel": "23 июня 2026"
+  },
+  {
     "slug": "kak-ustanovit-n8n-na-vps-2026",
     "title": "Как установить n8n на VPS в 2026: пошаговая инструкция на русском",
     "desc": "Установка n8n на свой VPS за 30–40 минут: выбор сервера, Docker, домен и SSL, первый workflow и обновления. Пошагово, с готовым docker-compose и типовыми ошибками.",
