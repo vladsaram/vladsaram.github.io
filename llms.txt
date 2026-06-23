@@ -30,6 +30,7 @@
 
 ## Статьи и материалы
 
+- [RAG и база знаний для ИИ-агента 2026: как обучить ИИ на своих данных](https://saramudvlad.ru/articles/rag-baza-znaniy-dlya-ii-agenta-2026/)
 - [ИИ-агент поддержки клиентов на n8n 2026: как собрать без кода](https://saramudvlad.ru/articles/ii-agent-podderzhki-klientov-2026/)
 - [Как установить n8n на VPS в 2026: пошаговая инструкция на русском](https://saramudvlad.ru/articles/kak-ustanovit-n8n-na-vps-2026/)
 - [ИИ-агенты на n8n для бизнеса 2026: как собрать без кода](https://saramudvlad.ru/articles/ii-agenty-na-n8n-2026/)
@@ -54,7 +55,6 @@
 - [Нейросеть для картинок: какую выбрать 2026](https://saramudvlad.ru/articles/neyroset-dlya-kartinok/)
 - [Нейросеть для текста: какую выбрать в 2026](https://saramudvlad.ru/articles/neyroset-dlya-teksta/)
 - [Нейросети для бизнеса: какие выбрать в 2026](https://saramudvlad.ru/articles/neyroseti-dlya-biznesa/)
-- [Промпты для продаж: холодные сообщения и скрипты B2B](https://saramudvlad.ru/articles/prompty-dlya-prodazh/)
 
 ## Калькуляторы (бесплатные инструменты)
 

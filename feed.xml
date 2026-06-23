@@ -8,6 +8,13 @@
     <atom:link href="https://saramudvlad.ru/feed.xml" rel="self" type="application/rss+xml"/>
     <lastBuildDate>Tue, 23 Jun 2026 10:00:00 +0300</lastBuildDate>
     <item>
+      <title>RAG и база знаний для ИИ-агента 2026: как обучить ИИ на своих данных</title>
+      <link>https://saramudvlad.ru/articles/rag-baza-znaniy-dlya-ii-agenta-2026/</link>
+      <guid>https://saramudvlad.ru/articles/rag-baza-znaniy-dlya-ii-agenta-2026/</guid>
+      <description>RAG снижает галлюцинации ИИ до 50% — агент отвечает фактами ваших документов. Как собрать базу знаний: чанки, эмбеддинги, векторная база, гибридный поиск и сборка в n8n без кода.</description>
+      <pubDate>Tue, 23 Jun 2026 10:00:00 +0300</pubDate>
+    </item>
+    <item>
       <title>ИИ-агент поддержки клиентов на n8n 2026: как собрать без кода</title>
       <link>https://saramudvlad.ru/articles/ii-agent-podderzhki-klientov-2026/</link>
       <guid>https://saramudvlad.ru/articles/ii-agent-podderzhki-klientov-2026/</guid>
@@ -208,13 +215,6 @@
       <link>https://saramudvlad.ru/articles/prompty-dlya-targetologa/</link>
       <guid>https://saramudvlad.ru/articles/prompty-dlya-targetologa/</guid>
       <description>Тексты для VK Ads, Telegram Ads и Яндекс Директ, офферы и идеи креативов под A/B.</description>
-      <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
-    </item>
-    <item>
-      <title>Промпты для объявлений на Avito: продающие тексты ИИ</title>
-      <link>https://saramudvlad.ru/articles/prompty-dlya-avito/</link>
-      <guid>https://saramudvlad.ru/articles/prompty-dlya-avito/</guid>
-      <description>Заголовки под поиск, продающий текст, снятие возражений — для товаров и услуг.</description>
       <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
     </item>
   </channel>
