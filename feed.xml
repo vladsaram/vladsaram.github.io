@@ -6,7 +6,14 @@
     <description>Системный маркетинг, реклама и AI-автоматизация: статьи, гайды, разборы инструментов.</description>
     <language>ru</language>
     <atom:link href="https://saramudvlad.ru/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 23 Jun 2026 10:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 10:00:00 +0300</lastBuildDate>
+    <item>
+      <title>Моушн-графика кодом (motion as code): как делают залетающие AI-ролики</title>
+      <link>https://saramudvlad.ru/articles/moushn-grafika-kodom-2026/</link>
+      <guid>https://saramudvlad.ru/articles/moushn-grafika-kodom-2026/</guid>
+      <description>Разбор техники motion as code: почему вирусные анимационные ролики-эксплейнеры выглядят так дорого — чёрный фон, неон, караоке-титры, SFX — и как собрать свой через нейросети без моушн-дизайнера.</description>
+      <pubDate>Mon, 26 Oct 2026 10:00:00 +0300</pubDate>
+    </item>
     <item>
       <title>ИИ в продуктовом маркетинге 2026: 7 этапов запуска продукта</title>
       <link>https://saramudvlad.ru/articles/ii-v-produktovom-marketinge-2026/</link>
@@ -208,13 +215,6 @@
       <link>https://saramudvlad.ru/articles/prompty-dlya-otzyvov/</link>
       <guid>https://saramudvlad.ru/articles/prompty-dlya-otzyvov/</guid>
       <description>Ответы на позитив и негатив, шаблоны под ситуации, просьба оставить отзыв.</description>
-      <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
-    </item>
-    <item>
-      <title>Промпты для email-рассылок: письма и цепочки 2026</title>
-      <link>https://saramudvlad.ru/articles/prompty-dlya-email-rassylok/</link>
-      <guid>https://saramudvlad.ru/articles/prompty-dlya-email-rassylok/</guid>
-      <description>Темы письма, продающие письма, welcome-цепочки и реактивация подписчиков.</description>
       <pubDate>Tue, 09 Jun 2026 10:00:00 +0300</pubDate>
     </item>
   </channel>
