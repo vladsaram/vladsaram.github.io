@@ -68,6 +68,19 @@
         .faq-item{background:rgba(15,23,42,0.6);border:1px solid #16352a;border-radius:0.75rem;padding:1.5rem;margin-bottom:1rem;}
         .faq-q{font-weight:700;color:#fff;margin-bottom:0.75rem;font-size:1rem;}
         .faq-a{color:#8fcaa6;font-size:0.95rem;line-height:1.7;margin:0;}
+        .spoiler{border:1px solid #16352a;border-radius:0.75rem;margin:2rem 0;background:rgba(10,20,17,0.5);overflow:hidden;}
+        .spoiler>summary{cursor:pointer;list-style:none;padding:1.1rem 1.3rem;font-weight:700;color:#fff;font-size:1.05rem;}
+        .spoiler>summary::-webkit-details-marker{display:none;}
+        .spoiler>summary::before{content:"▸ ";color:#2bff88;}
+        .spoiler[open]>summary::before{content:"▾ ";}
+        .spoiler>summary:hover{color:#2bff88;}
+        .spoiler-body{padding:0 1.3rem 0.5rem;}
+        .spoiler-body h2{margin-top:1.5rem;font-size:1.4rem;}
+        .dl-card{display:flex;align-items:center;gap:1rem;background:#0a1411;border:1px solid #16352a;border-radius:0.6rem;padding:0.9rem 1.1rem;margin-bottom:0.6rem;text-decoration:none;transition:border-color 0.2s;}
+        .dl-card:hover{border-color:#2bff88;}
+        .dl-ic{font-size:1.5rem;color:#2bff88;flex-shrink:0;width:1.8rem;text-align:center;}
+        .step-row{display:flex;align-items:flex-start;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(22,53,42,0.5);line-height:1.6;color:#bfe9cf;}
+        .step-n{flex-shrink:0;width:2.2rem;height:2.2rem;border:1px solid #2bff88;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#2bff88;font-weight:800;}
     </style>
 <style>
   html{scroll-behavior:smooth}
@@ -140,10 +153,10 @@
             <span class="text-neon text-sm"><i class="far fa-clock mr-1"></i>9 минут чтения</span>
         </div>
         <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
-            Моушн-графика кодом: как делают <span class="gradient-text">залетающие AI-ролики</span>
+            Как сделать AI-видео (motion as code): <span class="gradient-text">что скачать и куда вставить</span>
         </h1>
         <p class="text-xl text-neon leading-relaxed mb-6">
-            Те самые вирусные анимационные ролики — чёрный фон, один неон-акцент, титры, подсвеченные под голос, резкие «слэмы» и звуки, — чаще всего сделаны не в видеоредакторе и не генеративной нейросетью, а через motion as code: каждый кадр описан кодом. Разбираю, почему они залетают и как собрать свой — без моушн-дизайнера.
+            Те самые ролики из ленты — чёрный фон, яркий акцент, текст точно под голос, резкие переходы и звуки. Их можно сделать самому, не умея монтировать и программировать. Ниже — просто и по шагам: что скачать, через что делать и куда залить готовый ролик. Файлы для скачивания внутри.
         </p>
         <div class="flex items-center gap-4 text-sm text-neon border-t border-line pt-4">
             <div class="flex items-center gap-2">
@@ -174,21 +187,39 @@
     <article class="prose prose-invert max-w-none">
 
         <!-- INTRO -->
-        <p>Листаете ленту — и каждый третий экспертный ролик выглядит одинаково «дорого»: угольно-чёрный фон, один яркий акцент (неон или фиолет), текст, который появляется точно под произносимое слово, резкие удары-переходы и выверенные звуки. Такие ролики залетают в Reels и Shorts, их сохраняют и пересылают. Секрет не в After Effects и не в генераторе видео вроде Sora — чаще всего это <strong>motion as code</strong>: анимация описана кодом, а браузер рендерит её покадрово в готовый MP4.</p>
+        <p>Знаете те самые ролики из ленты — чёрный фон, яркий акцент, текст появляется точно под голос, резкие переходы и звуки? Они выглядят дорого, их сохраняют и пересылают. Хорошая новость: такой ролик можно сделать самому, <strong>не умея монтировать и программировать</strong> — через технику <strong>motion as code</strong> (анимация задаётся кодом, а код за вас пишет нейросеть).</p>
 
-        <p>Я собираю контент на нейросетях для своих проектов и клиентов и разобрал один такой ролик по косточкам. Ниже — что это за техника, почему она так заходит визуально, из чего собран ролик и как сделать свой, если вы не моушн-дизайнер.</p>
+        <p>Разберём по-простому: что скачать, через что делать, что нажимать и куда залить готовый ролик. Файлы для скачивания — сразу под шагами. Технический разбор для любопытных убрал под спойлер в конце.</p>
 
-        <!-- KEY TAKEAWAYS -->
-        <div class="takeaways-box">
-            <p class="text-neon font-bold mb-3 text-sm uppercase tracking-wider"><i class="fas fa-bolt mr-2"></i>Главное за 60 секунд</p>
-            <ul class="text-emerald-200 text-sm space-y-2 mb-0" style="list-style:none;padding:0;">
-                <li>- <strong>Motion as code</strong> = каждый кадр описан кодом; браузер рендерит их в MP4, превью совпадает с финалом</li>
-                <li>- Залетает из-за визуального языка: <strong>OLED-чёрный + один неон-акцент</strong>, караоке-титры, слэмы и точные SFX</li>
-                <li>- Это <strong>не генеративное видео</strong> (Sora/Kling) — здесь полный контроль над текстом, брендом и таймингом</li>
-                <li>- Свой ролик собирается через <strong>Claude Code + готовый навык</strong> — словами, без моушн-дизайнера</li>
-                <li>- Нужны <strong>сценарий и озвучка</strong>, браузер и 30–40 минут на первый рендер</li>
-            </ul>
+        <!-- DOWNLOADS -->
+        <div class="takeaways-box" style="background:rgba(43,255,136,0.05);border-color:rgba(43,255,136,0.35);">
+            <p class="text-neon font-bold mb-3 text-sm uppercase tracking-wider"><i class="fas fa-download mr-2"></i>Скачать материалы</p>
+            <a href="/files/kak-sdelat-ai-video-motion-as-code.pptx" class="dl-card" download>
+                <span class="dl-ic"><i class="fas fa-file-powerpoint"></i></span>
+                <span><span class="text-white font-bold">Презентация «Как сделать AI-видео» (.pptx)</span><br><span class="text-sm text-emerald-300/60">Пошагово, в фирменном стиле — листать и показывать</span></span>
+            </a>
+            <a href="/files/kak-sdelat-ai-video-motion-as-code.md" class="dl-card" download>
+                <span class="dl-ic"><i class="fas fa-file-lines"></i></span>
+                <span><span class="text-white font-bold">Текстовый гайд (.md)</span><br><span class="text-sm text-emerald-300/60">Те же шаги текстом — держать рядом при работе</span></span>
+            </a>
+            <p class="text-xs text-emerald-300/45 mt-2 mb-0">Сам проект-основу (кит с готовым роликом) берите у автора кита — именно с ним выполняются шаги ниже.</p>
         </div>
+
+        <!-- ======================================= -->
+        <h2>Как сделать за 4 шага</h2>
+        <div class="bg-surface border border-line rounded-xl p-6 mb-8">
+            <div class="step-row"><span class="step-n">1</span><span><strong class="text-white">Скачать материалы.</strong> Проект-основу (кит) распакуйте в отдельную папку. Гайд и презентация — в блоке выше.</span></div>
+            <div class="step-row"><span class="step-n">2</span><span><strong class="text-white">Через что делать:</strong> откройте папку <code class="text-neon">project</code> в <strong>Claude Code</strong>, запустите живое превью и откройте в Chrome <code class="text-neon">localhost:5173</code> — увидите ролик вживую.</span></div>
+            <div class="step-row"><span class="step-n">3</span><span><strong class="text-white">Переделать под себя — словами.</strong> Пишете ассистенту по-русски: «замени текст сцены 2», «сделай акцент фиолетовым», «собери вертикаль под Reels». Код меняет нейросеть, вы смотрите превью.</span></div>
+            <div class="step-row" style="border-bottom:0;"><span class="step-n">4</span><span><strong class="text-white">Отрендерить и залить.</strong> Двойной клик по <code class="text-neon">render.command</code> (Mac) или <code class="text-neon">render.bat</code> (Windows) → готовый <code class="text-neon">.mp4</code> в папке <code class="text-neon">out/</code>. Вертикаль — в Reels/Shorts/TikTok, горизонталь — на YouTube и сайт.</span></div>
+        </div>
+
+        <p class="text-sm text-neon italic">Из программ нужны только Google Chrome и <code class="text-neon">bun</code> для превью (ставится одной командой). Программировать не нужно — вы как режиссёр, а код пишет нейросеть.</p>
+
+        <!-- EXPERT (spoiler) -->
+        <details class="spoiler">
+          <summary>Как это устроено внутри и чем отличается от Sora — подробный разбор</summary>
+          <div class="spoiler-body">
 
         <!-- ======================================= -->
         <h2>Что такое motion as code</h2>
@@ -241,35 +272,6 @@
         <p class="text-sm text-neon italic">Если нужен не код, а быстрый контент на нейросетях под Reels — смотрите <a href="/articles/neyroset-dlya-reels-2026/" class="text-neon hover:text-neon">нейросеть для Reels</a> и <a href="/articles/prompty-dlya-reels/" class="text-neon hover:text-neon">промпты для Reels</a>.</p>
 
         <!-- ======================================= -->
-        <h2>Как сделать свой ролик без моушн-дизайнера</h2>
-
-        <p><strong>Коротко: берёте готовый проект-основу и правите его словами через Claude Code.</strong> Моушн-дизайн здесь снимает нейросеть — вы отвечаете за сценарий и смысл. Порядок такой:</p>
-
-        <ol>
-            <li>Установить навык (skill) и открыть проект-основу в Claude Code.</li>
-            <li>Запустить живое превью в браузере и смотреть ролик по ходу правок.</li>
-            <li>Описывать задачи обычными словами: «замени текст в сцене 2», «добавь слэм на слове „прибыль“», «сделай акцент фиолетовым», «собери вертикаль под Reels».</li>
-            <li>Отрендерить финальный MP4 двойным кликом.</li>
-        </ol>
-
-        <p>Технически запуск превью и рендер выглядят так (один раз копируются из инструкции кита):</p>
-
-        <div class="prompt-box"># живое превью в браузере
-cd project/app
-bun install
-bunx vite        # откройте http://localhost:5173
-
-# финальный рендер в MP4 — двойной клик:
-# render.command (Mac) или render.bat (Windows)</div>
-
-        <p>Нужен Google Chrome и интернет при первом запуске. Программировать не требуется: вы описываете, что хотите, нейросеть вносит изменения в код сцен, а вы проверяете результат в превью. Фактически вы работаете как режиссёр, а не как монтажёр.</p>
-
-        <div class="ai-box">
-            <p class="text-white font-semibold mb-1"><i class="fas fa-lightbulb mr-2 text-neon"></i>Почему это важно для маркетолога</p>
-            <p class="text-emerald-200 text-sm mb-0">Раньше такой ролик означал бриф, студию, недели правок и бюджет. Теперь фирменный моушн-эксплейнер собирается за вечер, брендируется под вас и клепается сериями. Это способ выпускать узнаваемый контент на потоке — а узнаваемость и регулярность как раз и вытаскивают охваты.</p>
-        </div>
-
-        <!-- ======================================= -->
         <h2>Motion as code против других способов</h2>
 
         <div class="comparison-table">
@@ -287,6 +289,9 @@ bunx vite        # откройте http://localhost:5173
         </div>
 
         <p>Вывод простой: для живых сцен и эффекта присутствия — генеративные нейросети; для <strong>чёткого брендированного эксплейнера с текстом и цифрами</strong> — motion as code. Часто их комбинируют: генеративные вставки внутри каркаса, собранного кодом.</p>
+
+          </div>
+        </details>
 
         <!-- ======================================= -->
         <h2>Где применить в маркетинге</h2>
