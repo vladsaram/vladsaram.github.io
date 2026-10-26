@@ -30,6 +30,7 @@
 
 ## Статьи и материалы
 
+- [Запуск B2C для ИИ-продукта с нуля: кейс за 11 недель](https://saramudvlad.ru/articles/zapusk-b2c-ii-produkt-keys-2026/)
 - [Моушн-графика кодом (motion as code): как делают залетающие AI-ролики](https://saramudvlad.ru/articles/moushn-grafika-kodom-2026/)
 - [ИИ в продуктовом маркетинге 2026: 7 этапов запуска продукта](https://saramudvlad.ru/articles/ii-v-produktovom-marketinge-2026/)
 - [Системный промпт для ИИ-агента 2026: структура и готовый шаблон](https://saramudvlad.ru/articles/sistemnyy-prompt-dlya-ii-agenta-2026/)
@@ -54,7 +55,6 @@
 - [ChatGPT на русском: как пользоваться из России 2026](https://saramudvlad.ru/articles/chatgpt-na-russkom/)
 - [Нейросеть для таблиц и Excel: формулы и данные 2026](https://saramudvlad.ru/articles/neyroset-dlya-tablic/)
 - [Нейросеть для логотипа: концепт без дизайнера 2026](https://saramudvlad.ru/articles/neyroset-dlya-logotipa/)
-- [Нейросеть для презентаций: слайды за минуты 2026](https://saramudvlad.ru/articles/neyroset-dlya-prezentaciy/)
 
 ## Калькуляторы (бесплатные инструменты)
 
