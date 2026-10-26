@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://mc.yandex.ru https://yastatic.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru wss://mc.yandex.ru https://yastatic.net; frame-src https://mc.yandex.ru; worker-src 'self' blob:; child-src blob:; object-src 'none'; base-uri 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Моушн-графика кодом (motion as code): как делают залетающие AI-ролики 2026</title>
+    <meta name="description" content="Разбор техники motion as code: как делают те самые вирусные анимационные ролики-эксплейнеры — чёрный фон, неон, караоке-титры и SFX. Из чего собран ролик и как сделать свой через нейросети без моушн-дизайнера.">
+    <meta name="keywords" content="моушн графика кодом, motion as code, как сделать анимационный ролик нейросетью, вирусные ролики ии, анимированный эксплейнер, ролик кодом">
+    <meta name="author" content="Владислав Сарамуд">
+    <link rel="canonical" href="https://saramudvlad.ru/articles/moushn-grafika-kodom-2026/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://saramudvlad.ru/articles/moushn-grafika-kodom-2026/">
+    <meta property="og:title" content="Моушн-графика кодом (motion as code): как делают залетающие AI-ролики">
+    <meta property="og:description" content="Почему эти анимационные ролики залетают и как собрать свой через нейросети — без моушн-дизайнера. Разбор техники motion as code.">
+    <meta property="og:image" content="https://saramudvlad.ru/images/neyroseti-dlya-video.webp">
+    <meta property="article:published_time" content="2026-10-26T10:00:00+03:00">
+    <meta property="article:author" content="Владислав Сарамуд">
+    <meta property="article:section" content="AI & Контент">
+    <meta property="article:tag" content="AI-видео">
+    <meta property="article:tag" content="Моушн-графика">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Моушн-графика кодом: как делают залетающие AI-ролики">
+    <meta name="twitter:description" content="Разбор техники motion as code и как собрать свой ролик через нейросети без моушн-дизайнера.">
+    <meta name="twitter:image" content="https://saramudvlad.ru/images/neyroseti-dlya-video.webp">
+
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=106768627','ym');
+    ym(106768627,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106768627" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="stylesheet" href="/dist/tailwind.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Моушн-графика кодом (motion as code): как делают залетающие AI-ролики 2026","description":"Разбор техники motion as code: как делают вирусные анимационные ролики-эксплейнеры и как собрать свой через нейросети без моушн-дизайнера.","image":"https://saramudvlad.ru/images/neyroseti-dlya-video.webp","author":{"@type":"Person","name":"Владислав Сарамуд","url":"https://saramudvlad.ru"},"publisher":{"@type":"Person","name":"Владислав Сарамуд","logo":{"@type":"ImageObject","url":"https://saramudvlad.ru/avatar.webp"}},"datePublished":"2026-10-26","dateModified":"2026-10-26","mainEntityOfPage":{"@type":"WebPage","@id":"https://saramudvlad.ru/articles/moushn-grafika-kodom-2026/"}}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://saramudvlad.ru"},{"@type":"ListItem","position":2,"name":"Статьи","item":"https://saramudvlad.ru/blog/"},{"@type":"ListItem","position":3,"name":"Моушн-графика кодом 2026"}]}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что такое motion as code простыми словами?","acceptedAnswer":{"@type":"Answer","text":"Motion as code («моушн-графика кодом») — способ делать анимационные ролики, где движение описано не вручную на таймлайне, а кодом: каждый кадр является функцией времени. Браузерный движок рисует сцену, скрипт рендерит кадры и склеивает их в MP4. Превью в браузере совпадает с финальным видео покадрово."}},{"@type":"Question","name":"Чем motion as code отличается от нейросетей вроде Sora или Kling?","acceptedAnswer":{"@type":"Answer","text":"Генеративные видео-нейросети (Sora, Kling, Runway) придумывают картинку целиком и плохо держат текст, бренд и точный тайминг — кадр «плывёт». Motion as code даёт полный контроль: тот же шрифт, цвет, логотип и титры, выровненные под слово, повторяемо от ролика к ролику. Нейросети при этом помогают собрать и править сам код."}},{"@type":"Question","name":"Нужно ли уметь программировать, чтобы сделать такой ролик?","acceptedAnswer":{"@type":"Answer","text":"Нет. Готовый проект-основу и навык (skill) открываете в Claude Code и описываете правки словами: «смени текст сцены 2», «добавь слэм на этом слове», «сделай вертикаль под Reels». Нейросеть вносит изменения в код, вы смотрите превью в браузере. Нужны сценарий и озвучка, а не навыки моушн-дизайна."}},{"@type":"Question","name":"На чём рендерится ролик и сколько это занимает?","acceptedAnswer":{"@type":"Answer","text":"Рендер идёт через браузер (нужен Chrome): скрипт снимает кадры и собирает MP4 локально на вашем компьютере. Первый ролик по готовому проекту — 30–40 минут вместе с установкой. Повторные правки и рендеры — минуты."}},{"@type":"Question","name":"Можно ли сделать вертикальный ролик для Reels и TikTok?","acceptedAnswer":{"@type":"Answer","text":"Да. Базовый формат — горизонталь 1920×1080, но соотношение сторон задаётся в коде, поэтому вертикаль 1080×1920 под Reels, Shorts и TikTok делается сменой параметра и перекомпоновкой сцен — без пересъёмки."}}]}</script>
+
+    <style>
+        body{font-family:'Inter',sans-serif;background-color:#04070a;color:#d6f5e4;}
+        .gradient-text{background:linear-gradient(to right,#2bff88,#c6ff3d,#c6ff3d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        article h2{font-size:1.875rem;font-weight:800;color:#fff;margin-top:3rem;margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid #2bff88;}
+        article h3{font-size:1.5rem;font-weight:700;color:#7dffb3;margin-top:2rem;margin-bottom:1rem;}
+        article p{margin-bottom:1.5rem;line-height:1.8;color:#bfe9cf;}
+        article ul,article ol{margin-bottom:1.5rem;padding-left:1.5rem;color:#bfe9cf;}
+        article li{margin-bottom:0.75rem;line-height:1.7;}
+        article strong{color:#fff;font-weight:700;}
+        .warning-box{background:rgba(234,88,12,0.1);border-left:4px solid #1fd673;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .ai-box{background:rgba(131,56,236,0.1);border-left:4px solid #8338ec;padding:1.5rem;margin:2rem 0;border-radius:0.5rem;}
+        .comparison-table{background:rgba(15,23,42,0.5);border:1px solid #16352a;border-radius:1rem;overflow:hidden;margin:2rem 0;}
+        .comparison-table table{width:100%;border-collapse:collapse;}
+        .comparison-table th{background:rgba(249,115,22,0.1);padding:1rem;text-align:left;font-weight:700;color:#7dffb3;border-bottom:2px solid #16352a;}
+        .comparison-table td{padding:1rem;border-bottom:1px solid #16352a;color:#bfe9cf;}
+        .comparison-table tr:last-child td{border-bottom:none;}
+        .cta-box{background:linear-gradient(135deg,#0a1411 0%,#102a1a 100%);border:2px solid #2bff88;border-radius:1rem;padding:2.5rem;margin:3rem 0;text-align:center;}
+        .hero-image{width:100%;border-radius:1rem;border:1px solid #16352a;margin-bottom:2rem;display:block;}
+        .prompt-box{background:#0a1411;border:1px solid #16352a;border-left:4px solid #2bff88;border-radius:0.5rem;padding:1.25rem;margin:1.5rem 0;font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:#c6ff3d;line-height:1.8;white-space:pre-wrap;overflow-x:auto;}
+        .takeaways-box{background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.3);border-radius:1rem;padding:1.5rem 2rem;margin:2rem 0;}
+        .faq-item{background:rgba(15,23,42,0.6);border:1px solid #16352a;border-radius:0.75rem;padding:1.5rem;margin-bottom:1rem;}
+        .faq-q{font-weight:700;color:#fff;margin-bottom:0.75rem;font-size:1rem;}
+        .faq-a{color:#8fcaa6;font-size:0.95rem;line-height:1.7;margin:0;}
+    </style>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#04070a;color:#d6f5e4;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Inter Tight',sans-serif}
+  h1{letter-spacing:-0.03em}
+  .display{letter-spacing:-0.04em;line-height:0.95}
+  .label{font-family:'JetBrains Mono',monospace;letter-spacing:0.2em}
+  .gradient-text{background:linear-gradient(90deg,#2bff88,#7dffb3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 26px rgba(43,255,136,.25)}
+  .neon-text{color:#2bff88;text-shadow:0 0 8px rgba(43,255,136,.55),0 0 28px rgba(43,255,136,.35)}
+  .neon-line{box-shadow:0 0 14px rgba(43,255,136,.45)}
+  #spot{position:fixed;inset:0;z-index:30;pointer-events:none;background:radial-gradient(360px circle at var(--mx,-200px) var(--my,-200px),rgba(43,255,136,.08),transparent 60%);transition:background .08s linear}
+  ::selection{background:#2bff88;color:#04070a}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#spot{display:none}}
+</style>
+</head>
+<body class="antialiased">
+<div id="spot"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-40 border-b border-line/70 bg-ink/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="display flex items-center gap-2 text-lg font-extrabold tracking-tight">
+      <span class="inline-block h-2 w-2 rounded-full bg-neon neon-line"></span>САРАМУД<span class="text-neon">_</span>ВЛАДИСЛАВ
+    </a>
+    <div class="label hidden gap-8 text-[11px] uppercase text-neon/60 md:flex">
+      <a href="/#cases" class="transition hover:text-neon">Кейсы</a>
+      <a href="/#services" class="transition hover:text-neon">Услуги</a>
+      <a href="/#shashlik" class="transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="transition hover:text-neon">Блог</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="https://t.me/lilymakarovaa" target="_blank" rel="noopener" class="label hidden rounded-none border border-neon px-4 py-2 text-[11px] uppercase text-neon transition hover:bg-neon hover:text-ink md:inline-block">Обсудить →</a>
+      <button id="burger" aria-label="Меню" aria-expanded="false" class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden">
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+        <span class="block h-0.5 w-6 bg-neon transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden border-t border-line bg-ink md:hidden">
+    <div class="flex flex-col px-6 pb-5 pt-2 label text-[13px] uppercase text-emerald-100/80">
+      <a href="/#services" class="border-b border-line/60 py-3.5 transition hover:text-neon">Услуги</a>
+      <a href="/#cases" class="border-b border-line/60 py-3.5 transition hover:text-neon">Кейсы</a>
+      <a href="/#shashlik" class="border-b border-line/60 py-3.5 transition hover:text-neon">GPT-Шашлык</a>
+      <a href="/blog/" class="py-3.5 transition hover:text-neon">Блог</a>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="container mx-auto px-6 py-4 max-w-4xl">
+    <nav class="text-sm text-neon">
+        <a href="/" class="hover:text-neon transition">Главная</a>
+        <span class="mx-2">/</span>
+        <a href="/blog/" class="hover:text-neon transition">Статьи</a>
+        <span class="mx-2">/</span>
+        <span class="text-neon">Моушн-графика кодом 2026</span>
+    </nav>
+</div>
+
+<main class="container mx-auto px-6 py-8 max-w-4xl">
+
+    <!-- HEADER -->
+    <header class="mb-10">
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+            <span class="px-3 py-1 bg-neon/30 text-neon text-xs font-bold uppercase rounded-full border border-neon/50">AI &amp; Контент</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">AI-видео</span>
+            <span class="px-3 py-1 bg-line/60 text-neon text-xs font-bold uppercase rounded-full border border-line/50">Разбор</span>
+            <span class="text-neon text-sm"><i class="far fa-clock mr-1"></i>9 минут чтения</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+            Моушн-графика кодом: как делают <span class="gradient-text">залетающие AI-ролики</span>
+        </h1>
+        <p class="text-xl text-neon leading-relaxed mb-6">
+            Те самые вирусные анимационные ролики — чёрный фон, один неон-акцент, титры, подсвеченные под голос, резкие «слэмы» и звуки, — чаще всего сделаны не в видеоредакторе и не генеративной нейросетью, а через motion as code: каждый кадр описан кодом. Разбираю, почему они залетают и как собрать свой — без моушн-дизайнера.
+        </p>
+        <div class="flex items-center gap-4 text-sm text-neon border-t border-line pt-4">
+            <div class="flex items-center gap-2">
+                <img src="/avatar.webp" alt="Владислав Сарамуд — маркетинг-директор, AI-контент и автоматизация" class="w-10 h-10 rounded-full border-2 border-neon">
+                <div>
+                    <div class="text-white font-semibold"><a href="/about/" class="hover:text-neon transition">Владислав Сарамуд</a></div>
+                    <div>Маркетинг-директор, 7+ лет в digital</div>
+                </div>
+            </div>
+            <span class="text-line">|</span>
+            <time datetime="2026-10-26">26 октября 2026</time>
+        </div>
+    </header>
+
+    <!-- HERO IMAGE -->
+    <div class="mb-10">
+        <img
+            src="/images/neyroseti-dlya-video.webp"
+            alt="Моушн-графика кодом: анимационный ролик-эксплейнер с неон-акцентом и караоке-титрами"
+            class="hero-image"
+            width="800"
+            height="420"
+            loading="eager"
+        >
+        <p class="text-xs text-neon text-center mt-2">Узнаваемый визуальный язык: чистый чёрный, один акцентный цвет и титры в ритм голоса</p>
+    </div>
+
+    <article class="prose prose-invert max-w-none">
+
+        <!-- INTRO -->
+        <p>Листаете ленту — и каждый третий экспертный ролик выглядит одинаково «дорого»: угольно-чёрный фон, один яркий акцент (неон или фиолет), текст, который появляется точно под произносимое слово, резкие удары-переходы и выверенные звуки. Такие ролики залетают в Reels и Shorts, их сохраняют и пересылают. Секрет не в After Effects и не в генераторе видео вроде Sora — чаще всего это <strong>motion as code</strong>: анимация описана кодом, а браузер рендерит её покадрово в готовый MP4.</p>
+
+        <p>Я собираю контент на нейросетях для своих проектов и клиентов и разобрал один такой ролик по косточкам. Ниже — что это за техника, почему она так заходит визуально, из чего собран ролик и как сделать свой, если вы не моушн-дизайнер.</p>
+
+        <!-- KEY TAKEAWAYS -->
+        <div class="takeaways-box">
+            <p class="text-neon font-bold mb-3 text-sm uppercase tracking-wider"><i class="fas fa-bolt mr-2"></i>Главное за 60 секунд</p>
+            <ul class="text-emerald-200 text-sm space-y-2 mb-0" style="list-style:none;padding:0;">
+                <li>- <strong>Motion as code</strong> = каждый кадр описан кодом; браузер рендерит их в MP4, превью совпадает с финалом</li>
+                <li>- Залетает из-за визуального языка: <strong>OLED-чёрный + один неон-акцент</strong>, караоке-титры, слэмы и точные SFX</li>
+                <li>- Это <strong>не генеративное видео</strong> (Sora/Kling) — здесь полный контроль над текстом, брендом и таймингом</li>
+                <li>- Свой ролик собирается через <strong>Claude Code + готовый навык</strong> — словами, без моушн-дизайнера</li>
+                <li>- Нужны <strong>сценарий и озвучка</strong>, браузер и 30–40 минут на первый рендер</li>
+            </ul>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Что такое motion as code</h2>
+
+        <p><strong>Коротко: анимация задаётся не мышкой на таймлайне, а программой.</strong> Каждый кадр — это функция времени: на секунде 3.2 текст такой-то, прозрачность такая-то, смещение такое-то. Движок (например, open-source pdoom-video) рисует сцену в браузере, а скрипт снимает кадры один за другим и склеивает их в видеофайл. Поэтому превью в браузере и итоговый MP4 совпадают <strong>покадрово</strong> — никаких «на экспорте всё поехало».</p>
+
+        <p>Это принципиально другой подход по сравнению с двумя привычными:</p>
+        <ul>
+            <li><strong>Видеоредактор</strong> (After Effects, Premiere, CapCut) — вы двигаете ключевые кадры руками. Гибко, но медленно и почти невозможно точно синхронизировать десятки титров под каждое слово.</li>
+            <li><strong>Генеративные видео-нейросети</strong> (Sora, Kling, Runway) — модель придумывает картинку целиком. Быстрый «вау»-эффект, но текст плывёт, бренд не держится, тайминг не контролируется.</li>
+            <li><strong>Motion as code</strong> — вы описываете правила, код их исполняет одинаково каждый раз. Полный контроль и повторяемость фирменного стиля.</li>
+        </ul>
+
+        <!-- ======================================= -->
+        <h2>Почему эти ролики залетают</h2>
+
+        <p>Вирусность здесь не случайна — это набор осознанных приёмов, которые вместе дают «дорогую» и узнаваемую картинку:</p>
+
+        <ul>
+            <li><strong>Чистый чёрный под OLED + один акцентный цвет.</strong> На телефоне фон сливается с чёрной рамкой, а неон или фиолет бьёт контрастом — ролик выделяется в ленте с первого кадра.</li>
+            <li><strong>Караоке-титры.</strong> Слово подсвечивается ровно в момент, когда его произносят. Это требует выравнивания озвучки по словам (forced alignment) — вручную такое не собрать, а код делает по таймингам.</li>
+            <li><strong>«Слэмы» и ритм.</strong> Текст не выплывает, а резко «вбивается» в кадр в такт голосу, часто с лёгким моушн-блюром — внимание держится.</li>
+            <li><strong>Звуковой дизайн.</strong> Короткие SFX — whoosh, щелчки пера, zap, riser — подложенные под каждое движение. В разобранном ките их 33, и именно звук добавляет ощущение продакшена.</li>
+            <li><strong>Единый визуальный почерк.</strong> Перо-плоттер, миллиметровка, свечение — приёмы повторяются из ролика в ролик, и аудитория начинает узнавать автора.</li>
+        </ul>
+
+        <!-- ======================================= -->
+        <h2>Из чего собран такой ролик</h2>
+
+        <p>Если вскрыть готовый проект-кит, видно, что ролик — это не один файл, а несколько связанных частей. Понимание этой анатомии помогает править ролик точечно:</p>
+
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr><th>Часть</th><th>За что отвечает</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Сцены и движок</td><td>Сама анимация: как выглядят и двигаются объекты, шрифты, акцентный цвет</td></tr>
+                    <tr><td>Озвучка + SFX</td><td>Голос за кадром и библиотека звуков под движения (в примере — 33 эффекта)</td></tr>
+                    <tr><td>Текст и тайминги слов</td><td>Сценарий и момент произнесения каждого слова — основа для караоке-титров</td></tr>
+                    <tr><td>Выравнивание и микс</td><td>Привязка голоса к словам (alignment) и сведение звука с эффектами</td></tr>
+                    <tr><td>Рендер</td><td>Скрипт снимает кадры в браузере и собирает готовый MP4</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Главное следствие такой структуры: чтобы изменить ролик, не нужно переделывать его целиком. Поменяли текст сцены — пересобрались только титры. Сменили акцентный цвет — перекрасился весь ролик. Это и делает подход масштабируемым: один раз настроили стиль — дальше клепаете ролики сериями.</p>
+
+        <!-- INTERNAL LINK ZONE -->
+        <p class="text-sm text-neon italic">Если нужен не код, а быстрый контент на нейросетях под Reels — смотрите <a href="/articles/neyroset-dlya-reels-2026/" class="text-neon hover:text-neon">нейросеть для Reels</a> и <a href="/articles/prompty-dlya-reels/" class="text-neon hover:text-neon">промпты для Reels</a>.</p>
+
+        <!-- ======================================= -->
+        <h2>Как сделать свой ролик без моушн-дизайнера</h2>
+
+        <p><strong>Коротко: берёте готовый проект-основу и правите его словами через Claude Code.</strong> Моушн-дизайн здесь снимает нейросеть — вы отвечаете за сценарий и смысл. Порядок такой:</p>
+
+        <ol>
+            <li>Установить навык (skill) и открыть проект-основу в Claude Code.</li>
+            <li>Запустить живое превью в браузере и смотреть ролик по ходу правок.</li>
+            <li>Описывать задачи обычными словами: «замени текст в сцене 2», «добавь слэм на слове „прибыль“», «сделай акцент фиолетовым», «собери вертикаль под Reels».</li>
+            <li>Отрендерить финальный MP4 двойным кликом.</li>
+        </ol>
+
+        <p>Технически запуск превью и рендер выглядят так (один раз копируются из инструкции кита):</p>
+
+        <div class="prompt-box"># живое превью в браузере
+cd project/app
+bun install
+bunx vite        # откройте http://localhost:5173
+
+# финальный рендер в MP4 — двойной клик:
+# render.command (Mac) или render.bat (Windows)</div>
+
+        <p>Нужен Google Chrome и интернет при первом запуске. Программировать не требуется: вы описываете, что хотите, нейросеть вносит изменения в код сцен, а вы проверяете результат в превью. Фактически вы работаете как режиссёр, а не как монтажёр.</p>
+
+        <div class="ai-box">
+            <p class="text-white font-semibold mb-1"><i class="fas fa-lightbulb mr-2 text-neon"></i>Почему это важно для маркетолога</p>
+            <p class="text-emerald-200 text-sm mb-0">Раньше такой ролик означал бриф, студию, недели правок и бюджет. Теперь фирменный моушн-эксплейнер собирается за вечер, брендируется под вас и клепается сериями. Это способ выпускать узнаваемый контент на потоке — а узнаваемость и регулярность как раз и вытаскивают охваты.</p>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Motion as code против других способов</h2>
+
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr><th>Способ</th><th>Плюсы</th><th>Минусы</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Motion as code</strong></td><td>Полный контроль, фирменный стиль, повторяемость, превью = финал</td><td>Нужен технический порог (снимается навыком и нейросетью)</td></tr>
+                    <tr><td>Видеоредактор (CapCut, Premiere, AE)</td><td>Гибко, привычно</td><td>Руками, медленно, тайминг под слово почти не собрать</td></tr>
+                    <tr><td>Генеративное видео (Sora, Kling)</td><td>Быстрый «вау»-клип, живые кадры</td><td>Нет контроля над текстом, брендом и таймингом; картинка плывёт</td></tr>
+                    <tr><td>Шаблонные конструкторы</td><td>Очень быстро</td><td>«Как у всех», слабая узнаваемость</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Вывод простой: для живых сцен и эффекта присутствия — генеративные нейросети; для <strong>чёткого брендированного эксплейнера с текстом и цифрами</strong> — motion as code. Часто их комбинируют: генеративные вставки внутри каркаса, собранного кодом.</p>
+
+        <!-- ======================================= -->
+        <h2>Где применить в маркетинге</h2>
+
+        <ul>
+            <li><strong>Эксплейнеры продукта и фич</strong> — объяснить сложное наглядно, с цифрами и схемами.</li>
+            <li><strong>Reels и Shorts с фирменным стилем</strong> — узнаваемый контент на потоке вместо разовых роликов.</li>
+            <li><strong>Запуски и анонсы</strong> — единый визуальный язык для серии прогревов.</li>
+            <li><strong>Кейсы в цифрах</strong> — анимированные графики убеждают сильнее скриншота из отчёта.</li>
+            <li><strong>Обучение и онбординг</strong> — короткие ролики-инструкции, которые не стыдно показать клиенту.</li>
+        </ul>
+
+        <!-- ======================================= -->
+        <h2>Часто задаваемые вопросы</h2>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Что такое motion as code простыми словами?</p>
+            <p class="faq-a">Способ делать анимационные ролики, где движение описано кодом, а не вручную на таймлайне: каждый кадр — функция времени. Браузер рисует сцену, скрипт рендерит кадры и собирает MP4. Превью совпадает с финалом покадрово.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Чем это отличается от нейросетей вроде Sora?</p>
+            <p class="faq-a">Генеративные видео-нейросети придумывают картинку целиком и плохо держат текст, бренд и тайминг. Motion as code даёт полный контроль: тот же шрифт, цвет, логотип и титры под слово, повторяемо. Нейросети при этом помогают писать и править сам код.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Нужно ли уметь программировать?</p>
+            <p class="faq-a">Нет. Готовый проект и навык открываете в Claude Code и правите словами: «смени текст», «добавь слэм», «сделай вертикаль». Нейросеть меняет код, вы смотрите превью. Нужны сценарий и озвучка, а не навыки моушн-дизайна.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>На чём рендерится ролик и сколько занимает?</p>
+            <p class="faq-a">Рендер идёт через браузер (нужен Chrome) локально на вашем компьютере. Первый ролик по готовому проекту — 30–40 минут вместе с установкой, повторные правки и рендеры — минуты.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q"><i class="fas fa-question-circle text-neon mr-2"></i>Можно ли сделать вертикаль для Reels и TikTok?</p>
+            <p class="faq-a">Да. База — горизонталь 1920×1080, но соотношение сторон задаётся в коде, поэтому вертикаль 1080×1920 под Reels, Shorts и TikTok делается сменой параметра и перекомпоновкой сцен — без пересъёмки.</p>
+        </div>
+
+        <!-- ======================================= -->
+        <h2>Итог: продакшен-уровень без студии</h2>
+
+        <p>Motion as code — это причина, по которой экспертные ролики вдруг стали выглядеть одинаково дорого. За «вирусностью» стоит не бюджет, а техника: код описывает каждый кадр, нейросеть помогает его собрать и править, а вы отвечаете за сценарий и смысл. Для маркетолога это способ выпускать узнаваемый брендированный контент сериями — быстро и без студии.</p>
+
+        <!-- INTERNAL LINK ZONE - conclusion -->
+        <p class="text-sm text-neon italic">Дальше по теме: <a href="/articles/neyroseti-dlya-video-2026/" class="text-neon hover:text-neon">нейросети для создания видео</a>, <a href="/articles/neyroseti-dlya-biznesa/" class="text-neon hover:text-neon">нейросети для бизнеса</a> и <a href="/articles/prompty-dlya-neyrosetey/" class="text-neon hover:text-neon">как писать промпты для нейросетей</a>.</p>
+
+        <!-- FINAL CTA -->
+        <div class="cta-box">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-bold text-neon uppercase bg-neon/30 rounded-full border border-neon/50">
+                <i class="fas fa-film"></i> Контент на нейросетях
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Хотите такой контент для своего бренда?</h3>
+            <p class="text-emerald-200 mb-6">Та же система, которой я набрал 35 000 подписчиков: контент и продажи на нейросетях — AI-аватар, озвучка, монтаж и автоворонка. Соберём фирменный формат роликов под ваши задачи.</p>
+            <a href="/gpt-shashlik/" class="inline-flex items-center gap-2 px-8 py-4 bg-neon hover:bg-neon text-ink font-bold rounded-xl transition-all shadow-lg shadow-neon/20">
+                <i class="fas fa-bolt"></i>
+                GPT-Шашлык: клиенты через AI-видео →
+            </a>
+        </div>
+
+    </article>
+
+    <!-- RELATED ARTICLES -->
+    <div class="mt-16 pt-8 border-t border-line">
+        <h3 class="text-2xl font-bold text-white mb-6">Читайте также:</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <a href="/articles/neyroseti-dlya-video-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">AI-видео</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">Нейросети для создания видео 2026</h4>
+                <p class="text-neon text-sm">Бесплатные и платные генераторы видео: что выбрать под задачу...</p>
+            </a>
+            <a href="/articles/neyroset-dlya-reels-2026/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">Контент</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">Нейросеть для Reels: контент на поток</h4>
+                <p class="text-neon text-sm">Как делать короткие ролики без съёмок...</p>
+            </a>
+            <a href="/articles/prompty-dlya-reels/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">Промпты</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">Промпты для Reels</h4>
+                <p class="text-neon text-sm">Готовые промпты для сценариев и идей коротких роликов...</p>
+            </a>
+            <a href="/articles/neyroseti-dlya-biznesa/" class="block bg-surface/50 rounded-xl border border-line p-6 hover:border-neon transition group">
+                <span class="text-xs font-bold text-neon uppercase tracking-wider">AI для бизнеса</span>
+                <h4 class="text-xl font-bold text-white mt-3 mb-2 group-hover:text-neon transition">Нейросети для бизнеса: навигатор</h4>
+                <p class="text-neon text-sm">Какие задачи бизнеса реально закрывают нейросети...</p>
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-line bg-surface/40 mt-20">
+  <div class="mx-auto max-w-6xl px-6 py-14 text-center">
+    <div class="mb-8 flex justify-center gap-5">
+      <a href="https://t.me/saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-telegram"></i></a>
+      <a href="https://www.instagram.com/saramudvlad/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@saramudvlad" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex h-11 w-11 items-center justify-center border border-line text-lg text-neon/60 transition hover:border-neon hover:text-neon"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="mb-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 label text-[11px] uppercase text-neon/55">
+      <a href="/blog/" class="transition hover:text-neon">Блог</a><span class="text-line">/</span>
+      <a href="/neyroseti-dlya-kontenta/" class="transition hover:text-neon">Нейросети для контента</a><span class="text-line">/</span>
+      <a href="/reklama-i-trafik/" class="transition hover:text-neon">Реклама и трафик</a><span class="text-line">/</span>
+      <a href="/services/" class="transition hover:text-neon">Услуги</a><span class="text-line">/</span>
+      <a href="/about/" class="transition hover:text-neon">Об авторе</a>
+    </div>
+    <div class="mb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-neon/35">
+      <a href="https://disk.yandex.ru/i/Ncd0GgyZTdE2OQ" class="transition hover:text-neon/70">Публичная оферта</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/3Zig9pNfq_A0Ww" class="transition hover:text-neon/70">Политика конфиденциальности</a><span class="text-line">·</span>
+      <a href="https://disk.yandex.ru/i/RhsYX71b6lmmVg" class="transition hover:text-neon/70">Согласие на обработку ПД</a>
+    </div>
+    <p class="mx-auto mb-5 max-w-2xl text-[11px] leading-relaxed text-neon/25">* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
+    <p class="label text-[11px] uppercase text-neon/30">© 2026 Владислав Сарамуд</p>
+  </div>
+</footer>
+
+<script>
+const _reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){const b=document.getElementById('burger'),m=document.getElementById('mobile-menu');if(!b||!m)return;const s=b.querySelectorAll('span');function o(open){m.classList.toggle('hidden',!open);b.setAttribute('aria-expanded',open);s[0].style.transform=open?'translateY(8px) rotate(45deg)':'';s[1].style.opacity=open?'0':'';s[2].style.transform=open?'translateY(-8px) rotate(-45deg)':'';}b.addEventListener('click',()=>o(m.classList.contains('hidden')));m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>o(false)));})();
+if(!_reduce){const sp=document.getElementById('spot');if(sp)window.addEventListener('pointermove',e=>{sp.style.setProperty('--mx',e.clientX+'px');sp.style.setProperty('--my',e.clientY+'px');});}
+</script>
+</body>
+</html>
