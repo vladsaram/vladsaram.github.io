@@ -51,7 +51,7 @@
     "iconBg": "from-purple-600 to-violet-700",
     "read": "12 мин",
     "url": "/articles/sistemnyy-prompt-dlya-ii-agenta-2026/",
-    "image": "/images/sistemnyy-prompt-dlya-ii-agenta-2026.webp",
+    "image": "/images/cover-sistemnyy-prompt-dlya-ii-agenta-2026.webp",
     "date": "2026-06-23",
     "dateLabel": "23 июня 2026"
   },
@@ -93,7 +93,7 @@
     "iconBg": "from-purple-600 to-violet-700",
     "read": "10 мин",
     "url": "/articles/kak-ustanovit-n8n-na-vps-2026/",
-    "image": "/images/kak-ustanovit-n8n-na-vps-2026.webp",
+    "image": "/images/cover-kak-ustanovit-n8n-na-vps-2026.webp",
     "date": "2026-06-12",
     "dateLabel": "12 июня 2026"
   },
@@ -177,7 +177,7 @@
     "iconBg": "from-emerald-600 to-teal-600",
     "read": "7 мин",
     "url": "/articles/heygen-analogi/",
-    "image": "/images/neyroseti-dlya-video.webp",
+    "image": "/images/cover-heygen-analogi.webp",
     "date": "2026-06-10",
     "dateLabel": "10 июня 2026"
   },
@@ -485,7 +485,7 @@
     "iconBg": "from-emerald-600 to-teal-600",
     "read": "8 мин",
     "url": "/articles/prompty-dlya-avito/",
-    "image": "/images/50-prompts.webp",
+    "image": "/images/cover-prompty-dlya-avito.webp",
     "date": "2026-06-09",
     "dateLabel": "9 июня 2026"
   },
@@ -513,7 +513,7 @@
     "iconBg": "from-emerald-600 to-teal-600",
     "read": "11 мин",
     "url": "/articles/prompty-dlya-reels/",
-    "image": "/images/neyroset-dlya-reels.webp",
+    "image": "/images/cover-prompty-dlya-reels.webp",
     "date": "2026-06-09",
     "dateLabel": "9 июня 2026"
   },
