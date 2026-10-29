@@ -815,7 +815,7 @@ function bindTilt(card){
 if (!reduce) document.querySelectorAll('.bento').forEach(bindTilt);
 
 /* live latest articles from articles.json */
-fetch('/articles.json').then(r=>r.json()).then(data=>{
+fetch('/articles.json',{cache:'no-cache'}).then(r=>r.json()).then(data=>{
   const items = (Array.isArray(data) ? data : (data.articles||[]))
     .slice().sort((a,b)=> (b.date||'').localeCompare(a.date||'')).slice(0,3);
   const grid = document.getElementById('latest-grid');

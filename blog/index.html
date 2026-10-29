@@ -248,7 +248,7 @@ function buildFilters() {
 
 document.getElementById("search").addEventListener("input", e => { currentSearch = e.target.value.trim(); applyFilters(); });
 
-fetch("/articles.json").then(r => r.json()).then(d => {
+fetch("/articles.json",{cache:"no-cache"}).then(r => r.json()).then(d => {
     ARTICLES = (Array.isArray(d) ? d : (d.articles || [])).slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""));
     buildFilters();
     renderAll(ARTICLES);

@@ -33,7 +33,7 @@
             '</div></article>';
     }
 
-    fetch('/articles.json')
+    fetch('/articles.json',{cache:'no-cache'})
         .then(function (r) { return r.json(); })
         .then(function (list) {
             var related = list.filter(function (a) { return a.slug !== currentSlug; }).slice(0, 3);
