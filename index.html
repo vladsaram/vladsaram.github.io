@@ -822,9 +822,9 @@ fetch('/articles.json').then(r=>r.json()).then(data=>{
   if (!grid || !items.length) return;
   grid.innerHTML = items.map(a=>`
     <a href="${a.url}" class="bento group flex flex-col border border-line bg-surface">
-      <div class="relative aspect-[16/10] w-full overflow-hidden border-b border-line">
+      <div class="relative w-full overflow-hidden border-b border-line" style="aspect-ratio:1600/840">
         ${a.image ? `<img src="${a.image}" alt="" loading="lazy" class="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100">` : ''}
-        <span class="label absolute left-3 top-3 bg-ink/80 px-2 py-1 text-[9px] uppercase text-neon">${a.category||'статья'}</span>
+        <span class="label absolute right-3 top-3 bg-ink/80 px-2 py-1 text-[9px] uppercase text-neon">${a.category||'статья'}</span>
       </div>
       <div class="flex flex-1 flex-col justify-between p-5">
         <h3 class="display text-lg font-bold leading-tight text-white transition group-hover:text-neon">${a.title}</h3>
